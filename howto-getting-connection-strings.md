@@ -54,15 +54,15 @@ curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.c
 
 ## Connection String Breakdown
 
-### The PostgreSQL Section
+### The MySQL Section
 
-The "postgres" section contains information that is suited to applications that make connections to PostgreSQL.
+The "postgres" section contains information that is suited to applications that make connections to MySQL.
 
 Field Name|Index|Description
 ----------|-----|-----------
-`Type`||Type of connection - for PostgreSQL, it is "URI"
-`Scheme`||Scheme for a URI - for PostgreSQL, it is "postgresql"
-`Path`||Path for a URI - for PostgreSQL, it is the database name. The default is `ibmclouddb`.
+`Type`||Type of connection - for MySQL, it is "URI"
+`Scheme`||Scheme for a URI - for MySQL, it is "MySql"
+`Path`||Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`.
 `Authentication`|`Username`|The username that you use to connect.
 `Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
 `Authentication`|`Method`|How authentication takes place; "direct" authentication is handled by the driver.

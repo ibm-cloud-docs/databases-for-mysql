@@ -3,7 +3,7 @@ copyright:
   years: 2021
 lastupdated: "2021-04-12"
 
-keyowrds: postgresql, databases, upgrading, major versions, changing versions
+keyowrds: MySql, databases, upgrading, major versions, changing versions
 
 subcollection: databases-for-mysql
 
@@ -22,7 +22,7 @@ subcollection: databases-for-mysql
 
 Once a major version of a database is at its End Of Life (EOL), it is a good idea to upgrade to a current major version. 
 
-You can find the available versions of PostgreSQL on the [{{site.data.keyword.databases-for-mysql_full}} the catalog](https://cloud.ibm.com/catalog/databases-for-mysql) page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
+You can find the available versions of MySQL on the [{{site.data.keyword.databases-for-mysql_full}} the catalog](https://cloud.ibm.com/catalog/databases-for-mysql) page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
 
 ## Backup and Restore Upgrade
@@ -112,8 +112,8 @@ curl -X POST \
 ```
 {: pre}
 
-## Changelog for Major PostgreSQL Versions
+## Changelog for Major MySQL Versions
 
-- [PostgreSQL 10](https://www.postgresql.org/docs/10/release-10.html)
-- [PostgreSQL 11](https://www.postgresql.org/docs/11/release-11.html)
-- [PostgreSQL 12](https://www.postgresql.org/docs/current/release-12.html)
+- [MySQL 10](https://www.postgresql.org/docs/10/release-10.html)
+- [MySQL 11](https://www.postgresql.org/docs/11/release-11.html)
+- [MySQL 12](https://www.postgresql.org/docs/current/release-12.html)

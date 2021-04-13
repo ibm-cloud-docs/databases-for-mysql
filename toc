@@ -2,12 +2,12 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="databases-for-mysql" audience="service" category="databases" href="/docs/databases-for-mysql?topic=databases-for-mysql-getting-started" console-page="/catalog/services/databases-for-mysql" product-page="https://www.ibm.com/cloud/databases-for-mysql" path="databases-for-mysql"}
-Databases For PostgreSQL
+Databases For MySQL
 
 	{: .navgroup id="learn"}
 	getting-started.md
 	/cloud-databases/cloud-databases-best-practices
-	[What is PostgreSQL](https://www.ibm.com/cloud/learn/postgresql)
+	[What is MySQL](https://www.ibm.com/cloud/learn/databases-for-mysql)
 	learn-dashboard-overview.md
 	learn-high-availability.md
 	learn-performance.md
@@ -23,7 +23,7 @@ Databases For PostgreSQL
 	/cloud-databases/cloud-databases-ha-dr
 	
 	{: .topicgroup}
-	Connecting to Databases for PostgreSQL
+	Connecting to Databases for MySQL
 		connecting-external.md
 		connecting-ibmcloud-app.md
 		connecting-psql.md
@@ -47,14 +47,14 @@ Databases For PostgreSQL
 		howto-logical-replication.md
 
 	{: .topicgroup}
-	Migrating PostgreSQL
+	Migrating MySQL
 		howto-migration.md
 		howto-migration-compose.md
 	
 	howto-upgrading.md
 
 	{: .topicgroup}
-	Configuring PostgreSQL
+	Configuring MySQL
 		howto-changing-config.md
 		howto-extensions.md
 		howto-wal2json.md

@@ -18,23 +18,23 @@ subcollection: databases-for-mysql
 {:tip: .tip}
 
 
-# Databases for PostgreSQL as a Logical Replication Destination
+# Databases for MySQL as a Logical Replication Destination
 {: #logical-replication}
 
-{{site.data.keyword.databases-for-mysql_full}} supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html) from an external PostgreSQL instance to your deployment. You can set up your external PostgreSQL as a publisher, your {{site.data.keyword.databases-for-mysql}} deployment as a subscriber, and replicate your data across from an external database into your deployment.
+{{site.data.keyword.databases-for-mysql_full}} supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html) from an external MySQL instance to your deployment. You can set up your external MySQL as a publisher, your {{site.data.keyword.databases-for-mysql}} deployment as a subscriber, and replicate your data across from an external database into your deployment.
 
-Logical Replication is only available on deployments running PostgreSQL 10 or above. Links to the PostgreSQL documentation from this page direct you to the current version of PostgreSQL. If you need find documentation for a specific version, you can find links to specific PostgreSQL versions at the top of PostgrerSQL documentation page.
+Logical Replication is only available on deployments running MySQL 10 or above. Links to the MySQL documentation from this page direct you to the current version of MySQL. If you need find documentation for a specific version, you can find links to specific MySQL versions at the top of PostgrerSQL documentation page.
 {: .tip}
 
 ## Configuring the Publisher
 
-The external PostgreSQL instance is the publisher, and needs to be configured in order for your {{site.data.keyword.databases-for-mysql}} deployment to connect and be able to pull the data in correctly.
+The external MySQL instance is the publisher, and needs to be configured in order for your {{site.data.keyword.databases-for-mysql}} deployment to connect and be able to pull the data in correctly.
 
 1. Every table that is selected for replication needs to contain a [Primary Key](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-PRIMARY-KEYS), or have [`REPLICA IDENTITY`](https://www.postgresql.org/docs/current/sql-altertable.html#replica-identity) set.
-2. Your external (publisher) PostgreSQL needs to have a replication user that has the [PostgreSQL privilege `REPLICATION`](https://www.postgresql.org/docs/current/sql-createrole.html#replication), and that user needs to have privileges on the databases you would like replicate.
-3. The PostgreSQL you are replicating from needs to have [TLS/SSL enabled](https://www.postgresql.org/docs/current/ssl-tcp.html).
+2. Your external (publisher) MySQL needs to have a replication user that has the [MySQL privilege `REPLICATION`](https://www.postgresql.org/docs/current/sql-createrole.html#replication), and that user needs to have privileges on the databases you would like replicate.
+3. The MySQL you are replicating from needs to have [TLS/SSL enabled](https://www.postgresql.org/docs/current/ssl-tcp.html).
 
-There are inherent limitations and some restrictions to logical replication outlined in the [PostgreSQL documentation](https://www.postgresql.org/docs/current/logical-replication-restrictions.html). You should review these before deciding that logical replication is appropriate for your use-case.
+There are inherent limitations and some restrictions to logical replication outlined in the [MySQL documentation](https://www.postgresql.org/docs/current/logical-replication-restrictions.html). You should review these before deciding that logical replication is appropriate for your use-case.
 {: .tip}
 
 ## Configuring the Subscriber
@@ -44,9 +44,9 @@ To configure your {{site.data.keyword.databases-for-mysql}} deployment and to ma
 1. You need to create a database in your deployment with same name as the database you intend to replicate.
 2. Logical Replication works at the table level, so every table you select to publish, you need to create in the subscriber before starting the logical replication process. (You can use [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html) to help.) The table on the subscriber does not need to be identical to its publisher counterpart. However, the table on the subscriber must contain at least every  column present in the table on the publisher. Additional columns present in the subscriber must not have NOT NULL or other constraints. If they do, replication fails.
 
-**Note** Native PostgreSQL subscription commands require superuser privileges, which are not available on {{site.data.keyword.databases-for-mysql}} deployments. Instead, your deployment includes a set of functions that can be used to set and manage logical replication for the subscription. 
+**Note** Native MySQL subscription commands require superuser privileges, which are not available on {{site.data.keyword.databases-for-mysql}} deployments. Instead, your deployment includes a set of functions that can be used to set and manage logical replication for the subscription. 
 
-Only the admin user that is provided by {{site.data.keyword.databases-for-mysql}} has permissions to run the following replication commands that allow you to subscribe and replicate content from an external PostgreSQL publisher.
+Only the admin user that is provided by {{site.data.keyword.databases-for-mysql}} has permissions to run the following replication commands that allow you to subscribe and replicate content from an external MySQL publisher.
 {: .tip}
 
 ### Subscriber Functions
@@ -120,14 +120,14 @@ Usage:
 
 ## Setting up Logical Replication on the Publisher
 
-To configure your external PostgreSQL as a publisher,
+To configure your external MySQL as a publisher,
 
 - Edit your local `pg_hba.conf` and add the following 
     ```text
     hostssl    replication            replicator         0.0.0.0/0      md5
     hostssl    all                    replicator         0.0.0.0/0      md5
     ```
-    The "replicator" field is the user you set up with the [PostgreSQL privilege `REPLICATION`](https://www.postgresql.org/docs/current/sql-createrole.html#replication).
+    The "replicator" field is the user you set up with the [MySQL privilege `REPLICATION`](https://www.postgresql.org/docs/current/sql-createrole.html#replication).
 
 - Edit your local `postgresql.conf` with the required [logical replication configuration](https://www.postgresql.org/docs/current/logical-replication-config.html). Set `wal_level` to 'logical', and set `listen_addresses='*'` to accept connections from any host.  
     ```text
@@ -136,7 +136,7 @@ To configure your external PostgreSQL as a publisher,
     ```
     {: .codeblock}
 
-- Restart your PostgreSQL server.
+- Restart your MySQL server.
 
 Now you can define a publisher on the database and add the tables you want to replicate to the subscriber.
 

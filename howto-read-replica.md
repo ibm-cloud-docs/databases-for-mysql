@@ -22,7 +22,7 @@ subcollection: databases-for-mysql
 
 You can set up your {{site.data.keyword.databases-for-mysql_full}} deployment to be a read-only replica of another {{site.data.keyword.databases-for-mysql}} deployment. 
 
-A read-only replica is set up to replicate all of your data from the leader deployment to the replica deployment using asynchronous replication. As the name implies, read-only replicas support read transactions and can be used to balance databases that have both write-heavy and read-heavy operations. The read-only replica has a single PostgreSQL data member, and it is billed at the [same per member consumption rates as the leader](https://{DomainName}/catalog/services/databases-for-mysql/).
+A read-only replica is set up to replicate all of your data from the leader deployment to the replica deployment using asynchronous replication. As the name implies, read-only replicas support read transactions and can be used to balance databases that have both write-heavy and read-heavy operations. The read-only replica has a single MySQL data member, and it is billed at the [same per member consumption rates as the leader](https://{DomainName}/catalog/services/databases-for-mysql/).
 
 ## Read-only Replica Considerations
 
@@ -109,9 +109,9 @@ On the _Read Replicas_ tab of a read-only replica, the _Replication_ pane contai
 Replication status is not automatically monitored, you must monitor replication.
 
 You can check the replication status of a read-only replica with `psql`, but only from its leader. [Connect to the leader deployment with `psql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql) using the [admin credentials](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user). Once you are connected run either,
-- For PostgreSQL version 10 and above `SELECT * from pg_stat_replication;`.
+- For MySQL version 10 and above `SELECT * from pg_stat_replication;`.
 Or
-- For PostgreSQL version 9.x and below `SELECT * FROM get_pg_stat_replication();`.
+- For MySQL version 9.x and below `SELECT * FROM get_pg_stat_replication();`.
 
 ### Read-only Replica Users and Privileges
 
@@ -127,7 +127,7 @@ You can also create users with access to the read-only replica and no access to 
 
 Read-only replica users who are created on a read-only replica are able connect to the replicas and run reads. Read-only replica users are not able to connect and run operations on the leader. They also do not persist when a read-only replica is promoted to a stand-alone deployment.
 
-Read-only replica created users are assigned privileges by the leader, and are assigned the `ibm-cloud-base-user-ro` role, and are members of the `ibm-cloud-base-user` group. They have access to all of the objects that are created by other members of this group, including any users on the leader that were created through _Service Credentials_, the CLI, or the API. Consistent with privileges of the `ibm-cloud-base-user`, a read-only replica created user does not have access to objects created by the admin user, or other users created through `psql`. For more information, see the [PostgreSQL Roles and Privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
+Read-only replica created users are assigned privileges by the leader, and are assigned the `ibm-cloud-base-user-ro` role, and are members of the `ibm-cloud-base-user` group. They have access to all of the objects that are created by other members of this group, including any users on the leader that were created through _Service Credentials_, the CLI, or the API. Consistent with privileges of the `ibm-cloud-base-user`, a read-only replica created user does not have access to objects created by the admin user, or other users created through `psql`. For more information, see the [MySQL Roles and Privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
 
 ## Resyncing a Read-only Replica
 

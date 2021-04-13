@@ -16,10 +16,10 @@ subcollection: databases-for-mysql
 {:pre: .pre}
 {:tip: .tip}
 
-# Managing PostgreSQL Extensions
+# Managing MySQL Extensions
 {: #extensions}
 
-In PostgreSQL, extensions are modules that supply extra functions, operators, or types. Many extensions are available in {{site.data.keyword.databases-for-mysql_full}}. In order to use them, you need to [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) for your service and use it to [connect with `psql` ](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
+In MySQL, extensions are modules that supply extra functions, operators, or types. Many extensions are available in {{site.data.keyword.databases-for-mysql_full}}. In order to use them, you need to [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) for your service and use it to [connect with `psql` ](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
 
 ## Listing Installed Extensions
 
@@ -56,7 +56,7 @@ ibmclouddb=> \dx
 (2 rows)
 ```
 
-Database extensions in PostgreSQL are managed per database. If you have multiple databases that you need to install an extension on, you run the `CREATE` command on each database.
+Database extensions in MySQL are managed per database. If you have multiple databases that you need to install an extension on, you run the `CREATE` command on each database.
 
 ## Upgrading Extensions
 
@@ -71,13 +71,13 @@ If there is a newer version of an extension available than the one you currently
   pg_repack -k [OPTION]... [DBNAME]
   ```
   {: pre}
-- For `pg_repack` to run reliably, your deployment should be on PostgreSQL 9.6 and above.
+- For `pg_repack` to run reliably, your deployment should be on MySQL 9.6 and above.
 - Any user can run `pg_repack`, but the command is only able to repack a table that they have permissions on.
-- `pg_repack` needs to take an exclusive lock on objects it is reorganizing at the end of the reorganization. If it can't get this lock after a certain period, it cancels all conflicting queries. If it can't do so, the reorg fails. By default, only the admin user on PostgreSQL 9.6 and greater is able to cancel conflicting queries. If you want to expose the ability to cancel queries to other database users, you can grant the `pg_signal_backend` role [from the admin user](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user).
+- `pg_repack` needs to take an exclusive lock on objects it is reorganizing at the end of the reorganization. If it can't get this lock after a certain period, it cancels all conflicting queries. If it can't do so, the reorg fails. By default, only the admin user on MySQL 9.6 and greater is able to cancel conflicting queries. If you want to expose the ability to cancel queries to other database users, you can grant the `pg_signal_backend` role [from the admin user](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user).
 
 ## Available Extensions
 
-This list is what is returned from a {{site.data.keyword.databases-for-mysql}} deployment running PostgreSQL version 12. For a list of available extensions on your deployment, use `SELECT name FROM pg_available_extensions;` in `psql`.
+This list is what is returned from a {{site.data.keyword.databases-for-mysql}} deployment running MySQL version 12. For a list of available extensions on your deployment, use `SELECT name FROM pg_available_extensions;` in `psql`.
 
 ```
 ibmclouddb=> SELECT name FROM pg_available_extensions order by 1;
@@ -146,6 +146,6 @@ ibmclouddb=> SELECT name FROM pg_available_extensions order by 1;
 ibmclouddb=> select version();
                                                  version                                                 
 ---------------------------------------------------------------------------------------------------------
- PostgreSQL 12.4 on x86_64-pc-linux-gnu, compiled by gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516, 64-bit
+ MySQL 12.4 on x86_64-pc-linux-gnu, compiled by gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516, 64-bit
 (1 row)
  ```

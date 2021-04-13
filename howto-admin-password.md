@@ -19,7 +19,7 @@ subcollection: databases-for-mysql
 # Setting the Admin Password
 {: #admin-password}
 
-The {{site.data.keyword.databases-for-mysql_full}} service is provisioned with an admin user, so you can manage PostgreSQL by using its command line tool, `psql`.
+The {{site.data.keyword.databases-for-mysql_full}} service is provisioned with an admin user, so you can manage MySQL by using its command line tool, `psql`.
 
 You have to set the admin password before you can use it to connect. To set the password through the {{site.data.keyword.cloud_notm}} dashboard, select _Manage_ from the service dashboard to open the management panel for your service. Open the _Settings_ tab, and use the _Change Database Admin Password_ pane to set a new admin password.
 

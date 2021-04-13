@@ -4,7 +4,7 @@ Copyright:
   years: 2021
 lastupdated: "2021-04-12"
 
-keywords: databases, scaling, horizontal scaling, postgresql
+keywords: databases, scaling, horizontal scaling, MySql
 
 subcollection: databases-for-mysql
 
@@ -18,7 +18,7 @@ subcollection: databases-for-mysql
 {:tip: .tip}
 
 
-# Adding PostgreSQL Members
+# Adding MySQL Members
 {: #horizontal-scaling}
 
 It is possible to scale your {{site.data.keyword.databases-for-mysql_full}} deployment horizontally by adding more members. Adding members increases the reliability of deployment by spreading data across extra `Availability Zones` (where available) and allow for more reliably synchronous replication. Adding a member does not spread loads nor help with capacity in your deployment. 
@@ -30,7 +30,7 @@ Members that you add to your deployment are added with the amount of disk, memor
 
 ![The Scale Resources Pane in _Resources_](images/settings-scaling.png)
 
-{{site.data.keyword.databases-for-mysql}} deployments have two data members in a cluster, and resources are allocated to both members equally. For example, the minimum storage of a PostgreSQL deployment is 10240 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for a PostgreSQL deployment is 2048 MB, which equates to an initial allocation of 1028 MB per member.
+{{site.data.keyword.databases-for-mysql}} deployments have two data members in a cluster, and resources are allocated to both members equally. For example, the minimum storage of a MySQL deployment is 10240 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for a MySQL deployment is 2048 MB, which equates to an initial allocation of 1028 MB per member.
 
 Billing is based on the _total_ amount of resources that are allocated to the service. 
 {: .tip}

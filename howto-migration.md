@@ -19,13 +19,13 @@ subcollection: databases-for-mysql
 # Migrating to {{site.data.keyword.databases-for-mysql}}
 {: #migrating}
 
-Various options exist to migrate data from existing PostgreSQL databases to {{site.data.keyword.databases-for-mysql_full}}. We focus on the simplest and most effective. To get started, you need PostgreSQL installed locally so you have the `psql` and `pg_dump` tools. And while not strictly required, the {{site.data.keyword.databases-for}} CLI makes it easier to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
+Various options exist to migrate data from existing MySQL databases to {{site.data.keyword.databases-for-mysql_full}}. We focus on the simplest and most effective. To get started, you need MySQL installed locally so you have the `psql` and `pg_dump` tools. And while not strictly required, the {{site.data.keyword.databases-for}} CLI makes it easier to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
 
 ## pg_dump
 
 On your source database run `pg_dump` to create an SQL file, which can be used to re-create the database. At a minimum, `pg_dump` takes a host name (`-h` flag), port number (`-p` flag), database name (`-d` flag), user name (`-U` flag), and a file (or directory name) to write the dump to (`-f` flag). 
 
-For example, the following command dumps the PostgreSQL "compose" database that is hosted on sl-eu-lon-2-portal.4.dblayer.com, port 17980, using the admin user and save the results in `dump.sql`.
+For example, the following command dumps the MySQL "compose" database that is hosted on sl-eu-lon-2-portal.4.dblayer.com, port 17980, using the admin user and save the results in `dump.sql`.
 
 ```shell
 pg_dump -h sl-eu-lon-2-portal.4.dblayer.com -p 17980 -d compose -U admin -f dump.sql

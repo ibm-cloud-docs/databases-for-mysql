@@ -16,10 +16,10 @@ subcollection: databases-for-mysql
 {:pre: .pre}
 {:tip: .tip}
 
-# Migrating from a Compose PostgreSQL
+# Migrating from a Compose MySQL
 {: #compose-migrating}
 
-Current users of {{site.data.keyword.composeForPostgreSQL}} or Compose.com can migrate to {{site.data.keyword.databases-for-mysql_full}} by using a {{site.data.keyword.databases-for-mysql}} read-only replica.
+Current users of {{site.data.keyword.composeForMySQL}} or Compose.com can migrate to {{site.data.keyword.databases-for-mysql_full}} by using a {{site.data.keyword.databases-for-mysql}} read-only replica.
 
 The general process for a migration is to create an {{site.data.keyword.databases-for-mysql}} read-only replica that is subscribed to a Compose Deployment as the source. Your data is copied from the Compose deployment and the replica. Once the initial copy is made, replication is established and any new changes are replicated from Compose over to the replica.
 
@@ -121,7 +121,7 @@ You can access the {{site.data.keyword.databases-for-mysql}} deployment in a few
 - You can use the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference). The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line, and the plug-in contains the commands that you use to communicate with your database deployments. 
 - Or you can also use the [{{site.data.keyword.databases-for}} API](https://{DomainName}/apidocs/cloud-databases-api)
 
-Most importantly, you can access the PostgreSQL database directly by using `psql`, which can be used to monitor the replication status.
+Most importantly, you can access the MySQL database directly by using `psql`, which can be used to monitor the replication status.
 
 ### Monitoring the Migration
 
@@ -139,7 +139,7 @@ SELECT pg_last_xlog_replay_location();
 ```
 {: .codeblock}
 
-These commands output a PostgreSQL logical sequence number (`lsn`). If the two `lsn` match, the replica is caught up and synced to the Compose deployment. If the two `lsn` do not match, the replica still must catch up. If you want to compare how far apart they are, you can run the following command on either member
+These commands output a MySQL logical sequence number (`lsn`). If the two `lsn` match, the replica is caught up and synced to the Compose deployment. If the two `lsn` do not match, the replica still must catch up. If you want to compare how far apart they are, you can run the following command on either member
 ```
 SELECT pg_size_pretty(pg_xlog_location_diff('<Output_from_Compose>','<Output_from_replica>'));
 ```
@@ -209,7 +209,7 @@ After the promotion is complete, you can switch your applications to connect to 
 
 ## Cleaning Up
 
-On your new {{site.data.keyword.databases-for-mysql}} deployment, certain PostgreSQL extensions might need to be updated. You can connect with `pqsl` and check which extensions are available and what versions you should update. Users of PostGIS, for example, should check its versions from the table,
+On your new {{site.data.keyword.databases-for-mysql}} deployment, certain MySQL extensions might need to be updated. You can connect with `pqsl` and check which extensions are available and what versions you should update. Users of PostGIS, for example, should check its versions from the table,
 ```
 SELECT name, version FROM pg_available_extension_versions; 
 ```

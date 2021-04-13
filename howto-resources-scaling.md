@@ -24,7 +24,7 @@ You can manually adjust the amount of resources available to your {{site.data.ke
 
 ## Resource Breakdown
 
-{{site.data.keyword.databases-for-mysql}} deployments have two data members in a cluster, and resources are allocated to both members equally. For example, the minimum storage of a PostgreSQL deployment is 10240 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for a PostgreSQL deployment is 2048 MB, which equates to an initial allocation of 1028 MB per member.
+{{site.data.keyword.databases-for-mysql}} deployments have two data members in a cluster, and resources are allocated to both members equally. For example, the minimum storage of a MySQL deployment is 10240 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for a MySQL deployment is 2048 MB, which equates to an initial allocation of 1028 MB per member.
 
 Billing is based on the _total_ amount of resources that are allocated to the service.
 {: .tip}
@@ -44,7 +44,7 @@ If you find that your deployment is suffering from performance issues due to a l
 
 [`work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM), [`maintenance_work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM), and [`effective_cache_size`](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE) are auto-tuned based on the deployment's total memory. They are also set when you scale memory on your deployment. When you scale, the values are adjusted without outage to the running deployment.
 
-The amount of memory allocated to the database's shared buffer pool is **not** adjusted automatically when you scale your deployment. Its recommended to be set to 25% of the deployment's total memory. You can manually tune the shared buffer pool through the [`shared_buffer`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS) setting in your [PostgreSQL's configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration). It is not auto-tuned because changing the `shared_buffer` requires a database restart.
+The amount of memory allocated to the database's shared buffer pool is **not** adjusted automatically when you scale your deployment. Its recommended to be set to 25% of the deployment's total memory. You can manually tune the shared buffer pool through the [`shared_buffer`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS) setting in your [MySQL's configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration). It is not auto-tuned because changing the `shared_buffer` requires a database restart.
 
 ### Dedicated Cores
 

@@ -31,9 +31,9 @@ All the information a driver needs to make a connection to your deployment is in
 
 Field Name|Index|Description
 ----------|-----|-----------
-`Type`||Type of connection - for PostgreSQL, it is "URI"
-`Scheme`||Scheme for a URI - for PostgreSQL, it is "postgresql"
-`Path`||Path for a URI - for PostgreSQL, it is the database name. The default is `ibmclouddb`.
+`Type`||Type of connection - for MySQL, it is "URI"
+`Scheme`||Scheme for a URI - for MySQL, it is "MySql"
+`Path`||Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`.
 `Authentication`|`Username`|The username that you use to connect.
 `Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
 `Authentication`|`Method`|How authentication takes place; "direct" authentication is handled by the driver.
@@ -46,7 +46,7 @@ Field Name|Index|Description
 * `0...` indicates that there might be one or more of these entries in an array.
 
 
-Many PostgreSQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
+Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
 ```
 postgres://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?sslmode=verify-full
 ```
@@ -151,7 +151,7 @@ const fs = require("fs");
 let connectionString = "postgres://<username>:<password>@<host>:<port>/<database>?sslmode=verify-full";
 let caCert = fs.readFileSync('/path/to/cert');
 
-// set up a client with your PostgreSQL connection string
+// set up a client with your MySQL connection string
 let client = new pg.Client({ connectionString: connectionString,
     // set up the TLS options
     ssl: {
@@ -211,5 +211,5 @@ Ruby on Rails|Rails|[Rails Guide](http://edgeguides.rubyonrails.org/configuring.
 C#|`ODBC`|[Link](https://wiki.postgresql.org/wiki/Using_Microsoft_.NET_with_the_PostgreSQL_Database_Server_via_ODBC)
 Go|`pq`|[Link](https://godoc.org/github.com/lib/pq)
 Node|`node-postgres`|[Link](https://node-postgres.com/)
-{: caption="Table 2. PostgreSQL drivers" caption-side="top"}
+{: caption="Table 2. MySQL drivers" caption-side="top"}
 

@@ -4,7 +4,7 @@ copyright:
   years: 2021
 lastupdated: "2021-04-12"
 
-keywords: pgAdmin, postgresql gui
+keywords: pgAdmin, MySql gui
 
 subcollection: databases-for-mysql
 
@@ -21,7 +21,7 @@ subcollection: databases-for-mysql
 # Getting Started
 {: #getting-started}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. [pgAdmin](https://www.pgadmin.org/) is an open-source administration platform for PostgreSQL, and provides many tools for managing your data and databases. [Download and install](https://www.pgadmin.org/download/) the version that is appropriate to your environment, and then follow the steps to connect it to your {{site.data.keyword.databases-for-mysql}} deployment.
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. [pgAdmin](https://www.pgadmin.org/) is an open-source administration platform for MySQL, and provides many tools for managing your data and databases. [Download and install](https://www.pgadmin.org/download/) the version that is appropriate to your environment, and then follow the steps to connect it to your {{site.data.keyword.databases-for-mysql}} deployment.
 
 ## Before you begin
 
@@ -50,7 +50,7 @@ The command prompts for the admin password and then runs the `psql` command line
 
 pgAdmin runs as a server and you connect to it through a browser. When the server is started, it runs on localhost, at default `http://127.0.0.1:53113/browser/`.
 
-When you first open pgAdmin, you get a prompt for setting a Primary Password. This password is different from your deployment's password; it'll be used specifically for pgAdmin to store passwords to your PostgreSQL servers or PostgreSQL deployments.
+When you first open pgAdmin, you get a prompt for setting a Primary Password. This password is different from your deployment's password; it'll be used specifically for pgAdmin to store passwords to your MySQL servers or MySQL deployments.
 
 The _Dashboard_ panel has a _Welcome_ screen. From the _Quick Links_, click _Add New Server_.
 
@@ -100,9 +100,9 @@ Administrative features that require a superuser are not available through pgAdm
 
 ## Next Steps
 
-If you are just using PostgreSQL for the first time, it is a good idea to take a tour through the [official PostgreSQL documentation](https://www.postgresql.org/docs/). 
+If you are just using MySQL for the first time, it is a good idea to take a tour through the [official MySQL documentation](https://www.postgresql.org/docs/). 
 
-You can connect to and manage your databases and data with PostgreSQL's command-line tool [`psql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
+You can connect to and manage your databases and data with MySQL's command-line tool [`psql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
 
 Looking for more tools on managing your deployment? You can connect to your deployment with [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference). Or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
