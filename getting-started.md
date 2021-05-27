@@ -46,7 +46,7 @@ ibmcloud cdb deployment-connections example-postgres --start
 
 The command prompts for the admin password and then runs the `psql` command line client to connect to the database. If you have not installed the cloud databases plug-in, review the [Connecting with psql documentation here](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql) for more detailed connection information.
 
-## Connecting with pgAdmin
+## Connecting with MySQL Workbench
 
 pgAdmin runs as a server and you connect to it through a browser. When the server is started, it runs on localhost, at default `http://127.0.0.1:53113/browser/`.
 
