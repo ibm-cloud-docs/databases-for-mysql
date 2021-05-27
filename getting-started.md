@@ -21,7 +21,7 @@ subcollection: databases-for-mysql
 # Getting Started
 {: #getting-started}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. [pgAdmin](https://www.pgadmin.org/) is an open-source administration platform for MySQL, and provides many tools for managing your data and databases. [Download and install](https://www.pgadmin.org/download/) the version that is appropriate to your environment, and then follow the steps to connect it to your {{site.data.keyword.databases-for-mysql}} deployment.
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. [MySQL Workbench](https://www.mysql.com/products/workbench/) is an open-source administration platform for MySQL, and provides many tools for managing your data and databases. [Download and install](https://dev.mysql.com/downloads/workbench/) the version that is appropriate to your environment, and then follow the steps to connect it to your {{site.data.keyword.databases-for-mysql}} deployment.
 
 ## Before you begin
 
