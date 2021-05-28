@@ -41,10 +41,7 @@ Databases For MySQL
 	howto-pitr.md
 	/cloud-databases/cloud-databases-allowlisting
 
-	{: .topicgroup}
-	Migrating MySQL
-		howto-migration.md
-		howto-migration-compose.md
+	howto-migration.md
 	
 	howto-upgrading.md
 
