@@ -33,7 +33,7 @@ Install the command line client for MySQL, `mysql`. To use `mysql`, the MySQL cl
 
 For more information about `mysql`, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/).
 
-## `psql` Connection Strings
+## `mysql` Connection Strings
 
 Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
