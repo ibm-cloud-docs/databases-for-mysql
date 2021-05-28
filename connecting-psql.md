@@ -29,9 +29,9 @@ You have to set the admin password before you use it to connect to the database.
 
 ## Installing `mysql`
 
-Install the command line client for MySQL, `mysql`. To use `mysql`, the MySQL client tools need to be installed on the local system. They can be installed with the full MySQL package that is provided from [postgresql.org](https://www.postgresql.org/download/), or as a [package from your operating system's package manager](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/). 
+Install the command line client for MySQL, `mysql`. To use `mysql`, the MySQL client tools need to be installed on the local system. They can be installed with the full MySQL package that is provided from [mysql.com](https://www.mysql.com/downloads/), or as a [package from your operating system's package manager](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/). 
 
-For more information about `psql`, see the [MySQL documentation](https://www.postgresql.org/docs/current/static/app-psql.html).
+For more information about `mysql`, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/).
 
 ## `psql` Connection Strings
 
