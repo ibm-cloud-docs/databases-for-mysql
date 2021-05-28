@@ -35,7 +35,7 @@ Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases
 
 There are two main documentation locations that reference the appropriate commands to connect to your database from the CLI:
 - The [Cloud Databases CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
-- The [Connecting with psql](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql) document 
+- The [Connecting with mysql](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysqlsql) document 
 
 The `ibmcloud cdb deployment-connections` command handles everything that is involved in creating a command line client connection. For example, to connect to a deployment named  "example-postgres", use the following command:
 
