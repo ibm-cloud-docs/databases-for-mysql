@@ -45,7 +45,6 @@ Databases For MySQL
 	
 	{: .topicgroup}
 	Configuring MySQL
-		howto-changing-config.md
 		howto-extensions.md
 		howto-wal2json.md
 		howto-pgaudit.md
