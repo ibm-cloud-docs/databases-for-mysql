@@ -37,10 +37,10 @@ There are two main documentation locations that reference the appropriate comman
 - The [Cloud Databases CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
 - The [Connecting with mysql](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) document 
 
-The `ibmcloud cdb deployment-connections` command handles everything that is involved in creating a command line client connection. For example, to connect to a deployment named  "example-postgres", use the following command:
+The `ibmcloud cdb deployment-connections` command handles everything that is involved in creating a command line client connection. For example, to connect to a deployment named  "example-mysql", use the following command:
 
 ```shell
-ibmcloud cdb deployment-connections example-postgres --start
+ibmcloud cdb deployment-connections example-mysql --start
 ```
 {: pre}
 
