@@ -100,9 +100,9 @@ Administrative features that require a superuser are not available through pgAdm
 
 ## Next Steps
 
-If you are just using MySQL for the first time, it is a good idea to take a tour through the [official MySQL documentation](https://www.postgresql.org/docs/). 
+If you are just using MySQL for the first time, it is a good idea to take a tour through the [official MySQL documentation](https://dev.mysql.com/doc/). 
 
-You can connect to and manage your databases and data with MySQL's command-line tool [`psql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
+You can connect to and manage your databases and data with MySQL's command-line tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
 
 Looking for more tools on managing your deployment? You can connect to your deployment with [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference). Or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
