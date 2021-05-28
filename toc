@@ -43,8 +43,6 @@ Databases For MySQL
 
 	howto-migration.md
 	
-	howto-upgrading.md
-
 	{: .topicgroup}
 	Configuring MySQL
 		howto-changing-config.md
