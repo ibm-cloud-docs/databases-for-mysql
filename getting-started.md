@@ -44,7 +44,7 @@ ibmcloud cdb deployment-connections example-postgres --start
 ```
 {: pre}
 
-The command prompts for the admin password and then runs the `psql` command line client to connect to the database. If you have not installed the cloud databases plug-in, review the [Connecting with mysql documentation here](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) for more detailed connection information.
+The command prompts for the admin password and then runs the `mysql` command line client to connect to the database. If you have not installed the cloud databases plug-in, review the [Connecting with mysql documentation here](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) for more detailed connection information.
 
 ## Connecting with MySQL Workbench
 
