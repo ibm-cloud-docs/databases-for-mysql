@@ -32,7 +32,7 @@ content-type: troubleshoot
 If you encounter errors when connecting to your {{site.data.keyword.databases-for-mysql_full}} deployment, review these common causes and resolutions.
 {:shortdesc}
 
-You receive an error message or fail to connect to a {{site.data.keyword.databases-for-mysql}} deployment.  If reviewing application logs, you might see errors that mention intermittent connection timeouts or unable to connect.
+You receive an error message or fail to connect to a {{site.data.keyword.databases-for-mysql}} deployment. If reviewing application logs, you might see errors that mention intermittent connection timeouts or an inability to connect.
 {:tsSymptoms}
 
 Review the following information to troubleshoot and resolve common connectivity problems:
