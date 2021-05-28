@@ -3,7 +3,7 @@ copyright:
   years: 2021
 lastupdated: "2021-04-12"
 
-keywords: mysql, databases, psql
+keywords: mysql, databases
 
 subcollection: databases-for-mysql
 
@@ -20,16 +20,16 @@ subcollection: databases-for-mysql
 # Connecting with `psql`
 {: #connecting-psql}
 
-You can access your MySQL database directly from its command line client, `psql`. You can use `psql` for direct interaction and monitoring of the data structures that are created within the database. It is also useful for testing and monitoring the queries and performance, installing and modifying scripts, and other management activities.
+You can access your MySQL database directly from its command line client, `mysql`. You can use `mysql` for direct interaction and monitoring of the data structures that are created within the database. It is also useful for testing and monitoring the queries and performance, installing and modifying scripts, and other management activities.
 
 The admin user comes with the MySQL default role [`pg_monitor`](https://www.postgresql.org/docs/10/static/default-roles.html), allowing access to MySQL monitoring views and functions. By default, the admin user does not have permissions on objects that are created by other users.
 
 You have to set the admin password before you use it to connect to the database. For more information, see the [Setting the Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) page.
 {: .tip}
 
-## Installing `psql`
+## Installing `mysql`
 
-Install the command line client for MySQL, `psql`. To use `psql`, the MySQL client tools need to be installed on the local system. They can be installed with the full MySQL package that is provided from [postgresql.org](https://www.postgresql.org/download/), or as a [package from your operating system's package manager](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/). 
+Install the command line client for MySQL, `mysql`. To use `mysql`, the MySQL client tools need to be installed on the local system. They can be installed with the full MySQL package that is provided from [postgresql.org](https://www.postgresql.org/download/), or as a [package from your operating system's package manager](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/). 
 
 For more information about `psql`, see the [MySQL documentation](https://www.postgresql.org/docs/current/static/app-psql.html).
 
