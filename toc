@@ -42,11 +42,6 @@ Databases For MySQL
 	/cloud-databases/cloud-databases-allowlisting
 
 	{: .topicgroup}
-	Replication
-		howto-read-replica.md
-		howto-logical-replication.md
-
-	{: .topicgroup}
 	Migrating MySQL
 		howto-migration.md
 		howto-migration-compose.md
