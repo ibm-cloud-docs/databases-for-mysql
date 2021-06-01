@@ -43,10 +43,6 @@ The resources tab contains information and configuration options on the size and
 - [scale disk, memory, and CPU](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling)
 - [configure Autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling)
 
-## Read Replicas
-The _Read Replicas_ tab contains the UI for details regarding the read replicas for your deployment. Updates to replication leaders are asynchronously copied to their read-only replicas. You can 
-- [create and manage read-replicas](/docs/databases-for-mysql?topic=databases-for-mysql-read-only-replicas)
-
 ## Backups
 The _Backups_ tab is the UI for managing your deployment backups. All available backups are listed with their timestamps. Click a backup to grab its ID or to restore it into a new deployment. More information is on the [Managing Backups](/docs/databases-for-mysql?topic=cloud-databases-dashboard-backups) page.
 
