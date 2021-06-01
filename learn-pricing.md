@@ -30,13 +30,13 @@ A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly 
 
 Resources | Breakdown | Price
 -------|-------|-------
-5 GB-Month disk | 2 members x 5 GB x $0.58 | $5.80
-1 GB-Month RAM | 2 members x 1 GB  x $7.50 | $15
-1 virtual-CPU | 2 members x $40 | $80
-{: caption="Table 1. Pricing example for two data members" caption-side="top"}
+5 GB-Month disk | 3 members x 5 GB x $0.58 | $8.70
+1 GB-Month RAM | 3 members x 1 GB  x $7.50 | $22.50
+1 virtual-CPU | 3 members x $40 | $120
+{: caption="Table 1. Pricing example for three data members" caption-side="top"}
 
-Total per month = $100.80/Month
-Total per hour = $.14/Hour
+Total per month = $151.20/Month
+Total per hour = $.21/Hour
 
 All prices here are in US dollars. To see pricing in your local currency, you can to use the pricing calculator.
 {: .tip}
