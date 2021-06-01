@@ -21,7 +21,7 @@ subcollection: databases-for-mysql
 # Getting Started
 {: #getting-started}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. [MySQL Workbench](https://www.mysql.com/products/workbench/) is an open-source administration platform for MySQL, and provides many tools for managing your data and databases. [Download and install](https://dev.mysql.com/downloads/workbench/) the version that is appropriate to your environment, and then follow the steps to connect it to your {{site.data.keyword.databases-for-mysql}} deployment.
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. To get started, you will want to create a connection to [MySQL Workbench](https://www.mysql.com/products/workbench/), an open-source administration platform for MySQL that provides many tools for managing your data and databases. [Download and install](https://dev.mysql.com/downloads/workbench/) the version that is appropriate to your environment, and then consult MySQL's [documentation](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html) to connect and manage your {{site.data.keyword.databases-for-mysql}} deployment.
 
 ## Before you begin
 
