@@ -56,7 +56,7 @@ curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.c
 
 ### The MySQL Section
 
-The "postgres" section contains information that is suited to applications that make connections to MySQL.
+The "mysql" section contains information that is suited to applications that make connections to `mysql`.
 
 Field Name|Index|Description
 ----------|-----|-----------
@@ -76,7 +76,7 @@ Field Name|Index|Description
 
 ### The CLI Section
 
-The "CLI" section contains information that is suited for connecting with `psql` .
+The "CLI" section contains information that is suited for connecting with `mysql` .
 
 Field Name|Index|Description
 ----------|-----|-----------
