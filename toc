@@ -38,7 +38,6 @@ Databases For MySQL
 		howto-managing-connections.md
 
 	/cloud-databases/cloud-databases-dashboard-backups
-	howto-pitr.md
 	/cloud-databases/cloud-databases-allowlisting
 
 	howto-migration.md
