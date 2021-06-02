@@ -21,13 +21,13 @@ subcollection: databases-for-mysql
 # Connecting an external application
 {: #external-app}
 
-Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-mysql_full}}. The service provides connection strings specifically for drivers and applications. Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
+Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-mysql_full}}. The service provides connection strings specifically for drivers and applications. Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections) and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
-The connection strings can be used by any of the credentials you have created on your deployment. While you can use the admin user for all of your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on generating credentials is on the [Creating Users and Getting Connection Strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
+The connection strings can be used by any of the credentials you have created on your deployment. While you can use the admin user for all your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on generating credentials is on the [Creating Users and Getting Connection Strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
 
 ## Connecting with a language's driver
 
-All the information a driver needs to make a connection to your deployment is in the "postgres" section of your connection strings. The table contains a breakdown for reference.
+All the information a driver needs to make a connection to your deployment is in the "mysql" section of your connection strings. The table contains a breakdown for reference.
 
 Field Name|Index|Description
 ----------|-----|-----------
@@ -41,22 +41,22 @@ Field Name|Index|Description
 `Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
 `Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
 `Certificate`|Base64|A base64 encoded version of the certificate.
-{: caption="Table 1. `postgres`/`URI` connection information" caption-side="top"}
+{: caption="Table 1. `mysql`/`URI` connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
 
 Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
 ```
-postgres://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?sslmode=verify-full
+mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?sslmode=verify-full
 ```
 {: .codeblock}
 
-This example uses the information from your connection string and the Java driver [`jdbc`](https://jdbc.postgresql.org/documentation/head/index.html) to connect to your database.
+This example uses the information from your connection string and the Java driver [`jdbc`](https://jdbc.mysql.org/documentation/head/index.html) to connect to your database.
 
-This example uses the information from your connection string and the Python driver [`Psycopg2`](https://wiki.postgresql.org/wiki/Psycopg2_Tutorial) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
+This example uses the information from your connection string and the Python driver [`Psycopg2`](https://wiki.mysql.org/wiki/Psycopg2_Tutorial) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
 
-This example uses the information from your connection string and the Node driver [`node-postgres`](https://node-postgres.com/) to connect to your database.
+This example uses the information from your connection string and the Node driver [`node-mysql`](https://node-mysql.com/) to connect to your database.
 
 
 ```java
@@ -74,7 +74,7 @@ public class PGConnect {
 
     private Connection connect() {
 
-        final String url = "jdbc:postgresql://host:port/ibmclouddb";
+        final String url = "jdbc:mysql://host:port/ibmclouddb";
 
         Properties props = new Properties();
         props.setProperty("user","admin");
@@ -148,7 +148,7 @@ for row in rows:
 const pg = require("pg");
 const fs = require("fs");
 
-let connectionString = "postgres://<username>:<password>@<host>:<port>/<database>?sslmode=verify-full";
+let connectionString = "mysql://<username>:<password>@<host>:<port>/<database>?sslmode=verify-full";
 let caCert = fs.readFileSync('/path/to/cert');
 
 // set up a client with your MySQL connection string
@@ -201,7 +201,7 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 
 ## Other Drivers
 
-PostgreSQL has a vast array of language drivers. The table covers a few of the most common.
+MySQL has a vast array of language drivers. The table covers a few of the most common.
 
 Language|Driver|Examples
 ----------|-----------
