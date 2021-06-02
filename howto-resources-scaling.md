@@ -56,13 +56,13 @@ You can enable or increase the CPU allocation to the deployment. With dedicated 
 
 - Scaling down RAM or CPU does not trigger database restarts.
 
-- Disk can not be scaled down.
+- Disk cannot be scaled down.
 
 - A few scaling operations can be more long running than others. Enabling dedicated cores moves your deployment to its own host and can take longer than just adding more cores. Similarly, drastically increasing CPU, RAM, or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
 - Scaling operations are logged in [{{site.data.keyword.at_full}}](/docs/databases-for-mysql?topic=cloud-databases-activity-tracker).
 
-- If you find consistent trends in resource usage or would like to set up scaling when certain resource thresholds are reached, checkout enabling [autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling) on your deployment.
+- If you find consistent trends in resource usage or would like to set up scaling when certain resource thresholds are reached, check out enabling [autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling) on your deployment.
 
 ## Scaling in the UI
 
@@ -70,7 +70,7 @@ A visual representation of your data members and their resource allocation is av
 
 ![The Scale Resources Panel in _Resources_](images/settings-scaling.png)
 
-Adjust the slider to increase or decrease the resources that are allocated to your service. The slider controls how much memory or disk is allocated per member. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
+Adjust the slider to increase or decrease the resources allocated to your service. The slider controls how much memory or disk is allocated per member. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
 
 The UI currently uses a coarser-grained resolution for scaling than the CLI or API commands. Use the API or CLI to scale if the stops on the slider do not meet your size requirements.
 {: .tip}
@@ -85,7 +85,7 @@ ibmcloud cdb deployment-groups example-deployment
 ```
 {: pre}
 
-This produces the output,
+and produces the following output:
 ```
 Group   member
 Count   2
@@ -122,7 +122,7 @@ ibmcloud cdb deployment-groups-set example-deployment member --memory 4096
 
 ## Scaling in the API
 
-The _Foundation Endpoint_ that is shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically. 
+The _Foundation Endpoint_ shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically. 
 
 To view the current and scalable resources on a deployment, use
 ```
