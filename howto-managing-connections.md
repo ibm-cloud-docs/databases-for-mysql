@@ -22,7 +22,7 @@ subcollection: databases-for-mysql
 
 Connections to your {{site.data.keyword.databases-for-mysql_full}} deployment use resources, so it is important to consider how many connections you need when tuning your deployment's performance. MySQL uses a `max_connections` setting to limit the number of connections (and resources that are consumed by connections) to prevent run-away connection behavior from overwhelming your deployment's resources.
 
-You can check the value of `max_connections` with your [admin user](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user) and [`psql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-psql).
+You can check the value of `max_connections` with your [admin user](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user) and [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
 ```
 ibmclouddb=> SHOW max_connections;
  max_connections
@@ -44,7 +44,7 @@ non-replication superuser connections
 ```
 Exceeding the connection limit for your deployment can cause your database to be unreachable by your applications.
 
-You can check the number of connections to your deployment with the admin user, `psql`, and `pg_stat_database`.
+You can check the number of connections to your deployment with the admin user, `mysql`, and `pg_stat_database`.
 ```sql
 SELECT count(distinct(numbackends)) FROM pg_stat_database;
 ```
@@ -76,7 +76,7 @@ If you are on MySQL 9.6 and newer, your admin user has the `pg_signal_backend` r
   ```sql
   SELECT pg_terminate_backend(pid);
   ```
-  {: .codeblock}{: pre}
+  {: .codeblock}
 
 The admin user does have the power to reset or close the connections for any user on the deployment except superusers. Be careful not to terminate replication connections from the `ibm-replication` user, as it interferes with the high-availability of your deployment.
 
