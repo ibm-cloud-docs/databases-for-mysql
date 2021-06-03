@@ -19,7 +19,7 @@ subcollection: databases-for-mysql
 # Performance
 {: #performance}
 
-{{site.data.keyword.databases-for-mysql_full}} deployments can be both manually [scaled to your usage](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling), or configured to [autoscale](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling) under certain resource conditions. There are a few factors to consider if you are tuning the performance of your deployment.
+{{site.data.keyword.databases-for-mysql_full}} deployments can be manually [scaled to your usage](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling) or configured to [autoscale](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling) under certain resource conditions. There are a few factors to consider if you are tuning the performance of your deployment.
 
 ## Monitoring your deployment
 
