@@ -25,11 +25,11 @@ Autoscaling is designed to respond to the short-to-medium term trends in resourc
 
 You can set your deployment to autoscale disk, RAM, or both.
 
-General Autoscaling parameters
-- When to scale, based on usage over a period of time.
-- By how much to scale, as a percentage of the resources per member.
-- How often to scale, measured either in seconds, minutes, or hours.
-- A hard limit on scaling, your deployment stops scaling at the limit.
+## General Autoscaling parameters:
+- When to scale, based on usage over a period of time
+- By how much to scale, as a percentage of the resources per member
+- How often to scale, measured either in seconds, minutes, or hours
+- A hard limit on scaling, your deployment stops scaling at the limit
 
 ![Example Autoscaling panel](images/autoscaling-panel.png)
 
