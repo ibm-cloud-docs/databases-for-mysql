@@ -37,7 +37,7 @@ For more information about `mysql`, see the [MySQL documentation](https://dev.my
 
 Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
-The information that you need to make a connection with `psql` is in the "cli" section of your connection strings. The table contains a breakdown for reference.
+The information that you need to make a connection with `mysql` is in the "cli" section of your connection strings. The table contains a breakdown for reference.
 
 Field Name|Index|Description
 ----------|-----|-----------
@@ -72,7 +72,7 @@ The command prompts for the admin password and then runs the `mysql` command lin
 If you have not installed the cloud databases plug-in, connect to your MySQL databases using `mysql` by giving it the "composed" connection string. It provides environment variables `PGPASSWORD` and `PGSSLROOTCERT`. Set `PGPASSWORD` to the admin's password and `PGSSLROOTCERT` to the path or file name for the self-signed certificate. 
 
 ```
-PGPASSWORD=$PASSWORD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 psql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
+PGPASSWORD=$PASSWORD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
 ```
 {: .codeblock}
 
