@@ -27,9 +27,10 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 - You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){:new_window}.
 - You need a {{site.data.keyword.databases-for-mysql}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/databases-for-mysql). Give your deployment a memorable name that appears in your account's Resource List.
-- Set the Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) for your deployment.
+- Set the [Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) for your deployment.
 - You need an installation of [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 - Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-mysql_full}} deployment.
+
 ## Connecting to your database with the CLI
 
 There are two main documentation locations that reference the appropriate commands to connect to your database from the CLI:
@@ -51,7 +52,7 @@ The command prompts for the admin password and then runs the `mysql` command lin
 
 If you are using MySQL for the first time, it is a good idea to take a tour through the [official MySQL documentation](https://dev.mysql.com/doc/). 
 
-You can connect to, manage your databases, and manage data with MySQL's command-line tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
+You can connect, manage your databases, and manage data with MySQL's command-line tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
 
 Looking for more tools on managing your deployment? You can connect to your deployment with [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference), or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
