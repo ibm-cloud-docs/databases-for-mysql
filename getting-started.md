@@ -48,6 +48,8 @@ The command prompts for the admin password and then runs the `mysql` command lin
 
 ## Connecting with MySQL Workbench
 
+To connect with MySQL Workbench, refer to MySQL's [Connections in MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html) documentation.
+
 ## Next Steps
 
 If you are using MySQL for the first time, it is a good idea to take a tour through the [official MySQL documentation](https://dev.mysql.com/doc/). 
