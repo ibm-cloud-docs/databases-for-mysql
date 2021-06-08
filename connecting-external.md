@@ -32,7 +32,7 @@ All the information a driver needs to make a connection to your deployment is in
 Field Name|Index|Description
 ----------|-----|-----------
 `Type`||Type of connection - for MySQL, it is "URI"
-`Scheme`||Scheme for a URI - for MySQL, it is "MySql"
+`Scheme`||Scheme for a URI - for MySQL, it is "mysql"
 `Path`||Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`.
 `Authentication`|`Username`|The username that you use to connect.
 `Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
@@ -41,7 +41,7 @@ Field Name|Index|Description
 `Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
 `Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
 `Certificate`|Base64|A base64 encoded version of the certificate.
-{: caption="Table 1. `mysql`/`URI` connection information" caption-side="top"}
+{: caption="Table 1. mysql/URI connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
@@ -201,15 +201,14 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 
 ## Other Drivers
 
-MySQL has a vast array of language drivers. The table covers a few of the most common.
+MySQL has an array of language drivers. The table covers a few of the most common.
 
 Language|Driver|Examples
 ----------|-----------
-PHP|`pgsql`|[Link](http://php.net/manual/en/pgsql.examples-basic.php)
-Ruby|`ruby-pg`|[Link](https://github.com/ged/ruby-pg)
-Ruby on Rails|Rails|[Rails Guide](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-postgresql-database)
-C#|`ODBC`|[Link](https://wiki.postgresql.org/wiki/Using_Microsoft_.NET_with_the_PostgreSQL_Database_Server_via_ODBC)
-Go|`pq`|[Link](https://godoc.org/github.com/lib/pq)
-Node|`node-postgres`|[Link](https://node-postgres.com/)
+PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php)
+Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html)
+C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/)
+Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql)
+Node|`mysqljs`|[Link](https://github.com/mysqljs/mysql)
 {: caption="Table 2. MySQL drivers" caption-side="top"}
 
