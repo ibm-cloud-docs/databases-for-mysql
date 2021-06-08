@@ -61,7 +61,7 @@ The "mysql" section contains information that is suited to applications that mak
 Field Name|Index|Description
 ----------|-----|-----------
 `Type`||Type of connection - for MySQL, it is "URI"
-`Scheme`||Scheme for a URI - for MySQL, it is "MySql"
+`Scheme`||Scheme for a URI - for MySQL, it is "mysql"
 `Path`||Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`.
 `Authentication`|`Username`|The username that you use to connect.
 `Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
@@ -70,7 +70,7 @@ Field Name|Index|Description
 `Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
 `Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
 `Certificate`|Base64|A base64 encoded version of the certificate.
-{: caption="Table 1. `mysql`/`URI` connection information" caption-side="top"}
+{: caption="Table 1. mysql/URI connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
@@ -87,7 +87,7 @@ Field Name|Index|Description
 `Certificate`|Base64|A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded.
 `Certificate`|Name|The allocated name for the self-signed certificate.
 `Type`||The type of package that uses this connection information; in this case `cli`. 
-{: caption="Table 2. `mysql`/`cli` connection information" caption-side="top"}
+{: caption="Table 2. mysql/cli connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
