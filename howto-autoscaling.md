@@ -37,13 +37,13 @@ Memory - Memory autoscaling is based on Disk I/O utilization in order to provide
 
 Disk - Disk autoscaling can scale when either disk usage reaches a certain threshold, Disk I/O utilization reach a certain threshold, or both. (The "or" in the UI operates as an `inclusive or`, `|`, `v`.) The amount of IOPS available to your deployment increases with disk size at a ratio of 10 IOPS for each GB.
 
-The resource numbers refer to each database member in a deployment. For example, there are two data members in a MySQL deployment and if the deployment is scaled with 10 GB of disk and 1 GB of RAM, that means each member gets 10 GB of disk and 1 GB of RAM. The total resources added to your deployment is 20 GB of disk and 2 GB of RAM.
+The resource numbers refer to each database member in a deployment. For example, there are three data members in a MySQL deployment and if the deployment is scaled with 10 GB of disk and 1 GB of RAM, that means each member gets 10 GB of disk and 1 GB of RAM. The total resources added to your deployment is 30 GB of disk and 3 GB of RAM.
 
 ## Autoscaling Considerations
 
 - Scaling your deployment up might cause your databases to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then the databases are restarted as part of the move.
 
-- Disk can not be scaled down.
+- Disk cannot be scaled down.
 
 - A few scaling operations can be more long running than others. Drastically increasing RAM or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
@@ -51,14 +51,12 @@ The resource numbers refer to each database member in a deployment. For example,
 
 - Limits
   - can't set anything to scale in an interval less than 60 seconds.
-  - Maximum Disk = 4 TB per member
+  - Maximum Disk = 3 TB per member
   - Maximum RAM = 112 GB per member
 
 - Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk can not be scaled down.
 
 - If you just need to add resources to your deployment occasionally or rarely, you can [manually scale](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling) your deployment.
-
-- Read-only replicas do not auto-scale to match the leader. If the amount of data you store outgrows the disk that is allocated to your deployments, scale the disk on the read-only replicas and then the leader. Scaling the read-only replica first ensures that you do not run out of space on the read-only replicas. If you scaled the leader's disk for performance and not for space, it is not necessary to scale the read-only replicas.
 
 ## Configuring Autoscaling in the UI
 
