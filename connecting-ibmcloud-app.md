@@ -79,9 +79,9 @@ ibmcloud resource service-alias-create alias-name --instance-name instance-name
 ```
 {: pre}
 
-The alias name can be the same as the database service instance name. So, for a {{site.data.keyword.databases-for-mysql}} service named "example-es", use the following command:
+The alias name can be the same as the database service instance name. So, for a {{site.data.keyword.databases-for-mysql}} service named "example-mysql", use the following command:
 ```
-ibmcloud resource service-alias-create example-es --instance-name example-es
+ibmcloud resource service-alias-create example-es --instance-name example-mysql
 ```
 {: pre}
 
