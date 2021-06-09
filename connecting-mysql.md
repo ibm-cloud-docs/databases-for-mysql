@@ -22,8 +22,6 @@ subcollection: databases-for-mysql
 
 You can access your MySQL database directly from its command line client, `mysql`. You can use `mysql` for direct interaction and monitoring of the data structures created within the database. It is also useful for testing and monitoring the queries and performance, installing and modifying scripts, and other management activities.
 
-The admin user comes with the MySQL default role [`pg_monitor`](https://www.postgresql.org/docs/10/static/default-roles.html), allowing access to MySQL monitoring views and functions. By default, the admin user does not have permissions on objects that are created by other users.
-
 You have to set the admin password before you use it to connect to the database. For more information, see the [Setting the Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) page.
 {: .tip}
 
@@ -48,7 +46,7 @@ Field Name|Index|Description
 `Certificate`|Base64|A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded.
 `Certificate`|Name|The allocated name for the self-signed certificate.
 `Type`||The type of package that uses this connection information; in this case `cli`. 
-{: caption="Table 1. `mysql`/`cli` connection information" caption-side="top"}
+{: caption="Table 1. mysql/cli connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
