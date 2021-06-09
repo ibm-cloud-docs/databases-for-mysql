@@ -34,7 +34,6 @@ Databases For MySQL
 	Managing Resources
 		howto-resources-scaling.md
 		howto-autoscaling.md
-		howto-horizontal-scaling.md
 		howto-managing-connections.md
 
 	/cloud-databases/cloud-databases-dashboard-backups
