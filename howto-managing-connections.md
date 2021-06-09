@@ -27,7 +27,7 @@ You can check the value of `max_connections` with your [admin user](/docs/databa
 ibmclouddb=> SHOW max_connections;
  max_connections
 -----------------
- 115
+ 200
 (1 row)
 ```
 {: .codeblock}
@@ -37,7 +37,8 @@ Many of the queries rely on the admin user's role as `pg_monitor`, which is only
 
 ## MySQL Connection Limits 
 
-At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **115**. 15 connections are reserved for the superuser to maintain the state and integrity of your database, and 100 connections are available for you and your applications. If the number of connections to the database exceeds the 100 connection limit, new connections fail and return an error.
+At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. After the connection limit has been reached, any attempts at starting a new connection results in an error. To prevent overwhelming your deployment with connections, use connection pooling, or scale your deployment and increase its connection limit. For more information, see the [Managing MySQL Connections page](https://test.cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-managing-connections).
+
 ```
 FATAL: remaining connection slots are reserved for
 non-replication superuser connections
@@ -86,8 +87,6 @@ If your deployment reaches the connection limit or you are having trouble connec
 
 In the UI, on the _Settings_ tab, there is a button to `End Connections` to your deployment. Use caution, as it disrupts anything that is connected to your deployment.
 
-![End Connections UI](images/settings-end-connections.png)
-
 The CLI command to end connections to the deployment is 
 ```
 ibmcloud cdb deployment-kill-connections <deployment name or CRN>
@@ -102,46 +101,3 @@ One way to prevent exceeding the connection limit and ensure that connections fr
 Many MySQL driver libraries have connection pooling classes and functions. You need to consult your driver's documentation to implement connection pooling that is optimal for your use case. For example, the Python driver Psycopg2 has [classes to handle connection pooling in your application](http://initd.org/psycopg/docs/pool.html). The Java MySQL JDBC driver has methods for [connection pooling at both the application and application server level](https://jdbc.postgresql.org/documentation/head/datasource.html).
 
 Alternatively, you can use a third-party tool such as [PgBouncer](https://pgbouncer.github.io/) to manage your application's connections.
-
-## Raising the Connection Limit
-
-MySQL allocates some amount of memory on a per connection basis, typically around 5 - 10 MB per connection. It is important to consider the total amount of memory that is available to your deployment before increasing the connection limit. To raise the connection limit, first you might want to [scale your deployment](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling) to ensure that you have enough memory to accommodate more connections.
-
-Next, change the value of `max_connections` on your deployment. To make permanent changes to the [MySQL configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration#changing-configuration), you want to use the {{site.data.keyword.databases-for}} [cli-plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-configuration) or [API](https://{DomainName}/apidocs/cloud-databases-api#change-your-database-configuration) to write the changes to the configuration file for your deployment. 
-
-For example, to raise `max_connections` to 215, it might be a good idea to scale your deployment to at least 2 GB of RAM per data member, for a total of 4 GB of RAM for your deployment. Once the scaling operation has finishes, then set the connection limit. In the CLI,
-```
-ibmcloud cdb deployment-groups-set example-deployment member --memory 4096
-```
-{: pre}
-```
-ibmcloud cdb deployment-configuration example-deployment '{"configuration":{"max_connections":215}}'
-```
-{: pre}
-
-To make the changes through the API,
-```
-curl -X PATCH `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
--H "Authorization: Bearer $APIKEY" \
--H "Content-Type: application/json" \
--d '{"memory": {
-        "allocation_mb": 4096
-      }
-    }'
-
-curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/configuration' \
--H "Authorization: Bearer $APIKEY" \
--H "Content-Type: application/json" \
--d '{"configuration":{
-        "max_connections":215
-      }
-    }'
-```
-{: pre}
-
-
-
-
-
-
-
