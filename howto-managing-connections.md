@@ -63,24 +63,6 @@ SELECT * FROM pg_stat_activity WHERE datname='ibmclouddb';
 ```
 {: .codeblock}
 
-## Terminating Connections
-
-If you are on MySQL 9.6 and newer, your admin user has the `pg_signal_backend` role. If you find connections that need to be reset or closed, the admin user can use both [`pg_cancel_backend` and `pg_terminate_backend`](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL-TABLE). The `pid` of a process is found from the `pg_stat_activity` table.
-
-- `pg_cancel_backend` cancels a connection's current query without terminating the connection, and without stopping any other queries that it might be running.
-  ```sql
-  SELECT pg_cancel_backend(pid);
-  ```
-  {: .codeblock}
-
-- `pg_terminate_backend` stops the entire process and closes the connection. 
-  ```sql
-  SELECT pg_terminate_backend(pid);
-  ```
-  {: .codeblock}
-
-The admin user does have the power to reset or close the connections for any user on the deployment except superusers. Be careful not to terminate replication connections from the `ibm-replication` user, as it interferes with the high-availability of your deployment.
-
 ### End Connections
 
 If your deployment reaches the connection limit or you are having trouble connecting to your deployment and suspect that a high number of connections is a problem, you can disconnect (or end) all of the connections to your deployment. 
@@ -94,10 +76,4 @@ ibmcloud cdb deployment-kill-connections <deployment name or CRN>
 
 You can also use the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api#kill-connections-to-a-MySql-deployment) to perform the end all connections operation.
 
-## Connection Pooling
 
-One way to prevent exceeding the connection limit and ensure that connections from your applications are being handled efficiently is through connection pooling.
-
-Many MySQL driver libraries have connection pooling classes and functions. You need to consult your driver's documentation to implement connection pooling that is optimal for your use case. For example, the Python driver Psycopg2 has [classes to handle connection pooling in your application](http://initd.org/psycopg/docs/pool.html). The Java MySQL JDBC driver has methods for [connection pooling at both the application and application server level](https://jdbc.postgresql.org/documentation/head/datasource.html).
-
-Alternatively, you can use a third-party tool such as [PgBouncer](https://pgbouncer.github.io/) to manage your application's connections.
