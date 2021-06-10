@@ -55,6 +55,105 @@ mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4
 
 This example uses the information from your connection string and the Java driver [`jdbc`](https://dev.mysql.com/doc/connector-j/8.0/en/) to connect to your database.
 
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
+public class App {
+	/*
+	 * This class is just a simple test for connecting the database.
+	 */
+	//private final String STATUS_COMMAND = "show global variables like '%ssl%';";
+	private final String STATUS_COMMAND = "SHOW VARIABLES LIKE '%version%';";
+	
+	private Connection connect = null;
+	private Statement stmt = null;
+	private ResultSet rs = null;
+
+	private final String url = "mysql://127.0.0.1:30799";
+	private final String username = "";
+	private final String password = "";
+	private final Boolean useSSL = true;
+
+	public static void main(String args[]) throws Exception {
+		App app = new App();
+		final byte maxConnectionAttempt = 5;
+		byte currentConnectionAttempt = 0;
+
+		while (!app.connectDatabase() && currentConnectionAttempt < maxConnectionAttempt)
+			++currentConnectionAttempt;
+
+		if (currentConnectionAttempt >= maxConnectionAttempt) {
+			System.out.println(currentConnectionAttempt + " weren't successfull!");
+		} else {
+			app.printStatus();
+			app.closeConnection();
+		}
+	}
+
+	public void printStatus() {
+		try {
+			stmt = connect.createStatement();
+			rs = stmt.executeQuery(STATUS_COMMAND);
+			while (rs.next())
+				System.out.println(rs.getString(1) + ": " + rs.getString(2));
+		} catch (SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+			closeConnection();
+		}
+	}
+
+	private void closeConnection() {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+
+			if (stmt != null) {
+				stmt.close();
+			}
+
+			if (connect != null) {
+				connect.close();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Connection closed.");
+	}
+
+	public boolean connectDatabase() {
+		// https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-connect-drivermanager.html
+		try {
+			Properties props = new Properties();
+			props.setProperty("user", username);
+			props.setProperty("password", password);
+			props.setProperty("useSSL", Boolean.toString(useSSL));
+			props.setProperty("sslMode", (useSSL ? "REQUIRED" : "DISABLED"));
+			props.setProperty("requireSSL", Boolean.toString(useSSL));
+			props.setProperty("verifyServerCertificate", Boolean.toString(useSSL));
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connect = DriverManager.getConnection("jdbc:" + url, props);
+			return true;
+		} catch (SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+		} catch (ClassNotFoundException ex) {
+			System.out.println("Connector class can not be found: " + ex.getMessage());
+		}
+		return false;
+	}
+}
+```
+
 This example uses the information from your connection string and the Python driver [`pymysql`](https://pypi.org/project/PyMySQL/#documentation) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
 
 ```
@@ -77,67 +176,9 @@ connection.close()
 
 This example uses the information from your connection string and the Node driver [`MySQL Connector/Node.js`](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/) to connect to your database.
 
-Altough some of the latest MySQL 5.7 versions are partially supported, the entire feature set is only available in the latest 8.x version.
+Although some of the latest MySQL 5.7 versions are partially supported, the entire feature set is only available in the latest 8.x version.
 {: .note}
 
-```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
-import java.util.logging.*;
-
-public class PGConnect {
-
-    private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
-    private Connection connect() {
-
-        final String url = "jdbc:mysql://host:port/ibmclouddb";
-
-        Properties props = new Properties();
-        props.setProperty("user","admin");
-        props.setProperty("password","mypassword123");
-        props.setProperty("ssl","true");
-        props.setProperty("sslmode","verify-full");
-        props.setProperty("sslrootcert", "/path/to/cert");
-
-        Connection conn = null;
-        while (conn == null) {
-            try {
-                conn = DriverManager.getConnection(url, props);
-                System.out.println("Connected to PG");
-            } catch (SQLException e) {
-                System.out.printf("%s\n", e);
-                LOGGER.info("Not connected, retying ...");
-            }
-        }
-
-        return conn;
-
-    }
-
-    public static void main(String[] args) {
-
-        PGConnect icd = new PGConnect();
-
-        try {
-            Connection connection = icd.connect();
-            Statement stmt = connection.createStatement();
-
-            ResultSet rs = stmt.executeQuery("SELECT * from pg_database");
-            while (rs.next()) {
-                System.out.println("DB Name: " + rs.getString(1));
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }   
-    }
-}
-```
 {: .codeblock}
 
 ```python
