@@ -40,12 +40,6 @@ Databases For MySQL
 	/cloud-databases/cloud-databases-allowlisting
 
 	howto-migration.md
-	
-	{: .topicgroup}
-	Configuring MySQL
-		howto-extensions.md
-		howto-wal2json.md
-		howto-pgaudit.md
 
 	{: .topicgroup}
 	Tutorials
