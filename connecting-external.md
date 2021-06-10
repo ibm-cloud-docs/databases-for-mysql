@@ -55,7 +55,25 @@ mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4
 
 This example uses the information from your connection string and the Java driver [`jdbc`](https://dev.mysql.com/doc/connector-j/8.0/en/) to connect to your database.
 
-This example uses the information from your connection string and the Python driver [`MySQL Connector/Python`], a self-contained Python driver for communicating with MySQL servers (https://dev.mysql.com/doc/connector-python/en/) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
+This example uses the information from your connection string and the Python driver [`pymysql`](https://pypi.org/project/PyMySQL/#documentation) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
+
+```
+import pymysql
+connection = pymysql.connect(
+  host="hostname",
+  port=32089,
+  user="admin",
+  passwd="ginger",
+  ssl_ca="/home/user/mysql_ca.crt",
+  ssl_verify_cert=True,
+  ssl_verify_identity=True)
+cursor = connection.cursor()
+cursor.execute("SHOW STATUS;")
+for row in cursor:
+    print(row[0] + "\t" + row[1])
+cursor.close()
+connection.close()
+```
 
 This example uses the information from your connection string and the Node driver [`MySQL Connector/Node.js`](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/) to connect to your database.
 
