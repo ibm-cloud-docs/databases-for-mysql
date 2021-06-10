@@ -52,7 +52,7 @@ To connect with MySQL Workbench, refer to MySQL's [Connections in MySQL Workbenc
 
 ## Next Steps
 
-If you are using MySQL for the first time, it is a good idea to take a tour through the [official MySQL documentation](https://dev.mysql.com/doc/). 
+If you are using MySQL for the first time, it is a good idea to take a tour through the [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/). 
 
 You can connect, manage your databases, and manage data with MySQL's command-line tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
 
