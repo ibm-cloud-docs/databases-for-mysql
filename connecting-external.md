@@ -17,6 +17,7 @@ subcollection: databases-for-mysql
 {:python: .ph data-hd-programlang='python'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:pre: .pre}
+{:note: .note}
 
 # Connecting an external application
 {: #external-app}
@@ -52,12 +53,14 @@ mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4
 ```
 {: .codeblock}
 
-This example uses the information from your connection string and the Java driver [`jdbc`](https://jdbc.mysql.org/documentation/head/index.html) to connect to your database.
+This example uses the information from your connection string and the Java driver [`jdbc`](https://dev.mysql.com/doc/connector-j/8.0/en/) to connect to your database.
 
-This example uses the information from your connection string and the Python driver [`Psycopg2`](https://wiki.mysql.org/wiki/Psycopg2_Tutorial) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
+This example uses the information from your connection string and the Python driver [`MySQL Connector/Python`], a self-contained Python driver for communicating with MySQL servers (https://dev.mysql.com/doc/connector-python/en/) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
 
-This example uses the information from your connection string and the Node driver [`node-mysql`](https://node-mysql.com/) to connect to your database.
+This example uses the information from your connection string and the Node driver [`MySQL Connector/Node.js`](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/) to connect to your database.
 
+Altough some of the latest MySQL 5.7 versions are partially supported, the entire feature set is only available in the latest 8.x version.
+{: .note}
 
 ```java
 import java.sql.Connection;
