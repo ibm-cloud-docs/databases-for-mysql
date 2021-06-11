@@ -192,7 +192,7 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 
 ## Other Drivers
 
-MySQL has an array of language drivers. The table covers a few of the most common.
+MySQL has an array of language drivers. The table below covers a few of the most common. Consult MySQL's [Connectors and APIs](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html) for more information. 
 
 Language|Driver|Examples
 ----------|-----------
@@ -200,6 +200,5 @@ PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.
 Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html)
 C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/)
 Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql)
-Node|`mysqljs`|[Link](https://github.com/mysqljs/mysql)
 {: caption="Table 2. MySQL drivers" caption-side="top"}
 
