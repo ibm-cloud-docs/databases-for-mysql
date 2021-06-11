@@ -64,10 +64,6 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class App {
-	/*
-	 * This class is just a simple test for connecting the database.
-	 */
-	//private final String STATUS_COMMAND = "show global variables like '%ssl%';";
 	private final String STATUS_COMMAND = "SHOW VARIABLES LIKE '%version%';";
 	
 	private Connection connect = null;
@@ -161,88 +157,21 @@ import pymysql
 connection = pymysql.connect(
   host="hostname",
   port=32089,
-  user="admin",
-  passwd="ginger",
+  user="username",
+  passwd="password",
   ssl_ca="/home/user/mysql_ca.crt",
   ssl_verify_cert=True,
   ssl_verify_identity=True)
+  
 cursor = connection.cursor()
 cursor.execute("SHOW STATUS;")
+
 for row in cursor:
     print(row[0] + "\t" + row[1])
+    
 cursor.close()
 connection.close()
 ```
-
-This example uses the information from your connection string and the Node driver [`MySQL Connector/Node.js`](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/) to connect to your database.
-
-Although some of the latest MySQL 5.7 versions are partially supported, the entire feature set is only available in the latest 8.x version.
-{: .note}
-
-{: .codeblock}
-
-```python
-import psycopg2
-
-try:
-  conn = psycopg2.connect(
-    host="hostname.databases.appdomain.cloud",
-    port= 31525,
-    user="username",
-    password="password",
-    sslmode="verify-full",
-    sslrootcert="/path/to/cert/ca-certificate.crt",
-    database="ibmclouddb")
-except: 
-  print("Unable to connect to database")
-
-cur = conn.cursor()
-cur.execute("SELECT datname FROM pg_database")
-rows = cur.fetchall()
-
-print("List of databases:")
-for row in rows:
-    print("  ",row[0])
-```
-{: .codeblock}
-
-```java
-const pg = require("pg");
-const fs = require("fs");
-
-let connectionString = "mysql://<username>:<password>@<host>:<port>/<database>?sslmode=verify-full";
-let caCert = fs.readFileSync('/path/to/cert');
-
-// set up a client with your MySQL connection string
-let client = new pg.Client({ connectionString: connectionString,
-    // set up the TLS options
-    ssl: {
-        ca: caCert,
-        rejectUnauthorized: true
-    }
- });
-
- client.connect(function(err) {
-    if (err) {
-        console.log(err);
-        process.exit(1);
-    } else {
-        // query for the names of the databases
-        client.query(
-            "SELECT datname FROM pg_database;",
-            function(err, result) {
-                if (err) {
-                    console.log(err);
-                }
-                // return the names of the databases
-                console.log(result.rows);
-                client.end();
-            }
-        );
-    }
-});
-```
-{: .codeblock}
 
 ## Driver TLS and self-signed certificate support
 
