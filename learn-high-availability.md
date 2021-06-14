@@ -33,12 +33,12 @@ Because {{site.data.keyword.databases-for-mysql}} is a managed service, regular 
 
 Your applications have to be designed to handle temporary interruptions to the database, implement error handling for failed database commands, and implement retry logic to recover from a temporary interruption.
 
-Several minutes of database unavailability or connection interruption are not expected. Open a [support case](https://cloud.ibm.com/unifiedsupport/cases/add) with details if you have time periods longer than a minute with no connectivity so we can investigate.
+Several minutes of database unavailability or connection interruption are not expected. If you have time periods longer than a minute with no connectivity, open a [support case](https://cloud.ibm.com/unifiedsupport/cases/add) with details so we can investigate.
 
 ## Connection Limits
 {: #connection-limits-ha}
 
-{{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. After the connection limit has been reached, any attempts at starting a new connection results in an error. To prevent overwhelming your deployment with connections, use connection pooling, or scale your deployment and increase its connection limit. For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-connections) page.
+{{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. After the connection limit has been reached, any attempts at starting a new connection will result in an error. To prevent overwhelming your deployment with connections, use connection pooling or scale your deployment and increase its connection limit. For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-connections) page.
 
 ## High availability, disaster recovery, and SLA resources
 
