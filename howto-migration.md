@@ -34,7 +34,7 @@ mysqldump -h sl-eu-lon-2-portal.4.dblayer.com -p 17980 -d compose -U admin -f du
 
 The `mysql` command has many options; you should [consult the official documentation](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax) and [command reference](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary) for a fuller view of its capabilities.
 
-## Restoring pg_dump's output
+## Restoring mysqldump's output
 
 The resulting output of `mysqldump` can then be uploaded into a new {{site.data.keyword.databases-for-mysql}} deployment. As the output is SQL, it can simply be sent to the database through the `mysql` command. We recommend that imports be performed with the admin user. 
 
