@@ -21,9 +21,32 @@ subcollection: databases-for-mysql
 # Managing Users, Roles, and Privileges 
 {: #user-management}
 
-MySQL uses a system of roles to manage database permissions. Roles are used to give a single user or a group of users a set of privileges. You can determine roles, groups, and privileges for all roles across your deployment by using the `mysql` command `\du`.
+MySQL uses a system of roles to manage database permissions. Roles are used to give a single user or a group of users a set of privileges. See below for a list of available users:
 
-![Table Results from \du command](images/user_management_du.png)
+```
+mysql> SELECT user FROM user;
++-----------------+
+| user            |
++-----------------+
+| admin           |
+| ibm-monitor     |
+| ibm-replication |
+| ibm             |
+| ibm-backup      |
+| mysql.session   |
+| mysql.sys       |
++-----------------+
+```
+
+The users below are maintained by {{site.data.keyword.cloud_notm}} and shouldn't be altered or deleted by you:
+
+```
+
+| ibm-monitor     |
+| ibm-replication |
+| ibm             |
+| ibm-backup      |
+```
 
 When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL.
 
@@ -32,37 +55,6 @@ When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are
 When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), you can use it to connect to your deployment.
 
 When admin creates a resource in a database, like a table, admin owns that object. Resources that are created by admin are not accessible by other users, unless you expressly grant permissions to them.
-
-The biggest difference between the admin user and any other users you add to your deployment is the [`pg_monitor`](https://www.postgresql.org/docs/current/default-roles.html) and [`pg_signal_backend`](https://www.postgresql.org/docs/current/default-roles.html) roles. The `pg_monitor` role provides a set of permissions that makes the admin user appropriate for monitoring the database server. The `pg_signal_backend` role provides the admin user the ability to send signals to cancel queries and connections initiated by other users. It does not provide the ability to send signals to processes owned by superusers.
-
-`pg_monitor` is only available in MySQL 10 and above. `pg_signal_backend` is only available in MySQL 9.6 and above.
-{: .tip} 
-
-You can also use the admin user to grant these two roles to other users on your deployment.
-
-If you want to expose the ability to cancel queries to other database users, you can grant the `pg_signal_backend` role from the admin user. For example, 
-```sql
-GRANT pg_signal_backend TO joe;
-```
-{: .codeblock}
-
-to allow the user `joe` to cancel backends. You can also grant `pg_signal_backend` to all the users with the `ibm-cloud-base-user` role with 
-```sql
-GRANT pg_signal_backend TO "ibm-cloud-base-user";
-``` 
-{: .codeblock}
-Be aware this privilege allows the user or users to terminate any connections to the database, so assign it with care.
-
-Similarly, if you want to setup a specific monitoring user, `mary`, you can use
-```
-GRANT pg_monitor TO mary;
-```
-{: .codeblock}
-You can also grant `pg_signal_backend` to all the users with the `ibm-cloud-base-user` role with 
-```sql
-GRANT pg_monitor TO "ibm-cloud-base-user";
-```
-{: .codeblock}
 
 ## _Service Credential_ Users
 
@@ -78,13 +70,9 @@ When a user creates a resource in a database, like a table, all users that are i
 
 Users that are created directly from the API and CLI do not appear in _Service Credentials_, but you can [add them](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#adding-users-to-_service-credentials_) if you choose.
 
-## The read-only user
-
-The `ibm-cloud-base-user-ro` manages privileges for users that are created to access read-only replicas. More information can be found on the [Configuring Read-only Replicas](/docs/databases-for-mysql?topic=databases-for-mysql-read-only-replicas) page.
-
 ## The `repl` user
 
-The `repl` user has Replication privileges and is used if you enable the [`wal2json` plugin](/docs/databases-for-mysql?topic=databases-for-mysql-wal2json) on your deployment. In the process of enabling `wal2json`, you set the `repl` user's password, which allows the `wal2json` plugin to use it.
+The `repl` user has Replication privileges. Each replica connects to the source using a MySQL user name and password, so there must be a user account on the source that the replica can use to connect. For more information, consult MySQL's documentation on [Creating a User for Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-howto-repuser.html).
 
 ## Other `ibm` Users
 
