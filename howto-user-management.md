@@ -21,7 +21,7 @@ subcollection: databases-for-mysql
 # Managing Users, Roles, and Privileges 
 {: #user-management}
 
-MySQL uses a system of roles to manage database permissions. Roles are used to give a single user or a group of users a set of privileges. See below for a list of available users:
+MySQL 5.7 uses a system of roles to manage database permissions. You are able to create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/). Users created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges it has, including the privilege to create new users.
 
 ```
 mysql> SELECT user FROM user;
@@ -54,7 +54,7 @@ When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are
 
 When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), you can use it to connect to your deployment.
 
-When admin creates a resource in a database, like a table, admin owns that object. Resources that are created by admin are not accessible by other users, unless you expressly grant permissions to them.
+When admin creates a resource in a database, like a table, admin owns that object. Users created from the UI have permissions to `*.*`, which means that any newly created user is able to see any database automatically. Use MySQL shell, or modify permissions of a UI-created user to restrict access. To limit permissions, remove global privileges, if enabled, and grant privileges to a database, or database set, to which a given user is expected to have access. 
 
 ## _Service Credential_ Users
 
