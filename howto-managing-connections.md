@@ -45,24 +45,6 @@ non-replication superuser connections
 ```
 Exceeding the connection limit for your deployment can cause your database to be unreachable by your applications.
 
-You can check the number of connections to your deployment with the admin user, `mysql`, and `pg_stat_database`.
-```sql
-SELECT count(distinct(numbackends)) FROM pg_stat_database;
-```
-{: .codeblock}
-
-If you need to figure out where the connections are going, you can break down the connections by database.
-```sql
-SELECT datname, numbackends FROM pg_stat_database;
-```
-{: .codeblock}
-
-To further investigate connections to a specific database, query `pg_stat_activity`.
-```sql
-SELECT * FROM pg_stat_activity WHERE datname='ibmclouddb';
-```
-{: .codeblock}
-
 ### End Connections
 
 If your deployment reaches the connection limit or you are having trouble connecting to your deployment and suspect that a high number of connections is a problem, you can disconnect (or end) all of the connections to your deployment. 
