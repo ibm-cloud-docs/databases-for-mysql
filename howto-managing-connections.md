@@ -32,9 +32,6 @@ ibmclouddb=> SHOW max_connections;
 ```
 {: .codeblock}
 
-Many of the queries rely on the admin user's role as `pg_monitor`, which is only available in MySQL 10 and newer. Users on MySQL 9.x, might not have permissions to run all of the queries in these docs.
-{: .tip}
-
 ## MySQL Connection Limits 
 
 At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. After the connection limit has been reached, any attempts at starting a new connection results in an error. To prevent overwhelming your deployment with connections, use connection pooling, or scale your deployment and increase its connection limit. For more information, see the [Managing MySQL Connections page](https://test.cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-managing-connections).
