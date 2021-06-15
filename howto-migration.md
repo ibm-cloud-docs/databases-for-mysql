@@ -38,12 +38,7 @@ The `mysql` command has many options; you should [consult the official documenta
 
 The resulting output of `mysqldump` can then be uploaded into a new {{site.data.keyword.databases-for-mysql}} deployment. As the output is SQL, it can simply be sent to the database through the `mysql` command. We recommend that imports be performed with the admin user. 
 
-See the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) for details on how to connect as admin using `mysql`. To connect with the `mysql` command, you need the admin user's connection string and the TLS certificate. The certificate needs to be decoded from the base64 and stored as an arbitrary local file. To import the previously created `dump.sql` into a database deployment named `example-mysql`, the `mysql` command can be called with `-f dump.sql` as a parameter. The parameter tells `mysql` to read and execute the SQL statements in the file. The command looks something like:
-
-```shell
-PGPASSWORD=yourpasswordhere PGSSLROOTCERT=cert.crt psql 'host=c7798cf6-e5d2-4513-b17f-3d3fa67d8291.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32484 dbname=ibmclouddb user=admin sslmode=verify-full' -f dump.sql
-```
-{: pre}
+See the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) for details on how to connect as admin using `mysql`. To connect with the `mysql` command, you need the admin user's connection string and the TLS certificate. The certificate needs to be decoded from the base64 and stored as an arbitrary local file. To import the previously created `dump.sql` into a database deployment named `example-mysql`, the `mysql` command can be called with `-f dump.sql` as a parameter. The parameter tells `mysql` to read and execute the SQL statements in the file. 
 
 As noted in that [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) documentation, the {{site.data.keyword.databases-for}} CLI plug-in simplifies connecting. The previous `mysql` import can be performed as:
 
