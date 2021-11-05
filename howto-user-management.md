@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-09-17"
 
 keywords: admin, superuser, roles, service credentials
 
@@ -16,15 +16,27 @@ subcollection: databases-for-mysql
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:important: .important}
 
 
 # Managing Users, Roles, and Privileges 
 {: #user-management}
 
-MySQL 5.7 uses a system of roles to manage database permissions. You are able to create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/). Users created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges it has, including the privilege to create new users.
+MySQL 5.7 uses a system of roles to manage database permissions. You are able to create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges it has, including the privilege to create new users.
 
 ```
-mysql> SELECT user FROM user;
+mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
++-----------------------------+
+| GRANTEE                     |
++-----------------------------+
+| 'ibm'@'localhost'           |
+| 'mysql.session'@'localhost' |
+| 'mysql.sys'@'localhost'     |
+| 'ibm-backup'@'localhost'    |
+| 'admin'@'%'                 |
+| 'ibm-replication'@'%'       |
+| 'ibm-monitor'@'%'           |
++-----------------------------+
 +-----------------+
 | user            |
 +-----------------+
@@ -50,47 +62,43 @@ The users below are maintained by {{site.data.keyword.cloud_notm}} and shouldn't
 
 When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL.
 
+## User management commands
+
+For security reasons, we recommend that you do not run DML (Data Manipulation Language) queries on the `mysql.user` table. To protect against altering the `mysql.user` table, you should use DML queries to manage users.
+
+You should manage users using commands such as `CREATE USER`, `ALTER USER`, `RENAME USER`, and `DROP USER`.
+
+A list of users with their hosts information, but without auth information and password hashes, can be extracted by running the following command:
+```
+mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
+```
+{: pre}
+
 ## The `admin` user
 
 When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), you can use it to connect to your deployment.
 
 When admin creates a resource in a database, like a table, admin owns that object. Users created from the UI have permissions to `*.*`, which means that any newly created user is able to see any database automatically. Use MySQL shell, or modify permissions of a UI-created user to restrict access. To limit permissions, remove global privileges, if enabled, and grant privileges to a database, or database set, to which a given user is expected to have access. 
 
-## _Service Credential_ Users
-
-Users that you [create through the _Service Credentials_ panel](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#creating-users-in-_service-credentials_) are members of `ibm-cloud-base-user`. They are able to log in, create users, and create databases.
-
-When a user in a group creates a resource in a database, like a table, all users in the same group have access to that resource.  Resources created by any user in `ibm-cloud-base-user` are accessible to other users in `ibm-cloud-base-user`, including the admin user.
-
-## Users created through the CLI and the API
-
-Users created through the Cloud Databases API and the Cloud Databases CLI will also be members of `ibm-cloud-base-user`. They are able to log in, create users, and create databases.
-
-When a user creates a resource in a database, like a table, all users that are in the same group have access to that resource.  Resources created by any of the users in `ibm-cloud-base-user` are accessible to other users in `ibm-cloud-base-user`, including the admin user.
-
-Users that are created directly from the API and CLI do not appear in _Service Credentials_, but you can [add them](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#adding-users-to-_service-credentials_) if you choose.
-
-## The `repl` user
-
-The `repl` user has Replication privileges. Each replica connects to the source using a MySQL user name and password, so there must be a user account on the source that the replica can use to connect. For more information, consult MySQL's documentation on [Creating a User for Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-howto-repuser.html).
-
 ## Other `ibm` Users
-
-If you run the `\du` command with your admin account, you might notice users that are named `ibm`,  `ibm-cloud-base-user`, and `ibm-replication`.
-
-The `ibm-cloud-base-user` is used as a template to manage group roles for other users. It is used to manage the users created through the CLI and API as well as enable the integration with the _Service Credentials_ user creation on IBM Cloud. A user that is a member of `ibm-cloud-base-user` inherits the create role and create database attributes from `ibm-cloud-base-user`. The `ibm-cloud-base-user` is not able to log in.
 
 The `ibm` and the `ibm-replication` accounts are the only superusers on your deployment. A superuser account is not available for you to use. These users are internal administrative accounts that manage replication, metrics, and other functions that ensure the stability of your deployment.
 
 ## Users created with `mysql`
 
-You can bypass creating users through IBM Cloud entirely, and create users directly in MySQL with `mysql`. This allows you to make use of MySQL's native [role and user management](https://www.postgresql.org/docs/current/database-roles.html). Users/roles created in `mysql` have to have all of their privileges set manually, as well as privileges to the objects that they create.
+You can bypass creating users through {{site.data.keyword.cloud_notm}} entirely, and create users directly in MySQL with `mysql`. This allows you to make use of MySQL's native [role and user management](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users/roles created in `mysql` have to have all of their privileges set manually, as well as privileges to the objects that they create.
 
 Users that are created directly in MySQL do not appear in _Service Credentials_, but you can [add them](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings#adding-users-to-_service-credentials_) if you choose. 
 
 Note that these users are not integrated with IAM controls, even if added to _Service Credentials_.
 {: .tip}
 
+## User access to tables
+
+While you cannot delete `mysql database`, users can drop tables, including the `mysql.users` table that contains internal users. Clients shouldn't delete any table belonging to `mysql database` as this action can result in a broken formation, which can only be resolved with a Point-in-time recovery (PITR).  
+
+{{site.data.keyword.cloud_notm}} will not alert on formation breaking because of a system table dropped by a client.
+{: .important}
 
 ## Additional Users and Connection Strings
 {: #creating_users}

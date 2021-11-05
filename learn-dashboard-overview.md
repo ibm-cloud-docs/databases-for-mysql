@@ -20,7 +20,7 @@ subcollection: databases-for-mysql
 # The UI - Dashboard Overview
 {: #dashboard-overview}
 
-This _Overview_ page provides information about your {{site.data.keyword.databases-for-mysql_full}} deployment, includng essential identifying information.
+The _Overview_ page shows you information about your {{site.data.keyword.databases-for-mysql_full}} deployment. The overview includes essential identifying information.
 ## Overview
 ### Type
 The type of database that is offered by the service and the database version that your service uses.

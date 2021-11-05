@@ -29,16 +29,26 @@ subcollection: databases-for-mysql
 
 Applications that communicate over networks and cloud services are subject to transient connection failures. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}.
 
+There are multiple possible reasons your database might experience downtime, including: 
+- network outages
+- In semisync replication, the replica only acknowledges that the transaction has been copied to the relay log, but not when it's applied. It doesn't address "eventual consistency" problems.
+- Binlog purge on the leader before the logs have been copied over to the follower
+- Storage and volume-related issues
+- High CPU usage
+- High disk I/O
+- Connection overloads
+- Node / pod affinity
+
 Because {{site.data.keyword.databases-for-mysql}} is a managed service, regular updates and database maintenance occurs as part of normal operations. This can occasionally cause short intervals where your database is unavailable. It can also cause the database to trigger a graceful fail-over, retry, and reconnect. It takes a short time for the database to determine which member is a replica and which is the leader, so you might also see a short connection interruption. Failovers generally take less than 30 seconds.
 
 Your applications have to be designed to handle temporary interruptions to the database, implement error handling for failed database commands, and implement retry logic to recover from a temporary interruption.
 
-Several minutes of database unavailability or connection interruption are not expected. If you have time periods longer than a minute with no connectivity, open a [support case](https://cloud.ibm.com/unifiedsupport/cases/add) with details so we can investigate.
+Several minutes of database unavailability or connection interruption are not expected. Open a [support case](https://cloud.ibm.com/unifiedsupport/cases/add) with details if you have time periods longer than a minute with no connectivity so we can investigate.
 
 ## Connection Limits
 {: #connection-limits-ha}
 
-{{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. After the connection limit has been reached, any attempts at starting a new connection will result in an error. To prevent overwhelming your deployment with connections, use connection pooling or scale your deployment and increase its connection limit. For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-connections) page.
+{{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. After the connection limit has been reached, any attempts at starting a new connection results in an error. To prevent overwhelming your deployment with connections, use connection pooling, or scale your deployment and increase its connection limit. For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-connections) page.
 
 ## High availability, disaster recovery, and SLA resources
 

@@ -1,0 +1,89 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: databases-for-mysql
+    version: 2
+    category: database
+    audience: service
+    allowlist-id: databases-for-mysql
+    href: /docs/databases-for-mysql?topic=databases-for-mysql-getting-started
+    console-page: /catalog/services/databases-for-mysql
+    path: databases-for-mysql
+    label: Databases For MySQL
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      - getting-started.md
+      - link:
+          label: What is MySQL?
+          href: https://www.ibm.com/cloud/learn/databases-for-mysql
+      - learn-dashboard-overview.md
+      - learn-high-availability.md
+      - learn-performance.md
+      - learn-security-compliance.md
+      - learn-pricing.md
+  - navgroup: 
+      id: howto
+      topics:
+      - howto-provisioning.md
+      - howto-admin-password.md
+      - howto-getting-connection-strings.md
+      - howto-deprovisioning.md
+      - ha-dr.md
+      - topicgroup: 
+          label: Connecting to Databases for MySQL
+          topics: 
+          - connecting-external.md
+          - connecting-ibmcloud-app.md
+          - connecting-mysql.md
+      - howto-user-management.md
+      - topicgroup: 
+          label: Managing Resources
+          topics: 
+          - howto-resources-scaling.md
+          - howto-autoscale-mysql.md
+          - howto-managing-connections.md
+      - howto-manage-backups.md
+      - howto-allowlists.md
+      - howto-migration.md
+      - topicgroup: 
+          label: Configuring MySQL
+          topics: 
+          - howto-changing-config.md
+      - topicgroup: 
+          label: Tutorials
+          topics: 
+          - k8-tutorial.md
+          - cf-tutorial.md
+      - topicgroup: 
+          label: Enhancing security
+          topics: 
+          - manage-scc.md
+  - navgroup: 
+      id: help
+      topics:
+      - ts-connect.md
+  - navgroup: 
+      id: reference
+      topics:
+      - cloud-databases-cli.md
+      - link:
+          label: Cloud Databases API
+          href: https://cloud.ibm.com/apidocs/cloud-databases-api
+      - db-version-policy.md
+      - topicgroup: 
+          label: Connecting over Private Networks
+          topics: 
+          - howto-vpes.md
+          - reference-service-endpoints.md
+      - reference-monitoring.md
+      - reference-activity-tracker.md
+      - reference-logging.md
+      - reference-iam.md
+      - reference-key-protect.md
+      - reference-hpcs.md
+      - reference-responsibilities.md

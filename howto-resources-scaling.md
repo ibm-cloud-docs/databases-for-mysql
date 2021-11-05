@@ -64,7 +64,7 @@ You can enable or increase the CPU allocation to the deployment. With dedicated 
 
 A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. 
 
-![The Scale Resources Panel in _Resources_](images/scaling-update.png)
+![The Scale Resources Panel in _Resources_](images/settings-scaling-mysql.png)
 
 Adjust the slider to increase or decrease the resources allocated to your service. The slider controls how much memory or disk is allocated per member. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
 

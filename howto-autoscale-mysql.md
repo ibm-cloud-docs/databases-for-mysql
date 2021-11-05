@@ -19,7 +19,7 @@ subcollection: databases-for-mysql
 
 
 # Autoscaling
-{: #autoscaling}
+{: #autoscaling-mysql}
 
 Autoscaling is designed to respond to the short-to-medium term trends in resource usage on your {{site.data.keyword.databases-for-mysql_full}} deployment. When enabled, your deployment is checked at the interval you specify. If it is running short on resources, more resources are added to the deployment. To keep an eye on your resources, use the [{{site.data.keyword.monitoringfull}} integration](/docs/databases-for-mysql?topic=databases-for-mysql-monitoring), which provides metrics for memory, disk space, and disk I/O utilization.
 
@@ -31,7 +31,7 @@ You can set your deployment to autoscale disk, RAM, or both.
 - How often to scale, measured either in seconds, minutes, or hours
 - A hard limit on scaling, your deployment stops scaling at the limit
 
-![Example Autoscaling panel](images/autoscaling-update.png)
+![Example Autoscaling panel](images/autoscaling-panel.png)
 
 Memory - Memory autoscaling is based on Disk I/O utilization in order to provide more memory for disk caching as your read/write load increases. The benefit is that additional memory might alleviate pressure on disk I/O by supporting more caching. Autoscaling configurations based on memory usage are currently not available. 
 
@@ -50,9 +50,9 @@ The resource numbers refer to each database member in a deployment. For example,
 - Autoscaling operations are logged in [{{site.data.keyword.at_full}}](/docs/databases-for-mysql?topic=cloud-databases-activity-tracker).
 
 - Limits
-  - can't set anything to scale in an interval less than 60 seconds.
-  - Maximum Disk = 3 TB per member
-  - Maximum RAM = 112 GB per member
+   - can't set anything to scale in an interval less than 60 seconds.
+   - Maximum Disk = 3 TB per member
+   - Maximum RAM = 112 GB per member
 
 - Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk can not be scaled down.
 
