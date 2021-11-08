@@ -18,6 +18,7 @@ toc:
       id: learn
       topics:
       - getting-started.md
+      - /cloud-databases/cloud-databases-best-practices
       - link:
           label: What is MySQL?
           href: https://www.ibm.com/cloud/learn/databases-for-mysql
@@ -29,10 +30,11 @@ toc:
   - navgroup: 
       id: howto
       topics:
-      - howto-provisioning.md
+      - /cloud-databases/cloud-databases-provisioning
       - howto-admin-password.md
       - howto-getting-connection-strings.md
-      - howto-deprovisioning.md
+      - /cloud-databases/cloud-databases-ha-dr
+      - /cloud-databases/cloud-databases-deprovisioning
       - ha-dr.md
       - topicgroup: 
           label: Connecting to Databases for MySQL
@@ -48,7 +50,7 @@ toc:
           - howto-autoscale-mysql.md
           - howto-managing-connections.md
       - howto-manage-backups.md
-      - howto-allowlists.md
+      - /cloud-databases/cloud-databases-allowlisting
       - howto-migration.md
       - topicgroup: 
           label: Configuring MySQL
@@ -57,12 +59,12 @@ toc:
       - topicgroup: 
           label: Tutorials
           topics: 
-          - k8-tutorial.md
-          - cf-tutorial.md
+          - /cloud-databases/cloud-databases-tutorial-k8s-app
+          - /cloud-databases/cloud-databases-tutorial-cf-app
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - manage-scc.md
+          - /cloud-databases/cloud-databases-manage-security-compliance
   - navgroup: 
       id: help
       topics:
@@ -70,20 +72,20 @@ toc:
   - navgroup: 
       id: reference
       topics:
-      - cloud-databases-cli.md
+      - /databases-cli-plugin/databases-cli-plugin-cdb-reference
       - link:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
-      - db-version-policy.md
+      - /cloud-databases/cloud-databases-versioning-policy
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
-          - howto-vpes.md
-          - reference-service-endpoints.md
+          - /cloud-databases/cloud-databases-vpes
+          - /cloud-databases/cloud-databases-service-endpoints
       - reference-monitoring.md
-      - reference-activity-tracker.md
-      - reference-logging.md
-      - reference-iam.md
-      - reference-key-protect.md
-      - reference-hpcs.md
-      - reference-responsibilities.md
+      - /cloud-databases/cloud-databases-activity-tracker
+      - /cloud-databases/cloud-databases-logging
+      - /cloud-databases/cloud-databases-iam
+      - /cloud-databases/cloud-databases-key-protect
+      - /cloud-databases/cloud-databases-hpcs
+      - /cloud-databases/cloud-databases-responsibilities-cloud-databases
