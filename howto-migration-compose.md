@@ -9,7 +9,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -44,7 +44,7 @@ If you use allowlists to limit connections to your Compose deployment, you need 
 
 ## Setting Up on IBM Cloud
 
-First, if you don't already have one, you need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: new_window}. 
+First, if you don't already have one, you need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}. 
 
 You are going to provision a {{site.data.keyword.databases-for-mysql}} read-only replica by using either the Resource Controller API or CLI. Using the CLI is a little easier, so you can also install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started). If you install the CLI from the cURL command that is provided, you get a selection of extra plug-ins and extensions for multiple IDEs. You can install just the stand-alone package from the [Installing the stand-alone IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) page. 
 

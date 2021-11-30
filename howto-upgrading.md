@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-11-30"
 
 keyowrds: MySql, databases, upgrading, major versions, changing versions
 
@@ -9,7 +9,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -114,6 +114,5 @@ curl -X POST \
 
 ## Changelog for Major MySQL Versions
 
-- [MySQL 10](https://www.postgresql.org/docs/10/release-10.html)
-- [MySQL 11](https://www.postgresql.org/docs/11/release-11.html)
-- [MySQL 12](https://www.postgresql.org/docs/current/release-12.html)
+- [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/)
+- [MySQL 8.0](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)

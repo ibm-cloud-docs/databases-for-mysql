@@ -10,7 +10,7 @@ keywords: allowlist, ip addresses, blocklist, whitelist
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}

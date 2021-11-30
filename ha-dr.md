@@ -10,7 +10,7 @@ keywords: HA for cloud-databases, DR for cloud-databases, high availability for 
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}

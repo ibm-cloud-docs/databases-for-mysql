@@ -9,7 +9,7 @@ keywords: pDNS, private endpoints, private networking, vpe, virtual private endp
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -33,7 +33,7 @@ Virtual Private Endpoints (VPEs) are generally available in all regions.
 {: .note}
 ### Before you begin
 
-- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: new_window}.
+- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - And an {{site.data.keyword.databases-for}} deployment. You can [provision](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-provisioning) one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/). Give your deployment a memorable name that appears in your account's Resource List.
 
 ### Setting up your VPE

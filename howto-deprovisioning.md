@@ -11,7 +11,7 @@ keywords: deprovision cloud databases, databases with terraform, deprovisioning 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:external .external}
 {:codeblock: .codeblock}
 {:pre: .pre}

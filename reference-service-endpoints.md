@@ -9,7 +9,7 @@ keywords: service endpoints, private endpoints, private networking, vpe, virtual
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
