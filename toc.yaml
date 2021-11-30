@@ -46,6 +46,7 @@ toc:
           - howto-autoscale-mysql.md
           - howto-managing-connections.md
       - howto-manage-backups.md
+      - howto-read-replica.md
       - /cloud-databases/cloud-databases-allowlisting
       - howto-migration.md
       - topicgroup: 
