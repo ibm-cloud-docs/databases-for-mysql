@@ -28,12 +28,12 @@ You can find available versions of MySQL in the [{{site.data.keyword.databases-f
 ## Backup and Restore Upgrade
 {: #upgrading-backup-restore}
 
-One way to upgrade your database version is to [restore a backup](/docs/databases-for-mysql?topic=cloud-databases-dashboard-backups#restoring-a-backup) of your data into a new deployment that is running the new database version.
+One way to upgrade your database version is to [restore a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups#restore-backup) of your data into a new deployment that is running the new database version.
 
 ### Upgrading in the UI
 {: #upgrading-ui}
 
-You can upgrade to a new version when [restoring a backup](/docs/databases-for-mysql?topic=cloud-databases-dashboard-backups#restoring-a-backup) from the _Backups_ menu of your _Deployment dashboard_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
+You can upgrade to a new version when [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups#restore-backup) from the _Backups_ menu of your _Deployment dashboard_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
 
 ### Upgrading through the CLI
 {: #upgrading-cli}
