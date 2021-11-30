@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-17"
+lastupdated: "2021-11-30"
 
 keywords: mysql workbench, mysql gui
 
@@ -36,6 +36,7 @@ Customers only need to connect to a single database endpoint and IBM manages the
 This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. To get started, you will want to create a connection to [MySQL Workbench](https://www.mysql.com/products/workbench/), an open-source administration platform for MySQL that provides many tools for managing your data and databases. [Download and install](https://dev.mysql.com/downloads/workbench/) the version that is appropriate to your environment and then consult MySQL's [documentation](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html) to connect and manage your {{site.data.keyword.databases-for-mysql}} deployment.
 
 ## Before you begin
+{: #mysql-begin}
 
 - You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - You need a {{site.data.keyword.databases-for-mysql}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/databases-for-mysql). Give your deployment a memorable name that appears in your account's Resource List.
@@ -44,6 +45,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 - Review the [`Getting to production`](/docs/allowlist/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-mysql_full}} deployment.
 
 ## Connecting to your database with the CLI
+{: #mysql-connect-db-cli}
 
 There are two main documentation locations that reference the appropriate commands to connect to your database from the CLI:
 - The [Cloud Databases CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
@@ -59,10 +61,12 @@ ibmcloud cdb deployment-connections example-mysql --start
 The command prompts for the admin password and then runs the `mysql` command line client to connect to the database. If you haven't installed the cloud databases plug-in, review the [Connecting with mysql documentation](/docs/allowlist/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) for more detailed connection information.
 
 ## Connecting with MySQL Workbench
+{: #mysql-connect-db-workbench}
 
 To connect with MySQL Workbench, refer to MySQL's [Connections in MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html) documentation.
 
 ## Next Steps
+{: #mysql-next-steps}
 
 If you are using MySQL for the first time, it is a good idea to take a tour through the [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/). 
 
@@ -77,5 +81,3 @@ If you are planning to use {{site.data.keyword.databases-for-mysql}} for your ap
 Also, to ensure the stability of your applications and your database, check out the pages on: 
 - [High-Availability](/docs/allowlist/databases-for-mysql?topic=databases-for-mysql-high-availability)
 - [Performance](/docs/allowlist/databases-for-mysql?topic=databases-for-mysql-performance)
-
-
