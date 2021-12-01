@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-12-01"
 
 keywords: mysql, databases, config
 
@@ -81,8 +81,14 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 - Allowable values: `sha256_password`, `mysql_native_password`
 - Restarts database? - **false**
 
+[`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html)
+
+- Default - `16777216`
+- Minimum - `1024`
+- Maximum - `1073741824`
+- Restarts database? - **false**
+
 [`sql_mode`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html)
 
-- Default - `___`
-- Allowable values: `___`, `___`
-- Restarts database? - **___**
+- Allowable values: `ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,`, `ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION`
+- Restarts database? - **false**
