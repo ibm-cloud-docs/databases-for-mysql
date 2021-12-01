@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-11-30"
+lastupdated: "2021-12-01"
 
 keyowrds: MySql, databases, upgrading, major versions, changing versions
 
@@ -117,9 +117,3 @@ curl -X POST \
 }' \
 ```
 {: pre}
-
-## Changelog for Major MySQL Versions
-{: #upgrading-changelog}
-
-- [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/)
-- [MySQL 8.0](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)
