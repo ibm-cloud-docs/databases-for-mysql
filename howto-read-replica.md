@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-30"
+lastupdated: "2021-12-01"
 
 keywords: mysql, databases, read-only replica, resync, promote, cross-region replication
 
@@ -22,7 +22,7 @@ subcollection: databases-for-mysql
 
 You can set up your {{site.data.keyword.databases-for-mysql_full}} deployment to be a read-only replica of another {{site.data.keyword.databases-for-mysql}} deployment. 
 
-A read-only replica is set up to replicate all your data from the leader deployment to the replica deployment using asynchronous replication. As the name implies, read-only replicas support read transactions and can be used to balance databases that have both write-heavy and read-heavy operations. The read-only replica has a single MySQL data member, and it is billed at the [same per member consumption rates as the leader](https://{DomainName}/catalog/services/databases-for-mysql/).
+A read-only replica is set up to replicate all your data from the leader deployment to the replica deployment using asynchronous replication. As the name implies, read-only replicas support read transactions and can be used to balance databases that have both write-heavy and read-heavy operations. You can also use read replica promotion for data recovery if the source database instance fails. The read-only replica has a single MySQL data member, and it is billed at the [same per member consumption rates as the leader](https://{DomainName}/catalog/services/databases-for-mysql/).
 
 ## Read-only Replica Considerations
 {: #read-only-replicas-consider}
@@ -39,7 +39,7 @@ A read-only replica is set up to replicate all your data from the leader deploym
 
 - The read-only replica does not participate in leader->follower elections for the leader cluster and failover to the read-only replica is not automated. Promotion of the read-only replica to a full deployment is a manual, user-initiated task.
 
-- The minimum size of a read-only replica is 2 GB RAM and 10 GB of disk. This is true even if your leader deployment is smaller.
+- The minimum size of a read-only replica is 2 GB RAM and 20 GB of disk. This is true even if your leader deployment is smaller.
 
 - Read-only replicas do not auto-scale to match the leader. If the amount of data you store outgrows the disk that is allocated to your deployments, scale the disk on the read-only replicas and then the leader. Scaling the read-only replica first ensures that you do not run out of space on the read-only replicas. If you scaled the leader's disk for performance and not for space, it is not necessary to scale the read-only replicas.
 
@@ -100,7 +100,7 @@ curl -X POST \
 ```
 {: pre}
 
-For both the CLI and API commands, you must specify both the RAM and disk amounts, keeping in mind the minimum size is 2 GB RAM and 10 GB disk. You can optionally specify whether the read-only replica uses public or private endpoints. You are not able to specify a version for the read-only replica. The version is automatically set to the same major version as the leader deployment.
+For both the CLI and API commands, you must specify both the RAM and disk amounts, keeping in mind the minimum size is 2 GB RAM and 20 GB disk. You can optionally specify whether the read-only replica uses public or private endpoints. You are not able to specify a version for the read-only replica. The version is automatically set to the same major version as the leader deployment.
 
 ## The Read-only Replica
 {: #read-only-replica}
@@ -119,6 +119,17 @@ You can check the replication status of a read-only replica with `mysql`, but on
 ```shell
 mysql> SHOW REPLICA STATUS
 ```
+
+To check replication lag, use the following command:
+
+```shell
+mysql> SHOW REPLICA STATUS\G
+```
+
+A key field from the command's status report will be `Seconds_Behind_Master: _`. This is the number of seconds that the replication SQL thread is behind processing the source's binary log. 
+
+For more information, see MySQL's [Checking Replication Status](https://dev.mysql.com/doc/refman/5.7/en/replication-administration-status.html).
+{: .tip}
 
 ### Read-only Replica Users and Privileges
 {: #read-only-replica-users-privileges}
@@ -208,8 +219,3 @@ The full promotion time of a read-replica is determined by the size of the data 
 - If you choose to take a backup as part of the promotion, the completion of that backup also needs to finish before the recipe completes. Again, this depends on the size of the database.
 
 Remember that there is no High-Availability member until the promotion recipe completes. Likewise, if you have selected to have an initial backup, no backup exists until the second point completes or a manual backup is created. 
-
-### Upgrading while Promoting
-{: #read-only-replica-upgrading-promoting}
-
-If you need to upgrade to a new major version of the database, you can do so when promoting a read-only replica to a stand-alone deployment. Full documentation on your upgrading options, is on the [Upgrading to a New Major Version](/docs/databases-for-mysql?topic=databases-for-mysql-upgrading) page.
