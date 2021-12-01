@@ -54,7 +54,7 @@ For pricing estimation, use the **Add to Estimate** button on the [{{site.data.k
 ## Backups Pricing
 {: #backups-pricing}
 
-Users also receive their total disk space purchased, per database, in free backup storage. For example, in a given month, if you have a {{site.data.keyword.databases-for-mysql}} deployment that has 5 GB of disk per member, and has three data members, you receive 15 GB of backup storage free for that month. If your backup storage utilization is greater than 15 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. Most deployments will not ever go over the allotted credit.
+Users also receive their total disk space purchased, per database, in free backup storage. For example, in a given month, if you have a {{site.data.keyword.databases-for-mysql}} deployment that has 20 GB of disk per member, and has three data members, you receive 60 GB of backup storage free for that month. If your backup storage utilization is greater than 60 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. Most deployments will not ever go over the allotted credit.
 
 ## Dedicated Cores Pricing
 {: #pricing-cores}
@@ -70,7 +70,7 @@ Dedicated cores are an optional feature. The default `Shared CPU` setting provis
 
 Resource | Minimum | Maximum | Scaling Granularity (API/CLI)
 ----------|-----|-----|-------
-Disk | 5 GB per member | 4 TB per member | 1024 MB per member
+Disk | 20 GB per member | 4 TB per member | 1024 MB per member
 RAM | 1 GB per member | 112 GB per member | 128 MB per member
 CPU (if enabled) | 3 CPUs per member | 28 CPUs per member| 1 CPU per member
 {: caption="Table 2. Per Member Scaling Limits" caption-side="top"}
