@@ -70,10 +70,10 @@ ibmcloud cdb cxn example-mysql -s
 
 The command prompts for the admin password and then runs the `mysql` command line client to connect to the database.
 
-If you have not installed the cloud databases plug-in, connect to your MySQL databases using `mysql` by giving it the "composed" connection string. It provides environment variables `MYSQL_PWD` and `PGSSLROOTCERT`. Set `MYSQL_PWD` to the admin's password and `PGSSLROOTCERT` to the path or file name for the self-signed certificate. 
+If you have not installed the cloud databases plug-in, connect to your MySQL databases using `mysql` by giving it the "composed" connection string. It provides environment variables `MYSQL_PWD` and `--ssl-ca=<cert_name>`. Set `MYSQL_PWD` to the admin's password and `--ssl-ca=<cert_name>` to the path or file name for the self-signed certificate. 
 
 ```shell
-MYSQL_PWD=$MYSQL_PWD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
+MYSQL_PWD=$MYSQL_PWD --ssl-ca=<cert_name>=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
 ```
 
 ## Using the self-signed certificate
@@ -82,7 +82,7 @@ MYSQL_PWD=$MYSQL_PWD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'h
 1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information. 
 2. If needed, decode the Base64 string into text. 
 3. Save the certificate  to a file. (You can use the Name that is provided or your own file name).
-4. Provide the path to the certificate to the `ROOTCERT` environment variable.
+4. Provide the path to the certificate to the `--ssl-ca=<cert_name>` environment variable.
 
 You can display the decoded certificate for your deployment with the CLI plug-in with the command:
 ```shell
@@ -90,4 +90,4 @@ ibmcloud cdb deployment-cacert "your-service-name"
 ```
 {: pre}
 
-It decodes the base64 into text. Copy and save the command's output to a file and provide the file's path to the `ROOTCERT` environment variable.
+It decodes the base64 into text. Copy and save the command's output to a file and provide the file's path to the `--ssl-ca=<cert_name>` environment variable.
