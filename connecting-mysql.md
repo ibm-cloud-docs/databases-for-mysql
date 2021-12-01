@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-11-30"
 
 keywords: mysql, databases
 
@@ -26,12 +26,14 @@ You have to set the admin password before you use it to connect to the database.
 {: .tip}
 
 ## Installing `mysql`
+{: #installing-mysql}
 
 Install the command line client for MySQL, `mysql`. To use `mysql`, the MySQL client tools need to be installed on the local system. They can be installed with the full MySQL package that is provided from [mysql.com](https://www.mysql.com/downloads/), or as a [package from your operating system's package manager](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/). 
 
 For more information about `mysql`, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/).
 
 ## `mysql` Connection Strings
+{: #mysql-conn-strings}
 
 Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
@@ -51,30 +53,31 @@ Field Name|Index|Description
 * `0...` indicates that there might be one or more of these entries in an array.
 
 ## Connecting
+{: #mysql-connecting}
 
 The `ibmcloud cdb deployment-connections` command handles everything that is involved in creating a command line client connection. For example, to connect to a deployment named  "example-mysql", use the following command.
 
-```
+```shell
 ibmcloud cdb deployment-connections example-mysql --start
 ```
 {: pre}
 
 Or
-```
+```shell
 ibmcloud cdb cxn example-mysql -s
 ```
 {: pre}
 
 The command prompts for the admin password and then runs the `mysql` command line client to connect to the database.
 
-If you have not installed the cloud databases plug-in, connect to your MySQL databases using `mysql` by giving it the "composed" connection string. It provides environment variables `PGPASSWORD` and `PGSSLROOTCERT`. Set `PGPASSWORD` to the admin's password and `PGSSLROOTCERT` to the path or file name for the self-signed certificate. 
+If you have not installed the cloud databases plug-in, connect to your MySQL databases using `mysql` by giving it the "composed" connection string. It provides environment variables `MYSQL_PWD` and `PGSSLROOTCERT`. Set `MYSQL_PWD` to the admin's password and `PGSSLROOTCERT` to the path or file name for the self-signed certificate. 
 
+```shell
+MYSQL_PWD=$MYSQL_PWD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
 ```
-PGPASSWORD=$PASSWORD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
-```
-{: .codeblock}
 
 ## Using the self-signed certificate
+{: #mysql-using-ssc}
 
 1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information. 
 2. If needed, decode the Base64 string into text. 
@@ -82,7 +85,7 @@ PGPASSWORD=$PASSWORD PGSSLROOTCERT=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'h
 4. Provide the path to the certificate to the `ROOTCERT` environment variable.
 
 You can display the decoded certificate for your deployment with the CLI plug-in with the command:
-```
+```shell
 ibmcloud cdb deployment-cacert "your-service-name"
 ```
 {: pre}

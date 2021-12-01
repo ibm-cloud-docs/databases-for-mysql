@@ -41,7 +41,7 @@ The resource numbers refer to each database member in a deployment. For example,
 
 ## Autoscaling Considerations
 
-- Scaling your deployment up might cause your databases to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then the databases are restarted as part of the move.
+Scaling your deployment up might cause your databases to restart. If your scaled deployment needs to be moved to a host with more capacity, then the databases are restarted as part of the move.
 
 - Disk cannot be scaled down.
 
