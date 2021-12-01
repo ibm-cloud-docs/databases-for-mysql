@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-11-30"
 
 keywords: mysql, databases, scaling, autoscaling, memory, disk I/O
 
