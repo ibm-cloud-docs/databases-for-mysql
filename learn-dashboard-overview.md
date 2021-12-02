@@ -21,6 +21,7 @@ subcollection: databases-for-mysql
 {: #dashboard-overview}
 
 The _Overview_ page shows you information about your {{site.data.keyword.databases-for-mysql_full}} deployment. The overview includes essential identifying information.
+
 ## Overview
 {: #dashboard-overview-overview}
 
