@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-12-02"
 
 keywords: mysql, monitoring, metrics, iops, disk usage, memory usage, connection usage
 
@@ -24,20 +24,21 @@ Monitoring for {{site.data.keyword.databases-for-mysql_full}} deployments is pro
 
 To access {{site.data.keyword.monitoringfull_notm}} from your deployment, use the _Monitoring_ link from the right menu. (If you do not already have a monitoring service in the same region as your deployment it says _Add monitoring_.)
 
-![The Monitoring link in a deployment](images/monitoring-ui-link.png)
+![The Monitoring link in a deployment](images/monitoring-ui-link.png){: caption="Figure 1. The Monitoring link in a deployment" caption-side="bottom"}
 
 To access your deployment's monitoring dashboard from {{site.data.keyword.monitoringfull_notm}}, it's in the sidebar, under _IBM_.
 
-![Cloud databases dashboard in monitoring](images/monitoring-ibm-list.png)
+![Cloud databases dashboard in monitoring](images/monitoring-ibm-list.png){: caption="Figure 2. Cloud databases dashboard in monitoring" caption-side="bottom"}
 
 ## Monitoring Availability
+{: #availability}
 
 {{site.data.keyword.monitoringfull_notm}} monitoring is available for deployments in every region. Deployments in Multi-zone Regions (MZRs) - `eu-gb`, `eu-de`, `us-east`, `us-south`, `jp-tok`, `au-syd` - have their metrics in the corresponding region.
 
 If you have deployments that are in a Single-zone Region (SZR) - `che01`, or `seo01` - then your logs are forwarded to a {{site.data.keyword.monitoringfull_notm}} instance in another region. You need to provision monitoring instances in the region where your metrics are forwarded to. Metrics for deployments in `seo01` and `che01` go to `jp-tok`. 
 
 ## Available Metrics
-{: metrics-by-plan}
+{: #metrics-by-plan}
 
 | Metric Name |
 |-----------|
@@ -92,6 +93,7 @@ Blocks hit rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 2: Blocks hit rate metric metadata" caption-side="top"}
+
 ### Blocks read rate
 {: #ibm_databases_for_mysql_blocks_read_rate}
 
@@ -130,6 +132,7 @@ Buffers checkpoint rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 5: Buffers checkpoint rate metric metadata" caption-side="top"}
+
 ### Cache hit ratio
 {: #ibm_databases_for_mysql_cache_hit_ratio}
 
@@ -142,6 +145,7 @@ Cache hit ratio
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
 {: caption="Table 6: Cache hit ratio metric metadata" caption-side="top"}
+
 ### Deadlocks count
 {: #ibm_databases_for_mysql_deadlocks_count}
 
@@ -154,6 +158,7 @@ Deadlocks count
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
 {: caption="Table 7: Deadlocks count metric metadata" caption-side="top"}
+
 ### Deadlocks rate
 {: #ibm_databases_for_mysql_deadlocks_rate}
 
@@ -166,6 +171,7 @@ Deadlocks rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 8: Deadlocks rate metric metadata" caption-side="top"}
+
 ### Disk read latency mean
 {: #ibm_databases_for_mysql_disk_read_latency_mean}
 
@@ -178,6 +184,7 @@ Disk read latency mean
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
 {: caption="Table 9: Disk read latency mean metric metadata" caption-side="top"}
+
 ### Disk write latency mean
 {: #ibm_databases_for_mysql_disk_write_latency_mean}
 
@@ -281,6 +288,7 @@ How far behind a mysql read-only replica is, in bytes.
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
 {: caption="Table 17. Read replica replication lag metric metadata" caption-side="top"}
+
 ### Successful archive rate
 {: #ibm_databases_for_mysql_successful_archive_rate}
 
@@ -293,6 +301,7 @@ Successful archive rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 18: Successful archive rate metric metadata" caption-side="top"}
+
 ### Temporary files size in bytes
 {: #ibm_databases_for_mysql_temp_bytes_count}
 
@@ -357,6 +366,7 @@ Transaction commit rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 23: Transaction commit rate metric metadata" caption-side="top"}
+
 ### Transaction rollback count
 {: #ibm_databases_for_mysql_transaction_rollback_count}
 
@@ -369,6 +379,7 @@ Transaction rollback count
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
 {: caption="Table 24: Transaction rollback count metric metadata" caption-side="top"}
+
 ### Transaction rollback rate
 {: #ibm_databases_for_mysql_transaction_rollback_rate}
 
@@ -381,6 +392,7 @@ Transaction rollback rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 25: Transaction rollback rate metric metadata" caption-side="top"}
+
 ### Tuples deleted count
 {: #ibm_databases_for_mysql_tuples_deleted_count}
 
@@ -393,6 +405,7 @@ Tuples deleted count
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
 {: caption="Table 26: Tuples deleted count metric metadata" caption-side="top"}
+
 ### Tuples deleted rate
 {: #ibm_databases_for_mysql_tuples_deleted_rate}
 
@@ -405,6 +418,7 @@ Tuples deleted rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 27: Tuples deleted rate metric metadata" caption-side="top"}
+
 ### Tuples fetched count
 {: #ibm_databases_for_mysql_tuples_fetched_count}
 
@@ -417,6 +431,7 @@ Tuples fetched count
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
 {: caption="Table 28: Tuples fetched count metric metadata" caption-side="top"}
+
 ### Tuples fetched rate
 {: #ibm_databases_for_mysql_tuples_fetched_rate}
 
@@ -429,6 +444,7 @@ Tuples fetched rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 29: Tuples fetched rate metric metadata" caption-side="top"}
+
 ### Tuples inserted count
 {: #ibm_databases_for_mysql_tuples_inserted_count}
 
@@ -441,6 +457,7 @@ Tuples inserted count
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
 {: caption="Table 30: Tuples inserted count metric metadata" caption-side="top"}
+
 ### Tuples inserted rate
 {: #ibm_databases_for_mysql_tuples_inserted_rate}
 
@@ -453,6 +470,7 @@ Tuples inserted rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 31: Tuples inserted rate metric metadata" caption-side="top"}
+
 ### Tuples returned rate
 {: #ibm_databases_for_mysql_tuples_returned_rate}
 
@@ -465,6 +483,7 @@ Tuples returned rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 32: Tuples returned rate metric metadata" caption-side="top"}
+
 ### Tuples updated count
 {: #ibm_databases_for_mysql_tuples_updated_count}
 
@@ -477,6 +496,7 @@ Tuples updated count
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
 {: caption="Table 33: Tuples updated count metric metadata" caption-side="top"}
+
 ### Tuples updated rate
 {: #ibm_databases_for_mysql_tuples_updated_rate}
 
@@ -489,6 +509,7 @@ Tuples updated rate
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
 {: caption="Table 34: Tuples updated rate metric metadata" caption-side="top"}
+
 ### Used CPU for an instance
 {: #ibm_databases_for_mysql_cpu_used_percent}
 
