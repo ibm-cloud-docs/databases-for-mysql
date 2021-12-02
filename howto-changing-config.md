@@ -31,7 +31,7 @@ The configuration is defined in a schema. To make a change, you send a JSON obje
 
 to either the CLI or to the API. 
 
-For more information on checking the current value of `max_connections`, see the [Managing MySQL Connections](/docs/allowlist/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections) documentation. 
+For more information on checking the current value of `max_connections`, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections) documentation. 
 
 ## Using the CLI
 {: #using-cli}
@@ -68,7 +68,7 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 - Default - `200`
 - Restarts database? - **false**
   
- You might need to [scale before you increase max connections](/docs/allowlist/databases-for-mysql?topic=databases-for-mysql-high-availability#connection-limits-ha). {: note}
+ You might need to [scale before you increase max connections](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#connection-limits-ha). {: note}
 
 [`mysql_max_binlog_age_sec`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html)
 
