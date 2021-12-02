@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-12-02"
 
 keywords: mysql, databases
 
@@ -22,20 +22,20 @@ subcollection: databases-for-mysql
 
 In order to connect to {{site.data.keyword.databases-for-mysql_full}}, you need some users and connection strings. Connection Strings for your deployment are displayed on the _Dashboard Overview_, in the _Endpoints_ panel. 
 
-![Endpoints panel on the Dashboard Overview](images/getting-started-endpoints-panel.png)
+![Endpoints panel on the Dashboard Overview](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel on the Dashboard Overview" caption-side="bottom"}
 
 A {{site.data.keyword.databases-for-mysql}} deployment is provisioned with an admin user and, after [setting the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), you can use its connection strings to connect to your deployment.
 {: .tip}
 
 **CLI**  
 You can also grab connection strings from the [CLI](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections).
-```
+```shell
 ibmcloud cdb deployment-connections example-deployment -u <newusername> [--endpoint-type <endpoint type>]
 ```
 {: pre}
 
 Full connection information is returned by the `ibmcloud cdb deployment-connections` command with the `--all` flag. To retrieve all the connection information for a deployment named  "example-deployment", use the following command.
-```
+```shell
 ibmcloud cdb deployment-connections example-deployment -u <newusername> --all [--endpoint-type <endpoint type>]
 ```
 {: pre}
@@ -47,14 +47,16 @@ To use the `ibmcloud cdb` CLI commands, you must [install the {{site.data.keywor
 
 **API** 
 To retrieve user's connection strings from the API, use the [`/users/{userid}/connections`](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026) endpoint. You have to specify in the path which user and which type of endpoint (public or private) should be used in the returned connection strings. The user and endpoint type is not enforced. You can use any user on your deployment with either endpoint (if both exist on your deployment).
-```
+```shell
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/users/{userid}/connections/{endpoint_type}'
 ```
 {: pre}
 
 ## Connection String Breakdown
+{: #connection-string-breakdown}
 
 ### The MySQL Section
+{: #connection-string-breakdown-mysql}
 
 The "mysql" section contains information that is suited to applications that make connections to `mysql`.
 
@@ -75,6 +77,7 @@ Field Name|Index|Description
 * `0...` indicates that there might be one or more of these entries in an array.
 
 ### The CLI Section
+{: #connection-string-breakdown-cli}
 
 The "CLI" section contains information that is suited for connecting with `mysql` .
 
@@ -90,4 +93,3 @@ Field Name|Index|Description
 {: caption="Table 2. mysql/cli connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
-
