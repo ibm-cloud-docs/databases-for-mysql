@@ -69,7 +69,7 @@ If you use [Key Protect](/docs/databases-for-mysql?topic=cloud-databases-key-pro
 ### Provisioning through the API or the CLI
 {: #read-only-replicas-provisioning-api-cli}
 
-Provisioning a read-only replica through the CLI and the API works similarly to [provisioning a standard {{site.data.keyword.databases-for-mysql}} deployment](/docs/allowlist/databases-for-mysql?topic=databases-for-mysql-provisioning-mysql). Provisioning is handled by the Resource Controller, and it uses a parameter `{"remote_leader_id": "crn:v1:..."}` to specify the leader of the replica you are provisioning.
+Provisioning a read-only replica through the CLI and the API works similarly to [provisioning a standard {{site.data.keyword.databases-for-mysql}} deployment](/docs/cloud-databases?topic=cloud-databases-provisioning). Provisioning is handled by the Resource Controller, and it uses a parameter `{"remote_leader_id": "crn:v1:..."}` to specify the leader of the replica you are provisioning.
 
 For example, to provision a read-only replica through the CLI,
 ```shell
