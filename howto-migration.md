@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-12-02"
 
 keywords: mysql, databases, migrating
 
@@ -22,6 +22,7 @@ subcollection: databases-for-mysql
 Various options exist to migrate data from existing MySQL databases to {{site.data.keyword.databases-for-mysql_full}}. We focus on the simplest and most effective. To get started, you need MySQL installed locally so you have the `mysql` and `mysqldump` tools. [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} CLI also makes it easier to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
 
 ## mysqldump
+{: #migrating-mysqldump}
 
 On your source database run `mysqldump` to create an SQL file, which can be used to re-create the database. At a minimum, `mysql` takes a host name (`-h` flag), port number (`-p` flag), database name (`-d` flag), user name (`-U` flag), and a file (or directory name) to write the dump to (`-f` flag). 
 
@@ -35,6 +36,7 @@ mysqldump -h sl-eu-lon-2-portal.4.dblayer.com -p 17980 -d compose -U admin -f du
 The `mysql` command has many options; you should [consult the official documentation](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax) and [command reference](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary) for a fuller view of its capabilities.
 
 ## Restoring mysqldump's output
+{: #migrating-mysqldump-restore}
 
 The resulting output of `mysqldump` can then be uploaded into a new {{site.data.keyword.databases-for-mysql}} deployment. As the output is SQL, it can simply be sent to the database through the `mysql` command. We recommend that imports be performed with the admin user. 
 
