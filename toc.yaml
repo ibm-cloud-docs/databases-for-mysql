@@ -8,7 +8,6 @@ toc:
     version: 2
     category: database
     audience: service
-    allowlist-id: databases-for-mysql
     href: /docs/databases-for-mysql?topic=databases-for-mysql-getting-started
     console-page: /catalog/services/databases-for-mysql
     path: databases-for-mysql
@@ -29,6 +28,7 @@ toc:
       topics:
       - howto-admin-password.md
       - howto-getting-connection-strings.md
+      - /cloud-databases/cloud-databases-provisioning
       - /cloud-databases/cloud-databases-ha-dr
       - /cloud-databases/cloud-databases-deprovisioning
       - ha-dr.md
