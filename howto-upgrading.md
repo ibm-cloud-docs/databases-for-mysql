@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-12-01"
+lastupdated: "2021-12-02"
 
-keyowrds: MySql, databases, upgrading, major versions, changing versions
+keywords: MySql, databases, upgrading, major versions, changing versions
 
 subcollection: databases-for-mysql
 
