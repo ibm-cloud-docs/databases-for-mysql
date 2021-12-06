@@ -114,16 +114,10 @@ On the _Read Replicas_ tab of a read-only replica, the _Replication_ pane contai
 
 Replication status is not automatically monitored, you must monitor replication.
 
-You can check the replication status of a read-only replica with `mysql`, but only from its source DB instance. [Connect to the source DB instance deployment with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) using the [admin credentials](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user). Once you are connected, run the following command:
+You can check the replication status, as well as the replication lag, of a read-only replica with `mysql` from its source DB instance. [Connect to the source DB instance deployment with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) using the [admin credentials](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user). Once you are connected, run the following command:
 
 ```shell
-mysql> SHOW REPLICA STATUS
-```
-
-To check replication lag, use the following command:
-
-```shell
-mysql> SHOW REPLICA STATUS\G
+mysql> SHOW SLAVE STATUS \G
 ```
 
 A key field from the command's status report will be `Seconds_Behind_Master: _`. This is the number of seconds that the replication SQL thread is behind processing the source's binary log. 
@@ -142,11 +136,7 @@ For more information, see MySQL's [Checking Replication Status](https://dev.mysq
 
 - Write operations on the read-only replica for all users are not filtered or rejected, but fail at the database level.
 
-You can also create users with access to the read-only replica and no access to the source DB instance from the read-only replica. If you have more than one read-only replica that is attached to a source DB instance, a user that is created on any one of the read-only replicas is also created on all of the other read-only replicas.
-
-Read-only replica users who are created on a read-only replica are able connect to the replicas and run reads. Read-only replica users are not able to connect and run operations on the source DB instance. They also do not persist when a read-only replica is promoted to a stand-alone deployment.
-
-Read-only replica created users are assigned privileges by the source DB instance, and are assigned the `ibm-cloud-base-user-ro` role, and are members of the `ibm-cloud-base-user` group. They have access to all of the objects that are created by other members of this group, including any users on the source DB instance that were created through _Service Credentials_, the CLI, or the API. Consistent with privileges of the `ibm-cloud-base-user`, a read-only replica created user does not have access to objects created by the admin user, or other users created through `mysql`. For more information, see the [MySQL Roles and Privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
+- Read-only replica users who are created on a read-only replica are able to connect to the replicas and run reads. Read-only replica users are not able to connect and run operations on the source DB instance.
 
 ## Resyncing a Read-only Replica
 {: #read-only-replica-resyncing}
@@ -177,7 +167,7 @@ A read-only replica is able to be promoted to an independent cluster that can ac
 
 To promote a read-only replica from the UI, click the **Promote Read-Only Replica** button.
 
-Upon promotion, the read-only replica terminates its connection to the source DB instance and becomes a stand-alone {{site.data.keyword.databases-for-mysql}} deployment. The deployment can start accepting and running read and write operations, backups are enabled, and it is issued its own admin user. A new data member is added so the deployment becomes a cluster with two data members. This increases the cost as it is billed at the same per member consumption rate, but the deployment has two members instead of one.
+Upon promotion, the read-only replica terminates its connection to the source DB instance and becomes a stand-alone {{site.data.keyword.databases-for-mysql}} deployment. The deployment can start accepting and running read and write operations, backups are enabled, and it is issued its own admin user. A new data member is added so the deployment becomes a cluster with three data members. This increases the cost as it is billed at the same per member consumption rate, but the deployment has three members instead of one.
 
 When you promote a read-only replica, you can skip the initial backup that would normally be taken upon promotion. Skipping the initial backup means that your replica becomes available more quickly, but there is no immediate backup available. You can start an on-demand backup once the promotion process is complete.
 
