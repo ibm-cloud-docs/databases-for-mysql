@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-12-01"
+lastupdated: "2021-12-06"
 
 keywords: mysql, databases, config
 
@@ -77,9 +77,11 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 
 [`mysql_default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
 
-- Default - `mysql_native_password`
+- Default - `sha256_password`
 - Allowable values: `sha256_password`, `mysql_native_password`
-- Restarts database? - **false**
+- Restarts database? - **true**
+
+Unless strictly necessary, we do not recommend using `mysql_native_password`. {: note}
 
 [`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html)
 
@@ -90,5 +92,27 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 
 [`sql_mode`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html)
 
-- Allowable values: `ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,`, `ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION`
+- Allowable values: 
+   - `ALLOW_INVALID_DATES`
+   - `ANSI_QUOTES`
+   - `ERROR_FOR_DIVISION_BY_ZERO`
+   - `HIGH_NOT_PRECEDENCE`
+   - `IGNORE_SPACE`
+   - `NO_AUTO_CREATE_USER`
+   - `NO_AUTO_VALUE_ON_ZERO`
+   - `NO_BACKSLASH_ESCAPES`
+   - `NO_DIR_IN_CREATE`
+   - `NO_ENGINE_SUBSTITUTION`
+   - `NO_FIELD_OPTIONS`
+   - `NO_KEY_OPTIONS`
+   - `NO_TABLE_OPTIONS`
+   - `NO_UNSIGNED_SUBTRACTION`
+   - `NO_ZERO_DATE`
+   - `NO_ZERO_IN_DATE`
+   - `ONLY_FULL_GROUP_BY`
+   - `PAD_CHAR_TO_FULL_LENGTH`
+   - `PIPES_AS_CONCAT`
+   - `REAL_AS_FLOAT`
+   - `STRICT_ALL_TABLES`
+   - ``STRICT_TRANS_TABLES`
 - Restarts database? - **false**
