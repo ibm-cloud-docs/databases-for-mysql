@@ -47,9 +47,9 @@ All prices here are in US dollars. To see pricing in your local currency, you ca
 
 Templates are provided for ease of use and provide balanced resource allocations appropriate for general purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as desired.
 
-For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-mysql}} catalog page](https://cloud.ibm.com/catalog/databases-for-mysql). Input your total consumption across three data members into the calculator. This is roughly double the size of your data because your data is replicated to all members. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM respectively. 
+For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-mysql}} catalog page](https://cloud.ibm.com/catalog/databases-for-mysql). Input your total consumption across three data members into the calculator. This is roughly double the size of your data because your data is replicated to all members. For example, 20 GB of disk and 1 GB of RAM across three data members would be priced at 60 GB of disk and 3 GB of RAM respectively. 
 
-![Pricing calculator estimation with 5 GB of disk and 1 GB of RAM, per member](images/pricing-calc.png){: caption="Figure 1. Pricing calculator estimation" caption-side="bottom"}
+![Pricing calculator estimation with 20 GB of disk and 1 GB of RAM, per member](images/pricing-calc.png){: caption="Figure 1. Pricing calculator estimation" caption-side="bottom"}
 
 ## Backups Pricing
 {: #backups-pricing}
