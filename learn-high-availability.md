@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-02"
+lastupdated: "2021-12-06"
 
 keywords: mysql, databases, connection limits
 
@@ -21,9 +21,9 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.databases-for-mysql_full}} is a managed cloud database service that is fully integrated into the {{site.data.keyword.cloud_notm}} environment. The database, storage, and supporting infrastructure all run in {{site.data.keyword.cloud_notm}}.
 
-{{site.data.keyword.databases-for-mysql}} provides replication, fail-over, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and failures. Deployments contain a cluster with three data members: a leader and two replicas. All members contain a copy of your data by using using Orchestrator to handle fail-overs. If the leader becomes unreachable, the cluster initiates a fail-over and a replica is promoted to leader. The replica rejoins the cluster and your cluster continues to operate normally. 
+{{site.data.keyword.databases-for-mysql}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and failures. Deployments contain a cluster with three data members: a leader and two replicas. All members contain a copy of your data by using Orchestrator to handle failovers. If the leader becomes unreachable, the cluster initiates a failover and a replica is promoted to leader. The replica rejoins the cluster and your cluster continues to operate normally. 
 
-{{site.data.keyword.databases-for-mysql}} will, at times, do controlled switchovers under normal operation. These switchovers are no-data-loss events that result in resets of active connections. There is a short period where reconnections can fail. At times, unplanned fail-overs might occur due to unforeseen events on the operating environment. These can take a bit longer. In both cases, the potential exists for the downtime to be longer.
+{{site.data.keyword.databases-for-mysql}} will, at times, do controlled switchovers under normal operation. These switchovers are no-data-loss events that result in resets of active connections. There is a short period where reconnections can fail. At times, unplanned failovers might occur due to unforeseen events on the operating environment. These can take a bit longer. In both cases, the potential exists for the downtime to be longer.
 
 ## Application-level High-Availability
 {: #app-level-high-availability}
@@ -37,7 +37,7 @@ There are multiple possible reasons your database might experience downtime, inc
 - High disk I/O
 - Connection overloads
 
-Because {{site.data.keyword.databases-for-mysql}} is a managed service, regular updates and database maintenance occurs as part of normal operations. In the event that both replicas are lost, writes to the leader will hang, due to the semi-synchronous replication process not having a follower. This can occasionally cause short intervals where your database is unavailable. It can also cause the database to trigger a graceful fail-over, retry, and reconnect. It takes a short time for the database to determine which member is a replica and which is the leader, so you might also see a short connection interruption. fail-overs generally take less than 30 seconds. To minimize interruptions, updates are applied to replicas first, and the leader last.
+Because {{site.data.keyword.databases-for-mysql}} is a managed service, regular updates and database maintenance occurs as part of normal operations. In the event that both replicas are lost, writes to the leader will hang, due to the semi-synchronous replication process not having a follower. This can occasionally cause short intervals where your database is unavailable. It can also cause the database to trigger a graceful failover, retry, and reconnect. It takes a short time for the database to determine which member is a replica and which is the leader, so you might also see a short connection interruption. failovers generally take less than 30 seconds. To minimize interruptions, updates are applied to replicas first, and the leader last.
 
 Your applications have to be designed to handle temporary interruptions to the database, implement error handling for failed database commands, and implement retry logic to recover from a temporary interruption.
 
