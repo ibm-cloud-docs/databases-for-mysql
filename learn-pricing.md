@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-12-02"
+lastupdated: "2021-12-06"
 
 keywords: mysql, databases, pricing, resources, scaling
 
@@ -20,7 +20,7 @@ subcollection: databases-for-mysql
 # Pricing
 {: #pricing}
 
-A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly available MySQL cluster with three data members. Your data is replicated on all members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-mysql}} deployments have a minimum of 5 GB of disk and 1 GB of RAM per data member.
+A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly available MySQL cluster with three data members. Your data is replicated on all members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-mysql}} deployments have a minimum of 20 GB of disk and 1 GB of RAM per data member.
 
 ## Cost Breakdown
 {: #cost}
