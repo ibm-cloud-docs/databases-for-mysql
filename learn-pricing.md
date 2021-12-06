@@ -33,11 +33,11 @@ Resources | Breakdown | Price
 -------|-------|-------
 60 GB-Month disk | 3 members x 20 GB x $0.58 | $34.80
 1 GB-Month RAM | 3 members x 1 GB  x $7.50 | $22.50
-1 virtual-CPU | 3 members x $40 | $120
+3 virtual-CPU | 3 members x $120 | $360
 {: caption="Table 1. Pricing example for three data members" caption-side="top"}
 
-Total per month = $177.30/Month
-Total per hour = $.24/Hour
+Total per month = $417.30/Month
+Total per hour = $.57/Hour
 
 All prices here are in US dollars. To see pricing in your local currency, you can to use the pricing calculator.
 {: .tip}
