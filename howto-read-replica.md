@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-01"
+lastupdated: "2021-12-06"
 
 keywords: mysql, databases, read-only replica, resync, promote, cross-region replication
 
@@ -22,28 +22,28 @@ subcollection: databases-for-mysql
 
 You can set up your {{site.data.keyword.databases-for-mysql_full}} deployment to be a read-only replica of another {{site.data.keyword.databases-for-mysql}} deployment. 
 
-A read-only replica is set up to replicate all your data from the leader deployment to the replica deployment using asynchronous replication. As the name implies, read-only replicas support read transactions and can be used to balance databases that have both write-heavy and read-heavy operations. You can also use read replica promotion for data recovery if the source database instance fails. The read-only replica has a single MySQL data member, and it is billed at the [same per member consumption rates as the leader](https://{DomainName}/catalog/services/databases-for-mysql/).
+A read-only replica is set up to replicate all your data from the source DB instance to the replica deployment using asynchronous replication. As the name implies, read-only replicas support read transactions and can be used to balance databases that have both write-heavy and read-heavy operations. You can also use read replica promotion for data recovery if the source database instance fails. The read-only replica has a single MySQL data member, and it is billed at the [same per member consumption rates as the source DB instance](https://{DomainName}/catalog/services/databases-for-mysql/).
 
 ## Read-only Replica Considerations
 {: #read-only-replicas-consider}
 
-- The read-only replica can exist in the same region as the source formation or in different one, enabling your data to be replicated across regions.
+- A read-only replica can exist in the same region as your source DB instance or in a different one, enabling your data to be replicated across regions.
 
-- A read-only replica must be the same major version as its leader. 
+- A read-only replica must be the same major version as its source DB instance. 
 
-- Backups are disabled on read-only replicas. Backups are taken only on leader deployments.
+- Backups are disabled on read replicas. Backups are taken only on source DB instances.
 
 - Read replication is not supported into or out of EU Cloud-enabled regions (currently `eu-de`). It is supported within those regions.
 
-- There is a limit of 5 read-only replicas per leader.
+- There is a limit of 5 read replicas per source DB instance.
 
-- The read-only replica does not participate in leader->follower elections for the leader cluster and failover to the read-only replica is not automated. Promotion of the read-only replica to a full deployment is a manual, user-initiated task.
+- The read-only replica does not participate in elections for the source DB instance and failover to the read-only replica is not automated. Promotion of the read-only replica to a full deployment is a manual, user-initiated task.
 
-- The minimum size of a read-only replica is 2 GB RAM and 20 GB of disk. This is true even if your leader deployment is smaller.
+- The minimum size of a read-only replica is 2 GB RAM and 20 GB of disk. This is true even if your source DB instance deployment is smaller.
 
-- Read-only replicas do not auto-scale to match the leader. If the amount of data you store outgrows the disk that is allocated to your deployments, scale the disk on the read-only replicas and then the leader. Scaling the read-only replica first ensures that you do not run out of space on the read-only replicas. If you scaled the leader's disk for performance and not for space, it is not necessary to scale the read-only replicas.
+- Read-only replicas do not auto-scale to match the source DB instance. If the amount of data you store outgrows the disk that is allocated to your deployments, scale the disk on the read-only replicas and then the source DB instance. Scaling the read-only replica first ensures that you do not run out of space on the read-only replicas. If you scaled the source DB instance's disk for performance and not for space, it is not necessary to scale the read-only replicas.
 
-- Replication is asynchronous, and might be subject to replication lag. By default, there is no communication between the primary and replica regarding consistency. It is possible for a read-only replica to fall far enough behind that it needs to be resynced. Replication lag can be greater when the replica is in a region far away geographically from its leader.
+- Replication is asynchronous, and might be subject to replication lag. By default, there is no communication between the primary and replica regarding consistency. It is possible for a read-only replica to fall far enough behind that it needs to be resynced. Replication lag can be greater when the replica is in a region far away geographically from its source DB instance.
 
 - A read-only replica is a deployment with single data member and does not have any internal high-availability. It is prone to temporary interruptions and downtime during maintenance. If you have applications that rely on read-only replicas, be sure to have logic to retry failed queries, or load-balancing over multiple read-only replicas.
 
@@ -61,7 +61,7 @@ If a deployment is a leader and has a read-only replica that is already attached
 ## Provisioning a Read-only Replica
 {: #read-only-replicas-provisioning}
 
-You can provision a read-only replica from the leader's _Read Replicas_ tab by clicking **Create Read-Only Replica**. The source instance is automatically filled in. The read-only replica's name is auto-generated in the _Service Name_ field, but you can rename it freely. You can choose the region to deploy it in, and its initial memory allocation. Disk size, version, and public or private endpoints are automatically configured to match the settings of the leader deployment.
+You can provision a read-only replica from the leader's _Read Replicas_ tab by clicking **Create Read-Only Replica**. The source instance is automatically filled in. The read-only replica's name is auto-generated in the _Service Name_ field, but you can rename it freely. You can choose the region to deploy it in, and its initial memory allocation. Disk size, version, and public or private endpoints are automatically configured to match the settings of the source DB instance deployment.
 
 If you use [Key Protect](/docs/databases-for-mysql?topic=cloud-databases-key-protect), Bring Your Own Key (BYOK) is supported only when provisioning from the CLI and API. Otherwise, the read-only replica is encrypted with a generated key. 
 {: .tip}
@@ -100,12 +100,12 @@ curl -X POST \
 ```
 {: pre}
 
-For both the CLI and API commands, you must specify both the RAM and disk amounts, keeping in mind the minimum size is 2 GB RAM and 20 GB disk. You can optionally specify whether the read-only replica uses public or private endpoints. You are not able to specify a version for the read-only replica. The version is automatically set to the same major version as the leader deployment.
+For both the CLI and API commands, you must specify both the RAM and disk amounts, keeping in mind the minimum size is 2 GB RAM and 20 GB disk. You can optionally specify whether the read-only replica uses public or private endpoints. You are not able to specify a version for the read-only replica. The version is automatically set to the same major version as the source DB instance deployment.
 
 ## The Read-only Replica
 {: #read-only-replica}
 
-On the _Read Replicas_ tab of a read-only replica, the _Replication_ pane contains its name and region, and the name and region of its leader. It also has buttons to resync the read-only replica and to promote it.
+On the _Read Replicas_ tab of a read-only replica, the _Replication_ pane contains its name and region, and the name and region of its source DB instance. It also has buttons to resync the read-only replica and to promote it.
 
 ![Replication pane of a read-only replica](images/replica-roreplica.png){: caption="Figure 3. Replication pane of a read-only replica" caption-side="bottom"}
 
@@ -114,7 +114,7 @@ On the _Read Replicas_ tab of a read-only replica, the _Replication_ pane contai
 
 Replication status is not automatically monitored, you must monitor replication.
 
-You can check the replication status of a read-only replica with `mysql`, but only from its leader. [Connect to the leader deployment with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) using the [admin credentials](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user). Once you are connected, run the following command:
+You can check the replication status of a read-only replica with `mysql`, but only from its source DB instance. [Connect to the source DB instance deployment with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) using the [admin credentials](/docs/databases-for-mysql?topic=databases-for-mysql-user-management#the-admin-user). Once you are connected, run the following command:
 
 ```shell
 mysql> SHOW REPLICA STATUS
@@ -134,24 +134,24 @@ For more information, see MySQL's [Checking Replication Status](https://dev.mysq
 ### Read-only Replica Users and Privileges
 {: #read-only-replica-users-privileges}
 
-- Any user on the leader, even ones present before read-only replica provision, can log in to and run reads on a read-only replica with the same privileges to objects that they have on the leader. 
+- Any user on the source DB instance, even ones present before read-only replica provision, can log in to and run reads on a read-only replica with the same privileges to objects that they have on the source DB instance. 
 
-- If you have more than one read-only replica that is attached to a leader, a user that is created on the leader is also created on all of the other read-only replicas.
+- If you have more than one read-only replica that is attached to a source DB instance, a user that is created on the source is also created on all of the other read-only replicas.
 
-- Users that are created on the leader persist on the read-only replica when it is promoted to a stand-alone deployment, including the `admin` user. When the read-only replica is promoted the users and privileges for all users on the leader are transferred to the promoted deployment.
+- Users that are created on the source DB instance persist on the read-only replica when it is promoted to a stand-alone deployment, including the `admin` user. When the read-only replica is promoted, the users and privileges for all users on the source DB instance are transferred to the promoted deployment.
 
 - Write operations on the read-only replica for all users are not filtered or rejected, but fail at the database level.
 
-You can also create users with access to the read-only replica and no access to the leader from the read-only replica. If you have more than one read-only replica that is attached to a leader, a user that is created on any one of the read-only replicas is also created on all of the other read-only replicas.
+You can also create users with access to the read-only replica and no access to the source DB instance from the read-only replica. If you have more than one read-only replica that is attached to a source DB instance, a user that is created on any one of the read-only replicas is also created on all of the other read-only replicas.
 
-Read-only replica users who are created on a read-only replica are able connect to the replicas and run reads. Read-only replica users are not able to connect and run operations on the leader. They also do not persist when a read-only replica is promoted to a stand-alone deployment.
+Read-only replica users who are created on a read-only replica are able connect to the replicas and run reads. Read-only replica users are not able to connect and run operations on the source DB instance. They also do not persist when a read-only replica is promoted to a stand-alone deployment.
 
-Read-only replica created users are assigned privileges by the leader, and are assigned the `ibm-cloud-base-user-ro` role, and are members of the `ibm-cloud-base-user` group. They have access to all of the objects that are created by other members of this group, including any users on the leader that were created through _Service Credentials_, the CLI, or the API. Consistent with privileges of the `ibm-cloud-base-user`, a read-only replica created user does not have access to objects created by the admin user, or other users created through `mysql`. For more information, see the [MySQL Roles and Privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
+Read-only replica created users are assigned privileges by the source DB instance, and are assigned the `ibm-cloud-base-user-ro` role, and are members of the `ibm-cloud-base-user` group. They have access to all of the objects that are created by other members of this group, including any users on the source DB instance that were created through _Service Credentials_, the CLI, or the API. Consistent with privileges of the `ibm-cloud-base-user`, a read-only replica created user does not have access to objects created by the admin user, or other users created through `mysql`. For more information, see the [MySQL Roles and Privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
 
 ## Resyncing a Read-only Replica
 {: #read-only-replica-resyncing}
 
-If you need to resync a read-only replica, click the **Resync Read-Only Replica** button. Resyncing is a disruptive operation and performing a resync tears down and rebuilds the data in the read-only replica. The read-only replica is not able to perform any other operations or run any queries while a resync is running. Queries are not rerouted to the leader, so any connections to the read-only replica fail until it is finished resyncing. 
+If you need to resync a read-only replica, click the **Resync Read-Only Replica** button. Resyncing is a disruptive operation and performing a resync tears down and rebuilds the data in the read-only replica. The read-only replica is not able to perform any other operations or run any queries while a resync is running. Queries are not rerouted to the source DB instance, so any connections to the read-only replica fail until it is finished resyncing. 
 
 The amount of time it takes to resync a read-only replica varies, but the process can be very long running.
 {: .tip}
@@ -173,15 +173,15 @@ curl -X POST \
 ## Promoting a Read-only Replica
 {: #read-only-replica-promoting}
 
-A read-only replica is able to be promoted to an independent cluster that can accept write operations as well as read operations. If something happens to the leader deployment, the read-only replica can be promoted to a stand-alone cluster and start accepting writes from your application. 
+A read-only replica is able to be promoted to an independent cluster that can accept write operations as well as read operations. If something happens to the source DB instance, the read-only replica can be promoted to a stand-alone cluster and start accepting writes from your application. 
 
 To promote a read-only replica from the UI, click the **Promote Read-Only Replica** button.
 
-Upon promotion, the read-only replica terminates its connection to the leader and becomes a stand-alone {{site.data.keyword.databases-for-mysql}} deployment. The deployment can start accepting and running read and write operations, backups are enabled, and it is issued its own admin user. A new data member is added so the deployment becomes a cluster with two data members. This increases the cost as it is billed at the same per member consumption rate, but the deployment has two members instead of one.
+Upon promotion, the read-only replica terminates its connection to the source DB instance and becomes a stand-alone {{site.data.keyword.databases-for-mysql}} deployment. The deployment can start accepting and running read and write operations, backups are enabled, and it is issued its own admin user. A new data member is added so the deployment becomes a cluster with two data members. This increases the cost as it is billed at the same per member consumption rate, but the deployment has two members instead of one.
 
 When you promote a read-only replica, you can skip the initial backup that would normally be taken upon promotion. Skipping the initial backup means that your replica becomes available more quickly, but there is no immediate backup available. You can start an on-demand backup once the promotion process is complete.
 
-Once a read-only replica is promoted to an independent deployment, it is not possible to revert it back to a read-only replica or have it rejoin a leader.
+Once a read-only replica is promoted to an independent deployment, it is not possible to revert it back to a read-only replica or have it rejoin a source DB instance.
 
 To promote through the CLI, use the [`cdb read-replica-promote`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#read-replica-promote) command.
 ```shell
