@@ -54,7 +54,7 @@ On the _Read Replicas_ tab of a {{site.data.keyword.databases-for-mysql}} deploy
 
 ![Replication pane before a replica](images/replica-before.png){: caption="Figure 1. Replication pane before a replica" caption-side="bottom"}
 
-If a deployment is a leader and has a read-only replica that is already attached to it, then the _Replication_ pane has a list of replica deployments and a link to each one. Click the cog to the right of the read-only replica's deployment name to manage it.
+If a deployment is a leader and has a read-only replica that is already attached to it, then the _Replication_ pane has a list of replica deployments and a link to each one. 
 
 ![List of replicas that are attached to a leader](images/replica-after.png){: caption="Figure 2. List of replicas that are attached to a leader" caption-side="bottom"}
 
