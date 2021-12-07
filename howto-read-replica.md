@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-06"
+lastupdated: "2021-12-07"
 
 keywords: mysql, databases, read-only replica, resync, promote, cross-region replication
 
