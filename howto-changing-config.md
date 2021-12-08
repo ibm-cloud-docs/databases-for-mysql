@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-12-06"
+lastupdated: "2021-12-08"
 
 keywords: mysql, databases, config
 
@@ -114,5 +114,5 @@ Unless strictly necessary, we do not recommend using `mysql_native_password`. {:
    - `PIPES_AS_CONCAT`
    - `REAL_AS_FLOAT`
    - `STRICT_ALL_TABLES`
-   - ``STRICT_TRANS_TABLES`
+   - `STRICT_TRANS_TABLES`
 - Restarts database? - **false**
