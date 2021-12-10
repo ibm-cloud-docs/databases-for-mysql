@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-07"
+lastupdated: "2021-12-10"
 
 keywords: mysql, databases, read-only replica, resync, promote, cross-region replication
 
@@ -136,7 +136,7 @@ For more information, see MySQL's [Checking Replication Status](https://dev.mysq
 
 - Write operations on the read-only replica for all users are not filtered or rejected, but fail at the database level.
 
-- Read-only replica users who are created on a read-only replica are able to connect to the replicas and run reads. Read-only replica users are not able to connect and run operations on the source DB instance.
+- Read-only replica users who are created on a read-only replica are able to connect to the source DB instance with `SELECT` permission.
 
 ## Resyncing a Read-only Replica
 {: #read-only-replica-resyncing}
