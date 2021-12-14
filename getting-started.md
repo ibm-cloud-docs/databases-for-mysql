@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-02"
+lastupdated: "2021-12-14"
 
 keywords: mysql workbench, mysql gui
 
