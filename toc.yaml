@@ -10,6 +10,7 @@ toc:
     audience: service
     href: /docs/databases-for-mysql?topic=databases-for-mysql-getting-started
     console-page: /catalog/services/databases-for-mysql
+    product-page: https://www.ibm.com/cloud/databases-for-mysql
     path: databases-for-mysql
     label: Databases For MySQL
   entries: 
@@ -18,6 +19,9 @@ toc:
       topics:
       - getting-started.md
       - /cloud-databases/cloud-databases-best-practices
+      - link: 
+         label: What is MySQL?
+         href: https://www.ibm.com/cloud/learn/mysql
       - learn-dashboard-overview.md
       - learn-high-availability.md
       - learn-performance.md
