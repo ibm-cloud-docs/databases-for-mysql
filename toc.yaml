@@ -61,7 +61,7 @@ toc:
           label: Tutorials
           topics: 
           - /cloud-databases/cloud-databases-tutorial-getting-started
-          - /cloud-databases/cloud-databases-tutorial-k8-app
+          - /cloud-databases/cloud-databases-tutorial-k8s-app
           - /cloud-databases/cloud-databases-tutorial-cf-app
       - topicgroup: 
           label: Enhancing security
