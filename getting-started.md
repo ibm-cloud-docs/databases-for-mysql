@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-14"
+lastupdated: "2021-12-15"
 
 keywords: mysql workbench, mysql gui
 
@@ -23,8 +23,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.databases-for-mysql_full}} is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. This offering lets users access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
 
-{{site.data.keyword.databases-for-mysql_full}} requires no software, infrastructure, network, or OS administration. IBM continuously provides fully automated and automatic updates to the service, such as security patches and minor version upgrades. A database instance is deployed by default as highly available across {{site.data.keyword.cloud_notm}} Multi-Zone regions with synchronous replication.
-Customers only need to connect to a single database endpoint and IBM manages the failover between Availability Zones automatically. {{site.data.keyword.databases-for-mysql_full}} provides the ability to horizontally scale the MySQL instance with Read Replicas in region or cross-regionally.
+{{site.data.keyword.databases-for-mysql_full}} requires no software, infrastructure, network, or OS administration. IBM continuously provides fully automated and automatic updates to the service, such as security patches and minor version upgrades. A database instance is deployed by default as highly available across multiple data centers in an {{site.data.keyword.cloud_notm}} Multi-Zone region with synchronous replication. Customers need only connect to a single database endpoint and IBM automatically manages the failover between Availability Zones. {{site.data.keyword.databases-for-mysql_full}} provides the ability to horizontally scale the MySQL instance with Read Replicas in region or cross-regionally. {{site.data.keyword.databases-for-mysql_full}} Read Replicas can be easily transformed into fully functioning {{site.data.keyword.databases-for-mysql_full}} instances, an especially useful feature for online cross-regional disaster recovery strategies.
 
 {{site.data.keyword.databases-for-mysql_full}} additionally provides independent scaling of disk, RAM, and vCPU, as well as auto-scaling capabilities and hourly billing. These features help provide greatly increase granularity on right-sizing database use for application workload.
 
