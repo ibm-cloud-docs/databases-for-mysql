@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-02"
+lastupdated: "2022-01-04"
 
 keywords: mysql, databases, connection limits, terminating connections, connection pooling
 
@@ -27,7 +27,7 @@ You can check the value of `max_connections` with your [admin user](/docs/databa
 ibmclouddb=> SHOW max_connections;
  max_connections
 -----------------
- 200
+ 5000
 (1 row)
 ```
 {: .codeblock}
