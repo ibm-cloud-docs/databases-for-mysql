@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2022-01-04"
+lastupdated: "2021-12-02"
 
 keywords: mysql, databases, connection limits, terminating connections, connection pooling
 
@@ -27,7 +27,7 @@ You can check the value of `max_connections` with your [admin user](/docs/databa
 ibmclouddb=> SHOW max_connections;
  max_connections
 -----------------
- 5000
+ 200
 (1 row)
 ```
 {: .codeblock}
@@ -35,9 +35,9 @@ ibmclouddb=> SHOW max_connections;
 ## MySQL Connection Limits 
 {: #managing-mysql-connection-limits}
 
-At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. It is recommended to leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. 
+At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. You can raise this value by [Changing the MySQL Configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration). We recommend leaving some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. 
 
-It is recommended that you limit the number of simultaneous connections for any non-admin account. For example, setting `max_user_connections=3` will restrict the given user account to a maximum of three simultaneous connections.
+As well, it is recommended that you limit the number of simultaneous connections for any non-admin account. For example, setting `max_user_connections=3` will restrict the given user account to a maximum of three simultaneous connections.
 {: .tip}
 
 After the connection limit has been reached, any attempts at starting a new connection result in an error. 
