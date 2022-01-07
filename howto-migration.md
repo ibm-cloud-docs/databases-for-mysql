@@ -19,10 +19,30 @@ subcollection: databases-for-mysql
 # Migrating to {{site.data.keyword.databases-for-mysql}}
 {: #migrating}
 
-Various options exist to migrate data from existing MySQL databases to {{site.data.keyword.databases-for-mysql_full}}. We focus on the simplest and most effective. To get started, you need MySQL installed locally so you have the `mysql` and `mysqldump` tools. [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} CLI also makes it easier to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
+Various options exist to migrate data from existing MySQL databases to {{site.data.keyword.databases-for-mysql_full}}. We recommend two options: `mysqldump` and `mydumper`. Which tool is best for you depends on certain conditions, including network connection, the size of your data set, and intermediate schema needs. 
+
+## Before you begin
+{: #migrating-before-begin}
+
+Before getting started with your data migration, you will need MySQL installed locally so you have the `mysql` and `mysqldump` tools. 
+
+[MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} [CLI](/docs/databases-cli-plugin) also makes it easy to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
 
 ## mysqldump
 {: #migrating-mysqldump}
+
+This native MySQL client utility installs by default and can perform logical backups, reproducing table structure and data, without copying the actual data files. mysqldump dumps one or more MySQL databases for backup or transfer to another MySQL server. For more information, see the [mysqldump documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html).
+
+mysqldump is appropriate to use under the following conditions:
+- The data set is smaller than 10 GB. 
+- Migration time is not critical, and the cost of re-trying the migration is very low.
+- You don’t need to do any intermediate schema or data transformations.
+
+We don't recommend using mysqldump if any of the following conditions are met: 
+- Your data set is larger than 10GB. 
+- The network connection between the source and target databases is unstable or very slow.
+
+Follow these steps to perform full data load using the mysqldump tool:
 
 On your source database run `mysqldump` to create an SQL file, which can be used to re-create the database. At a minimum, migrating `mysql` using the CLI requires the following arguments:
 - host name (`-h` flag)
@@ -45,7 +65,7 @@ For more information on using MySQL Replication with Global Transaction Identifi
 
 The `mysql` command has many options; [consult the official documentation](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax) and [command reference](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary) for a fuller view of its capabilities.
 
-## Restoring mysqldump's output
+### Restoring mysqldump's output
 {: #migrating-mysqldump-restore}
 
 The resulting output of `mysqldump` can then be uploaded into a new {{site.data.keyword.databases-for-mysql}} deployment. As the output is SQL, it can simply be sent to the database through the `mysql` command. We recommend that imports be performed with the admin user. 
@@ -62,3 +82,19 @@ mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-
 If no user is specified, the command automatically uses the admin user and interactively prompts for the password. The TLS certificate is automatically retrieved and used.
 
 While the restore process is running, a number of messages are emitted regarding changes being made to the database deployment.
+
+## mydumper
+{: #migrating-mydumper}
+
+mydumper, and its paired logical backup tool myloader, use multithreading capabilities to perform data migration similarly to mysqldump; however, mydumper provides many improvements such as parallel backups, consistent reads, and easier to manage output. Parallelism allows for better performance during both the import and export process, while output can be easier to manage because individual tables get dumped into separate files. 
+
+For details and step-by-step instructions, see the [mydumper project](https://github.com/maxbube/mydumper).
+
+mydumper is appropriate to use under the following conditions:
+- The data set is larger than 10 GB. 
+- The network connection between source and target databases is fast and stable.
+- You need to do intermediate schema or data transformations.
+
+We don't recommend using mysqldump if any of the following conditions are met: 
+- Your data set is smaller than 10GB. 
+- The network connection between the source and target databases is unstable or very slow.
