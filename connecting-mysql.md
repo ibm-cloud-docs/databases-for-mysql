@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-12-01"
+lastupdated: "2022-01-07"
 
 keywords: mysql, databases
 
@@ -73,7 +73,7 @@ The command prompts for the admin password and then runs the `mysql` command lin
 If you have not installed the cloud databases plug-in, connect to your MySQL databases using `mysql` by giving it the "composed" connection string. It provides environment variables `MYSQL_PWD` and `--ssl-ca=<cert_name>`. Set `MYSQL_PWD` to the admin's password and `--ssl-ca=<cert_name>` to the path or file name for the self-signed certificate. 
 
 ```shell
-MYSQL_PWD=$MYSQL_PWD --ssl-ca=<cert_name>=0b22f14b-7ba2-11e8-b8e9-568642342d40 mysql 'host=4a8148fa-3806-4f9c-b3fc-6467f11b13bd.8f7bfd7f3faa4218aec56e069eb46187.databases.appdomain.cloud port=32325 dbname=ibmclouddb user=admin sslmode=verify-full'
+MYSQL_PWD=$PASSWORD mysql --host=e4ad919f-59b6-4300-97c9-e099a5b6cf31.c5kmhkid0ujpmrucb800.databases.appdomain.cloud --port=32195 --user=$USERNAME --ssl-mode=VERIFY_IDENTITY --ssl-ca=52b78cf7-b17e-42aa-9e07-1fe4f741b286 ibmclouddb
 ```
 
 ## Using the self-signed certificate
