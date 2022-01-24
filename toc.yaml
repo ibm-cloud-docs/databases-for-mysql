@@ -65,7 +65,7 @@ toc:
           topics: 
           - /cloud-databases/cloud-databases-activity-tracker-integration
           - /cloud-databases/cloud-databases-logging
-          - /cloud-databases/cloud-databases-tutorial-cf-app
+          - reference-monitoring.md
       - topicgroup: 
           label: Enhancing security
           topics: 
