@@ -59,13 +59,13 @@ toc:
           topics: 
           - /cloud-databases/cloud-databases-tutorial-getting-started
           - /cloud-databases/cloud-databases-tutorial-k8s-app
-          - reference-monitoring.md
+          - /cloud-databases/cloud-databases-tutorial-cf-app
       - topicgroup: 
           label: Logging and monitoring
           topics: 
           - /cloud-databases/cloud-databases-activity-tracker-integration
           - /cloud-databases/cloud-databases-logging
-          - /cloud-databases/cloud-databases-tutorial-cf-app
+          - reference-monitoring.md
       - topicgroup: 
           label: Enhancing security
           topics: 
