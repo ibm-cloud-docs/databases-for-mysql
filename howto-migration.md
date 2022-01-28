@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2022-01-25"
+lastupdated: "2022-01-28"
 
 keywords: mysql, databases, migrating
 
@@ -28,12 +28,54 @@ Before getting started with your data migration, you will need MySQL installed l
 
 [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} [CLI](/docs/databases-cli-plugin) also makes it easy to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
 
-## Configuring innodb_buffer_pool_size value
-{: #migrating-before-begin-buffer_size}
+## Tuning InnoDB Configurable Variables
+{: #migrating-config-variables}
 
-The `innodb_buffer_pool_size value` parameter defines your database container's dedicated memory amount. As your database itself uses a given amount of memory, if the `innodb_buffer_pool_size value` parameter is configured too high, then your database memory requirements + `innodb_buffer_pool_size` can become higher than available memory limits, resulting in an out of memory state (OOM).
+You can configure the MySQL InnoDB options to tune performance based on machine capacity and database workload. 
 
-The `innodb_buffer_pool_size value` parameter value will differ based on the size of your database. The default value is `70%`, which is safe for databases of all sizes. Configure the value as needed; if you encounter OOM then the value is set too high and you should lower it. 
+### innodb_buffer_pool_size_percentage
+{: #migrating-config-variables_buffer_pool}
+
+The `innodb_buffer_pool_size_percentage value` parameter defines your database container's dedicated memory amount. As your database itself uses a given amount of memory, if the `innodb_buffer_pool_size_percentage value` parameter is configured too high, then your database memory requirements + `innodb_buffer_pool_size_percentage` can become higher than available memory limits, resulting in an out of memory state (OOM).
+
+The `innodb_buffer_pool_size_percentage` parameter value will differ based on the size of your database. The default value is `70%`, which is safe for databases of all sizes. Configure the value as needed; if you encounter OOM then the value is set too high and you should lower it. 
+
+### innodb_flush_log_at_trx_commit
+{: #migrating-config-variables-flush-log}
+
+- Description: Controls the balance between strict ACID compliance for commit operations and higher performance
+
+- Default setting: 2
+
+The default setting of 2 is not fully ACID-compliant (Default setting of 1 is required for full ACID compliance), but it is more performant and still is safe.
+
+- Max: 2
+- Min: 0
+- Requires restart: False
+
+For more information, consult the MySQL innodb_flush_log_at_trx_commit [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
+
+### innodb_log_buffer_size
+{: #migrating-config-variables-log-buffer-size}
+
+### innodb_log_file_size
+{: #migrating-config-variables-log-file-size}
+
+### innodb_lru_scan_depth
+{: #migrating-config-variables-lru-scan-depth}
+
+### innodb_read_io_threads
+{: #migrating-config-variables-read-io-threads}
+
+### innodb_write_io_threads
+{: #migrating-config-variables-write-io-threads}
+
+### net_read_timeout
+{: #migrating-config-variables-net-read-timeout}
+
+### net_write_timeout
+{: #migrating-config-variables-net-write-timeout}
+
 
 ## mysqldump
 {: #migrating-mysqldump}
