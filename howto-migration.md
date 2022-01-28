@@ -76,6 +76,14 @@ For more information, consult the MySQL innodb_log_buffer_size [documentation](h
 ### innodb_log_file_size
 {: #migrating-config-variables-log-file-size}
 
+- Description: InnoDB log file size in bytes.
+- Default setting: 64MB
+- Max: 274877906900
+- Min: 4194304
+- Requires restart: True
+
+For more information, consult the MySQL innodb_log_file_size [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size).
+
 ### innodb_lru_scan_depth
 {: #migrating-config-variables-lru-scan-depth}
 
