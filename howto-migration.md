@@ -48,6 +48,7 @@ The `innodb_buffer_pool_size_percentage` parameter value will differ based on th
 - Default setting: 2
 
 The default setting of 2 is not fully ACID-compliant (Default setting of 1 is required for full ACID compliance), but it is more performant and still is safe.
+{: .note}
 
 - Max: 2
 - Min: 0
