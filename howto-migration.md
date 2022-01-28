@@ -65,6 +65,14 @@ For more information, consult the MySQL innodb_flush_log_at_trx_commit [document
 ### innodb_log_buffer_size
 {: #migrating-config-variables-log-buffer-size}
 
+- Description: The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
+- Default setting: 32MiB
+- Max: 4294967295
+- Min: 1048576
+- Requires restart: True
+
+For more information, consult the MySQL innodb_log_buffer_size [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
+
 ### innodb_log_file_size
 {: #migrating-config-variables-log-file-size}
 
