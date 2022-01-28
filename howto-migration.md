@@ -87,18 +87,57 @@ For more information, consult the MySQL innodb_log_file_size [documentation](htt
 ### innodb_lru_scan_depth
 {: #migrating-config-variables-lru-scan-depth}
 
+- Description: A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool.
+- Default setting: 1024
+- Max: no max value
+- Min: 100
+- Requires restart: True
+
+For more information, consult the MySQL innodb_lru_scan_depth [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth).
+
 ### innodb_read_io_threads
 {: #migrating-config-variables-read-io-threads}
+
+- Description: The number of I/O threads for read operations in InnoDB.
+- Default setting: 4
+- Max: 64
+- Min: 1
+- Requires restart: True
+
+For more information, consult the MySQL innodb_read_io_threads [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
 
 ### innodb_write_io_threads
 {: #migrating-config-variables-write-io-threads}
 
+- Description: The number of I/O threads for read operations in InnoDB.
+- Default setting: 4
+- Max: 64
+- Min: 1
+- Requires restart: True
+
+For more information, consult the MySQL innodb_write_io_threads [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
+
 ### net_read_timeout
 {: #migrating-config-variables-net-read-timeout}
+
+- Description: The number of seconds to wait for more data from a connection before aborting the read.
+- Default setting: 30 
+- Max: 
+- Min: 1
+- Requires restart: True
+
+For more information, consult the MySQL net_read_timeout [documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout).
 
 ### net_write_timeout
 {: #migrating-config-variables-net-write-timeout}
 
+- Description: The number of seconds to wait for a block to be written to a connection before aborting the write.
+- Default setting: 60
+- Max: 
+- Min: 1
+- Requires restart: True
+
+For more information, consult the MySQL net_write_timeout [documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout).
 
 ## mysqldump
 {: #migrating-mysqldump}
