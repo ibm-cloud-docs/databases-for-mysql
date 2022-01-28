@@ -36,9 +36,15 @@ You can configure the MySQL InnoDB options to tune performance based on machine 
 ### innodb_buffer_pool_size_percentage
 {: #migrating-config-variables_buffer_pool}
 
-The `innodb_buffer_pool_size_percentage value` parameter defines your database container's dedicated memory amount. As your database itself uses a given amount of memory, if the `innodb_buffer_pool_size_percentage value` parameter is configured too high, then your database memory requirements + `innodb_buffer_pool_size_percentage` can become higher than available memory limits, resulting in an out of memory state (OOM).
+- Description: The `innodb_buffer_pool_size_percentage value` parameter defines your database container's dedicated memory amount.
+- Default setting: 50
+- Max: 100
+- Min: 10
+- Requires restart: True
 
-The `innodb_buffer_pool_size_percentage` parameter value will differ based on the size of your database. The default value is `70%`, which is safe for databases of all sizes. Configure the value as needed; if you encounter OOM then the value is set too high and you should lower it. 
+ As your database itself uses a given amount of memory, if the `innodb_buffer_pool_size_percentage value` parameter is configured too high, then your database memory requirements + `innodb_buffer_pool_size_percentage` can become higher than available memory limits, resulting in an out of memory state (OOM).
+
+The `innodb_buffer_pool_size_percentage` parameter value will differ based on the size of your database. The default value is `50%`, which is safe for databases of all sizes. Configure the value as needed; if you encounter OOM then the value is set too high and you should lower it. 
 
 ### innodb_flush_log_at_trx_commit
 {: #migrating-config-variables-flush-log}
