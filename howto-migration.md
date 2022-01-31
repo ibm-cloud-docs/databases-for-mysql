@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2022-01-28"
+lastupdated: "2022-01-31"
 
 keywords: mysql, databases, migrating
 
@@ -31,7 +31,18 @@ Before getting started with your data migration, you will need MySQL installed l
 ## Tuning InnoDB Configurable Variables
 {: #migrating-config-variables}
 
-You can configure the MySQL InnoDB options to tune performance based on machine capacity and database workload. 
+You can configure the following MySQL InnoDB options to tune performance, based on machine capacity and database workload. 
+
+- [innodb_buffer_pool_size_percentage](#migrating-config-variables_buffer_pool)
+- [innodb_flush_log_at_trx_commit](#innodb_flush_log_at_trx_commit)
+- [innodb_log_buffer_size](#migrating-config-variables-log-buffer-size)
+- [innodb_log_file_size](#migrating-config-variables-log-file-size)
+- [innodb_lru_scan_depth](#migrating-config-variables-lru-scan-depth)
+- [innodb_read_io_threads](#migrating-config-variables-read-io-threads)
+- [innodb_write_io_threads](#migrating-config-variables-write-io-threads)
+- [net_read_timeout](#migrating-config-variables-net-read-timeout)
+- [net_write_timeout](#migrating-config-variables-net-write-timeout)
+
 
 ### innodb_buffer_pool_size_percentage
 {: #migrating-config-variables_buffer_pool}
