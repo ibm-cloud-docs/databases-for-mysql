@@ -95,7 +95,7 @@ mydumper is appropriate to use under the following conditions:
 - The network connection between source and target databases is fast and stable.
 - You need to do intermediate schema or data transformations.
 
-We don't recommend using mysqldump if any of the following conditions are met: 
+We don't recommend using mydumper if any of the following conditions are met: 
 - Your data set is smaller than 10GB. 
 - The network connection between the source and target databases is unstable or very slow.
 
