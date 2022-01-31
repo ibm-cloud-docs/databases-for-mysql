@@ -34,7 +34,7 @@ Before getting started with your data migration, you will need MySQL installed l
 You can configure the following MySQL InnoDB options to tune performance, based on machine capacity and database workload. 
 
 - [innodb_buffer_pool_size_percentage](#migrating-config-variables_buffer_pool)
-- [innodb_flush_log_at_trx_commit](#innodb_flush_log_at_trx_commit)
+- [innodb_flush_log_at_trx_commit](#migrating-config-variables-flush-log)
 - [innodb_log_buffer_size](#migrating-config-variables-log-buffer-size)
 - [innodb_log_file_size](#migrating-config-variables-log-file-size)
 - [innodb_lru_scan_depth](#migrating-config-variables-lru-scan-depth)
