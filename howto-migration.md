@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2022-02-02"
+lastupdated: "2022-02-01"
 
 keywords: mysql, databases, migrating
 
