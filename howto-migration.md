@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2022-01-31"
+lastupdated: "2022-02-01"
 
 keywords: mysql, databases, migrating
 
@@ -88,8 +88,6 @@ While the restore process is running, a number of messages are emitted regarding
 
 mydumper, and its paired logical backup tool myloader, use multithreading capabilities to perform data migration similarly to mysqldump; however, mydumper provides many improvements such as parallel backups, consistent reads, and easier to manage output. Parallelism allows for better performance during both the import and export process, while output can be easier to manage because individual tables get dumped into separate files. 
 
-For details and step-by-step instructions on installation and necessary developer environment, see the [mydumper project](https://github.com/maxbube/mydumper).
-
 mydumper is appropriate to use under the following conditions:
 - The data set is larger than 10 GB. 
 - The network connection between source and target databases is fast and stable.
@@ -99,38 +97,9 @@ We don't recommend using mydumper if any of the following conditions are met:
 - Your data set is smaller than 10GB. 
 - The network connection between the source and target databases is unstable or very slow.
 
-Here is a basic script for performing a full data load using the mydumper tool:
+Before you begin migrating your data with mydumper, first see the [mydumper project](https://github.com/maxbube/mydumper) for details and step-by-step instructions on installation and necessary developer environment, 
 
-```shell
-#!/bin/sh
-file=stack9.tar
-mysql --login-path=local -e "DROP DATABASE stackoverflow9 IF EXISTS;"
-mysql --login-path=local -e "CREATE DATABASE stackoverflow9"
-bucket=my-walg-218
-resource="/${bucket}/${file}" 
-contentType="application/gzip" 
-dateValue=`date -R`
-stringToSign="GET\n\n${contentType}\n${dateValue}\n${resource}" 
-s3Key=a48508d4a3394a738cf24e6285627ded 
-s3Secret=19ede00909c28c6b0c80c8ea7212ebdb5e22da50650a54f1 
-signature=`/bin/echo -en "$stringToSign" | openssl sha1 -hmac ${s3Secret} -binary | base64`
-curl -H "Host: ${bucket}.s3.private.us.cloud-object-storage.appdomain.cloud" \
- -H "Date: ${dateValue}" \
- -H "Content-Type: ${contentType}" \
- -H "Authorization: AWS ${s3Key}:${signature}" \
- --limit-rate 100M \
- https://${bucket}.s3.private.us.cloud-object-storage.appdomain.cloud/${file} | tar -xf stack9.tar
- myloader --user ibm --socket /data/mysql/5/mysqld.sock --directory=/data/export-20220113-111633
- ```
-
-### Restoring mydumper's output
-{: #migrating-mydumper-restore}
-
-As noted in the Connecting with mysql documentation, the {{site.data.keyword.databases-for}} CLI plug-in simplifies connecting. The previous mysql import can be performed using a command like:
-
-```shell
-myloader --user ibm --socket /data/mysql/5/mysqld.sock --directory=/data/export-20220113-111633 --verbose 3 --threads=16 --queries-per-transaction=500
-```
+Next, refer to the [How to use mydumper](https://github.com/mydumper/mydumper#how-to-use-mydumper) page for information on using the mydumper and myloader tools to perform full data migration.
 
 ## Tuning InnoDB Configurable Variables
 {: #migrating-config-variables}
