@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-11-20"
+lastupdated: "2022-02-01"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
