@@ -5,7 +5,7 @@
 toc:
   properties:
     subcollection: databases-for-mysql
-    service-name: databases-for-mysql-group
+    service-name: databases-for-mysql
     version: 2
     category: database
     audience: service
