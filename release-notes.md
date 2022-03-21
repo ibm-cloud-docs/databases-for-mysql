@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-21"
 
-keywords: databases-for-mysql-group release notes
+keywords: databases-for-mysql release notes
 
 subcollection: databases-for-mysql
 
