@@ -26,7 +26,7 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
-## 16 March 2022
+## 05 January 2022
 {: #databases-for-mysql-05jan2022}
 {: release-note}
 
