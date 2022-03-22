@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2022-03-21"
+lastupdated: "2022-03-22"
 
 keywords: databases-for-mysql release notes
 
@@ -25,3 +25,10 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 16 March 2022
+{: #databases-for-mysql-05jan2022}
+{: release-note}
+
+General Availability of {{site.data.keyword.databases-for-mysql_full}}
+:  {{site.data.keyword.databases-for-mysql_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/general-availability-of-ibm-cloud-databases-for-mysql).
