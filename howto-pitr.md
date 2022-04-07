@@ -31,7 +31,7 @@ ibmcloud cdb mysql earliest-pitr-timestamp <deployment name or CRN>
 ```
 {: pre}
 
-To discover the earliest recovery point through the API, use the [`/deployments/{id}/point_in_time_recovery_data`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-earliest-point-in-time-recovery-timestamp) endpoint to find the earliest PITR time. 
+To discover the earliest recovery point through the API, use the [`/deployments/{id}/point_in_time_recovery_data`](/apidocs/cloud-databases-api/cloud-databases-api-v5#getpitrdata) endpoint to find the earliest PITR time. 
 ```shell
 {
     "point_in_time_recovery_data": {
