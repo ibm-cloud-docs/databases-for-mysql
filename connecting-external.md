@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2022-02-01"
+  years: 2021, 2022
+lastupdated: "2022-04-26"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -207,3 +207,6 @@ Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubym
 C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/)
 Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql)
 {: caption="Table 2. MySQL drivers" caption-side="top"}
+
+When connecting to MySQL using PHP, it is necessary to change the auth plugin from `sha256_password` to `mysql_native_password`.
+{: .note}
