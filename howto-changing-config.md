@@ -31,7 +31,7 @@ The configuration is defined in a schema. To make a change, you send a JSON obje
 
 to either the CLI or to the API. 
 
-For more information on checking the current value of `max_connections`, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections) documentation. 
+For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections) documentation. 
 
 ## Using the CLI
 {: #using-cli}
@@ -81,7 +81,7 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 - Allowable values: `sha256_password`, `mysql_native_password`
 - Restarts database? - **true**
 
-Unless strictly necessary, we do not recommend using `mysql_native_password`. {: note}
+Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html)
 
