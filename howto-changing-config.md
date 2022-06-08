@@ -127,11 +127,11 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
 
-- Description: An InnoDB MySQL option that may affect performance. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary may impact performance. Only consider increasing the value if you have spare I/O capacity under a typical workload. 
+- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary may impact performance. Only consider increasing the value if you have spare I/O capacity under a typical workload. 
 - Default: `256`
 - Minimum: `128`
 - Maximum: `2048`
-- Restarts database? - **true**
+- Restarts database? - **false**
 
 [`net_write_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout){: .external}
 
@@ -139,5 +139,36 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Default: `60`
 - Minimum: `1`
 - Maximum: `7200`
+- Restarts database? - **false**
+
+[`innodb_write_io_threads`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads){: .external}
+
+- Description: The number of I/O threads for write operations in InnoDB.
+- Default: `4`
+- Minimum: `1`
+- Maximum: `64`
 - Restarts database? - **true**
 
+[`innodb_log_file_size`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size){: .external}
+
+- Description: The size in bytes of each [log file](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_file){: .external} in a [log group](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_group){: .external}.
+- Default: `67108864`
+- Minimum: `4194304`
+- Maximum: `274877906900`
+- Restarts database? - **true**
+
+[`innodb_log_buffer_size`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_buffer_size){: .external}
+
+- Description: The size in bytes of the buffer that InnoDB uses to write to the [log files](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_file){: .external} on disk.
+- Default: `33554432`
+- Minimum: `1048576`
+- Maximum: `4294967295`
+- Restarts database? - **true**
+
+[`innodb_flush_log_at_trx_commit`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit){: .external}
+
+- Description: Controls the balance between strict [ACID](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_acid){: .external} compliance for [commit](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_commit) operations and higher performance that is possible when commit-related I/O operations are rearranged and done in batches. You can achieve better performance by changing the default value but then you can lose transactions in a crash.
+- Default: `2`
+- Minimum: `0`
+- Maximum: `2`
+- Restarts database? - **false**
