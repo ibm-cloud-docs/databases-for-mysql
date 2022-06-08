@@ -116,3 +116,10 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
    - `STRICT_ALL_TABLES`
    - `STRICT_TRANS_TABLES`
 - Restarts database? - **false**
+
+[`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html)
+
+- Description: The percentage of memory to use for `innodb_buffer_pool_size`. The defaul value of 50% is conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash. 
+- Minimum: `10`
+- Maximum: `100`
+- Restarts database? - **true**
