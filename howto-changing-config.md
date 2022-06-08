@@ -133,3 +133,11 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Maximum: `2048`
 - Restarts database? - **true**
 
+[`net_write_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout){: .external}
+
+- Description: The number of seconds to wait for a block to be written to a connection before aborting the write.
+- Default: `60`
+- Minimum: `1`
+- Maximum: `7200`
+- Restarts database? - **true**
+
