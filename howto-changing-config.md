@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2021-12-08"
+  years: 2021, 2022
+lastupdated: "2022-06-08"
 
-keywords: mysql, databases, config
+keywords: mysql, databases, config, mysql configuaration
 
 subcollection: databases-for-mysql
 
@@ -75,7 +75,7 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 - Default - `1800`
 - Restarts database? - **false**
 
-[`mysql_default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+[`default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
 
 - Default - `sha256_password`
 - Allowable values: `sha256_password`, `mysql_native_password`
