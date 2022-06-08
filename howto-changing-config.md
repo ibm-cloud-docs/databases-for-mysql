@@ -24,26 +24,26 @@ subcollection: databases-for-mysql
 
 The configuration is defined in a schema. To make a change, you send a JSON object with the settings and their new values to the API or the CLI.  For example, to set the `max_connections` setting to 150, you would supply 
 
-```shell
+```sh
 {"configuration":{"max_connections":150}}
 ```
 {: .codeblock}
 
 to either the CLI or to the API. 
 
-For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections) documentation. 
+For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections){: .external} documentation. 
 
 ## Using the CLI
 {: #using-cli}
 
 You can check the current configuration of your deployment with 
-```shell
+```sh
 ibmcloud cdb deployment-configuration-schema <deployment name or CRN>
 ```
 {: pre}
 
 To change your configuration through the {{site.data.keyword.databases-for}} cli-plugin, use `deployment-configuration` command. 
-```shell
+```sh
 ibmcloud cdb deployment-configuration <deployment name or CRN> [@JSON_FILE | JSON_STRING]
 ```
 {: pre}
@@ -63,19 +63,19 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 ## Available Configuration settings
 {: #available-config-settings}
 
-[`max_connections`](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS)
+[`max_connections`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections){: .external}
 
 - Default - `200`
 - Restarts database? - **false**
   
  You might need to [scale before you increase max connections](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#connection-limits-ha). {: note}
 
-[`mysql_max_binlog_age_sec`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html)
+[`mysql_max_binlog_age_sec`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html){: .external}
 
 - Default - `1800`
 - Restarts database? - **false**
 
-[`default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+[`default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html){: .external}
 
 - Default - `sha256_password`
 - Allowable values: `sha256_password`, `mysql_native_password`
@@ -83,14 +83,14 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 
 Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
-[`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html)
+[`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html){: .external}
 
 - Default - `16777216`
 - Minimum - `1024`
 - Maximum - `1073741824`
 - Restarts database? - **false**
 
-[`sql_mode`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html)
+[`sql_mode`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html){: .external}
 
 - Allowable values: 
    - `ALLOW_INVALID_DATES`
@@ -117,9 +117,19 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
    - `STRICT_TRANS_TABLES`
 - Restarts database? - **false**
 
-[`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html)
+[`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size){: .external}
 
 - Description: The percentage of memory to use for `innodb_buffer_pool_size`. The defaul value of 50% is conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash. 
+- Default: `50`
 - Minimum: `10`
 - Maximum: `100`
 - Restarts database? - **true**
+
+[`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
+
+- Description: An InnoDB MySQL option that may affect performance. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary may impact performance. Only consider increasing the value if you have spare I/O capacity under a typical workload. 
+- Default: `256`
+- Minimum: `128`
+- Maximum: `2048`
+- Restarts database? - **true**
+
