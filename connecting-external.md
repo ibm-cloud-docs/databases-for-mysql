@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-26"
+lastupdated: "2022-06-09"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -47,12 +47,14 @@ Field Name|Index|Description
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
-Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
+Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example
 
 ```bash
-mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?sslmode=verify-full
+mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?ssl-mode=verify-full
 ```
 {: pre}
+
+For more information regarding `ssl-mode` states, see [Additional Connection parameters](https://dev.mysql.com/doc/refman/8.0/en/connecting-using-uri-or-key-value-pairs.html).
 
 The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/doc/connector-j/8.0/en/) to connect to your database.
 
