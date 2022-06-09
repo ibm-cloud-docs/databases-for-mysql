@@ -49,14 +49,14 @@ Field Name|Index|Description
 
 Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example
 
-```bash
+```sh
 mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?ssl-mode=verify-full
 ```
 {: pre}
 
 For more information regarding `ssl-mode` states, see [Additional Connection parameters](https://dev.mysql.com/doc/refman/8.0/en/connecting-using-uri-or-key-value-pairs.html).
 
-The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/doc/connector-j/8.0/en/) to connect to your database.
+The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/doc/connector-j/8.0/en/){: .external} to connect to your database.
 
 ```java
 import java.sql.Connection;
@@ -153,8 +153,9 @@ public class App {
 }
 
 ```
+{: .codeblock}
 
-The following example uses the information from your connection string and the Python driver [pymysql](https://pypi.org/project/PyMySQL/#documentation) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
+The following example uses the information from your connection string and the Python driver [pymysql](https://pypi.org/project/PyMySQL/#documentation){: .external} to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
 
 ```python
 import pymysql
@@ -176,6 +177,7 @@ for row in cursor:
 cursor.close()
 connection.close()
 ```
+{: .codeblock}
 
 ## Driver TLS and self-signed certificate support
 {: #connecting-cert-support}
@@ -200,14 +202,14 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 ## Other Drivers
 {: #connecting-drivers}
 
-MySQL has an array of language drivers. The table below covers a few of the most common. Consult MySQL's [Connectors and APIs](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html) for more information.
+MySQL has an array of language drivers. The table below covers a few of the most common. Consult MySQL's [Connectors and APIs](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html){: .external} for more information.
 
 Language|Driver|Examples
 -------|-------|-------
-PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php)
-Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html)
-C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/)
-Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql)
+PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php){: .external}
+Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html){: .external}
+C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/){: .external}
+Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external}
 {: caption="Table 2. MySQL drivers" caption-side="top"}
 
 When connecting to MySQL using PHP, it is necessary to change the auth plugin from `sha256_password` to `mysql_native_password`.
