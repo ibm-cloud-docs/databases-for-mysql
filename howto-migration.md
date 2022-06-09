@@ -24,7 +24,7 @@ Various options exist to migrate data from existing MySQL databases to {{site.da
 ## Before you begin
 {: #migrating-before-begin}
 
-Before getting started with your data migration, you will need MySQL installed locally so you have the `mysql` and `mysqldump` tools. 
+Before getting started with your data migration, you need MySQL installed locally so you have the `mysql` and `mysqldump` tools. 
 
 [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} [CLI](/docs/databases-cli-plugin) also makes it easy to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
 
@@ -35,32 +35,32 @@ This native MySQL client utility installs by default and can perform logical bac
 
 mysqldump is appropriate to use under the following conditions:
 - The data set is smaller than 10 GB. 
-- Migration time is not critical, and the cost of re-trying the migration is very low.
+- Migration time is not critical, and the cost of retrying the migration is very low.
 - You don’t need to do any intermediate schema or data transformations.
 
-We don't recommend using mysqldump if any of the following conditions are met: 
-- Your data set is larger than 10GB. 
-- The network connection between the source and target databases is unstable or very slow.
+We don't recommend mysqldump if any of the following conditions are met: 
+- Your data set is larger than 10 GB. 
+- The network connection between the source and target databases is unstable or slow.
 
-Follow these steps to perform full data load using the mysqldump tool:
+Follow these steps to perform full data load by using the mysqldump tool:
 
 On your source database run `mysqldump` to create an SQL file, which can be used to re-create the database. At a minimum, migrating `mysql` using the CLI requires the following arguments:
-- host name (`-h` flag)
-- port number (`-P` flag)
-- user name (`-u` flag) 
-- [--ssl-mode=VERIFY_IDENTITY](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode) (clients will require an encrypted connection and will perform verification against the server CA certificate and against the server host name in its certificate)
+- Hostname (`-h` flag)
+- Port number (`-P` flag)
+- Username (`-u` flag) 
+- [--ssl-mode=VERIFY_IDENTITY](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode) (clients require an encrypted connection and perform verification against the server CA certificate and against the server host name in its certificate)
 - [--ssl-ca](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-ca) (the path name of the Certificate Authority (CA) file, which can be found within the Endpoints CLI tab of the *Overview* page in the UI.)
 - database name
 - result file (`-r` flag) 
 
-Your CLI command will look like this
+Your CLI command looks like this
 
 ```sh
 mysqldump -h <host_name> -P <port_number> -u <user_name> --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p <database_name> -r dump.sql
 ```
 {: pre}
 
-To generate a logfile of the mysqldump job that tracks errors while it's running, use a command like this
+To generate a log file of the mysqldump job that tracks errors while it's running, use a command like this
 
 ```sh
 mysqldump -h <host_name> -P <port_number> -u <user_name> --log-error=error.log --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p ibmclouddb -r dump.sql. 
@@ -84,9 +84,9 @@ The `mysql` command has many options; [consult the official documentation](https
 
 The resulting output of `mysqldump` can then be uploaded into a new {{site.data.keyword.databases-for-mysql}} deployment. As the output is SQL, it can simply be sent to the database through the `mysql` command. We recommend that imports be performed with the admin user. 
 
-See the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) documentation for details on connecting as admin using `mysql`. To connect with the `mysql` command, you need the admin user's connection string and the TLS certificate, which can both be found in the UI. The certificate needs to be decoded from the base64 and stored as an arbitrary local file. To import the previously created `dump.sql` into a database deployment named `example-mysql`, the `mysql` command can be called with `-f dump.sql` as a parameter. The parameter tells `mysql` to read and execute the SQL statements in the file. 
+See the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) documentation for details on connecting as admin by using `mysql`. To connect with the `mysql` command, you need the admin user's connection string and the TLS certificate, which can both be found in the UI. The certificate needs to be decoded from the base64 and stored as an arbitrary local file. To import the previously created `dump.sql` into a database deployment named `example-mysql`, the `mysql` command can be called with `-f dump.sql` as a parameter. The parameter tells `mysql` to read and run the SQL statements in the file. 
 
-As noted in the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) documentation, the {{site.data.keyword.databases-for}} CLI plug-in simplifies connecting. The previous `mysql` import can be performed using a command like: 
+As noted in the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) documentation, the {{site.data.keyword.databases-for}} CLI plug-in simplifies connecting. The previous `mysql` import can be run using a command like: 
 
 ```sh
 mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt -p ibmclouddb < dump.sql
@@ -108,7 +108,7 @@ mydumper is appropriate to use under the following conditions:
 - You need to do intermediate schema or data transformations.
 
 We don't recommend using mydumper if any of the following conditions are met: 
-- Your data set is smaller than 10GB. 
+- Your data set is smaller than 10 GB. 
 - The network connection between the source and target databases is unstable or very slow.
 
 Before you begin migrating your data with mydumper, first see the [mydumper project](https://github.com/maxbube/mydumper) for details and step-by-step instructions on installation and necessary developer environment, 
@@ -142,7 +142,7 @@ You can configure the following MySQL InnoDB options to tune performance, based 
 
  As your database itself uses a given amount of memory, if the `innodb_buffer_pool_size_percentage value` parameter is configured too high, then your database memory requirements + `innodb_buffer_pool_size_percentage` can become higher than available memory limits, resulting in an out of memory state (OOM).
 
-The `innodb_buffer_pool_size_percentage` parameter value will differ based on the size of your database. The default value is `50%`, which is safe for databases of all sizes. Configure the value as needed; if you encounter OOM then the value is set too high and you should lower it. 
+The `innodb_buffer_pool_size_percentage` parameter value differs based on the size of your database. The default value is `50%`, which is safe for databases of all sizes. Configure the value as needed; if you encounter OOM then the value is set too high and you should lower it. 
 
 ### innodb_flush_log_at_trx_commit
 {: #migrating-config-variables-flush-log}
@@ -164,7 +164,7 @@ For more information, consult the MySQL innodb_flush_log_at_trx_commit [document
 {: #migrating-config-variables-log-buffer-size}
 
 - Description: The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
-- Default setting: 32MiB
+- Default setting: 32 MiB
 - Max: 4294967295
 - Min: 1048576
 - Requires restart: True
@@ -175,7 +175,7 @@ For more information, consult the MySQL innodb_log_buffer_size [documentation](h
 {: #migrating-config-variables-log-file-size}
 
 - Description: InnoDB log file size in bytes.
-- Default setting: 64MB
+- Default setting: 64 MB
 - Max: 274877906900
 - Min: 4194304
 - Requires restart: True
