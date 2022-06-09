@@ -54,25 +54,24 @@ On your source database run `mysqldump` to create an SQL file, which can be used
 - result file (`-r` flag) 
 
 Your CLI command looks like this
-
 ```sh
 mysqldump -h <host_name> -P <port_number> -u <user_name> --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p <database_name> -r dump.sql
 ```
 {: pre}
 
 To generate a log file of the mysqldump job that tracks errors while it's running, use a command like this
-
 ```sh
 mysqldump -h <host_name> -P <port_number> -u <user_name> --log-error=error.log --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p ibmclouddb -r dump.sql 
 ```
 {: pre}
 
-The same can be done while importing, for example 
 
+The same can be done while importing, for example 
 ```sh
 mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt -p ibmclouddb < dump.sql > import_logfile.log
 ```
 {: pre}
+
 
 For more information on using MySQL Replication with Global Transaction Identifiers (GTIDs), see the [Using GTIDs for Failover and Scaleout](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-failover.html) in the MySQL Reference Manual.
 {: .note} 
