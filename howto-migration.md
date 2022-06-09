@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2022-02-01"
+  years: 2021, 2022
+lastupdated: "2022-06-09"
 
-keywords: mysql, databases, migrating
+keywords: mysql, databases, migrating, mysqldump
 
 subcollection: databases-for-mysql
 
@@ -53,14 +53,28 @@ On your source database run `mysqldump` to create an SQL file, which can be used
 - database name
 - result file (`-r` flag) 
 
-Your CLI command will look like this:
+Your CLI command will look like this
 
-```shell
-mysqldump -h <host_name> -P <port_number> -u <user_name> --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p ibmclouddb -r dump.sql
+```sh
+mysqldump -h <host_name> -P <port_number> -u <user_name> --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p <database_name> -r dump.sql
 ```
 {: pre}
 
-For more information on using MySQL Replication with Global Transaction Identifiers (GTIDs), consult the [Using GTIDs for Failover and Scaleout](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-failover.html) in the MySQL Reference Manual.
+To generate a logfile of the mysqldump job that tracks errors while it's running, use a command like this
+
+```sh
+mysqldump -h <host_name> -P <port_number> -u <user_name> --log-error=error.log --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p ibmclouddb -r dump.sql. 
+```
+{: pre}
+
+The same can be done while importing, for example 
+
+```sh
+mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt -p ibmclouddb < dump.sql > import_logfile.log
+```
+{: pre}
+
+For more information on using MySQL Replication with Global Transaction Identifiers (GTIDs), see the [Using GTIDs for Failover and Scaleout](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-failover.html) in the MySQL Reference Manual.
 {: .note} 
 
 The `mysql` command has many options; [consult the official documentation](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax) and [command reference](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary) for a fuller view of its capabilities.
@@ -74,7 +88,7 @@ See the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-
 
 As noted in the [Connecting with `mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) documentation, the {{site.data.keyword.databases-for}} CLI plug-in simplifies connecting. The previous `mysql` import can be performed using a command like: 
 
-```shell
+```sh
 mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt -p ibmclouddb < dump.sql
 ```
 {: pre}
