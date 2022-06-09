@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2022-04-07"
+  years: 2021, 2022
+lastupdated: "2022-06-09"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -22,9 +22,9 @@ subcollection: databases-for-mysql
 # Connecting an external application
 {: #external-app}
 
-Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-mysql_full}}. The service provides connection strings specifically for drivers and applications. Connection strings are displayed in the *Endpoints* panel of your deployment's *Overview*, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections) and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
+Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-mysql_full}}. The service provides connection strings specifically for drivers and applications. Connection strings are displayed in the *Endpoints* panel of your deployment's *Overview*, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections) and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
-The connection strings can be used by any of the credentials you have created on your deployment. While you can use the admin user for all your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on generating credentials is on the [Creating Users and Getting Connection Strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
+The connection strings can be used by any of the credentials you created on your deployment. While you can use the admin user for all your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on generating credentials is on the [Creating Users and Getting Connection Strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
 
 ## Connecting with a language's driver
 {: #connecting-lang-driver}
@@ -45,16 +45,18 @@ Field Name|Index|Description
 `Certificate`|Base64|A base64 encoded version of the certificate.
 {: caption="Table 1. mysql/URI connection information" caption-side="top"}
 
-* `0...` indicates that there might be one or more of these entries in an array.
+* `0...` indicates one or more of these entries in an array.
 
-Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
+Many MySQL drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example
 
-```bash
-mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?sslmode=verify-full
+```sh
+mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4ac7-b6bb-fb609326dc42.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32704/ibmclouddb?ssl-mode=verify-full
 ```
 {: pre}
 
-The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/doc/connector-j/8.0/en/) to connect to your database.
+For more information on `ssl-mode` states, see [Additional Connection parameters](https://dev.mysql.com/doc/refman/8.0/en/connecting-using-uri-or-key-value-pairs.html){: .external}.
+
+The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/doc/connector-j/8.0/en/){: .external} to connect to your database.
 
 ```java
 import java.sql.Connection;
@@ -151,8 +153,9 @@ public class App {
 }
 
 ```
+{: .codeblock}
 
-The following example uses the information from your connection string and the Python driver [pymysql](https://pypi.org/project/PyMySQL/#documentation) to connect to your database. This is just a simple connection example, without error handling or retry logic and may not be suitable for production.
+The following example uses the information from your connection string and the Python driver [pymysql](https://pypi.org/project/PyMySQL/#documentation){: .external} to connect to your database. This is just a simple connection example, without error handling or retry logic and might not be suitable for production.
 
 ```python
 import pymysql
@@ -174,6 +177,7 @@ for row in cursor:
 cursor.close()
 connection.close()
 ```
+{: .codeblock}
 
 ## Driver TLS and self-signed certificate support
 {: #connecting-cert-support}
@@ -185,7 +189,7 @@ All connections to {{site.data.keyword.databases-for-mysql}} are TLS 1.2 enabled
 
 1. Copy the certificate information from the *Endpoints* panel or the Base64 field of the connection information. 
 2. If needed, decode the Base64 string into text. 
-3. Save the certificate  to a file. (You can use the name that is provided or your own file name).
+3. Save the certificate to a file. (You can use the name that is provided or your own file name).
 4. Provide the path to the certificate to the driver or client.
 
 ![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Figure 1. CLI Endpoints panel" caption-side="bottom"}
@@ -198,12 +202,15 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 ## Other Drivers
 {: #connecting-drivers}
 
-MySQL has an array of language drivers. The table below covers a few of the most common. Consult MySQL's [Connectors and APIs](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html) for more information.
+MySQL has an array of language drivers. The table below covers a few of the most common. Consult MySQL's [Connectors and APIs](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html){: .external} for more information.
 
 Language|Driver|Examples
 -------|-------|-------
-PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php)
-Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html)
-C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/)
-Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql)
+PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php){: .external}
+Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html){: .external}
+C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/){: .external}
+Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external}
 {: caption="Table 2. MySQL drivers" caption-side="top"}
+
+When connecting to MySQL using PHP, it is necessary to change the auth plug-in from `sha256_password` to `mysql_native_password`.
+{: .note}
