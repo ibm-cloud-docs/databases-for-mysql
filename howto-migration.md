@@ -63,7 +63,7 @@ mysqldump -h <host_name> -P <port_number> -u <user_name> --ssl-mode=VERIFY_IDENT
 To generate a log file of the mysqldump job that tracks errors while it's running, use a command like this
 
 ```sh
-mysqldump -h <host_name> -P <port_number> -u <user_name> --log-error=error.log --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p ibmclouddb -r dump.sql. 
+mysqldump -h <host_name> -P <port_number> -u <user_name> --log-error=error.log --ssl-mode=VERIFY_IDENTITY --ssl-ca=mysql.crt --set-gtid-purged=OFF -p ibmclouddb -r dump.sql 
 ```
 {: pre}
 
