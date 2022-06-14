@@ -32,7 +32,7 @@ Use mysqldump or mydumper to import to {{site.data.keyword.cloud_notm}} Database
 ## Existing {{site.data.keyword.databases-for-mysql_full}} v5.7 deployments
 {: #mysql8-ga-existing-deployments}
 
-At present, in-place upgrades are not supported for clients running MySQL v5.7. {{site.data.keyword.cloud_notm}} Databases is creating additional documentation to provide necessary guidance on a migration path. Until this documentation is released, clients with existing {{site.data.keyword.databases-for-mysql_full}} v5.7 deployments should take the following steps:
+At present, in-place upgrades from MySQL v5.7 are not supported. {{site.data.keyword.cloud_notm}} Databases is creating additional documentation to provide necessary guidance on a migration path. Until this documentation is released, upgrade existing {{site.data.keyword.databases-for-mysql_full}} v5.7 deployments using the following steps:
 
 1. Create and export a v5.7x backup.
 1. Migrate and prepare your backup locally to be compatible with 8.0.
