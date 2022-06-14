@@ -23,16 +23,16 @@ subcollection: databases-for-mysql
 
 As part of our commitment to offering a rich and mature cloud database portfolio, {{site.data.keyword.cloud_notm}} Databases is releasing MySQL version 8. 
 
-## MySQL 8 New Deployments
+## New {{site.data.keyword.databases-for-mysql_full}} Deployments
 {: #mysql8-ga-new-deployments}
 
-New clients using MySQL 8 on {{site.data.keyword.cloud_notm}} Databases should be able to take a backup of existing version v5.7/8 database instances and import them into version 8. 
-You can use mysqldump or mydumper to export your v5.7/8 databases. For more information, see [Migrating to Databases for MySQL](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
+For new clients deploying on {{site.data.keyword.cloud_notm}} Databases, take a backup of your existing v5.7/8 database instances and import them into version 8. 
+You can then use mysqldump or mydumper to import to {{site.data.keyword.cloud_notm}} Databases. For more information, see [Migrating to Databases for MySQL](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
 
 ## Existing {{site.data.keyword.databases-for-mysql_full}} v5.7 deployments
 {: #mysql8-ga-existing-deployments}
 
-At present, in-place upgrades are not supported for clients running MySQL v5.7. {{site.data.keyword.cloud_notm}} Databases is working on providing additional documentation that will provide necessary guidance on a migration path. Until the documentation is released, clients existing {{site.data.keyword.databases-for-mysql_full}} v5.7 deployments should take the following steps:
+At present, in-place upgrades are not supported for clients running MySQL v5.7. {{site.data.keyword.cloud_notm}} Databases is creating additional documentation that will provide necessary guidance on a migration path. Until this documentation is released, clients with existing {{site.data.keyword.databases-for-mysql_full}} v5.7 deployments should take the following steps:
 
 1. Create and export a v5.7x backup.
 1. Migrate and prepare your backup locally to be compatible with 8.0.
@@ -40,7 +40,7 @@ At present, in-place upgrades are not supported for clients running MySQL v5.7. 
 
 As a best practice, retain your current v5.7 backups until the version 8 import is evaluated. Use mysqldump or mydumper to export your 5.7.x databases. For more information, see [Migrating to Databases for MySQL](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
 
-Once your upgrade is complete, changes cannot be reverted. The changes are incompatible, and you cannot use the data directory from MySQL 8.0 on MySQL 5.7. Clients should retain the backup of MySQL v5.7, as it helps to restore it on a MySQL 5.7 instance, should the changes be reversed.{: .note}
+Once your upgrade is complete, changes cannot be reverted. The changes are incompatible, and you cannot use the data directory from MySQL 8.0 on MySQL 5.7. Retain your MySQL v5.7 backup, as it helps to restore it on a MySQL 5.7 instance should the changes need to be reversed.{: .note}
 
 ### Upgrade Prerequisites
 {: #mysql8-ga-existing-deployments}
