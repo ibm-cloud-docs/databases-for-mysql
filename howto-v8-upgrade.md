@@ -23,7 +23,7 @@ subcollection: databases-for-mysql
 
 As part of our commitment to offering a rich and mature cloud database portfolio, {{site.data.keyword.cloud_notm}} Databases is releasing MySQL version 8. 
 
-## New {{site.data.keyword.databases-for-mysql_full}} Deployments
+## New {{site.data.keyword.databases-for-mysql_full}} deployments
 {: #mysql8-ga-new-deployments}
 
 For new {{site.data.keyword.cloud_notm}} Databases deployments, take a backup of your existing v5.7/8 database instances and import them into version 8.
