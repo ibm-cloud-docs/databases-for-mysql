@@ -21,7 +21,7 @@ subcollection: databases-for-mysql
 # MySQL 8 GA
 {: #mysql8-ga}
 
-As part of IBM's commitment to its clients, ICD is releaseing MySQL version 8 by the end of June 2022. 
+As part of our commitment to offering a rich and mature cloud database portfolio, ICD is releasing MySQL version 8. 
 
 ## MySQL 8 New Deployments
 {: #mysql8-ga-new-deployments}
