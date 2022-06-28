@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2022-03-22"
+  years: 2018, 2022
+lastupdated: "2022-06-28"
 
 keywords: databases-for-mysql release notes
 
@@ -12,19 +12,20 @@ content-type: release-note
 
 ---
 
-<!-- keywords values above are place holders. Actual values should be pulled from the release notes entries. -->
-
 {{site.data.keyword.attribute-definition-list}}
-
-<!-- You must add the release-note content type in your attribute definitions AND to each release note H2. This will ensure that the release note entry is pulled into the notifications library. -->
 
 # Release notes for {{site.data.keyword.databases-for-mysql_full}}
 {: #mysql-relnotes}
 
-<!-- The title of your H1 should be Release notes for _service-name_, where _service-name_ is the non-trademarked short version keyref. Include your service name as a search keyword at the top of your Markdown file. See the example keywords above. -->
-
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 28 June 2022
+{: #databases-for-mysql-28june2022}
+{: release-note}
+
+{{site.data.keyword.databases-for-mysql_full}} version 8 is now available on {{site.data.keyword.databases-for}}
+:  MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary. For information on upgrading your current {{site.data.keyword.databases-for-mysql_full}} deployment, or deploying a new instance, see blog post announcement [MySQL 8 GA](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql8-ga).
 
 ## 05 January 2022
 {: #databases-for-mysql-05jan2022}
