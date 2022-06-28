@@ -25,7 +25,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: release-note}
 
 {{site.data.keyword.databases-for-mysql_full}} version 8 is now available on {{site.data.keyword.databases-for}}
-:  MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary. For information on upgrading your current {{site.data.keyword.databases-for-mysql_full}} deployment, or deploying a new instance, see blog post announcement [MySQL 8 GA](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql8-ga).
+:  MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary. For information on upgrading your current {{site.data.keyword.databases-for-mysql_full}} deployment, or deploying a new instance, see [MySQL 8 GA](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql8-ga).
 
 ## 05 January 2022
 {: #databases-for-mysql-05jan2022}
