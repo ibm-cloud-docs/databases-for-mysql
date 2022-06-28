@@ -86,6 +86,7 @@ toc:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
       - /cloud-databases/cloud-databases-versioning-policy
+      - howto-v8-upgrade.md
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
