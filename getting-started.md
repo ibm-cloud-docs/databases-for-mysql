@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-15"
+  years: 2021, 2022
+lastupdated: "2022-07-08"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -20,7 +20,7 @@ subcollection: databases-for-mysql
 # Getting Started
 {: #getting-started}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. To get started, you will want to create a connection to [MySQL Workbench](https://www.mysql.com/products/workbench/), an open-source administration platform for MySQL that provides many tools for managing your data and databases. [Download and install](https://dev.mysql.com/downloads/workbench/) the version that is appropriate to your environment and then consult MySQL's [documentation](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html) to connect and manage your {{site.data.keyword.databases-for-mysql}} deployment.
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-mysql_full}} deployment. To get started, create a connection to [MySQL Workbench](https://www.mysql.com/products/workbench/){: .external}, an open-source administration platform for MySQL that provides many tools for managing your data and databases. [Download and install](https://dev.mysql.com/downloads/workbench/){: .external} the version that is appropriate to your environment and then consult MySQL's [documentation](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html){: .external} to connect and manage your {{site.data.keyword.databases-for-mysql}} deployment.
 
 
 ## {{site.data.keyword.databases-for-mysql_full}}
@@ -28,7 +28,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 {{site.data.keyword.databases-for-mysql_full}} is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. This offering lets users access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
 
-{{site.data.keyword.databases-for-mysql_full}} requires no software, infrastructure, network, or OS administration. IBM continuously provides fully automated and automatic updates to the service, such as security patches and minor version upgrades. A database instance is deployed by default as highly available across multiple data centers in an {{site.data.keyword.cloud_notm}} Multi-Zone region with synchronous replication. Customers need only connect to a single database endpoint and IBM automatically manages the failover between Availability Zones. {{site.data.keyword.databases-for-mysql_full}} provides the ability to horizontally scale the MySQL instance with Read Replicas in region or cross-regionally. {{site.data.keyword.databases-for-mysql_full}} Read Replicas can be easily transformed into fully functioning {{site.data.keyword.databases-for-mysql_full}} instances, an especially useful feature for online cross-regional disaster recovery strategies.
+{{site.data.keyword.databases-for-mysql_full}} requires no software, infrastructure, network, or OS administration. IBM continuously provides fully automated and automatic updates to the service, such as security patches and minor version upgrades. A database instance is deployed by default as highly available across multiple data centers in an {{site.data.keyword.cloud_notm}} Multi-Zone region with [semisynchronous replication](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-semisync.html){: .external}. Customers need only connect to a single database endpoint and IBM automatically manages the failover between Availability Zones. {{site.data.keyword.databases-for-mysql_full}} provides the ability to horizontally scale the MySQL instance with Read Replicas in region or cross-regionally. {{site.data.keyword.databases-for-mysql_full}} Read Replicas can be easily transformed into fully functioning {{site.data.keyword.databases-for-mysql_full}} instances, an especially useful feature for online cross-regional disaster recovery strategies.
 
 {{site.data.keyword.databases-for-mysql_full}} additionally provides independent scaling of disk, RAM, and vCPU, as well as auto-scaling capabilities and hourly billing. These features help provide greatly increase granularity on right-sizing database use for application workload.
 
@@ -37,10 +37,10 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 ## Before you begin
 {: #mysql-begin}
 
-- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
+- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration).
 - You need a {{site.data.keyword.databases-for-mysql}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/databases-for-mysql). Give your deployment a memorable name that appears in your account's Resource List.
 - Set the [Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) for your deployment.
-- You need an installation of [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+- You need an installation of [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){: .external}.
 - Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-mysql_full}} deployment.
 
 ## Connecting to your database with the CLI
@@ -62,12 +62,12 @@ The command prompts for the admin password and then runs the `mysql` command lin
 ## Connecting with MySQL Workbench
 {: #mysql-connect-db-workbench}
 
-To connect with MySQL Workbench, refer to MySQL's [Connections in MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html) documentation.
+For more imformation, see [Connections in MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections.html){: .external}.
 
 ## Next Steps
 {: #mysql-next-steps}
 
-If you are using MySQL for the first time, it is a good idea to take a tour through the [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/). 
+If you are using MySQL for the first time, it is a good idea to take a tour through the [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/){: .external}. 
 
 You can connect, manage your databases, and manage data with MySQL's command-line tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
 
