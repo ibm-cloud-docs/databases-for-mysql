@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2021-12-01"
+  years: 2021, 2022
+lastupdated: "2022-07-15"
 
 keywords: mysql, databases
 
