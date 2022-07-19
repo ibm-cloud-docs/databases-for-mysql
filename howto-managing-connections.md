@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2022-07-19"
 
-keywords: mysql, databases, connection limits, terminating connections, connection pooling
+keywords: mysql, databases, connection limits, terminating connections, connection pooling, mysql connections, mysql connection pooling
 
 subcollection: databases-for-mysql
 
@@ -82,17 +82,17 @@ SHOW [FULL] PROCESSLIST;
 ```
 {: pre}
 
-## Terminating Connections
+## Ending Connections
 {: #managing-mysql-connections-terminating}
 
-Each connection to [mysqld](https://dev.mysql.com/doc/refman/5.7/en/mysqld.html){: .external}, the MySQL Server, runs in a separate thread and can be killed with a `processlist_id` statement.
+Each connection to [mysqld](https://dev.mysql.com/doc/refman/5.7/en/mysqld.html){: .external}, the MySQL Server, runs in a separate thread and can be stopped with a `processlist_id` statement.
 ```sh
 KILL [CONNECTION | QUERY] processlist_id
 ```
 {: pre}
 
-- `KILL CONNECTION` terminates the connection associated with the given `processlist_id`, after terminating ny statement the connection is executing. 
-- `KILL QUERY` terminates the statement the connection is currently executing, but leaves the connection itself intact.
+- `KILL CONNECTION` End the connection that is associated with the `processlist_id`, after stopping any statement that the connection is running. 
+- `KILL QUERY` End the statement the connection is running, but leaves the connection itself intact.
 
 Check out the [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/kill.html){: .external} for more information on the `KILL` statement.
 
@@ -116,6 +116,6 @@ You can also use the [{{site.data.keyword.databases-for}} API](https://cloud.ibm
 
 One way to prevent exceeding the connection limit and ensure that connections from your applications are being handled efficiently is through connection pooling.
 
-[MySQL Connectors](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html){: .external} enable you to connect and execute MySQL statements from another language or environment, including ODBC, Java (JDBC), C++, Python, PHP, Perl, Ruby, and native C and embedded MySQL instances.
+[MySQL Connectors](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html){: .external} enable you to connect and run MySQL statements from another language or environment, including ODBC, Java (JDBC), C++, Python, PHP, Perl, Ruby, and native C and embedded MySQL instances.
 
-For example, connection pooling with [MySQL Connector/J](https://dev.mysql.com/doc/refman/5.7/en/connector-j-info.html){: .external} can increase performance while reducing overall usage. [MySQL Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-connection-pooling.html){: .external} also allows for optimization using the `mysql.connector.pooling` module.
+For example, connection pooling with [MySQL Connector/J](https://dev.mysql.com/doc/refman/5.7/en/connector-j-info.html){: .external} can increase performance while reducing overall usage. [MySQL Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-connection-pooling.html){: .external} also allows for optimization by using the `mysql.connector.pooling` module.
