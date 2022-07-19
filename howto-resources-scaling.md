@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-01"
+  years: 2021, 2022
+lastupdated: "2022-07-19"
 
-keywords: mysql, databases, scaling, memory, disk IOPS, CPU
+keywords: mysql, databases, scaling, memory, disk IOPS, CPU, mysql dedicated cores, sclaing mysql
 
 subcollection: databases-for-mysql
 
@@ -33,9 +33,9 @@ Billing is based on the _total_ amount of resources that are allocated to the se
 ### Disk
 {: #resources-disk}
 
-Your disk allocation has to be enough to store all of your data. Your data is replicated to all data members so the total amount of disk you use is at least three times the size of your data set. 
+Your disk allocation must be enough to store all of your data. Your data is replicated to all data members so the total amount of disk that you use is at least three times the size of your data set. 
 
-Disk allocation also affects the performance of the disk, with larger disks having higher performance. Baseline Input-Output Operations per second (IOPS) performance for disk is 10 IOPS for each GB. Scale disk to increase the IOPS your deployment can handle.
+Disk allocation also affects the performance of the disk, with larger disks having higher performance. Baseline input/output operations per second (IOPS) performance for disk is 10 IOPS for each GB. Scale disk to increase the IOPS that your deployment can handle.
 
 You cannot scale down storage.
 {: .tip} 
@@ -72,7 +72,7 @@ A visual representation of your data members and their resource allocation is av
 
 ![The Scale Resources Panel in Resources](images/settings-scaling-mysql.png){: caption="Figure 1. The Scale Resources Panel in Resources" caption-side="bottom"}
 
-Adjust the slider to increase or decrease the resources allocated to your service. The slider controls how much memory or disk is allocated per member. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
+Adjust the slider to increase or decrease the resources that are allocated to your service. The slider controls how much memory or disk is allocated per member. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
 
 The UI currently uses a coarser-grained resolution for scaling than the CLI or API commands. Use the API or CLI to scale if the stops on the slider do not meet your size requirements.
 {: .tip}
@@ -83,13 +83,13 @@ The UI currently uses a coarser-grained resolution for scaling than the CLI or A
 [{{site.data.keyword.cloud_notm}} CLI cloud databases plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) supports viewing and scaling the resources on your deployment. To scale any of the available resource groups, use `cdb deployment-groups-set` command. 
 
 For example, the command to view the resource groups for a deployment named "example-deployment" is, 
-```shell
+```sh
 ibmcloud cdb deployment-groups example-deployment
 ```
 {: pre}
 
 and produces the following output:
-```shell
+```sh
 Group   member
 Count   3
 |
@@ -118,7 +118,7 @@ Count   3
 The deployment has three members, with 3072 MB of RAM and 15360 MB of disk allocated in total. The "per member" allocation is 1024 MB of RAM and 5120 MB of disk. The minimum value is the lowest the total allocation can be set. The step size is the smallest amount by which the total allocation can be adjusted.
 
 The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set, in MB. For example, to scale the memory of the "example-deployment" to 2048 MB of RAM for each memory member (for a total memory of 4096 MB), you use the command 
-```shell
+```sh
 ibmcloud cdb deployment-groups-set example-deployment member --memory 4096
 ```
 {: pre}
@@ -129,13 +129,13 @@ ibmcloud cdb deployment-groups-set example-deployment member --memory 4096
 The _Foundation Endpoint_ shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically. 
 
 To view the current and scalable resources on a deployment, use
-```shell
+```sh
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
 ```
 {: pre}
 
 To scale the memory of a deployment to 2048 MB of RAM for each memory member (for a total memory of 4096 MB).
-```shell
+```sh
 curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
@@ -147,5 +147,3 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
 
 
 More information is in the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl).
-
- 
