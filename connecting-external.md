@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-07-19"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -31,19 +31,19 @@ The connection strings can be used by any of the credentials you created on your
 
 All the information a driver needs to make a connection to your deployment is in the "mysql" section of your connection strings. The table contains a breakdown for reference.
 
-Field Name|Index|Description
-----------|-----|-----------
-`Type`||Type of connection - for MySQL, it is "URI"
-`Scheme`||Scheme for a URI - for MySQL, it is "mysql"
-`Path`||Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`.
-`Authentication`|`Username`|The username that you use to connect.
-`Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
-`Authentication`|`Method`|How authentication takes place; "direct" authentication is handled by the driver.
-`Hosts`|`0...`|A hostname and port to connect to
-`Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
-`Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
-`Certificate`|Base64|A base64 encoded version of the certificate.
-{: caption="Table 1. mysql/URI connection information" caption-side="top"}
+| Field Name | Index | Description |
+| ---------- | ----- | ----------- |
+| `Type` | | Type of connection - for MySQL, it is "URI" |
+| `Scheme` | | Scheme for a URI - for MySQL, it is "mysql" |
+| `Path` | | Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`. |
+| `Authentication` | `Username`|The username that you use to connect. |
+| `Authentication` | `Password`|A password for the user - might be shown as `$PASSWORD` |
+| `Authentication` | `Method`|How authentication takes place; "direct" authentication is handled by the driver. |
+| `Hosts`|`0...` | A hostname and port to connect to |
+| `Composed`|`0...` | A URI combining Scheme, Authentication, Host, and Path |
+| `Certificate`|`Name` | The allocated name for the self-signed certificate for database deployment |
+| `Certificate` | Base64 | A base64 encoded version of the certificate. |
+{: caption="Table 1. mysql/URI connection information" caption-side="top"} 
 
 * `0...` indicates one or more of these entries in an array.
 
@@ -204,12 +204,12 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 
 MySQL has an array of language drivers. The table below covers a few of the most common. Consult MySQL's [Connectors and APIs](https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html){: .external} for more information.
 
-Language|Driver|Examples
--------|-------|-------
-PHP|`mysql`|[Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php){: .external}
-Ruby|`ruby-mysql`|[Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html){: .external}
-C#|`ODBC`|[Link](https://dev.mysql.com/doc/connector-net/en/){: .external}
-Go|`mysql`|[Link](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external}
+| Language | Driver | Examples |
+| ------- | ------- | ------- |
+| PHP | `mysql` | [Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php){: .external} |
+| Ruby|`ruby-mysql` | [Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html){: .external} |
+| C# | `ODBC` | [Link](https://dev.mysql.com/doc/connector-net/en/){: .external}
+| Go | `mysql` | [Link](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external} |
 {: caption="Table 2. MySQL drivers" caption-side="top"}
 
 When connecting to MySQL using PHP, it is necessary to change the auth plug-in from `sha256_password` to `mysql_native_password`.
