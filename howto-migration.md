@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-07-19"
 
-keywords: mysql, databases, migrating, mysqldump
+keywords: mysql, databases, migrating, mysqldump, mydumper, mysql migration
 
 subcollection: databases-for-mysql
 
@@ -19,37 +19,37 @@ subcollection: databases-for-mysql
 # Migrating to {{site.data.keyword.databases-for-mysql}}
 {: #migrating}
 
-Various options exist to migrate data from existing MySQL databases to {{site.data.keyword.databases-for-mysql_full}}. We recommend two options: `mysqldump` and `mydumper`. Which tool is best for you depends on certain conditions, including network connection, the size of your data set, and intermediate schema needs. 
+Two options exist to migrate data from existing MySQL databases to {{site.data.keyword.databases-for-mysql_full}}. We recommend two options: `mysqldump` and `mydumper`. The best tool for you depends on certain conditions, including network connection, the size of your data set, and intermediate schema needs. 
 
 ## Before you begin
 {: #migrating-before-begin}
 
-Before getting started with your data migration, you need MySQL installed locally so you have the `mysql` and `mysqldump` tools. 
+Before starting your data migration, you need MySQL installed locally so you have the `mysql` and `mysqldump` tools. 
 
-[MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} [CLI](/docs/databases-cli-plugin) also makes it easy to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
+[MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html){: .external} also provides a graphical tool for working with MySQL servers and databases. While not strictly required, the {{site.data.keyword.databases-for}} [CLI](/docs/databases-cli-plugin) also makes it easy to connect and restore to a new {{site.data.keyword.databases-for-mysql}} deployment. 
 
-## mysqldump
+## `mysqldump`
 {: #migrating-mysqldump}
 
-This native MySQL client utility installs by default and can perform logical backups, reproducing table structure and data, without copying the actual data files. mysqldump dumps one or more MySQL databases for backup or transfer to another MySQL server. For more information, see the [mysqldump documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html).
+This native MySQL client utility installs by default and can perform logical backups, reproducing table structure and data, without copying the actual data files. mysqldump dumps one or more MySQL databases for backup or transfer to another MySQL server. For more information, see the [mysqldump documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html){: .external}.
 
-mysqldump is appropriate to use under the following conditions:
+`mysqldump` is appropriate to use under the following conditions:
 - The data set is smaller than 10 GB. 
-- Migration time is not critical, and the cost of retrying the migration is very low.
+- Migration time is not critical, and the cost of retrying the migration is low.
 - You don’t need to do any intermediate schema or data transformations.
 
 We don't recommend mysqldump if any of the following conditions are met: 
 - Your data set is larger than 10 GB. 
 - The network connection between the source and target databases is unstable or slow.
 
-Follow these steps to perform full data load by using the mysqldump tool:
+Follow these steps by using the `mysqldump` tool:
 
-On your source database run `mysqldump` to create an SQL file, which can be used to re-create the database. At a minimum, migrating `mysql` using the CLI requires the following arguments:
+Run `mysqldump` on your source database to create an SQL file, which can be used to re-create the database. At a minimum, migrating `mysql` using the CLI requires the following arguments:
 - Hostname (`-h` flag)
 - Port number (`-P` flag)
 - Username (`-u` flag) 
-- [--ssl-mode=VERIFY_IDENTITY](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode) (clients require an encrypted connection and perform verification against the server CA certificate and against the server host name in its certificate)
-- [--ssl-ca](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-ca) (the path name of the Certificate Authority (CA) file, which can be found within the Endpoints CLI tab of the *Overview* page in the UI.)
+- [--ssl-mode=VERIFY_IDENTITY](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode){: .external} (clients require an encrypted connection and perform verification against the server CA certificate and against the server hostname in its certificate)
+- [--ssl-ca](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-ca){: .external} (the path name of the Certificate Authority (CA) file, which can be found within the Endpoints CLI tab of the *Overview* page in the UI.)
 - database name
 - result file (`-r` flag) 
 
@@ -73,10 +73,10 @@ mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-
 {: pre}
 
 
-For more information on using MySQL Replication with Global Transaction Identifiers (GTIDs), see the [Using GTIDs for Failover and Scaleout](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-failover.html) in the MySQL Reference Manual.
+For more information on using MySQL Replication with Global Transaction Identifiers (GTIDs), see the [Using GTIDs for Failover and Scaleout](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-failover.html){: .external} in the MySQL Reference Manual.
 {: .note} 
 
-The `mysql` command has many options; [see the official documentation](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax) and [command reference](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary) for a fuller view of its capabilities.
+The `mysql` command has many options; [see the official documentation](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax){: .external} and [command reference](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary){: .external} for a fuller view of its capabilities.
 
 ### Restoring mysqldump's output
 {: #migrating-mysqldump-restore}
@@ -110,9 +110,9 @@ We don't recommend using mydumper if any of the following conditions are met:
 - Your data set is smaller than 10 GB. 
 - The network connection between the source and target databases is unstable or very slow.
 
-Before you begin migrating your data with mydumper, first see the [mydumper project](https://github.com/maxbube/mydumper) for details and step-by-step instructions on installation and necessary developer environment, 
+Before you begin migrating your data with mydumper, first see the [mydumper project](https://github.com/maxbube/mydumper){: .external} for details and step-by-step instructions on installation and necessary developer environment, 
 
-Next, refer to the [How to use mydumper](https://github.com/mydumper/mydumper#how-to-use-mydumper) page for information on using the mydumper and myloader tools to perform full data migration.
+Next, refer to the [How to use mydumper](https://github.com/mydumper/mydumper#how-to-use-mydumper){: .external} page for information on using the mydumper and myloader tools to perform full data migration.
 
 ## Tuning InnoDB Configurable Variables
 {: #migrating-config-variables}
@@ -157,7 +157,7 @@ The default setting of 2 is not fully ACID-compliant (Default setting of 1 is re
 - Min: 0
 - Requires restart: False
 
-For more information, consult the MySQL innodb_flush_log_at_trx_commit [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
+For more information, see [MySQL innodb_flush_log_at_trx_commit documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit){: .external}.
 
 ### innodb_log_buffer_size
 {: #migrating-config-variables-log-buffer-size}
@@ -168,7 +168,7 @@ For more information, consult the MySQL innodb_flush_log_at_trx_commit [document
 - Min: 1048576
 - Requires restart: True
 
-For more information, consult the MySQL innodb_log_buffer_size [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
+For more information, see [MySQL innodb_log_buffer_size documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit){: .external}.
 
 ### innodb_log_file_size
 {: #migrating-config-variables-log-file-size}
@@ -179,7 +179,7 @@ For more information, consult the MySQL innodb_log_buffer_size [documentation](h
 - Min: 4194304
 - Requires restart: True
 
-For more information, consult the MySQL innodb_log_file_size [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size).
+For more information, see [MySQL innodb_log_file_size documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size){: .external}.
 
 ### innodb_lru_scan_depth
 {: #migrating-config-variables-lru-scan-depth}
@@ -190,7 +190,7 @@ For more information, consult the MySQL innodb_log_file_size [documentation](htt
 - Min: 100
 - Requires restart: True
 
-For more information, consult the MySQL innodb_lru_scan_depth [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth).
+For more information, see [MySQL innodb_lru_scan_depth documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}.
 
 ### innodb_read_io_threads
 {: #migrating-config-variables-read-io-threads}
@@ -201,7 +201,7 @@ For more information, consult the MySQL innodb_lru_scan_depth [documentation](ht
 - Min: 1
 - Requires restart: True
 
-For more information, consult the MySQL innodb_read_io_threads [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
+For more information, see [MySQL innodb_read_io_threads documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_read_io_threads){: .external}.
 
 ### innodb_write_io_threads
 {: #migrating-config-variables-write-io-threads}
@@ -212,7 +212,7 @@ For more information, consult the MySQL innodb_read_io_threads [documentation](h
 - Min: 1
 - Requires restart: True
 
-For more information, consult the MySQL innodb_write_io_threads [documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
+For more information, see [MySQL innodb_write_io_threads documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_write_io_threads){: .external}.
 
 ### net_read_timeout
 {: #migrating-config-variables-net-read-timeout}
@@ -223,7 +223,7 @@ For more information, consult the MySQL innodb_write_io_threads [documentation](
 - Min: 1
 - Requires restart: True
 
-For more information, consult the MySQL net_read_timeout [documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout).
+For more information, see [MySQL net_read_timeout documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout){: .external}.
 
 ### net_write_timeout
 {: #migrating-config-variables-net-write-timeout}
@@ -234,4 +234,4 @@ For more information, consult the MySQL net_read_timeout [documentation](https:/
 - Min: 1
 - Requires restart: True
 
-For more information, consult the MySQL net_write_timeout [documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout).
+For more information, see [`net_write_timeout` documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout){: .external}.
