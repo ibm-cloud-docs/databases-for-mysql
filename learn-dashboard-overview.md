@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-02"
+  years: 2021, 2022
+lastupdated: "2022-07-19"
 
-keywords: deployment, crn, task, gui, api endpoint
+keywords: deployment, crn, task, gui, api endpoint, mysql connection strings, mysql
 
 subcollection: databases-for-mysql
 
@@ -38,12 +38,12 @@ The ID is a [CRN (Cloud Resource Name)](/docs/account?topic=account-crn) that un
 ### Recent Tasks
 {: #dashboard-overview-overview-tasks}
 
-Every time that you make administrative changes to your service (such as scaling or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, as well as a list of the most recent completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24-48 hours. Unsuccessful tasks can show for 7-8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [{{site.data.keyword.at_full}} integration](/docs/databases-for-mysql?topic=cloud-databases-activity-tracker).
+Every time that you make administrative changes to your service (such as scaling or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, as well as a list of the most recent completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24 - 48 hours. Unsuccessful tasks can show for 7 - 8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [{{site.data.keyword.at_full}} integration](/docs/databases-for-mysql?topic=cloud-databases-activity-tracker).
 
 ### Endpoints
 {: #dashboard-overview-overview-endpoints}
 
-The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate, TLS/SSL parameters, and the default database of your deployment.
+The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information that is tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate, TLS/SSL parameters, and the default database of your deployment.
 
 Reference tables for the different connection types are available on the [Getting Credentials and Connection Strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
 
@@ -66,7 +66,7 @@ The _Backups_ tab is the UI for managing your deployment backups. All available 
 ## Observability
 {: #dashboard-overview-observability}
 
-The _Observability_ tab provides access to the IBM Cloud monitoring, logging, and event tracking integrations available for your deployment. 
+The _Observability_ tab provides access to the IBM Cloud Monitoring, logging, and event tracking integrations available for your deployment. 
 - [{{site.data.keyword.at_full}}](/docs/databases-for-mysql?topic=cloud-databases-activity-tracker)
 - [{{site.data.keyword.la_full}}](/docs/databases-for-mysql?topic=cloud-databases-logging)
 - [{{site.data.keyword.monitoringfull}}](/docs/databases-for-mysql?topic=databases-for-mysql-monitoring)
@@ -75,9 +75,9 @@ The _Observability_ tab provides access to the IBM Cloud monitoring, logging, an
 {: #dashboard-overview-settings}
 
 The _Settings_ tab contains the UI for many of the tunable settings for your deployment. You can 
-- view encryption details. Encryption at rest is enabled for all {{site.data.keyword.databases-for-mysql}} deployments. If you brought your own encryption key from [Key Protect](/docs/databases-for-mysql?topic=cloud-databases-key-protect), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
-- [change the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password)
-- [implement or modify an IP allowlist](/docs/cloud-databases?topic=cloud-databases-allowlisting)
+- view encryption details. Encryption at rest is enabled for all {{site.data.keyword.databases-for-mysql}} deployments. If you brought your own encryption key from [Key Protect](/docs/databases-for-mysql?topic=cloud-databases-key-protect), the panel provides a link to your Key Protect instance, and the _Encryption Key_ field has the name of the key.
+- [Change the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password)
+- [Implement or modify an IP allowlist](/docs/cloud-databases?topic=cloud-databases-allowlisting)
 
 ## Service Credentials
 {: #dashboard-overview-service-cred}
@@ -87,7 +87,7 @@ You can generate a new set of credentials for cases where you want to manually [
 ## Connections
 {: #dashboard-overview-connections}
 
-Shows connected resources. You can use the `Create connection` button to to bind this service to another resource.
+Shows connected resources. You can use the `Create connection` button to bind this service to another resource.
 
 ## View docs
 {: #dashboard-overview-view-docs}
