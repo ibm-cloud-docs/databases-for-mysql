@@ -48,7 +48,7 @@ toc:
           - howto-resources-scaling.md
           - howto-autoscale-mysql.md
           - howto-managing-connections.md
-      - howto-manage-backups.md
+      - /cloud-databases/cloud-databases-dashboard-backups
       - howto-pitr.md
       - howto-read-replica.md
       - /cloud-databases/cloud-databases-allowlisting
