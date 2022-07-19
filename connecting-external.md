@@ -206,10 +206,10 @@ MySQL has an array of language drivers. The table below covers a few of the most
 
 | Language | Driver | Examples |
 | ------- | ------- | ------- |
-| PHP | `mysql` | [Link](https://www.php.net/manual/en/mysqli.quickstart.transactions.php){: .external} |
-| Ruby|`ruby-mysql` | [Link](https://dev.mysql.com/doc/refman/5.7/en/apis-ruby-rubymysql.html){: .external} |
-| C# | `ODBC` | [Link](https://dev.mysql.com/doc/connector-net/en/){: .external}
-| Go | `mysql` | [Link](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external} |
+| PHP | `mysql` | [API support for transactions](https://www.php.net/manual/en/mysqli.quickstart.transactions.php){: .external} |
+| Ruby|`ruby-mysql` | [The Ruby/MySQL API](https://dev.mysql.com/doc/refman/8.0/en/apis-ruby-rubymysql.html){: .external} |
+| C# | `ODBC` | [LiMySQL Connector/ODBC Developer Guide](https://dev.mysql.com/doc/connector-odbc/en/){: .external}
+| Go | `mysql` | [Go-MySQL-Driver](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external} |
 {: caption="Table 2. MySQL drivers" caption-side="top"}
 
 When connecting to MySQL using PHP, it is necessary to change the auth plug-in from `sha256_password` to `mysql_native_password`.
