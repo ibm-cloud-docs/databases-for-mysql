@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2021-12-02"
+  years: 2021, 2022
+lastupdated: "2022-07-19"
 
-keywords: mysql, monitoring, metrics, iops, disk usage, memory usage, connection usage
+keywords: mysql, monitoring, metrics, iops, disk usage, memory usage, connection usage, mysq i/o, mysql integration, mysql monitoring
 
 subcollection: databases-for-mysql
 
@@ -20,7 +20,7 @@ subcollection: databases-for-mysql
 # Monitoring Integration
 {: #monitoring}
 
-Monitoring for {{site.data.keyword.databases-for-mysql_full}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} Monitoring service. Your deployments forward selected information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-mysql}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you have to [Enable Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you have to provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
+Monitoring for {{site.data.keyword.databases-for-mysql_full}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} Monitoring service. Your deployments forward selected information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-mysql}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you must [Enable Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you must provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
 
 To access {{site.data.keyword.monitoringfull_notm}} from your deployment, use the _Monitoring_ link from the right menu. (If you do not already have a monitoring service in the same region as your deployment it says _Add monitoring_.)
 
