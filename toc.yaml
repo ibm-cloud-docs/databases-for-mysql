@@ -78,6 +78,7 @@ toc:
       id: help
       - topicgroup:
           label: Troubleshooting
+          topics:
           - ts-connect.md
           - ts-delay.md
   - navgroup: 
