@@ -94,7 +94,7 @@ toc:
       - /cloud-databases/cloud-databases-responsibilities-cloud-databases
   - navgroup: 
       id: help
-      - topicgroup:
+      - topicgroup: 
           label: Troubleshooting
           topics:
           - ts-connect.md
