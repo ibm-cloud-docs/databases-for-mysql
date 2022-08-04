@@ -36,5 +36,5 @@ Restoring a backup can be delayed if your configurable variables aren't optimize
 {: tsCauses}
 
 - Check your configurable variables at [Migrating to Databases for MySQL](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-migrating){: .external}.
-- Should you be using [mysqldump](/docs/databases-for-mysql?topic=databases-for-mysql-migrating#migrating-mysqldump) or [mydumper](/docs/databases-for-mysql?topic=databases-for-mysql-migrating#migrating-mydumper)? `mysqldump`, the native MySQL backup client is effective for databases smaller than 10 GB, whereas `mydumper` is effective with larger databases.
+- You can restore a backup using [mysqldump](/docs/databases-for-mysql?topic=databases-for-mysql-migrating#migrating-mysqldump) or [mydumper](/docs/databases-for-mysql?topic=databases-for-mysql-migrating#migrating-mydumper)? `mysqldump`, the native MySQL backup client, is effective for databases smaller than 10 GB, whereas `mydumper` is effective with larger databases. Use the tool that best suits your needs.
 {: tsResolve}
