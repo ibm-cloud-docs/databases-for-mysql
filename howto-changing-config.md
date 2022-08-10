@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-08"
+lastupdated: "2022-08-10"
 
-keywords: mysql, databases, config, mysql configuaration
+keywords: mysql, databases, config, mysql configuration, mysql time zone
 
 subcollection: databases-for-mysql
 
@@ -17,12 +17,12 @@ subcollection: databases-for-mysql
 {:tip: .tip}
 {:note: .note}
 
-# Changing the MySQL Configuration
+# Changing your {{site.data.keyword.databases-for-mysql_full}} Deployment Configuration
 {: #changing-configuration}
 
-{{site.data.keyword.databases-for-mysql_full}} allows you to change some of the MySQL configuration settings so you can tune your MySQL databases to your use-case. To make permanent changes to the database configuration, use the {{site.data.keyword.databases-for}} [cli-plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-configuration) or [API](https://{DomainName}/apidocs/cloud-databases-api#change-your-database-configuration) to write the changes to the configuration file for your deployment.
+{{site.data.keyword.databases-for-mysql_full}} allows you to change some of the MySQL configuration settings so you can tune your MySQL databases to your use case. To make permanent changes to the database configuration, use the {{site.data.keyword.databases-for}} [cli-plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-configuration) or [API](https://{DomainName}/apidocs/cloud-databases-api#change-your-database-configuration) to write the changes to the configuration file for your deployment.
 
-The configuration is defined in a schema. To make a change, you send a JSON object with the settings and their new values to the API or the CLI.  For example, to set the `max_connections` setting to 150, you would supply 
+The configuration is defined in a schema. To make a change, you send a JSON object with the settings and their new values to the API or the CLI. For example, to set the `max_connections` setting to 150, you would supply 
 
 ```sh
 {"configuration":{"max_connections":150}}
@@ -33,7 +33,7 @@ to either the CLI or to the API.
 
 For more information, see the [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections){: .external} documentation. 
 
-## Using the CLI
+## Using the CLI with {{site.data.keyword.databases-for-mysql_full}}
 {: #using-cli}
 
 You can check the current configuration of your deployment with 
@@ -50,7 +50,7 @@ ibmcloud cdb deployment-configuration <deployment name or CRN> [@JSON_FILE | JSO
 
 The command reads the changes that you would like to make from the JSON object or a file. For more information, see the [reference page](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-configuration).
 
-## Using the API
+## Using the API with {{site.data.keyword.databases-for-mysql_full}}
 {: #using-api}
 
 There are two deployment-configuration endpoints, one for viewing the configuration schema and one for changing the configuration. To view the configuration schema, send a `GET` request to `/deployments/{id}/configuration/schema`.
@@ -59,8 +59,12 @@ To change the configuration, send the settings that you would like to change as 
 
 For more information, see the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api#change-your-database-configuration). 
 
+## {{site.data.keyword.databases-for-mysql_full}} Time Zone Settings
+{: #mem-settings}
 
-## Available Configuration settings
+The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always UTC (Coordinated Universal Time). This setting is not configurable by clients.
+
+## Available {{site.data.keyword.databases-for-mysql_full}} Configuration settings
 {: #available-config-settings}
 
 [`max_connections`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections){: .external}
@@ -68,7 +72,7 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 - Default - `200`
 - Restarts database? - **false**
   
- You might need to [scale before you increase max connections](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#connection-limits-ha). {: note}
+ You might need to [scale before you increase max connections](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#connection-limits-ha).{: note}
 
 [`mysql_max_binlog_age_sec`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html){: .external}
 
@@ -119,7 +123,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size){: .external}
 
-- Description: The percentage of memory to use for `innodb_buffer_pool_size`. The defaul value of 50% is conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash. 
+- Description: The percentage of memory to use for `innodb_buffer_pool_size`. The default value of 50% is a conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash. 
 - Default: `50`
 - Minimum: `10`
 - Maximum: `100`
@@ -127,7 +131,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
 
-- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary may impact performance. Only consider increasing the value if you have spare I/O capacity under a typical workload. 
+- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary might impact performance. Only consider increasing the value if you have spare I/O capacity under a typical workload. 
 - Default: `256`
 - Minimum: `128`
 - Maximum: `2048`
