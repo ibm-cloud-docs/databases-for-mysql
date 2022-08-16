@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-07-19"
+lastupdated: "2022-08-16"
 
-keywords: mysql, databases, connection limits, terminating connections, connection pooling, mysql connections, mysql connection pooling
+keywords: mysql, databases, connection limits, terminating connections, connection pooling, mysql connections, mysql connection pooling, managing connections
 
 subcollection: databases-for-mysql
 
@@ -82,7 +82,7 @@ SHOW [FULL] PROCESSLIST;
 ```
 {: pre}
 
-## Ending Connections
+## Ending MySQL Connections
 {: #managing-mysql-connections-terminating}
 
 Each connection to [mysqld](https://dev.mysql.com/doc/refman/5.7/en/mysqld.html){: .external}, the MySQL Server, runs in a separate thread and can be stopped with a `processlist_id` statement.
@@ -97,7 +97,7 @@ KILL [CONNECTION | QUERY] processlist_id
 Check out the [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/kill.html){: .external} for more information on the `KILL` statement.
 
 
-### End Connections
+### End MySQL Connections
 {: #managing-mysql-connections-end}
 
 If your deployment reaches the connection limit or you are having trouble connecting to your deployment and suspect that a high number of connections is a problem, you can disconnect (or end) all of the connections to your deployment. 
@@ -111,7 +111,7 @@ ibmcloud cdb deployment-kill-connections <deployment name or CRN>
 
 You can also use the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api#kill-connections-to-a-MySql-deployment) to perform the end all connections operation.
 
-## Connection Pooling
+## MySQL Connection Pooling
 {: #managing-mysql-connection-pooling}
 
 One way to prevent exceeding the connection limit and ensure that connections from your applications are being handled efficiently is through connection pooling.
