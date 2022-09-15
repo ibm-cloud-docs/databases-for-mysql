@@ -31,7 +31,7 @@ A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly 
 
 | Resources | Breakdown | Price |
 | ------- | ------- | ------- |
-|60 GB-Month disk | 3 members x 20 GB x $0.58 | $34.80 |
+| 60 GB-Month disk | 3 members x 20 GB x $0.58 | $34.80 |
 | 1 GB-Month RAM | 3 members x 1 GB x $7.50 | $22.50 |
 | 3 virtual-CPU | 3 members x $120 | $360 |
 {: caption="Table 1. Pricing example for three data members" caption-side="top"}
