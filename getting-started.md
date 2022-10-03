@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-07-18"
+lastupdated: "2022-10-03"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -80,3 +80,11 @@ If you are planning to use {{site.data.keyword.databases-for-mysql}} for your ap
 Also, to ensure the stability of your applications and your database, check out the pages on: 
 - [High-Availability](/docs/databases-for-mysql?topic=cloud-databases-ha-dr)
 - [Performance](/docs/databases-for-mysql?topic=databases-for-mysql-performance)
+
+
+## Creating an {{site.data.keyword.databases-for-mysql_full}} instance Tutorial
+{: #mysql-create-instance-tutorial}
+
+This tutorial guides you through the process of deploying an {{site.data.keyword.databases-for}} instance and connecting it to a web front-end. You will create a webpage that allows visitors to input a word and its definition whose values are then stored in a database or message queue running on {{site.data.keyword.databases-for}}. You will install the database infrastructure using [Terraform](https://www.terraform.io/){: external} and your web application will use the popular [Express](https://www.terraform.io/){: external} framework. The application can then be run locally, or by using [Docker](https://www.docker.com/){: external}.
+
+
