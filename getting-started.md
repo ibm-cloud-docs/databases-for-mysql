@@ -85,6 +85,63 @@ Also, to ensure the stability of your applications and your database, check out 
 ## Creating an {{site.data.keyword.databases-for-mysql_full}} instance Tutorial
 {: #mysql-create-instance-tutorial}
 
+### Objectives
+{: #mysql-create-instance-tutorial}
+
 This tutorial guides you through the process of deploying an {{site.data.keyword.databases-for}} instance and connecting it to a web front-end. You will create a webpage that allows visitors to input a word and its definition whose values are then stored in a database or message queue running on {{site.data.keyword.databases-for}}. You will install the database infrastructure using [Terraform](https://www.terraform.io/){: external} and your web application will use the popular [Express](https://www.terraform.io/){: external} framework. The application can then be run locally, or by using [Docker](https://www.docker.com/){: external}.
 
+### Getting productive 
+{: #mysql-create-instance-tutorial-getting-started}
 
+To begin the deployment process, install some must-have productivity tools:
+
+* You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration).
+* [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){: external} - to install packages to and from public npm registries
+* [Terraform](https://www.terraform.io/){: external} - to codify and deploy infrastructure
+* *optional* [Docker](https://www.docker.com/){: external} - to run your application non-locally
+
+### Step 1: Obtain an API key to deploy infrastructure to your account
+{: #mysql-create-instance-tutorial-step-1}
+
+Follow [these steps](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key) to create an {{site.data.keyword.cloud_notm}} API key.
+
+For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.{.tip}
+
+### Step 2: Clone the project
+{: #mysql-create-instance-tutorial-step-2}
+
+```sh
+git clone https://github.com/IBM-Cloud/clouddatabases-helloworld-examples.git
+```
+{.pre}
+
+### Step 3: Install the infrastructure
+{: #mysql-create-instance-tutorial-step-2}
+
+Go into the terraform folder in the of the database example you want to run (e.g. mysql).
+
+Create a document called terraform.tfvars with the following fields:
+
+```sh
+ibmcloud_api_key = "<your_api_key_from_step_1>"
+region = "eu-gb"
+admin_password  = "<make_up_a_password>"
+```
+{.pre}
+
+The terraform.tfvars document contains variables that you may want to keep secret so it is ignored by the GitHub repository.
+
+Now install the infrastructure by typing:
+
+```sh
+terraform init 
+terraform apply --auto-approve
+```
+{.pre}
+
+The Terraform script will output some configuration data that will be needed to run the application, so copy it into the root folder:
+
+```sh
+terraform output -json >../config.json
+```
+{.pre}
