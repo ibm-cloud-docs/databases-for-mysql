@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-08-16"
+lastupdated: "2022-10-07"
 
 keywords: mysql, databases, connection limits, terminating connections, connection pooling, mysql connections, mysql connection pooling, managing connections
 
@@ -16,6 +16,7 @@ subcollection: databases-for-mysql
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:important: .important}
 
 # Managing MySQL Connections
 {: #managing-mysql-connections}
@@ -35,18 +36,19 @@ ibmclouddb=> SHOW max_connections;
 ## MySQL Connection Limits 
 {: #managing-mysql-connection-limits}
 
-At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. You can raise this value by [Changing the MySQL Configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration). Leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. 
+At provision, {{site.data.keyword.databases-for-mysql}} sets the maximum number of connections to your MySQL database to **200**. You can raise this value by [Changing the MySQL Configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration). 
 
-Limit the number of simultaneous connections for any nonadmin account. For example, setting `max_user_connections=3` restricts the user account to a maximum of three simultaneous connections.
+Leave some connections available, as a number of them are reserved internally to maintain the state and integrity of your database. 
+
+Limit the number of simultaneous connections for any nonadmin account. For example, setting `max_user_connections=3` restricts the user account to a maximum of three simultaneous connections. 
 {: .tip}
 
-After the connection limit is reached, any attempts at starting a new connection result in an error. 
+Exceeding the connection limit for your deployment will negatively affect the health of your database and cause it to be unreachable by your applications. After the connection limit is reached, any attempts at starting a new connection result in an error.{: .important}
 
 ```sh
 FATAL: remaining connection slots are reserved for
 non-replication superuser connections
 ```
-Exceeding the connection limit for your deployment can cause your database to be unreachable by your applications.
 
 You can access information about connections to your deployment with the admin user, `mysql`, and `SHOW GLOBAL STATUS`.
 ```sh
