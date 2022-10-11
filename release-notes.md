@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-07-01"
+lastupdated: "2022-10-11"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 11 October 2022
+{: #databases-for-mysql-11oct2022}
+{: release-note}
+
+Protecting {{site.data.keyword.databases-for-mysql_full}} resources with context-based restrictions
+:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-mysql?topic=cloud-databases-cbr).
 
 ## 28 June 2022
 {: #databases-for-mysql-28june2022}
