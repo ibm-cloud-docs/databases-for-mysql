@@ -61,6 +61,7 @@ toc:
       - topicgroup: 
           label: Tutorials
           topics: 
+          - hello-world-tutorial.md
           - /cloud-databases/cloud-databases-tutorial-getting-started
           - /cloud-databases/cloud-databases-tutorial-provision-postgres-tf
           - /cloud-databases/cloud-databases-tutorial-provision-mongodbee-tf
