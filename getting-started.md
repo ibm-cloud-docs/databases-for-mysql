@@ -48,7 +48,7 @@ Additionally, {{site.data.keyword.databases-for-mysql_full}} provides independen
 {: #mysql-connect-db-cli}
 
 There are two main documentation locations that reference the appropriate commands to connect to your database from the CLI:
-- The [Cloud Databases CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
+- The [{{site.data.keyword.databases-for}} CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
 - The [Connecting with mysql](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) document 
 
 The `ibmcloud cdb deployment-connections` command handles everything that is involved in creating a command-line client connection. For example, to connect to a deployment named "example-mysql", use the following command:

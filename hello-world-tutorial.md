@@ -17,6 +17,7 @@ subcollection: databases-for-mysql
 {:screen: .screen}
 {:tip: .tip}
 {:note: .note}
+{:important: .important}
 
 # Creating an {{site.data.keyword.databases-for-mysql_full}} instance Tutorial
 {: #mysql-create-instance-tutorial}
@@ -24,7 +25,7 @@ subcollection: databases-for-mysql
 ## Objectives
 {: #mysql-create-instance-tutorial-objectives}
 
-This tutorial guides you through the process of deploying an {{site.data.keyword.databases-for}} instance and connecting it to a web front-end. You will create a webpage that allows visitors to input a word and its definition whose values are then stored in a database or message queue running on {{site.data.keyword.databases-for}}. You will install the database infrastructure using [Terraform](https://www.terraform.io/){: external} and your web application will use the popular [Express](https://www.terraform.io/){: external} framework. The application can then be run locally, or by using [Docker](https://www.docker.com/){: external}.
+This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for-mysql_full}} instance and connecting it to a web front-end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for-mysql_full}}. You will install the database infrastructure using [Terraform](https://www.terraform.io/){: external} and your web application uses the popular [Express](https://www.terraform.io/){: external} framework. The application can then be run locally, or by using [Docker](https://www.docker.com/){: external}.
 
 ## Getting productive 
 {: #mysql-create-instance-tutorial-getting-started}
@@ -39,12 +40,14 @@ To begin the deployment process, install some must-have productivity tools:
 ## Step 1: Obtain an API key to deploy infrastructure to your account
 {: #mysql-create-instance-tutorial-step-1}
 
-Follow [these steps](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key) to create an {{site.data.keyword.cloud_notm}} API key.
+Follow [these steps](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key) to create an {{site.data.keyword.cloud_notm}} API key that enables a program or script without distributing your password to the script. You can create up to 20 API keys.
 
-For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.{: .tip}
+For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.{: .important}
 
 ## Step 2: Clone the project
 {: #mysql-create-instance-tutorial-step-2}
+
+Clone the project from the {{site.data.keyword.databases-for}} [Hello World project GitHub repository](https://github.com/IBM-Cloud/clouddatabases-helloworld-examples){: external}.
 
 ```sh
 git clone https://github.com/IBM-Cloud/clouddatabases-helloworld-examples.git
