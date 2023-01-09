@@ -53,13 +53,13 @@ To change the configuration, send the settings that you would like to change as 
 
 For more information, see the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api#change-your-database-configuration). 
 
+## {{site.data.keyword.databases-for-mysql_full}} Time Zone Settings
+{: #mem-settings}
+
+The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always UTC (Coordinated Universal Time). This setting is not configurable by clients.
+
 ## Available {{site.data.keyword.databases-for-mysql_full}} Configuration settings
 {: #available-config-settings}
-
-[`time_zone`](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html){: .external}
-
-- Default - `SYSTEM`
-- Restarts database? - **false**
 
 [`max_connections`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections){: .external}
 
