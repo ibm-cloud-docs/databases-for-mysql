@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-10"
+  years: 2021, 2023
+lastupdated: "2023-01-09"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone
 
@@ -9,13 +9,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Changing your {{site.data.keyword.databases-for-mysql_full}} Deployment Configuration
 {: #changing-configuration}
@@ -59,13 +53,13 @@ To change the configuration, send the settings that you would like to change as 
 
 For more information, see the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api#change-your-database-configuration). 
 
-## {{site.data.keyword.databases-for-mysql_full}} Time Zone Settings
-{: #mem-settings}
-
-The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always UTC (Coordinated Universal Time). This setting is not configurable by clients.
-
 ## Available {{site.data.keyword.databases-for-mysql_full}} Configuration settings
 {: #available-config-settings}
+
+[`time_zone`](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html){: .external}
+
+- Default - `SYSTEM`
+- Restarts database? - **false**
 
 [`max_connections`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections){: .external}
 
@@ -131,7 +125,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
 
-- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary might impact performance. Only consider increasing the value if you have spare I/O capacity under a typical workload. 
+- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary might impact performance. Consider increasing the value only if you have spare I/O capacity under a typical workload. 
 - Default: `256`
 - Minimum: `128`
 - Maximum: `2048`
