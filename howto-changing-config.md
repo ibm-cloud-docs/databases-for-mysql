@@ -53,12 +53,12 @@ To change the configuration, send the settings that you would like to change as 
 
 For more information, see the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api#change-your-database-configuration). 
 
-## {{site.data.keyword.databases-for-mysql_full}} time zone Settings
+## {{site.data.keyword.databases-for-mysql_full}} time zone settings
 {: #mem-settings}
 
 The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always Coordinated Universal Time. Configure your time zone with the {{site.data.keyword.databases-for}} API or the CLI change your time zone to a named time zone (recommended) or an offset of a time zone. 
 
-### Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone Settings
+### Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone settings
 {: #mem-settings-config}
 
 At provisioning, a {{site.data.keyword.databases-for}} deployment is configured to Coordinated Universal Time. Reconfiguring your time zone is a persistent change, which must be undertaken for each of your {{site.data.keyword.databases-for}} deployments. 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-10-27"
+  years: 2018, 2023
+lastupdated: "2023-02-20"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 20 February 2023
+{: #databases-for-mysql-20feb2023}
+{: release-note}
+
+Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone settings
+:  At provisioning, a {{site.data.keyword.databases-for}} deployment is configured to Coordinated Universal Time. Reconfiguring your time zone is a persistent change, which must be undertaken for each of your {{site.data.keyword.databases-for}} deployments. Configure your time zone with the {{site.data.keyword.databases-for}} [API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction) or the [CLI](/docs/databases-cli-plugin). For more information, see [{{site.data.keyword.databases-for-mysql_full}} time zone settings](<URL needed>).
 
 ## 19 October 2022
 {: #databases-for-mysql-19oct2022}
