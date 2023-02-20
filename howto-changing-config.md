@@ -65,9 +65,6 @@ At provisioning, a {{site.data.keyword.databases-for}} deployment is configured 
 
 Configuring your time zone sets the global time zone within your MySQL instance. In the instance that a failover occurs, your time zone setting is propagated as part of replication, as the time zone setting is written to the MySQL config file. The exception to this is if you restore an instance to a point in time before you configured your preferred time zone.
 
-Does this configuration propagate to read replicas?
-Provide a code snippet for how customers can check the setting.
-
 If you configure your time zone to one that features Daylight Saving Time, adjustments are part of the configuration. No action is necessary on your part.
 Using a specific time zone is better than using an offset time.
 
