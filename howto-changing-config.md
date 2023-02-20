@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-09"
+lastupdated: "2023-02-20"
 
-keywords: mysql, databases, config, mysql configuration, mysql time zone
+keywords: mysql, databases, config, mysql configuration, mysql time zone, configurtion schema
 
 subcollection: databases-for-mysql
 
@@ -53,10 +53,49 @@ To change the configuration, send the settings that you would like to change as 
 
 For more information, see the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api#change-your-database-configuration). 
 
-## {{site.data.keyword.databases-for-mysql_full}} Time Zone Settings
+## {{site.data.keyword.databases-for-mysql_full}} time zone Settings
 {: #mem-settings}
 
-The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always UTC (Coordinated Universal Time). This setting is not configurable by clients.
+The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always Coordinated Universal Time. Configure your time zone with the {{site.data.keyword.databases-for}} API or the CLI change your time zone to a named time zone (recommended) or an offset of a time zone. 
+
+### Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone Settings
+{: #mem-settings-config}
+
+At provisioning, a {{site.data.keyword.databases-for}} deployment is configured to Coordinated Universal Time. Reconfiguring your time zone is a persistent change, which must be undertaken for each of your {{site.data.keyword.databases-for}} deployments. 
+
+Configuring your time zone sets the global time zone within your MySQL instance. In the instance that a failover occurs, your time zone setting is propagated as part of replication, as the time zone setting is written to the MySQL config file. The exception to this is if you restore an instance to a point in time before you configured your preferred time zone.
+
+Does this configuration propagate to read replicas?
+Provide a code snippet for how customers can check the setting.
+
+If you configure your time zone to one that features Daylight Saving Time, adjustments are part of the configuration. No action is necessary on your part.
+Using a specific time zone is better than using an offset time.
+
+### Changing the time zone in the API
+{: #change-time-zone-api}
+{: api}
+
+Example offset: 
+```sh
+curl -v -XPATCH -H "Authorization: Bearer $token" -H "Content-Type: application/json" https://api.<region>.databases.cloud.ibm.com/v5/ibm/deployments/<crn>/configuration -d '{"configuration": {"time_zone": "<EXAMPLE OFFSET"}}'
+```
+{: pre}
+
+Example named time zone: 
+```sh
+curl -v -XPATCH -H "Authorization: Bearer $token" -H "Content-Type: application/json" https://api.<region>.databases.cloud.ibm.com/v5/ibm/deployments/<crn>/configuration -d '{"configuration": {"time_zone": "<EXAMPLE TIME ZONE"}}'
+```
+{: pre}
+
+### Changing the time zone in the CLI
+{: #change-time-zone-cli}
+{: cli}
+
+Example named time zone
+```sh
+ibmcloud cdb deployment-configuration <crn> '{"time_zone": "US/Pacific"}'
+```
+{: pre}
 
 ## Available {{site.data.keyword.databases-for-mysql_full}} Configuration settings
 {: #available-config-settings}
