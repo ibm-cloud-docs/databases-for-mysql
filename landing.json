@@ -35,18 +35,18 @@
       "tiles": [
         {
           "date": "19 October 2022",
-          "title": "Deploying and Connecting a Cloud Databases Instance Tutorial",
-          "description": "This tutorial guides you through the process of deploying a Cloud Databases instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on Cloud Databases. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and Connecting a Cloud Databases Instance](/docs/databases-for-mysql?topic=cloud-databases-create-instance-tutorial)."
+          "title": "Deploying and Connecting an IBM Cloud® Databases Instance Tutorial",
+          "description": "This tutorial guides you through the process of deploying a Cloud Databases instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on Cloud Databases. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker."
         },
         {
           "date": "11 October 2022",
           "title": "Protecting IBM Cloud® Databases for MySQL resources with context-based restrictions",
-          "description": "Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for IBM Cloud® resources based on the context of access requests. Access to Cloud Databases resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-mysql?topic=cloud-databases-cbr&interface=ui)."
+          "description": "Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for IBM Cloud® resources based on the context of access requests. Access to Cloud Databases resources can be controlled with CBR and identity and access management (IAM) policies."
         },
         {
           "date": "28 June 2022",
           "title": "IBM Cloud® Databases for MySQL version 8 is now available on Cloud Databases",
-          "description": "MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary. For information on upgrading your current IBM Cloud® Databases for MySQL deployment, or deploying a new instance, see [MySQL 8 GA](/docs/databases-for-mysql?topic=databases-for-mysql-mysql8-ga). See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-databases-for-mysql-now-supports-version-8)."
+          "description": "MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary."
         }
       ]
     }
