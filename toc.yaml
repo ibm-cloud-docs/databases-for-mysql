@@ -18,6 +18,9 @@ toc:
       topics:
       - getting-started.md    
       - include: ../cloud-databases/learn-getting-to-production.md
+      - link: 
+          label: What is MySQL?
+          href: https://www.ibm.com/cloud/databases-for-mysql
       - learn-dashboard-overview.md
       - learn-high-availability.md
       - learn-performance.md
