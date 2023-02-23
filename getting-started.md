@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-10-03"
+  years: 2021, 2023
+lastupdated: "2023-02-23"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -10,13 +10,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:shortdesc: .shortdesc}
-{:external: .external target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting Started
 {: #getting-started}
@@ -27,7 +21,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 ## {{site.data.keyword.databases-for-mysql_full}}
 {: #mysql-product-description}
 
-{{site.data.keyword.databases-for-mysql_full}} is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use {{site.data.keyword.databases-for-mysql_full}} to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.
+{{site.data.keyword.databases-for-mysql_full}} is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use {{site.data.keyword.databases-for-mysql_full}} as a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.
 
 {{site.data.keyword.databases-for-mysql_full}} requires no software, infrastructure, network, or OS administration. IBM continuously provides fully automated and automatic updates to the service, such as security patches and minor version upgrades. A database instance is deployed by default as highly available across multiple data centers in an {{site.data.keyword.cloud_notm}} Multi-Zone region with [semisynchronous replication](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-semisync.html){: .external}. Connect to a single database endpoint and IBM automatically manages the failover between Availability Zones. {{site.data.keyword.databases-for-mysql_full}} allows you to horizontally scale your MySQL instance with Read Replicas in region or cross-regionally. {{site.data.keyword.databases-for-mysql_full}} Read Replicas can be easily transformed into fully functioning {{site.data.keyword.databases-for-mysql_full}} instances, an especially useful feature for online cross-regional disaster recovery strategies.
 
@@ -48,7 +42,7 @@ Additionally, {{site.data.keyword.databases-for-mysql_full}} provides independen
 {: #mysql-connect-db-cli}
 
 There are two main documentation locations that reference the appropriate commands to connect to your database from the CLI:
-- The [{{site.data.keyword.databases-for}} CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
+- The [Cloud Databases CLI Reference](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) document. 
 - The [Connecting with mysql](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql) document 
 
 The `ibmcloud cdb deployment-connections` command handles everything that is involved in creating a command-line client connection. For example, to connect to a deployment named "example-mysql", use the following command:
