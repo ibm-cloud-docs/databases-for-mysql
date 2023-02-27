@@ -209,3 +209,10 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Minimum: `0`
 - Maximum: `2`
 - Restarts database? - **false**
+
+[`time_zone`](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables){: .external}
+
+- Description: The time zone currently set on the server is '+00:00' (UTC) by default. However, it can also be set to a specific offset from UTC in the format of [H]H:MM, with a + or - prefix, for example '+10:00', '-6:00', or '+05:30'. Additionally, named time zones like 'MET' or 'US/Pacific' can also be used.
+- Default: `+00:00`
+- Type: `string`
+- Restarts database? - **false**
