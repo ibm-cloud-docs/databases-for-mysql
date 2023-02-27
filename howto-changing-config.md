@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-02-27"
 
-keywords: mysql, databases, config, mysql configuration, mysql time zone, configurtion schema
+keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
 subcollection: databases-for-mysql
 
@@ -67,6 +67,9 @@ Configuring your time zone sets the global time zone within your MySQL instance.
 
 If you configure your time zone to one that features Daylight Saving Time, adjustments are part of the configuration. No action is necessary on your part.
 Using a specific time zone is better than using an offset time.
+
+{{site.data.keyword.databases-for}} validates the `time_zone` parameter value. If you configure your deployment with an invalid value, the configuration fails. The valid named `time_zone values` can be found [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones){: external}.
+{: note}
 
 ### Changing the time zone in the API
 {: #change-time-zone-api}
