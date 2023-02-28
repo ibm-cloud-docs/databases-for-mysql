@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-27"
+lastupdated: "2023-02-28"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -58,6 +58,9 @@ For more information, see the [API Reference](https://cloud.ibm.com/apidocs/clou
 
 The time zone for {{site.data.keyword.databases-for-mysql_full}} deployments is always Coordinated Universal Time. Configure your time zone with the {{site.data.keyword.databases-for}} API or the CLI change your time zone to a named time zone (recommended) or an offset of a time zone. 
 
+You are required to configure the time zone again on both restored instances and read-replicas. Although the time zone tables are restored (in the case of a restore) and replicated (in the case of a read-replica), the `@@global.time_zone` value is not. To set this value, use the same API calls as before, but with the new CRNs.
+{: note}
+
 ### Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone settings
 {: #mem-settings-config}
 
@@ -100,6 +103,69 @@ ibmcloud cdb deployment-configuration <crn> '{"time_zone": "US/Pacific"}'
 ## Available {{site.data.keyword.databases-for-mysql_full}} Configuration settings
 {: #available-config-settings}
 
+[`default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html){: .external}
+
+- Default - `sha256_password`
+- Allowable values: `sha256_password`, `mysql_native_password`
+- Restarts database? - **true**
+
+Unless strictly necessary, don't use `mysql_native_password`. {: note}
+
+[`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size){: .external}
+
+- Description: The percentage of memory to use for `innodb_buffer_pool_size`. The default value of 50% is a conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash. 
+- Default: `50`
+- Minimum: `10`
+- Maximum: `100`
+- Restarts database? - **true**
+
+[`innodb_flush_log_at_trx_commit`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit){: .external}
+
+- Description: Controls the balance between strict [ACID](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_acid){: .external} compliance for [commit](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_commit) operations and higher performance that is possible when commit-related I/O operations are rearranged and done in batches. You can achieve better performance by changing the default value but then you can lose transactions in a crash.
+- Default: `2`
+- Minimum: `0`
+- Maximum: `2`
+- Restarts database? - **false**
+
+[`innodb_log_buffer_size`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_buffer_size){: .external}
+
+- Description: The size in bytes of the buffer that InnoDB uses to write to the [log files](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_file){: .external} on disk.
+- Default: `33554432`
+- Minimum: `1048576`
+- Maximum: `4294967295`
+- Restarts database? - **true**
+
+[`innodb_log_file_size`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size){: .external}
+
+- Description: The size in bytes of each [log file](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_file){: .external} in a [log group](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_group){: .external}.
+- Default: `67108864`
+- Minimum: `4194304`
+- Maximum: `274877906900`
+- Restarts database? - **true**
+
+[`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
+
+- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary might impact performance. Consider increasing the value only if you have spare I/O capacity under a typical workload. 
+- Default: `256`
+- Minimum: `128`
+- Maximum: `2048`
+- Restarts database? - **false**
+
+[`innodb_write_io_threads`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads){: .external}
+
+- Description: The number of I/O threads for write operations in InnoDB.
+- Default: `4`
+- Minimum: `1`
+- Maximum: `64`
+- Restarts database? - **true**
+
+[`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html){: .external}
+
+- Default - `16777216`
+- Minimum - `1024`
+- Maximum - `1073741824`
+- Restarts database? - **false**
+
 [`max_connections`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections){: .external}
 
 - Default - `200`
@@ -112,19 +178,12 @@ ibmcloud cdb deployment-configuration <crn> '{"time_zone": "US/Pacific"}'
 - Default - `1800`
 - Restarts database? - **false**
 
-[`default_authentication_plugin`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html){: .external}
+[`net_write_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout){: .external}
 
-- Default - `sha256_password`
-- Allowable values: `sha256_password`, `mysql_native_password`
-- Restarts database? - **true**
-
-Unless strictly necessary, don't use `mysql_native_password`. {: note}
-
-[`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html){: .external}
-
-- Default - `16777216`
-- Minimum - `1024`
-- Maximum - `1073741824`
+- Description: The number of seconds to wait for a block to be written to a connection before aborting the write.
+- Default: `60`
+- Minimum: `1`
+- Maximum: `7200`
 - Restarts database? - **false**
 
 [`sql_mode`](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html){: .external}
@@ -152,62 +211,6 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
    - `REAL_AS_FLOAT`
    - `STRICT_ALL_TABLES`
    - `STRICT_TRANS_TABLES`
-- Restarts database? - **false**
-
-[`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size){: .external}
-
-- Description: The percentage of memory to use for `innodb_buffer_pool_size`. The default value of 50% is a conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash. 
-- Default: `50`
-- Minimum: `10`
-- Maximum: `100`
-- Restarts database? - **true**
-
-[`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
-
-- Description: A parameter that influences the algorithms and heuristics for the [flush](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_flush){: .external} operation for the InnoDB [buffer pool](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_buffer_pool){: .external}. A setting smaller than the default is generally suitable for most workloads. A value that is much higher than necessary might impact performance. Consider increasing the value only if you have spare I/O capacity under a typical workload. 
-- Default: `256`
-- Minimum: `128`
-- Maximum: `2048`
-- Restarts database? - **false**
-
-[`net_write_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout){: .external}
-
-- Description: The number of seconds to wait for a block to be written to a connection before aborting the write.
-- Default: `60`
-- Minimum: `1`
-- Maximum: `7200`
-- Restarts database? - **false**
-
-[`innodb_write_io_threads`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads){: .external}
-
-- Description: The number of I/O threads for write operations in InnoDB.
-- Default: `4`
-- Minimum: `1`
-- Maximum: `64`
-- Restarts database? - **true**
-
-[`innodb_log_file_size`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size){: .external}
-
-- Description: The size in bytes of each [log file](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_file){: .external} in a [log group](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_group){: .external}.
-- Default: `67108864`
-- Minimum: `4194304`
-- Maximum: `274877906900`
-- Restarts database? - **true**
-
-[`innodb_log_buffer_size`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_buffer_size){: .external}
-
-- Description: The size in bytes of the buffer that InnoDB uses to write to the [log files](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_log_file){: .external} on disk.
-- Default: `33554432`
-- Minimum: `1048576`
-- Maximum: `4294967295`
-- Restarts database? - **true**
-
-[`innodb_flush_log_at_trx_commit`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit){: .external}
-
-- Description: Controls the balance between strict [ACID](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_acid){: .external} compliance for [commit](https://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_commit) operations and higher performance that is possible when commit-related I/O operations are rearranged and done in batches. You can achieve better performance by changing the default value but then you can lose transactions in a crash.
-- Default: `2`
-- Minimum: `0`
-- Maximum: `2`
 - Restarts database? - **false**
 
 [`time_zone`](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables){: .external}
