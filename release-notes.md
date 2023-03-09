@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-02-20"
+lastupdated: "2023-03-09"
 
 keywords: databases-for-mysql release notes
 
@@ -20,8 +20,8 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
-## 20 February 2023
-{: #databases-for-mysql-20feb2023}
+## 09 March 2023
+{: #databases-for-mysql-09mar2023}
 {: release-note}
 
 Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone settings
