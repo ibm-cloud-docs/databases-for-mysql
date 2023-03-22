@@ -54,6 +54,7 @@ toc:
       - howto-read-replica.md
       - include: ../cloud-databases/howto-allowlists.md
       - howto-migration.md
+      - howto-upgrade.md
       - topicgroup: 
           label: Configuring MySQL
           topics: 
