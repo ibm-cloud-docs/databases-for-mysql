@@ -104,3 +104,6 @@ toc:
       topics:
       - ts-connect.md
       - ts-delay.md
+      - topicgroup:
+         label: FAQs
+         topics: backups-faq.md
