@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-10"
+lastupdated: "2023-05-12"
 
 keywords: mysql backup, backups, xtrabackup, corrupted_table
 
@@ -23,7 +23,7 @@ Backups for {{site.data.keyword.databases-for-mysql}} deployments are accessible
 {: #optimize-xtrabackup-table}
 {: faq}
 
-MySQL version 8.0.29 offered features that were not safe to use and the version was removed completely. {{site.data.keyword.databases-for}} chose not to offer that version, but you can still use and import tables from that corrupted version. This leads to an error like this: 
+MySQL version 8.0.29 offered features that were not safe to use and the version was removed completely. {{site.data.keyword.databases-for}} chose not to offer that version, but you can still use and import tables from that corrupted version. These corrupted tables will return an error like this:
 
 ```text
 [ERROR] [MY-011825] [Xtrabackup] Tables found:
@@ -31,6 +31,9 @@ MySQL version 8.0.29 offered features that were not safe to use and the version 
 2023-03-03T08:09:34.643300-00:00 0 [ERROR] [MY-011825] [Xtrabackup] 
 Please run OPTIMIZE TABLE or ALTER TABLE ALGORITHM=COPY on all listed tables to fix this issue.
 ```
+
+This error can be seen using [Activity Tracker](/docs/databases-for-mysql?topic=databases-for-mysql-activity-tracker) or [Log Analysis](/docs/databases-for-mysql?topic=databases-for-mysql-logging).
+{: tip}
 
 To resolve this error, query and optimize the `Xtrabackup` table using a command like:
 
