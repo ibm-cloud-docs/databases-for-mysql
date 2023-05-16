@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-03-09"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -218,12 +218,4 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Description: The time zone currently set on the server is '+00:00' (UTC) by default. However, it can also be set to a specific offset from UTC in the format of [H]H:MM, with a + or - prefix, for example '+10:00', '-6:00', or '+05:30'. Additionally, named time zones like 'MET' or 'US/Pacific' can also be used.
 - Default: `+00:00`
 - Type: `string`
-- Restarts database? - **false**
-
-[`wait_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout){: .external}
-
-- Description: The number of seconds the server waits for activity on a noninteractive connection before closing it. 
-- Default: `28800`
-- Minimum: `1`
-- Maximum: `31536000`
 - Restarts database? - **false**
