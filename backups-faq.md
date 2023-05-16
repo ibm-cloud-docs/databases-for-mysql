@@ -23,7 +23,7 @@ Backups for {{site.data.keyword.databases-for-mysql}} deployments are accessible
 {: #optimize-xtrabackup-table}
 {: faq}
 
-MySQL version 8.0.29 contained a design flaw that can cause data corruption for tables with `INSTANT ADD/DROP COLUMNS`. The issues in MySQL 8.0.29 make this version unsafe to take backups. If Xtrabackup detects tables with instant add/drop columns, you will see an error message like this:
+MySQL version 8.0.29 contained a design flaw that can cause data corruption for tables with `INSTANT ADD/DROP COLUMNS`. The issues in MySQL 8.0.29 make this version unsafe to take backups. If Xtrabackup detects tables with instant add/drop columns, you see an error message like this:
 
 ```text
 [ERROR] [MY-011825] [Xtrabackup] Tables found:
