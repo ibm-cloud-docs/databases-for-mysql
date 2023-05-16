@@ -219,3 +219,11 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Default: `+00:00`
 - Type: `string`
 - Restarts database? - **false**
+
+[`wait_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout){: .external}
+
+- Description: The number of seconds the server waits for activity on a noninteractive connection before closing it. 
+- Default: `28800`
+- Minimum: `1`
+- Maximum: `31536000`
+- Restarts database? - **false**
