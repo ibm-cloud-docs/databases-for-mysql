@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-05"
+  years: 2021, 2023
+lastupdated: "2023-05-17"
 
 keywords: troubleshooting MySQL, delay mysql, mysql configurable variables
 
@@ -12,17 +12,7 @@ content-type: troubleshoot
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note:.deprecated}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
- 
+{{site.data.keyword.attribute-definition-list}}
 
 # Why is there a delay when restoring my {{site.data.keyword.databases-for-mysql_full}} deployment?
 {: #troubleshoot-delay}

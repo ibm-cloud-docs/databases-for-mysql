@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-04"
+  years: 2021, 2023
+lastupdated: "2023-05-17"
 
 keywords: troubleshooting MySQL, connect mysql
 
@@ -12,17 +12,7 @@ content-type: troubleshoot
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note:.deprecated}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
- 
+{{site.data.keyword.attribute-definition-list}} 
 
 # Why can’t I connect to my MySQL deployment?
 {: #troubleshoot-connect}
