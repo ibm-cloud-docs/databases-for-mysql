@@ -1,11 +1,11 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-22"
+lastupdated: "2023-05-30"
 
 keyowrds: mysql, databases, upgrading, major versions, mysql new deployment, mysql database version, mysql major version
 
-subcollection: databases-for-postgresql
+subcollection: databases-for-mysql
 
 ---
 
@@ -21,13 +21,24 @@ Find the available versions of MySQL on the [{{site.data.keyword.databases-for-m
 ## Requirements for upgrading to MySQL version 8
 {: #mysql-upgrading-reqs}
 
+## Check for an upgrade with Upgrade Checker Utility
+{: #mysql-check-upgrade-checkForServerUpgrade}
 
-## Upgrading from a Read-only Replica
+The [Upgrade Checker Utility in MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-upgrade.html){: external} allows you to check if an upgrade is required for your MySQL server. This function is useful when you want to determine whether your current server version is compatible with an upgrade package.
+
+You can start the upgrade checker utility from the command line using the [mysqlsh](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysqlsh.html) command interface. The following example checks a MySQL server for upgrade to release 8.0.27, and returns JSON output:
+```sh
+mysqlsh -- util checkForServerUpgrade user@localhost:3306 
+                   --target-version=8.0.27 --output-format=JSON --config-path=/etc/mysql/my.cnf
+```
+{: pre}
+
+## Upgrade from a Read-only Replica
 {: #mysql-upgrading-replica}
 
-To upgrade by setting up a read-only replica, provision a read-only replica with the same database version as your deployment. Then wait while it replicates all of your data. Once your deployment and its replica are synced, promote and upgrade the read-only replica to a full, stand-alone deployment running the new version of the database.
+To upgrade by setting up a read-only replica, provision a read-only replica with the same database version as your deployment. Then wait while it replicates all of your data.
 
-The [Configuring Read-only Replicas](/docs/databases-for-mysql?topic=databases-for-mysql-read-replicas) page covers the provisioning, syncing, and other details for read-only replicas. To perform the upgrade and promotion step, use a POST to the [`/deployments/{id}/remotes/promotion`](https://cloud.ibm.com/apidocs/cloud-databases-api#promote-read-only-replica-to-a-full-deployment) endpoint with the version that you want to upgrade to in the body of the request.
+The [Configuring Read-only Replicas](/docs/databases-for-mysql?topic=databases-for-mysql-read-replicas) page covers provisioning, syncing, and other details for read-only replicas.
 ```sh
 curl -X POST \
   https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/remotes/promotion \
@@ -53,7 +64,7 @@ One way to upgrade your database version is to [restore a backup](/docs/database
 {: #mysql-upgrading-ui}
 {: ui}
 
-You can upgrade to a new version when [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups&interface=ui) from the _Backups_ menu of your _Deployment dashboard_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
+You can upgrade to a new version when [restoring a backup](/docs/databases-for-mysql?topic=databases-for-mysql-dashboard-backups) from the _Backups_ menu of your _Deployment dashboard_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
 
 ### Upgrading through the CLI
 {: #mysql-upgrading-cli}
