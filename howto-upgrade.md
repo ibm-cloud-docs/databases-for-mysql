@@ -24,7 +24,7 @@ Find the available versions of MySQL on the [{{site.data.keyword.databases-for-m
 ## Check for an upgrade with Upgrade Checker Utility
 {: #mysql-check-upgrade-checkForServerUpgrade}
 
-The [Upgrade Checker Utility in MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-upgrade.html){: external} allows you to check if an upgrade is required for your MySQL server. This function is useful when you want to determine whether your current server version is compatible with an upgrade package.
+The [Upgrade Checker Utility in MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-upgrade.html){: external} allows you to check if an upgrade is required for MySQL. This function is useful when you want to determine whether your current version is compatible with an upgrade package.
 
 You can start the upgrade checker utility from the command line using the [mysqlsh](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysqlsh.html) command interface. The following example checks a MySQL server for upgrade to release 8.0.27, and returns JSON output:
 ```sh
