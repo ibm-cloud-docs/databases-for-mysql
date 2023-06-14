@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-08"
+lastupdated: "2023-06-14"
 
 keyowrds: mysql, databases, upgrading, major versions, mysql new deployment, mysql database version, mysql major version
 
@@ -83,26 +83,5 @@ curl -X POST \
     "backup_id": "crn:v1:bluemix:public:databases-for-mysql:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
     "version":8
   }'
-```
-{: pre}
-
-### Dry running the promotion and upgrade
-{: #mysql-promotion-dry-run}
-
-To evaluate the effects of major version upgrades, you can trigger a dry run. A dry run does not perform the promotion and upgrade, but it does simulate it, with the results printed to the database logs. You can access and view your database logs through the [Log Analysis Integration](/docs/databases-for-mysql?topic=databases-for-mysql-logging&interface=cli). This ensures the version that you are currently running with its extensions can be successfully upgraded to your intended version.
-
-The dry run must be run with `skip_initial_backup` set to `false`, and `version` defined.
-```sh
-curl -X POST \
-  https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/remotes/promotion \
-  -H 'Authorization: Bearer <>'  \
- -H 'Content-Type: application/json' \
- -d '{
-    "promotion": {
-        "version": "8",
-        "skip_initial_backup": false,
-        "dry_run": true
-    }
-}' \
 ```
 {: pre}
