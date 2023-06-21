@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-06-21"
 
 keywords: mysql, monitoring, metrics, iops, disk usage, memory usage, connection usage, mysq i/o, mysql integration, mysql monitoring
 
@@ -45,16 +45,15 @@ If you have deployments that are in Single-zone Region (SZR) - `che01` then your
 | [Deadlocks rate](#ibm_databases_for_mysql_deadlocks_rate) | 
 | [Disk read latency mean](#ibm_databases_for_mysql_disk_read_latency_mean) | 
 | [Disk write latency mean](#ibm_databases_for_mysql_disk_write_latency_mean) | 
-| [IO utilization in percent 5 minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_5m) |
-| [IO utilization in percent 15 minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_15m) | 
-| [IO utilization in percent 30 minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_30m) | 
-| [IO utilization in percent 60 minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_60m) | 
-| [IOPS read & write total count for an instance.](#ibm_databases_for_mysql_disk_iops_read_write_total) | 
+| [IO utilization in percent 5-minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_5m) |
+| [IO utilization in percent 15-minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_15m) | 
+| [IO utilization in percent 30-minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_30m) | 
+| [IO utilization in percent 60-minute average](#ibm_databases_for_mysql_disk_io_utilization_percent_average_60m) | 
+| [IOPS read and write total count for an instance.](#ibm_databases_for_mysql_disk_iops_read_write_total) | 
 | [Max allowed memory for an instance.](#ibm_databases_for_mysql_memory_limit_bytes) | 
 | [Read replica replication lag.](#ibm_databases_for_mysql_read_replica_replication_lag_bytes) | 
 | [Successful archive rate](#ibm_databases_for_mysql_successful_archive_rate) | 
 | [Temporary files size in bytes](#ibm_databases_for_mysql_temp_bytes_count) |
-| [The total number of mysql connections being used.](#ibm_databases_for_mysql_total_connections) | 
 | [Total disk space for an instance.](#ibm_databases_for_mysql_disk_total_bytes) | 
 | [Transaction commit count](#ibm_databases_for_mysql_transaction_commit_count) |
 | [Transaction commit rate](#ibm_databases_for_mysql_transaction_commit_rate) | 
@@ -192,7 +191,7 @@ Disk write latency mean
 | `Segment By` | `Service instance` |
 {: caption="Table 10: Disk write latency mean metric metadata" caption-side="top"}
 
-### IO utilization in percent 5 minute average
+### IO utilization in percent 5-minute average
 {: #ibm_databases_for_mysql_disk_io_utilization_percent_average_5m}
 
 How much disk I/O has been used over 5 minutes as a percentage of total disk I/O available.
@@ -205,7 +204,7 @@ How much disk I/O has been used over 5 minutes as a percentage of total disk I/O
 | `Segment By` | `Service instance` |
 {: caption="Table 11. IO utilization in percent 5 minute average metric metadata" caption-side="top"}
 
-### IO utilization in percent 15 minute average
+### IO utilization in percent 15-minute average
 {: #ibm_databases_for_mysql_disk_io_utilization_percent_average_15m}
 
 How much disk I/O has been used over 15 minutes as a percentage of total disk I/O available.
@@ -218,7 +217,7 @@ How much disk I/O has been used over 15 minutes as a percentage of total disk I/
 | `Segment By` | `Service instance` |
 {: caption="Table 12. IO utilization in percent 15 minute average metric metadata" caption-side="top"}
 
-### IO utilization in percent 30 minute average
+### IO utilization in percent 30-minute average
 {: #ibm_databases_for_mysql_disk_io_utilization_percent_average_30m}
 
 How much disk I/O has been used over 30 minutes as a percentage of total disk I/O available.
@@ -231,7 +230,7 @@ How much disk I/O has been used over 30 minutes as a percentage of total disk I/
 | `Segment By` | `Service instance` |
 {: caption="Table 13. IO utilization in percent 30 minute average metric metadata" caption-side="top"}
 
-### IO utilization in percent 60 minute average
+### IO utilization in percent 60-minute average
 {: #ibm_databases_for_mysql_disk_io_utilization_percent_average_60m}
 
 How much disk I/O has been used over 60 minutes as a percentage of total disk I/O available.
@@ -244,7 +243,7 @@ How much disk I/O has been used over 60 minutes as a percentage of total disk I/
 | `Segment By` | `Service instance` |
 {: caption="Table 14. IO utilization in percent 60 minute average metric metadata" caption-side="top"}
 
-### IOPS read & write total count for an instance
+### IOPS read and write total count for an instance
 {: #ibm_databases_for_mysql_disk_iops_read_write_total}
 
 How many input/output operations per second your deployment is performing.
@@ -309,19 +308,6 @@ Temporary files size in bytes
 | `Segment By` | `Service instance` |
 {: caption="Table 19: Temporary files size in bytes metric metadata" caption-side="top"}
 
-### The total number of mysql connections being used
-{: #ibm_databases_for_mysql_total_connections}
-
-The total number of mysql connections being used.
-
-| Metadata | Description |
-|----------|-------------|
-| `Metric Name` | `ibm_databases_for_mysql_total_connections`|
-| `Metric Type` | `gauge` |
-| `Value Type`  | `count` |
-| `Segment By` | `Service instance` |
-{: caption="Table 20. The total number of mysql connections being used metric metadata" caption-side="top"}
-
 ### Total disk space for an instance
 {: #ibm_databases_for_mysql_disk_total_bytes}
 
@@ -333,7 +319,7 @@ Represents the total amount of disk available to your deployment.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 21. Total disk space for an instance metric metadata" caption-side="top"}
+{: caption="Table 20: Total disk space for an instance metric metadata" caption-side="top"}
 
 ### Transaction commit count
 {: #ibm_databases_for_mysql_transaction_commit_count}
@@ -346,7 +332,7 @@ Transaction commit count
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
-{: caption="Table 22: Transaction commit count metric metadata" caption-side="top"}
+{: caption="Table 21: Transaction commit count metric metadata" caption-side="top"}
 
 ### Transaction commit rate
 {: #ibm_databases_for_mysql_transaction_commit_rate}
@@ -359,7 +345,7 @@ Transaction commit rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 23: Transaction commit rate metric metadata" caption-side="top"}
+{: caption="Table 22: Transaction commit rate metric metadata" caption-side="top"}
 
 ### Transaction rollback count
 {: #ibm_databases_for_mysql_transaction_rollback_count}
@@ -372,7 +358,7 @@ Transaction rollback count
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
-{: caption="Table 24: Transaction rollback count metric metadata" caption-side="top"}
+{: caption="Table 23: Transaction rollback count metric metadata" caption-side="top"}
 
 ### Transaction rollback rate
 {: #ibm_databases_for_mysql_transaction_rollback_rate}
@@ -385,7 +371,7 @@ Transaction rollback rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 25: Transaction rollback rate metric metadata" caption-side="top"}
+{: caption="Table 24: Transaction rollback rate metric metadata" caption-side="top"}
 
 ### Tuples deleted count
 {: #ibm_databases_for_mysql_tuples_deleted_count}
@@ -398,7 +384,7 @@ Tuples deleted count
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
-{: caption="Table 26: Tuples deleted count metric metadata" caption-side="top"}
+{: caption="Table 25: Tuples deleted count metric metadata" caption-side="top"}
 
 ### Tuples deleted rate
 {: #ibm_databases_for_mysql_tuples_deleted_rate}
@@ -411,7 +397,7 @@ Tuples deleted rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 27: Tuples deleted rate metric metadata" caption-side="top"}
+{: caption="Table 26: Tuples deleted rate metric metadata" caption-side="top"}
 
 ### Tuples fetched count
 {: #ibm_databases_for_mysql_tuples_fetched_count}
@@ -424,7 +410,7 @@ Tuples fetched count
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
-{: caption="Table 28: Tuples fetched count metric metadata" caption-side="top"}
+{: caption="Table 27: Tuples fetched count metric metadata" caption-side="top"}
 
 ### Tuples fetched rate
 {: #ibm_databases_for_mysql_tuples_fetched_rate}
@@ -437,7 +423,7 @@ Tuples fetched rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 29: Tuples fetched rate metric metadata" caption-side="top"}
+{: caption="Table 28: Tuples fetched rate metric metadata" caption-side="top"}
 
 ### Tuples inserted count
 {: #ibm_databases_for_mysql_tuples_inserted_count}
@@ -450,7 +436,7 @@ Tuples inserted count
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
-{: caption="Table 30: Tuples inserted count metric metadata" caption-side="top"}
+{: caption="Table 29: Tuples inserted count metric metadata" caption-side="top"}
 
 ### Tuples inserted rate
 {: #ibm_databases_for_mysql_tuples_inserted_rate}
@@ -463,7 +449,7 @@ Tuples inserted rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 31: Tuples inserted rate metric metadata" caption-side="top"}
+{: caption="Table 30: Tuples inserted rate metric metadata" caption-side="top"}
 
 ### Tuples returned rate
 {: #ibm_databases_for_mysql_tuples_returned_rate}
@@ -476,7 +462,7 @@ Tuples returned rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 32: Tuples returned rate metric metadata" caption-side="top"}
+{: caption="Table 31: Tuples returned rate metric metadata" caption-side="top"}
 
 ### Tuples updated count
 {: #ibm_databases_for_mysql_tuples_updated_count}
@@ -489,7 +475,7 @@ Tuples updated count
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `Service instance` |
-{: caption="Table 33: Tuples updated count metric metadata" caption-side="top"}
+{: caption="Table 32: Tuples updated count metric metadata" caption-side="top"}
 
 ### Tuples updated rate
 {: #ibm_databases_for_mysql_tuples_updated_rate}
@@ -502,7 +488,7 @@ Tuples updated rate
 | `Metric Type` | `gauge` |
 | `Value Type`  | `rate` |
 | `Segment By` | `Service instance` |
-{: caption="Table 34: Tuples updated rate metric metadata" caption-side="top"}
+{: caption="Table 33: Tuples updated rate metric metadata" caption-side="top"}
 
 ### Used CPU for an instance
 {: #ibm_databases_for_mysql_cpu_used_percent}
@@ -515,7 +501,7 @@ How much CPU is used as a percentage of total CPU available. Only for deployment
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 35. Used CPU for an instance metric metadata" caption-side="top"}
+{: caption="Table 34: Used CPU for an instance metric metadata" caption-side="top"}
 
 ### Used disk space for an instance
 {: #ibm_databases_for_mysql_disk_used_bytes}
@@ -528,7 +514,7 @@ How much disk your deployment is using.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 36. Used disk space for an instance metric metadata" caption-side="top"}
+{: caption="Table 35: Used disk space for an instance metric metadata" caption-side="top"}
 
 ### Used memory for an instance
 {: #ibm_databases_for_mysql_memory_used_bytes}
@@ -541,12 +527,12 @@ How much memory your deployment is using.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 37. Used memory for an instance metric metadata" caption-side="top"}
+{: caption="Table 36: Used memory for an instance metric metadata" caption-side="top"}
 
 ### WAL logs used bytes
 {: #ibm_databases_for_mysql_wal_used_bytes}
 
-how much wal log file uses, in bytes
+How much wal log file uses, in bytes
 
 | Metadata | Description |
 |----------|-------------|
@@ -554,7 +540,7 @@ how much wal log file uses, in bytes
 | `Metric Type` | `gauge` |
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
-{: caption="Table 38: WAL logs used bytes metric metadata" caption-side="top"}
+{: caption="Table 37: WAL logs used bytes metric metadata" caption-side="top"}
 
 ## Attributes for Segmentation
 {: #attributes}
@@ -568,19 +554,19 @@ The following attributes are available for segmenting all of the metrics listed.
 |-----------|----------------|-----------------------|
 | `Cloud Type` | `ibm_ctype` | The cloud type is a value of public, dedicated, or local. |
 | `Location` | `ibm_location` | The location of the monitored resource - this may be a region, data center, or global. |
-| `Resource` | `ibm_resource` | The resource being measured by the service - typically a identifying name or GUID. |
+| `Resource` | `ibm_resource` | The resource being measured by the service - typically an identifying name or GUID. |
 | `Resource Type` | `ibm_resource_type` | The type of the resource being measured by the service. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
-{: caption="Table 39. Global Attributes Metadata" caption-side="top"}
+{: caption="Table 38: Global Attributes Metadata" caption-side="top"}
 
 ### Additional Attributes
 {: #additional-attributes}
 
-The following attributes are available for segmenting one or more attributes as described in the reference above.  Please see the individual metrics for segmentation options.
+The following attributes are available for segmenting one or more attributes as described in the reference above. Please see the individual metrics for segmentation options.
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance the metric is associated with. |
-| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value depending on the name provided by the user. |
+| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance that the metric is associated with. |
+| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value depending on the name that is provided by the user. |
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
-{: caption="Table 40. Additional Attributes Metadata" caption-side="top"}
+{: caption="Table 39: Additional Attributes Metadata" caption-side="top"}
