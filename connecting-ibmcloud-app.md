@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-01"
+  years: 2021, 2023
+lastupdated: "2023-06-23"
 
 keywords: mysql, databases, kubernetes, connecting application, mysql connection strings
 
@@ -10,14 +10,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:deprecated: .deprecated}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting an {{site.data.keyword.cloud_notm}} application
 {: #ibmcloud-app}
