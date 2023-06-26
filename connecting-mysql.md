@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-19"
+  years: 2021, 2023
+lastupdated: "2023-06-29"
 
 keywords: mysql, databases, mysql connection strings, connecting mysql
 
@@ -9,13 +9,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting with `mysql`
 {: #connecting-mysql}
