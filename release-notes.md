@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-05-23"
+lastupdated: "2023-07-03"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 03 July 2023
+{: #databases-for-mysql-03july2023}
+{: release-note}
+
+Upgrading to a new Major Version
+:  Once a major version of a database is at its End Of Life (EOL), upgrade to a current major version. For more information, see [Upgrading to a new Major Version](/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading).
 
 ## 22 May 2023
 {: #databases-for-mysql-22may2023}
