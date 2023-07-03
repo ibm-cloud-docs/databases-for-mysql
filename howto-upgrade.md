@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-14"
+lastupdated: "2023-06-03"
 
 keyowrds: mysql, databases, upgrading, major versions, mysql new deployment, mysql database version, mysql major version
 
@@ -33,6 +33,27 @@ mysqlsh -- util checkForServerUpgrade user@localhost:3306
 ```
 {: pre}
 
+### SHA-256 Plug-in
+{: #mysql-upgrade-sha256}
+
+In MySQL 8.0, `caching_sha2_password` is the default authentication plugin rather than `mysql_native_password`.
+
+If you encounter the following error: 
+
+```sh
+Server] Plugin sha256_password reported: ''sha256_password' is deprecated and will be removed in a future release. Please use caching_sha2_password instead'
+```
+then you need to ALTER affected Users. Use a command like:
+
+```sh
+ALTER USER usernmae@remoteip
+IDENTIFIED WITH 'caching_sha2_password'
+   RETAIN CURRENT PASSWORD
+```
+{: pre}
+
+For more information, see [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html){: external}.
+
 ## Back up and Restore Upgrade
 {: #mysql-backup-restore}
 
@@ -48,13 +69,13 @@ You can upgrade to a new version when [restoring a backup](/docs/databases-for-m
 {: #mysql-upgrading-cli}
 {: cli}
 
-When you upgrade and restore from backup through the {{site.data.keyword.cloud_notm}} CLI, use the provisioning command from the resource controller.
+To upgrade and restore from backup through the {{site.data.keyword.cloud_notm}} CLI, use the [provisioning command](/docs/account?topic=account-manage_resource&interface=cli) from the Resource Controller.
 ```sh
 ibmcloud resource service-instance-create <service-name> <service-id> <service-plan-id> <region>
 ```
 {: pre}
 
-The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the version and backup ID parameters in a JSON object. The new deployment is automatically sized with the same disk and memory as the source deployment at the time of the backup.
+The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the `version` and `backup_ID` parameters in a JSON object. The new deployment is automatically sized with the same disk and memory as the source deployment at the time of the backup.
 
 ```sh
 ibmcloud resource service-instance-create example-upgrade databases-for-mysql standard us-south \
@@ -69,7 +90,7 @@ ibmcloud resource service-instance-create example-upgrade databases-for-mysql st
 {: #mysql-upgrading-api}
 {: api}
 
-Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID. The new deployment has the same memory and disk allocation as the source deployment at the time of the backup.
+Complete the necessary steps to use the [Resource Controller API](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} before using it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the `version` and `backup_ID`. The new deployment has the same memory and disk allocation as the source deployment at the time of the backup.
 ```sh
 curl -X POST \
   https://resource-controller.cloud.ibm.com/v2/resource_instances \
