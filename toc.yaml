@@ -55,6 +55,7 @@ toc:
       - include: ../cloud-databases/howto-allowlists.md
       - howto-migration.md
       - howto-upgrade.md
+      - howto-v8-upgrade.md
       - topicgroup: 
           label: Configuring MySQL
           topics: 
@@ -90,7 +91,6 @@ toc:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
       - include: ../cloud-databases/db-version-policy.md
-      - howto-v8-upgrade.md
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
