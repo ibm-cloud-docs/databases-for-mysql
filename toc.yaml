@@ -30,9 +30,11 @@ toc:
   - navgroup: 
       id: howto
       topics:
+      - include: ../cloud-databases/howto-provisioning.md
+      - howto-upgrade.md
+      - howto-v8-upgrade.md
       - howto-admin-password.md
       - howto-getting-connection-strings.md
-      - include: ../cloud-databases/howto-provisioning.md
       - include: ../cloud-databases/howto-deprovisioning.md
       - include: ../cloud-databases/closures.md
       - include: ../cloud-databases/ha-dr.md
@@ -88,7 +90,6 @@ toc:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
       - include: ../cloud-databases/db-version-policy.md
-      - howto-v8-upgrade.md
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
