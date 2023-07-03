@@ -30,9 +30,11 @@ toc:
   - navgroup: 
       id: howto
       topics:
+      - include: ../cloud-databases/howto-provisioning.md
+      - howto-upgrade.md
+      - howto-v8-upgrade.md
       - howto-admin-password.md
       - howto-getting-connection-strings.md
-      - include: ../cloud-databases/howto-provisioning.md
       - include: ../cloud-databases/howto-deprovisioning.md
       - include: ../cloud-databases/closures.md
       - include: ../cloud-databases/ha-dr.md
@@ -54,8 +56,6 @@ toc:
       - howto-read-replica.md
       - include: ../cloud-databases/howto-allowlists.md
       - howto-migration.md
-      - howto-upgrade.md
-      - howto-v8-upgrade.md
       - topicgroup: 
           label: Configuring MySQL
           topics: 
