@@ -30,7 +30,7 @@ toc:
   - navgroup: 
       id: howto
       topics:
-      - include: ../cloud-databases/howto-provisioning.md
+      - howto-provisioning.md
       - howto-upgrade.md
       - howto-v8-upgrade.md
       - howto-admin-password.md
