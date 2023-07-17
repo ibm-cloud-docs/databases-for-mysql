@@ -80,7 +80,7 @@ toc:
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - /cloud-databases/cloud-databases-manage-security-compliance
+          - include: ../cloud-databases/manage-scc.md
           - include: ../cloud-databases/howto-cbr.md
           - include: ../cloud-databases/cbr-tutorial.md
   - navgroup: 
