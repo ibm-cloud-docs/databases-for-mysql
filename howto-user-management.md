@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-19"
+  years: 2021, 2023
+lastupdated: "2023-07-20"
 
 keywords: admin, superuser, roles, service credentials, mysql users, mysql roles, mysql privileges, mysql connection strings, mysql service credentials
 
@@ -10,19 +10,12 @@ subcollection: databases-for-mysql
 
 ---
 
-{:shortdesc: .shortdesc}
-{:external: .external target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
-
-# Managing Users, Roles, and Privileges 
+# Managing Users, Roles, and Privileges
 {: #user-management}
 
-MySQL 5.7 uses a system of roles to manage database permissions. You are able to create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users who are created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges that it has, including the privilege to create new users.
+MySQL 5.7 uses a system of roles to manage database permissions. Create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users who are created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges that it has, including the privilege to create new users.
 
 ```sh
 mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
@@ -60,14 +53,16 @@ The users below are maintained by {{site.data.keyword.cloud_notm}} and shouldn't
 | ibm-backup      |
 ```
 
-When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL.
+When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an `admin` user to access and manage MySQL.
+
+Add users in the UI in _Service Credentials_, with the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin), or the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction).
 
 ## User management commands
 {: #user-management-commands}
 
 For security reasons, we recommend that you do not run DML (Data Manipulation Language) queries on the `mysql.user` table. To protect against altering the `mysql.user` table, you should use DML queries to manage users.
 
-You should manage users by using commands such as `CREATE USER`, `ALTER USER`, `RENAME USER`, and `DROP USER`.
+Manage users by using commands such as `CREATE USER`, `ALTER USER`, `RENAME USER`, and `DROP USER`.
 
 A list of users with their hosts information, but without auth information and password hashes, can be extracted by running the following command:
 ```sh
@@ -78,9 +73,45 @@ mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
 ## The `admin` user
 {: #user-management-admin-user}
 
-When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), you can use it to connect to your deployment.
+When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), use it to connect to your deployment.
 
-When admin creates a resource in a database, like a table, admin owns that object. Users who are created from the UI have permissions to `*.*`, which means that any newly created user is able to see any database automatically. Use MySQL sh, or modify permissions of a UI-created user to restrict access. To limit permissions, remove global privileges, if enabled, and grant privileges to a database, or database set, to which a given user is expected to have access. 
+When `admin` creates a resource in a database, like a table, `admin` owns that object. Users who are created from the UI have permissions to `*.*`, which means that any newly created user is able to see any database automatically. Use MySQL sh, or modify permissions of a UI-created user to restrict access. To limit permissions, remove global privileges, if enabled, and grant privileges to a database, or database set, to which a given user is expected to have access.
+
+Set the admin password before using it to connect.
+{: important}
+
+### Setting the Admin Password in the UI
+{: #user-management-set-admin-password-ui}
+{: ui}
+
+To set the password through the {{site.data.keyword.cloud_notm}} dashboard, select __Manage__ from the service dashboard. Open the _Settings_ tab, and use _Change Database Admin Password_ to set a new admin password.
+
+### Setting the Admin Password in the CLI
+{: #user-management-set-admin-password-cli}
+{: cli}
+
+Use the `cdb user-password` command from the {{site.data.keyword.cloud_notm}} CLI {{site.data.keyword.databases-for}} plug-in to set the admin password.
+
+For example, to set the admin password for a deployment named `example-deployment`, use the following command:
+
+```sh
+ibmcloud cdb user-password example-deployment admin <newpassword>
+```
+{: pre}
+
+### Setting the Admin Password in the API
+{: #user-management-set-admin-password-api}
+{: api}
+
+The Foundation Endpoint that is shown on the Overview panel Deployment Details section of your service provides the base URL to access this deployment through the API. Use it with the [Set specified user's password](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#changeuserpassword){: external} endpoint to set the admin password.
+
+```sh
+curl -X PATCH `https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/users/admin` \
+-H `Authorization: Bearer <>` \
+-H `Content-Type: application/json` \ 
+-d `{"password":"newrootpasswordsupersecure21"}` \
+```
+{: pre}
 
 ## Other `ibm` Users
 {: #user-management-ibm-users}
@@ -116,18 +147,20 @@ When you create a user, it is assigned certain database roles and privileges. Th
 
 ### Creating Users in _Service Credentials_
 {: #user-management-create-users}
+{: ui}
 
 1. Navigate to the service dashboard for your service.
 2. Click _Service Credentials_ to open the _Service Credentials_ panel.
-3. Click **New Credential**.
+3. Click **New Credential__.
 4. Choose a descriptive name for your new credential. 
 5. (Optional) Specify whether the new credentials should use a public or private endpoint. Use either `{ "service-endpoints": "public" }` / `{ "service-endpoints": "private" }` in the _Add Inline Configuration Parameters_ field to generate connection strings using the specified endpoint. Use of the endpoint is not enforced. It just controls which hostnames are in the connection strings. Public endpoints are generated by default.
-6. Click **Add** to provision the new credentials. A username and password, and an associated database user in the MySQL database are auto-generated.
+6. Click **Add__ to provision the new credentials. A username and password, and an associated database user in the MySQL database are auto-generated.
 
 The new credentials appear in the table, and the connection strings are available as JSON in a click-to-copy field under _View Credentials_.
 
 ### Creating Users from the command line
 {: #user-management-cli}
+{: cli}
 
 If you manage your service through the {{site.data.keyword.cloud_notm}} CLI and the [cloud databases plug-in](/docs/cli?topic=cli-install-ibmcloud-cli), you can create a new user with `cdb user-create`. For example, to create a new user for an "example-deployment", use the following command.
 ```sh
@@ -139,6 +172,7 @@ Once the task finishes, you can retrieve the new user's connection strings with 
 
 ### Creating Users from the API
 {: #user-management-api}
+{: api}
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. To create and manage users, use the base URL with the `/users` endpoint.
 ```sh

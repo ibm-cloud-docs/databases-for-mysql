@@ -31,9 +31,9 @@ toc:
       id: howto
       topics:
       - howto-provisioning.md
+      - howto-user-management.md
       - howto-upgrade.md
       - howto-v8-upgrade.md
-      - howto-admin-password.md
       - howto-getting-connection-strings.md
       - include: ../cloud-databases/howto-deprovisioning.md
       - include: ../cloud-databases/closures.md
@@ -44,7 +44,6 @@ toc:
           - connecting-external.md
           - connecting-ibmcloud-app.md
           - connecting-mysql.md
-      - howto-user-management.md
       - topicgroup: 
           label: Managing Resources
           topics: 
