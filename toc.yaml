@@ -105,15 +105,12 @@ toc:
       topics:
       - ts-connect.md
       - ts-delay.md
-      - topicgroup:
-         label: FAQs
-         topics: 
-         - backups-faq.md
   - navgroup:
       id: help
       topics:
       - topicgroup:
           label: FAQs
           topics:
+          - backups-faq.md
           - include: ../cloud-databases/availability-zones-faq.md
           - include: ../cloud-databases/status-page-faq.md
