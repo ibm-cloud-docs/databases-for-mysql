@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud® Databases for MySQL docs",
-    "lastupdated": "2023-03-03",
+    "lastupdated": "2023-08-01",
     "introduction": "IBM Cloud® Databases for MySQL is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use IBM Cloud® Databases for MySQL to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.",
     "section_devtools": {
       "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
@@ -16,7 +16,7 @@
       {
         "title": "Setting the Admin Password",
         "description": "The IBM Cloud® Databases for MySQL service is provisioned with an admin user, so you can manage MySQL by using its command line tool, mysql.",
-        "href": "/docs/databases-for-mysql?topic=databases-for-mysql-admin-password"
+        "href": "/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui"
       },
       {
         "title": "Managing MySQL Connections",
