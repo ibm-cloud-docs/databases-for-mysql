@@ -105,9 +105,6 @@ toc:
       topics:
       - ts-connect.md
       - ts-delay.md
-  - navgroup:
-      id: help
-      topics:
       - topicgroup:
           label: FAQs
           topics:
