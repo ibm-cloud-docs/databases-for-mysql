@@ -109,3 +109,11 @@ toc:
          label: FAQs
          topics: 
          - backups-faq.md
+  - navgroup:
+      id: help
+      topics:
+      - topicgroup:
+          label: FAQs
+          topics:
+          - include: ../cloud-databases/availability-zones-faq.md
+          - include: ../cloud-databases/status-page-faq.md
