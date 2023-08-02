@@ -55,7 +55,10 @@ toc:
       - howto-read-replica.md
       - include: ../cloud-databases/howto-allowlists.md
       - howto-migration.md
-      - howto-changing-config.md
+      - topicgroup: 
+          label: Configuring MySQL
+          topics:
+          - howto-changing-config.md
       - topicgroup: 
           label: Tutorials
           topics: 
