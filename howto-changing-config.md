@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-08-02"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -11,7 +11,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Changing your {{site.data.keyword.databases-for-mysql_full}} Deployment Configuration
+# Changing your Deployment Configuration
 {: #changing-configuration}
 
 {{site.data.keyword.databases-for-mysql_full}} allows you to change some of the MySQL configuration settings so you can tune your MySQL databases to your use case. To make permanent changes to the database configuration, use the {{site.data.keyword.databases-for}} [cli-plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-configuration) or [API](https://{DomainName}/apidocs/cloud-databases-api#change-your-database-configuration) to write the changes to the configuration file for your deployment.
