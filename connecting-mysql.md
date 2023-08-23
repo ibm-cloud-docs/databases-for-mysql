@@ -16,7 +16,7 @@ subcollection: databases-for-mysql
 
 You can access your MySQL database directly from its command-line client, `mysql`. You can use `mysql` for direct interaction and monitoring of the data structures that are created within the database. It is also useful for testing and monitoring the queries and performance, installing and modifying scripts, and other management activities.
 
-Set the admin password before you use it to connect to the database. For more information, see [Setting the Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password).
+Set the admin password before you use it to connect to the database. For more information, see [Setting the Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui).
 {: .tip}
 
 ## Installing `mysql`
