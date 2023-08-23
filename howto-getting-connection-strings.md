@@ -24,7 +24,7 @@ To connect to {{site.data.keyword.databases-for-mysql_full}}, you need some user
 
 ![Endpoints panel on the Dashboard Overview](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel on the Dashboard Overview" caption-side="bottom"}
 
-A {{site.data.keyword.databases-for-mysql}} deployment is provisioned with an admin user and, after [setting the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), use its connection strings to connect to your deployment.
+A {{site.data.keyword.databases-for-mysql}} deployment is provisioned with an admin user and, after [setting the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui), use its connection strings to connect to your deployment.
 {: .tip}
 
 **CLI**  

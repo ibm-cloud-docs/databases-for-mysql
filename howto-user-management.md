@@ -73,7 +73,7 @@ mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
 ## The `admin` user
 {: #user-management-admin-user}
 
-When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password), use it to connect to your deployment.
+When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an admin user to access and manage MySQL. Once you [set the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui), use it to connect to your deployment.
 
 When `admin` creates a resource in a database, like a table, `admin` owns that object. Users who are created from the UI have permissions to `*.*`, which means that any newly created user is able to see any database automatically. Use MySQL sh, or modify permissions of a UI-created user to restrict access. To limit permissions, remove global privileges, if enabled, and grant privileges to a database, or database set, to which a given user is expected to have access.
 

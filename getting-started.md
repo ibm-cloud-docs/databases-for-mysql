@@ -41,7 +41,7 @@ Additionally, {{site.data.keyword.databases-for-mysql}} provides independent sca
 
 - You need an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration).
 - You need a {{site.data.keyword.databases-for-mysql}} deployment. Provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/databases-for-mysql). Give your deployment a memorable name that appears in your account's Resource List.
-- Set the [Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-admin-password) for your deployment.
+- Set the [Admin Password](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui) for your deployment.
 - Install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){: .external}.
 - Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-mysql_full}} deployment.
 
