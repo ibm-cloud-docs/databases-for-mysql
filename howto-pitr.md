@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-19"
+  years: 2021, 2023
+lastupdated: "2023-08-25"
 
 keywords: mysql, databases, point in time recovery, backups, restore, mysql pitr, mysql recovery
 
@@ -10,11 +10,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Point-in-time Recovery
 {: #pitr}
@@ -22,8 +18,6 @@ subcollection: databases-for-mysql
 {{site.data.keyword.databases-for-mysql_full}} offers Point-In-Time Recovery (PITR) for any time in the last 7 days. The deployment continuously backs up incrementally and can replay transactions to bring a new deployment that is restored from a backup to any point in that 7-day window you need.
 
 The _Backups_ tab of your deployment's UI keeps all your PITR information under _Point-in-Time_.
-
-![PITR section of the Backups tab](images/pitr-backups-tab.png){: caption="Figure 1. PITR section of the Backups tab" caption-side="bottom"}
 
 Included information is the earliest time for a PITR. To discover the earliest recovery point through the CLI, use the [`cdb mysql earliest-pitr-timestamp`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#MySql-earliest-pitr-timestamp) command.
 ```sh
@@ -86,7 +80,7 @@ ibmcloud resource service-instance-create <SERVICE_INSTANCE_NAME> <service-id> s
 ### In the API
 {: #api}
 
-The Resource Controller supports provisioning of database deployments, and provisioning and restoring are the responsibility of the Resource Controller API. You need to complete [the necessary steps to use the resource controller API](/docs/databases-for-mysql?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to restore from a backup. 
+The [resource controller](https://cloud.ibm.com/apidocs/resource-controller/resource-controller) supports provisioning of database deployments, and provisioning and restoring are the responsibility of the Resource Controller API. Complete [the necessary steps](/docs/databases-for-mysql?topic=databases-for-mysql-provisioning&interface=api#provision-controller-api) to use the resource controller API before using it to restore from a backup.
 
 Once you have all the information, the create request is a `POST` to the [`/resource_instances`](https://{DomainName}/apidocs/resource-controller#create-provision-a-new-resource-instance) endpoint.
 
@@ -119,7 +113,7 @@ To verify the correct recovery time, check the database logs. Checking the datab
 
 When you perform a recovery, your data is restored from the most recent incremental backup. Any outstanding transactions from the WAL log are used to catch your database up to the time you recovered to. After the recovery is finished, and the transactions are run, the logs display a message. You can check that your logs have the message,
 
-```sh
+```text
 LOG:  last completed transaction was at log time 2019-09-03 19:40:48.997696+00
 ```
 
