@@ -49,6 +49,7 @@ It is crucial that you do not delete the source deployment while the backup is r
 
 ### In the UI
 {: #ui}
+{: ui}
 
 To initiate a PITR, enter the time that you want to restore back to in Coordinated Universal Time. If you want to restore only to the most recent available time, select that option. Clicking **Restore** brings up the options for your recovery. Enter a name, select the version, region, and allocated resources for the new deployment. Click **Recover** to start the process.
 
@@ -56,6 +57,7 @@ If you use Key Protect and have a key, use the CLI to recover. A command is prov
 
 ### In the CLI
 {: #cli}
+{: cli}
 
 The Resource Controller supports provisioning of database deployments, and provisioning and restoring are the responsibility of the Resource Controller CLI. Use the [`resource service-instance-create`](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_service_instance_create) command.
 
@@ -79,6 +81,7 @@ ibmcloud resource service-instance-create <SERVICE_INSTANCE_NAME> <service-id> s
 
 ### In the API
 {: #api}
+{: api}
 
 The [resource controller](https://cloud.ibm.com/apidocs/resource-controller/resource-controller) supports provisioning of database deployments, and provisioning and restoring are the responsibility of the Resource Controller API. Complete [the necessary steps](/docs/databases-for-mysql?topic=databases-for-mysql-provisioning&interface=api#provision-controller-api) to use the resource controller API before using it to restore from a backup.
 
