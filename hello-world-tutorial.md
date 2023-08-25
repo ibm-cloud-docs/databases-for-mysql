@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-10-14"
+  years: 2021, 2023
+lastupdated: "2023-08-25"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -10,14 +10,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:shortdesc: .shortdesc}
-{:external: .external target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an {{site.data.keyword.databases-for-mysql_full}} instance Tutorial
 {: #mysql-create-instance-tutorial}
