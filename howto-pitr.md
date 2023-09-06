@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-25"
+lastupdated: "2023-09-06"
 
 keywords: mysql, databases, point in time recovery, backups, restore, mysql pitr, mysql recovery
 
@@ -88,17 +88,19 @@ The [resource controller](https://cloud.ibm.com/apidocs/resource-controller/reso
 Once you have all the information, the create request is a `POST` to the [`/resource_instances`](https://{DomainName}/apidocs/resource-controller#create-provision-a-new-resource-instance) endpoint.
 
 ```sh
-curl -X POST \
-  https://resource-controller.cloud.ibm.com/v2/resource_instances \
-  -H 'Authorization: Bearer <>' \
-  -H 'Content-Type: application/json' \
+curl -X POST   
+  https://resource-controller.cloud.ibm.com/v2/resource_instances   
+  -H 'Authorization: Bearer <>'   
+  -H 'Content-Type: application/json'     
     -d '{
     "name": "<SERVICE_INSTANCE_NAME>",
     "target": "<region>",
     "resource_group": "<your-resource-group>",
-    "resource_plan_id": "<service-id>"
-    "point_in_time_recovery_time":"<TIMESTAMP>",
-    "point_in_time_recovery_deployment_id":"<DEPLOYMENT_ID>"
+    "resource_plan_id": "<service-id>",
+    "parameters":{
+      "point_in_time_recovery_time":"<TIMESTAMP>",
+      "point_in_time_recovery_deployment_id":"<DEPLOYMENT_ID>"
+    }
   }'
 ```
 {: pre}
