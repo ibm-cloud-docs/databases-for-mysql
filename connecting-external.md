@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-01"
+lastupdated: "2023-09-29"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -174,7 +174,9 @@ connection.close()
 ## Driver TLS and self-signed certificate support
 {: #connecting-cert-support}
 
-All connections to {{site.data.keyword.databases-for-mysql}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection. 
+All connections to {{site.data.keyword.databases-for-mysql}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection.
+
+For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ](/docs/databases-for-mongodb?topic=databases-for-mongodb-faq-cert){: external}.
 
 ### Using the self-signed certificate
 {: #connecting-using-cert}
