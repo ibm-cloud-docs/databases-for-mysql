@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-12"
+lastupdated: "2023-10-23"
 
 keywords: databases-for-mysql release notes
 
@@ -25,7 +25,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: release-note}
 
 {{site.data.keyword.databases-for-mysql}} end of life dates
-:  End of life announcement: Version 5.7 reaches end of life 26 April 2024. All {{site.data.keyword.databases-for-mysql}} instances on deprecated versions that are still active will be upgraded in-place to the next major version. We recommend that you upgrade following our [backup and restore process](/docs/cloud-databases?topic=cloud-databases-dashboard-backups){: external} before the EOL date of your version.
+:  End of life announcement: Version 5.7 reaches end of life 26 April 2024. We recommend that you upgrade following our [backup and restore process](/docs/cloud-databases?topic=cloud-databases-dashboard-backups){: external} before the EOL date of your version.
 
 For more information, see [Upgrading to a new Major Version](/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading){: external}.
 
