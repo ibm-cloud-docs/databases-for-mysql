@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-23"
+lastupdated: "2023-11-29"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 22 November 2023
+{: #databases-for-mysql-22nov2023}
+{: release-note}
+
+Monitoring Integration documentation updated
+:  Monitoring Integration documentation now lists metrics for all {{site.data.keyword.databases-for}} services. For more information, see [Monitoring Integration](/docs/cloud-databases?topic=cloud-databases-monitoring){: external}.
 
 ## 12 October 2023
 {: #databases-for-mysql-12oct2023}
