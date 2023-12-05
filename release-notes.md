@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-11-29"
+lastupdated: "2023-12-05"
 
 keywords: databases-for-mysql release notes
 
