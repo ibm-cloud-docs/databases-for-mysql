@@ -20,6 +20,13 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
+## 05 December 2023
+{: #databases-for-mysql-05dec2023}
+{: release-note}
+
+`max_prepared_stmt_count` added to documentation
+:  `max_prepared_stmt_count` specifies the total number of prepared statements on the server. For more information, see [Changing your Configuration](/docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration){: external}.
+
 ## 22 November 2023
 {: #databases-for-mysql-22nov2023}
 {: release-note}
