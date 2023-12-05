@@ -1,10 +1,10 @@
 {
     "title": "IBM Cloud® Databases for MySQL docs",
-    "lastupdated": "2023-08-01",
+    "lastupdated": "2023-12-05",
     "introduction": "IBM Cloud® Databases for MySQL is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use IBM Cloud® Databases for MySQL to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.",
     "section_devtools": {
-      "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
-      "cli": "/docs/databases-cli-plugin", 
+      "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
+      "cli": "/docs/databases-cli-plugin",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
     },
     "section_recommended": [
@@ -34,19 +34,19 @@
       "view_more": "/docs/databases-for-mysql?topic=databases-for-mysql-mysql-relnotes",
       "tiles": [
         {
-          "date": "19 October 2022",
-          "title": "Deploying and Connecting an IBM Cloud® Databases Instance Tutorial",
-          "description": "This tutorial guides you through the process of deploying a Cloud Databases instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on Cloud Databases. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker."
+          "date": "05 December 2023",
+          "title": "max_prepared_stmt_count added to documentation",
+          "description": "max_prepared_stmt_count specifies the total number of prepared statements on the server. For more information, see Changing your Configuration."
         },
         {
-          "date": "11 October 2022",
-          "title": "Protecting IBM Cloud® Databases for MySQL resources with context-based restrictions",
-          "description": "Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for IBM Cloud® resources based on the context of access requests. Access to Cloud Databases resources can be controlled with CBR and identity and access management (IAM) policies."
+          "date": "22 November 2023",
+          "title": "Monitoring Integration documentation updated",
+          "description": "Monitoring Integration documentation now lists metrics for all Cloud Databases services. For more information, see Monitoring Integration."
         },
         {
-          "date": "28 June 2022",
-          "title": "IBM Cloud® Databases for MySQL version 8 is now available on Cloud Databases",
-          "description": "MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary."
+          "date": "12 October 2023",
+          "title": "Databases for MySQL end of life dates",
+          "description": "End of life announcement: Version 5.7 reaches end of life 26 April 2024. We recommend that you upgrade following our backup and restore process before the EOL date of your version. For more information, see Upgrading to a new Major Version."
         }
       ]
     }
