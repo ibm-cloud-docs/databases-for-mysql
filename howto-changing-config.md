@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-05"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -189,6 +189,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`max_prepared_stmt_count`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count)
 
+- Description - Specifies the total number of prepared statements on the server.
 - Default - `16382`
 - Minimum - `0`
 - Maximum - (version ≤ 8.0.17) `1048576`, (version ≥ 8.0.18) `4194304`
