@@ -17,7 +17,7 @@ subcollection: databases-for-mysql
 {: faq}
 {: support}
 
-Backups for {{site.data.keyword.databases-for-mysql}} deployments are accessible from the Backups tab of your deployment's dashboard. 
+Backups for {{site.data.keyword.databases-for-mysql}} deployments are accessible from the Backups tab of your deployment's dashboard.
 
 ## Optimizing `xtrabackup` table
 {: #optimize-xtrabackup-table}
@@ -28,11 +28,11 @@ MySQL version 8.0.29 contained a design flaw that can cause data corruption for 
 ```text
 [ERROR] [MY-011825] [Xtrabackup] Tables found:
 2023-03-03T08:09:34.643290-00:00 0 [ERROR] [MY-011825] [Xtrabackup] corrupted_table
-2023-03-03T08:09:34.643300-00:00 0 [ERROR] [MY-011825] [Xtrabackup] 
+2023-03-03T08:09:34.643300-00:00 0 [ERROR] [MY-011825] [Xtrabackup]
 Please run OPTIMIZE TABLE or ALTER TABLE ALGORITHM=COPY on all listed tables to fix this issue.
 ```
 
-This error can be seen using [Activity Tracker](/docs/databases-for-mysql?topic=databases-for-mysql-activity-tracker) or [Log Analysis](/docs/databases-for-mysql?topic=databases-for-mysql-logging).
+This error can be seen using [Activity Tracker](/docs/databases-for-mysql?topic=databases-for-mysql-activity-tracker) or [Log Analysis](/docs/cloud-databases?topic=cloud-databases-logging).
 {: tip}
 
 ### Resolving `corrupted_table` error
