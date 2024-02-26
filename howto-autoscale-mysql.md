@@ -50,7 +50,7 @@ The resource numbers refer to each database member in a deployment. For example,
 
 - A few scaling operations can be more long running than others. Drastically increasing RAM or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
-- Autoscaling operations are logged in [{{site.data.keyword.at_full}}](/docs/databases-for-mysql?topic=cloud-databases-activity-tracker).
+- Autoscaling operations are logged in [{{site.data.keyword.at_full}}](/docs/cloud-databases?topic=cloud-databases-activity-tracker).
 
 - Limits
    - can't set anything to scale in an interval less than 60 seconds.
