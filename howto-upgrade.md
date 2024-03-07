@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-03"
+  years: 2020, 2024
+lastupdated: "2024-03-07"
 
 keyowrds: mysql, databases, upgrading, major versions, mysql new deployment, mysql database version, mysql major version
 
@@ -20,18 +20,6 @@ Find the available versions of MySQL on the [{{site.data.keyword.databases-for-m
 
 ## Requirements for upgrading to MySQL version 8
 {: #mysql-upgrading-reqs}
-
-## Check for an upgrade with Upgrade Checker Utility
-{: #mysql-check-upgrade-checkForServerUpgrade}
-
-The [Upgrade Checker Utility in MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-upgrade.html){: external} allows you to check if an upgrade is required for MySQL. This function is useful when you want to determine whether your current version is compatible with an upgrade package.
-
-Start the upgrade checker utility from the command line using the [mysqlsh](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysqlsh.html) command interface. The following example checks a MySQL server for upgrade to release 8.0.27, and returns JSON output:
-```sh
-mysqlsh -- util checkForServerUpgrade user@localhost:3306 
-                   --target-version=8.0.27 --output-format=JSON --config-path=/etc/mysql/my.cnf
-```
-{: pre}
 
 ### SHA-256 Plug-in
 {: #mysql-upgrade-sha256}
