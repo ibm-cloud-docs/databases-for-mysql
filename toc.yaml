@@ -114,7 +114,9 @@ toc:
       - include: ../cloud-databases/reference-key-protect.md
       - include: ../cloud-databases/reference-iam.md
       - include: ../cloud-databases/reference-hpcs.md
-      - include: ../cloud-databases/reference-responsibilities.md
+      - link:
+          label: Responsibilities for Cloud Databases
+          href: reference-responsibilities.md
   - navgroup:
       id: help
       topics:
