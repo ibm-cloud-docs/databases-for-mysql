@@ -116,7 +116,7 @@ toc:
       - include: ../cloud-databases/reference-hpcs.md
       - link:
           label: Responsibilities for Cloud Databases
-          href: reference-responsibilities.md
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
   - navgroup:
       id: help
       topics:
