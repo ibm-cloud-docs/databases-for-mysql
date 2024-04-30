@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-12-05"
+  years: 2018, 2024
+lastupdated: "2024-05-01"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 1 May 2024
+{: #databases-for-mongodb-01may2024}
+{: release-note}
+
+New hosting models
+:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types){: external}.
 
 ## 05 December 2023
 {: #databases-for-mysql-05dec2023}
