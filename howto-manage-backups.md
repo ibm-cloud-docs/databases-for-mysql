@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-08-25"
+  years: 2021, 2024
+lastupdated: "2024-05-06"
 
 subcollection: cloud-databases, backups, restore
 
@@ -15,7 +15,7 @@ keywords: backups
 # Managing backups
 {: #dashboard-backups}
 
-Backups for {{site.data.keyword.databases-for}} deployments are accessible from the _Backups_ tab of your deployment's dashboard. Some general information about backups,
+Backups for {{site.data.keyword.databases-for}} deployments are accessible from the _Backups_ tab of your deployment's dashboard. See the following general information about backups.
 
 - Automatic backups are performed daily and kept with a simple retention schedule of 30 days.
 - Backups cannot be deleted. 
@@ -82,6 +82,9 @@ In the API, sending a POST to the [`/deployments/{id}/backups`](https://cloud.ib
 {: #dashboard-backups-restoring}
 
 Backups are restored to a new deployment. After the new deployment finishes provisioning, your data in the backup file is restored into the new deployment.
+
+For new hosting models, Restore is currently available through the CLI, TF, and API.
+{: note}
 
 By default the new deployment is auto-sized to the same disk and memory allocation as the source deployment at the time of the backup you are restoring from. If you need to adjust the resources that are allocated to the new deployment, use the optional fields in the UI, CLI, or API to resize the new deployment. Be sure to allocate enough for your data and workload; if the deployment is not given enough resources, the restore fails.
 
@@ -151,7 +154,7 @@ The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are al
 
 If you need to adjust resources or use a Key Protect key, add any of the optional parameters `key_protect_key`, `members_disk_allocation_mb`, `members_memory_allocation_mb`, and `members_cpu_allocation_count`, and their preferred values to the body of the request.
 
-## Backups and Restoration
+## Backups and restoration
 {: #dashboard-backups-restoration}
 
 * {{site.data.keyword.databases-for}} are not responsible for restoration, timeliness, or validity of said backups.
