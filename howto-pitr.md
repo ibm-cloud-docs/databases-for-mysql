@@ -17,7 +17,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.databases-for-mysql_full}} offers Point-In-Time Recovery (PITR) for any time in the last 7 days. The deployment continuously backs up incrementally and can replay transactions to bring a new deployment that is restored from a backup to any point in that 7-day window you need. 
 
-For new hosting models, PITR is currently available through the CLI, TF, and API.
+For new hosting models, PITR is currently available through the CLI, API, and Terraform.
 {: note}
 
 The _Backups_ tab of your deployment's UI keeps all your PITR information under _Point-in-Time_.
