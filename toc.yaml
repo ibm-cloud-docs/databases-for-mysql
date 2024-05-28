@@ -28,7 +28,6 @@ toc:
           topics: 
           - include: ../cloud-databases/hosting-models.md
           - include: ../cloud-databases/hosting-pricing.md
-      - include: ../cloud-databases/learn-getting-to-production.md
       - learn-dashboard-overview.md
       - learn-high-availability.md
       - learn-performance.md
@@ -38,6 +37,7 @@ toc:
       id: howto
       topics:
       - howto-provisioning.md
+      - include: ../cloud-databases/learn-getting-to-production.md
       - howto-user-management.md
       - howto-upgrade.md
       - howto-v8-upgrade.md
