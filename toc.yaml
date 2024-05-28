@@ -19,6 +19,9 @@ toc:
       - link:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
+      - link:
+          label: What is MySQL?
+          href: https://www.ibm.com/cloud/databases-for-mysql    
       - getting-started.md
       - topicgroup:
           label: Hosting models
@@ -26,9 +29,6 @@ toc:
           - include: ../cloud-databases/hosting-models.md
           - include: ../cloud-databases/hosting-pricing.md
       - include: ../cloud-databases/learn-getting-to-production.md
-      - link:
-          label: What is MySQL?
-          href: https://www.ibm.com/cloud/databases-for-mysql
       - learn-dashboard-overview.md
       - learn-high-availability.md
       - learn-performance.md

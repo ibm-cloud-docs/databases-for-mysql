@@ -17,7 +17,7 @@ subcollection: databases-for-mysql
 {:pre: .pre}
 {:tip: .tip}
 
-# The UI - Dashboard Overview
+# The Dashboard overview
 {: #dashboard-overview}
 
 The _Overview_ page shows you information about your {{site.data.keyword.databases-for-mysql_full}} deployment. The overview includes essential identifying information.
