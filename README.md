@@ -1,8 +1,8 @@
 # Databases for MySQL documentation
 
-This repo contains documentation for the Databases for MySQL services.
+This repo contains documentation for the Databases for MySQL service.
 
-## Contacts for this repo
+## Contact for this repo
 
 - Andrea Lang: ANDREAL, andreal@de.ibm.com
 
@@ -51,14 +51,12 @@ When changes are merged to the `production` branch, they are built and published
 
 As someone with merge responsibilities, follow these guidelines and practices to make sure that changes are released consistently.
 
-
 - Make sure that the merge commit message is clear and specific.
 
     :exclamation: **Important:** Do not expose IBM Confidential information in your commit message to `publish`. Commits made to the `publish` branch become public record. When you merge to the `publish` branch, the source is mirrored in a public GitHub repo at https://github.com/ibm-cloud-docs/databases-for-mysql so that customers can view and contribute to the source.
 - Squash and merge
 
     - Use the **Squash and merge** option when you merge a PR. Status checks prevent the merge if the squash and merge method is not used. For more information, see [Squashing your merge commits](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#squashing-your-merge-commits).
-
 
 ## Monitoring
 
@@ -92,6 +90,6 @@ The output from the `publish` branch is mirrored on [github.com](https://github.
 
 For general questions about IBM Cloud Databases, see the [icd-questions channel](https://ibm-cloudplatform.slack.com/messages/C534XRCF3/).
 
-## Blog Submissions
+## Blog submissions
 
 To submit a blog, go [here](https://w3.ibm.com/w3publisher/ibm-cloud-blog/submit-a-post). Ian Smalley handles everything blog-related, so any updates go through him. Use the same form to update, just make a note that it's an update, not a new post.
