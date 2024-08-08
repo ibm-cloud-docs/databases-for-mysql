@@ -29,7 +29,7 @@ Deploy from the console by specifying the following parameters:
 
 The platform that your database will be deployed on. Choose your required network and compute environment.
 
-- **{{site.data.keyword.cloud}}** - Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choosing.
+- **{{site.data.keyword.cloud}}** - Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choice.
 
 ### Service details
 {: #service_details}
@@ -96,6 +96,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<host_flavor value>"}'
    ```
    {: pre}
+
   For example, to provision a {{site.data.keyword.databases-for-mysql}} Shared Compute hosting model instance, use a command like:
 
    ```sh
@@ -111,6 +112,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    {: pre}
 
    The fields in the command are described in the table that follows.
+   
    | Field | Description | Flag |
    |-------|------------|------------|
    | `INSTANCE_NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
@@ -212,6 +214,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
+
 ### The `--parameters` parameter
 {: #flags-params-service-endpoints}
 {: cli}
