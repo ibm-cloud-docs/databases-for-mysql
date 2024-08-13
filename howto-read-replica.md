@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-19"
+  years: 2021, 2024
+lastupdated: "2024-08-13"
 
 keywords: mysql, databases, read replica, resync, promote, cross-region replication, mysql read replica, mysql replication
 
@@ -46,6 +46,9 @@ A read replica is set up to replicate all your data from the source instance to 
 - Replication is asynchronous, and might be subject to replication lag. By default, there is no communication between the primary and replica regarding consistency. It is possible for a read replica to fall far enough behind that it needs to be resynced. Replication lag can be greater when the replica is in a region far away geographically from its source database instance.
 
 - A read replica is a deployment with single data member and does not have any internal high-availability. It is prone to temporary interruptions and downtime during maintenance. If you have applications that rely on read replicas, be sure to have logic to retry failed queries, or load-balancing over multiple read replicas.
+
+- {{site.data.keyword.databases-for-mysql}} read replicas in Madrid (EU-ES): The deployment of read replicas in Madrid in the EU-ES region is currently suspended. Updates on availability will be provided as soon as possible.
+{: important}
 
 ## The Leader
 {: #read-replicas-leader}
