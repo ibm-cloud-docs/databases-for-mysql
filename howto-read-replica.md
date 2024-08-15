@@ -42,7 +42,8 @@ A read replica is set up to replicate all your data from the source instance to 
 
 - A read replica is a deployment with single data member and does not have any internal high-availability. It is prone to temporary interruptions and downtime during maintenance. If you have applications that rely on read replicas, be sure to have logic to retry failed queries, or load-balancing over multiple read replicas.
 
-{: .note}- {{site.data.keyword.databases-for-mysql}} read replicas in Madrid (`eu-es`): The deployment of read replicas in Madrid in the `eu-es` region is currently suspended. Updates on availability will be provided as soon as possible.
+- {{site.data.keyword.databases-for-mysql}} read replicas in Madrid (`eu-es`): The deployment of read replicas in Madrid in the `eu-es` region is currently suspended. Updates on availability will be provided as soon as possible.
+{: .note}
 
 ## The Leader
 {: #read-replicas-leader}
