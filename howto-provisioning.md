@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-09-10"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision mysql
 
@@ -84,10 +84,10 @@ Before provisioning, follow the instructions provided in the documentation to in
 
 1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
 
-      ```sh
-      ibmcloud login
-      ```
-      {: pre}
+    ```sh
+    ibmcloud login
+    ```
+    {: pre}
 
 2. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=cli) you want your database to be provisioned on. You can change this later.
 3. Provision your database with the following command:
@@ -97,7 +97,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    ```
    {: pre}
 
-  For example, to provision a {{site.data.keyword.databases-for-mysql}} Shared Compute hosting model instance, use a command like:
+   For example, to provision a {{site.data.keyword.databases-for-mysql}} Shared Compute hosting model instance, use a command like:
 
    ```sh
    ibmcloud resource service-instance-create test-database databases-for-mysql enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
@@ -107,7 +107,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    Provision a {{site.data.keyword.databases-for-mysql}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
    ```sh
-  ibmcloud resource service-instance-create test-database databases-for-mysql enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
+   ibmcloud resource service-instance-create test-database databases-for-mysql enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
    ```
    {: pre}
 
@@ -127,24 +127,6 @@ Before provisioning, follow the instructions provided in the documentation to in
 
    In the CLI, `service-endpoints` is a flag, not a parameter.
    {: note}
-
-### The `host flavor` parameter
-{: #host-flavor-parameter-cli}
-{: cli}
-
-The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
-
-| **Host flavor** | **host_flavor value** |
-|:-------------------------:|:---------------------:|
-| Shared Compute            | `multitenant`    |
-| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
-| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
-| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
-| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
-| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
-| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
-
 
    You will see a response like:
 
@@ -171,46 +153,63 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    ```
    {: codeblock}
 
-4. To check provisioning status, use the following command:
+   - To check provisioning status, use the following command:
 
-   ```sh
-   ibmcloud resource service-instance <INSTANCE_NAME>
-   ```
-   {: pre}
+      ```sh
+      ibmcloud resource service-instance <INSTANCE_NAME>
+      ```
+      {: pre}
 
-   When complete, you will see a response like:
+      When complete, you will see a response like:
 
-   ```text
-   Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
-   OK
+      ```text
+      Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
+      OK
 
-   Name:                  INSTANCE_NAME
-   ID:                    crn:v1:bluemix:public:databases-for-mysql:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
-   GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
-   Location:              <LOCATION>
-   Service Name:          databases-for-mysql
-   Service Plan Name:     standard
-   Resource Group Name:   default
-   State:                 active
-   Type:                  service_instance
-   Sub Type:              Public
-   Locked:                false
-   Service Endpoints:     public
-   Created at:            2023-06-26T19:42:07Z
-   Created by:            USER
-   Updated at:            2023-06-26T19:53:25Z
-   Last Operation:
-                          Status    create succeeded
-                          Message   Provisioning mysql with version 12 (100%)
-   ```
-   {: codeblock}
+      Name:                  INSTANCE_NAME
+      ID:                    crn:v1:bluemix:public:databases-for-mysql:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
+      GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
+      Location:              <LOCATION>
+      Service Name:          databases-for-mysql
+      Service Plan Name:     standard
+      Resource Group Name:   default
+      State:                 active
+      Type:                  service_instance
+      Sub Type:              Public
+      Locked:                false
+      Service Endpoints:     public
+      Created at:            2023-06-26T19:42:07Z
+      Created by:            USER
+      Updated at:            2023-06-26T19:53:25Z
+      Last Operation:
+                             Status    create succeeded
+                             Message   Provisioning mysql with version 12 (100%)
+      ```
+      {: codeblock}
 
-5. (Optional) Delete an instance by running a command like this one:
+    - (Optional) Delete an instance by running a command like this one:
 
-   ```sh
-   ibmcloud resource service-instance-delete <INSTANCE_NAME>
-   ```
-   {: pre}
+      ```sh
+      ibmcloud resource service-instance-delete <INSTANCE_NAME>
+      ```
+      {: pre}
+
+### The `host flavor` parameter
+{: #host-flavor-parameter-cli}
+{: cli}
+
+The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
+
+| **Host flavor** | **host_flavor value** |
+|:-------------------------:|:---------------------:|
+| Shared Compute            | `multitenant`    |
+| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
+| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
+| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
+| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
+| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
+| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
+{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
@@ -230,7 +229,7 @@ ibmcloud resource service-instance-create databases-for-mysql <SERVICE_NAME> sta
   "members_memory_allocation_mb": "4096"
 }'
 ```
-{: .pre}
+{: pre}
 
 ## Provisioning through the Resource Controller API
 {: #provision-controller-api}
@@ -418,8 +417,8 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the fol
            "host_flavor": {"id": "<host_flavor_value>"}
       }
      }'
-```
-{: .pre}
+   ```
+   {: pre}
 
 To make a Shared Compute instance, follow this example:
 
@@ -467,7 +466,7 @@ Provision a {{site.data.keyword.databases-for-mysql}} Isolated instance with the
       }
      }'
    ```
-   {: .pre}
+   {: pre}
 
    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
    {: required}
