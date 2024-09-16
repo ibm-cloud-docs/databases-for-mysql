@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-09-16"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision mysql
 
@@ -21,7 +21,7 @@ Provision a {{site.data.keyword.databases-for-mysql_full}} deployment through th
 {: #catalog}
 {: ui}
 
-Deploy from the console by specifying the following parameters:
+Deploy from the console by specifying the following parameters.
 
 ### Platform
 {: #platform}
@@ -35,9 +35,9 @@ The platform that your database will be deployed on. Choose your required networ
 {: #service_details}
 {: ui}
 
-- **Service name** - The name can be any string and is the name that is used on the web and in the CLI to identify the new deployment.
-- **Resource group** - If you are organizing your services into [resource groups](/docs/account?topic=account-account_setup), specify the resource group in this field. Otherwise, you can leave it at default. For more information, see [Managing resource groups](/docs/account?topic=account-rgs).
-- **Location** - The deployment's public cloud region or Satellite location.
+- **Service name:** The name can be any string and is the name that is used on the web and in the CLI to identify the new deployment.
+- **Resource group:** If you are organizing your services into [resource groups](/docs/account?topic=account-account_setup), specify the resource group in this field. Otherwise, you can leave it at default. For more information, see [Managing resource groups](/docs/account?topic=account-rgs).
+- **Location:** The deployment's public cloud region or Satellite location.
 
 ### Hosting model
 {: #hosting_model}
@@ -93,21 +93,21 @@ Before provisioning, follow the instructions provided in the documentation to in
 3. Provision your database with the following command:
 
    ```sh
-   ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<host_flavor value>"}'
+   ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <RESOURCE_GROUP> -p '{"members_host_flavor": "<members_host_flavor value>"}' --service-endpoints="<endpoint>"
    ```
    {: pre}
 
    For example, to provision a {{site.data.keyword.databases-for-mysql}} Shared Compute hosting model instance, use a command like:
 
    ```sh
-   ibmcloud resource service-instance-create test-database databases-for-mysql enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
+   ibmcloud resource service-instance-create test-database databases-for-mysql standard us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "12288"}' --service-endpoints="private"
    ```
    {: pre}
 
-   Provision a {{site.data.keyword.databases-for-mysql}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
+   Provision a {{site.data.keyword.databases-for-mysql}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `members_host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
    ```sh
-   ibmcloud resource service-instance-create test-database databases-for-mysql enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
+   ibmcloud resource service-instance-create test-database databases-for-mysql standard us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}' --service-endpoints="private"
    ```
    {: pre}
 
@@ -119,10 +119,10 @@ Before provisioning, follow the instructions provided in the documentation to in
    | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-mysql}}, use `databases-for-mysql`. |  |
    | `SERVICE_PLAN_NAME` [Required]{: tag-red} | Standard plan (`standard`) |  |
    | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
-   | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
    | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the following table or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+   | `--service-endpoints` [Required]{: tag-red} | Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public`, `private` or `public-and-private`. |  |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
 
    In the CLI, `service-endpoints` is a flag, not a parameter.
@@ -227,7 +227,7 @@ ibmcloud resource service-instance-create databases-for-mysql <SERVICE_NAME> sta
 -p \ '{
   "backup_id": "crn:v1:blue:public:databases-for-mysql:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
   "members_memory_allocation_mb": "4096"
-}'
+}' --service-endpoints="private"
 ```
 {: pre}
 
@@ -544,6 +544,7 @@ resource "ibm_database" "<your_database>" {
   location          = "eu-gb"
   service           = "databases-for-mysql"
   resource_group_id = data.ibm_resource_group.group.id
+  service_endpoints = "private"
   tags              = ["tag1", "tag2"]
   adminpassword                = "password12"
   group {
@@ -592,6 +593,7 @@ resource "ibm_database" "<your_database>" {
   location          = "eu-gb"
   service           = "databases-for-mysql"
   resource_group_id = data.ibm_resource_group.group.id
+  service_endpoints = "private"
   tags              = ["tag1", "tag2"]
   adminpassword                = "password12"
   group {
