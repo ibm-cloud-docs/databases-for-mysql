@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-02"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision mysql
 
@@ -68,7 +68,7 @@ Specify the disk size depending on your requirements. It can be increased after 
 
 - **Database version:** [Set only at deployment]{: tag-red} The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
 - **Encryption:** [Set only at deployment]{: tag-red} If you use [Key Protect](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui), an instance and key can be selected to encrypt the deployment's disk. If you do not use your own key, the deployment automatically creates and manages its own disk encryption key.
-- **Endpoints:** [Set only at deployment]{: tag-red} - Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment. For eu-es only, the default setting is *private*.
+- **Endpoints:** [Set only at deployment]{: tag-red} - Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment. The default setting is *private*.
 
 After you select the appropriate settings, click **Create** to start the provisioning process.
 
@@ -142,7 +142,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    State:               provisioning
    Type:                service_instance
    Sub Type:            Public
-   Service Endpoints:   public
+   Service Endpoints:   private
    Allow Cleanup:       false
    Locked:              false
    Created at:          2023-06-26T19:42:07Z
@@ -177,7 +177,7 @@ Before provisioning, follow the instructions provided in the documentation to in
       Type:                  service_instance
       Sub Type:              Public
       Locked:                false
-      Service Endpoints:     public
+      Service Endpoints:     private
       Created at:            2023-06-26T19:42:07Z
       Created by:            USER
       Updated at:            2023-06-26T19:53:25Z
@@ -190,7 +190,7 @@ Before provisioning, follow the instructions provided in the documentation to in
     - (Optional) Delete an instance by running a command like this one:
 
       ```sh
-      ibmcloud resource service-instance-delete <INSTANCE_NAME>
+      ibmcloud resource service-instance-delete <INSTANCE_NAME_OR_CRN>
       ```
       {: pre}
 
