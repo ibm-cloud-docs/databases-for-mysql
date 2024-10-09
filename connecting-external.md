@@ -35,7 +35,7 @@ All the information a driver needs to make a connection to your deployment is in
 | `Composed`|`0...` | A URI combining Scheme, Authentication, Host, and Path |
 | `Certificate`|`Name` | The allocated name for the self-signed certificate for database deployment |
 | `Certificate` | Base64 | A base64 encoded version of the certificate. |
-{: caption="Table 1. mysql/URI connection information" caption-side="top"} 
+{: caption="mysql/URI connection information" caption-side="top"} 
 
 * `0...` indicates one or more of these entries in an array.
 
@@ -186,7 +186,7 @@ For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ]
 3. Save the certificate to a file. (You can use the name that is provided or your own file name).
 4. Provide the path to the certificate to the driver or client.
 
-![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Figure 1. CLI Endpoints panel" caption-side="bottom"}
+![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="CLI Endpoints panel" caption-side="bottom"}
 
 ### CLI plug-in support for the self-signed certificate
 {: #connecting-cli-cert}
@@ -204,7 +204,7 @@ MySQL has an array of language drivers. The table below covers a few of the most
 | Ruby|`ruby-mysql` | [The Ruby/MySQL API](https://dev.mysql.com/doc/refman/8.0/en/apis-ruby-rubymysql.html){: .external} |
 | C# | `ODBC` | [LiMySQL Connector/ODBC Developer Guide](https://dev.mysql.com/doc/connector-odbc/en/){: .external}
 | Go | `mysql` | [Go-MySQL-Driver](https://pkg.go.dev/github.com/go-sql-driver/mysql){: .external} |
-{: caption="Table 2. MySQL drivers" caption-side="top"}
+{: caption="MySQL drivers" caption-side="top"}
 
 When connecting to MySQL using PHP, it is necessary to change the auth plug-in from `sha256_password` to `mysql_native_password`.
 {: .note}
