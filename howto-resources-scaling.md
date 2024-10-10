@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-25"
+lastupdated: "2022-09-19"
 
 keywords: mysql, databases, scaling, memory, disk IOPS, CPU, mysql dedicated cores, sclaing mysql
 
@@ -72,7 +72,7 @@ If you find that your deployment is suffering from performance issues due to a l
 
 If you find that your database workloads need more CPU resources, you can scale the amount of CPU allocated to your service. If your database instance is on an Isolated Compute hosting model, select the CPU x RAM configuration that matches your resource needs. If your database instance is on a Shared Compute or Dedicated Core hosting model, select the CPU allocation that you want for your database.
 
-Old style dedicated core instances are deprecated, and will be removed in May 2025. For more information on the new hosting models, see the [Hosting models overview](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models).
+Old style dedicated core instances are deprecated, and will be removed in May 2025. Learn more about the new hosting models [here]([url](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models)).
 
 ## Scaling considerations
 {: #resources-scaling-consider}
@@ -96,19 +96,19 @@ Old style dedicated core instances are deprecated, and will be removed in May 20
 
 A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page.
 
-![The Scale Resources Panel in Resources](images/settings-scaling-mysql.png){: caption="Figure 1. The Scale Resources Panel in Resources" caption-side="bottom"}
+![The Scale Resources Panel in Resources](images/settings-scaling-mysql.png){: caption="The Scale Resources Panel in Resources" caption-side="bottom"}
 
 Adjust the slider to increase or decrease the resources that are allocated to your service. The slider controls how much memory or disk is allocated per member. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview.
 
 The UI currently uses a coarser-grained resolution for scaling than the CLI or API commands. Use the API or CLI to scale if the stops on the slider do not meet your size requirements.
 {: tip}
 
-## Scaling in the CLI
-{: #resources-scaling-cli}
+## Review current resources and hosting model 
+{: #review-resources-cli}
 
 The [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) supports viewing and scaling the resources on your deployment. To scale any of the available resource groups, use `cdb deployment-groups-set` command.
 
-For example, the command to view the resource groups for a deployment named "example-deployment" is as follows:
+For example, with the following command you can view the resource groups for a deployment named "example-deployment". Note that this command will also reveal if your database is a [Shared Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance through the `hostflavor` attribute. If the `hostflavor` is null, it is on an old style hosting model.
 
 ```sh
 ibmcloud cdb deployment-groups example-deployment
@@ -146,7 +146,12 @@ Count   3
 
 The deployment has three members, with 3072 MB of RAM and 15360 MB of disk allocated in total. The "per member" allocation is 1024 MB of RAM and 5120 MB of disk. The minimum value is the lowest the total allocation can be set. The step size is the smallest amount by which the total allocation can be adjusted.
 
-The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set in MB. For example, to scale the memory of the "example-deployment" to 4096 MB of RAM for each memory member (for a total memory of 12288 MB), use the following command.
+## Resources and scaling in the CLI
+{: #resources-scaling-cli}
+{: cli}
+
+The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set in MB. For example, to scale the memory of the "example-deployment" to 4096 MB of RAM for each memory member (for a total memory of 12288 MB), you use the command:
+
 
 ```sh
 ibmcloud cdb deployment-groups-set example-deployment member --memory 12288
@@ -175,7 +180,7 @@ ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--
 ```
 {: pre}
 
-For example, use:
+For example, use the following to scale to a Shared Compute instance or scale up your Shared Compute instance:
 
 ```sh
 ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 24576 --cpu 6  --hostflavor multitenant
@@ -184,20 +189,25 @@ ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 24576 --cp
 
 If your database is an [Isolated Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance, memory and CPU are adjusted together by selecting the Isolated Compute size (see all sizes in Table 1). Disk is scaled separately. If your database is not on Isolated Compute, this command will also move a database from a different hosting model to the Isolated Compute hosting model.
 
+Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both an Isolated size selection and separate CPU and RAM allocation selections.  
+
 ```sh
 ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor <hostflavor>]
 ```
 {: pre}
 
-For example, use:
+For example, use the following to scale to an Isolated Compute instance or scale up your Isolated Compute instance:
 
 ```sh
-ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --hostflavor b3c.4x16.encrypted
+ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --hostflavor b3c.8x32.encrypted
 ```
 {: pre}
 
-CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you provisioned an isolated instance or switched over from a deployment with autoscaling, monitor your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
-{: note}
+### The `hostflavor` parameter
+{: #host-flavor-parameter-cli}
+{: cli}   
+
+The `hostflavor` parameter defines your compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. 
 
 | **Host flavor** | **hostflavor value** |
 |:-------------------------:|:---------------------:|
@@ -208,24 +218,25 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
 | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
+{: caption="Host flavor sizing parameter" caption-side="bottom"}
 
-## Scaling in the API
-{: #resources-scaling-api}
+## Review current resources and hosting model
+{: #review-resources-api}
+{:api}
 
 The _Foundation Endpoint_ shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically.
 
-To view the current and scalable resources on a deployment, use the following command:
+To view the current and scalable resources on a deployment, use the [/deployments/{id}/groups](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl) endpoint. Note that this command will also reveal if your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance through the `host_flavor` attribute. If the `host_flavor` is null, it is on an old style hosting model.  
 
 ```sh
-curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
+curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups'
 ```
 {: pre}
 
 To scale the memory of a deployment to 4096 MB of RAM for each memory member (for a total memory of 12288 MB), use the following command:
 
 ```sh
-curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
+curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups/member' \
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
 -d '{"memory": {
@@ -299,6 +310,13 @@ The `host_flavor` parameter defines your compute sizing. To provision a Shared C
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
 {: caption="Table 1 Host flavor sizing parameter" caption-side="bottom"}
 
+## Review current resources and hosting model
+{: #review-resources-terraform}
+{: terraform}
+
+Review resource allocations to your database by checking your terraform scripts for `cpu { allocation_count = }`, `memory {allocation_mb = }`, and `disk { allocation_mb = }`. Review the `host_flavor` setting to determine if your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) style hosting model. If `host_flavor` does not exist, your database is on an old style hosting model. 
+
+
 ## Scaling with Terraform
 {: #resources-scaling-terraform}
 {: terraform}
@@ -355,7 +373,7 @@ output "ICD MySQL database connection string" {
 
 Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be scaled to. You can change this later.
 
-To scale your {{site.data.keyword.databases-for-elasticsearch}} instance to the Shared Compute hosting flavor, set the `"host_flavor"` parameter to `multitenant`. This works if you want to scale to the Shared Compute hosting flavor, or if you want to keep the host flavor and scale your resources. To implement your change, run `terraform apply`.
+To scale your {{site.data.keyword.databases-for-mysql}} instance to the Shared Compute hosting flavor, set the `"host_flavor"` parameter to `multitenant`. This works if you want to scale to the Shared Compute hosting flavor, or if you want to keep the host flavor and scale your resources. To implement your change, run `terraform apply`.
 
 See the following example:
 
@@ -401,7 +419,7 @@ output "ICD MySQL database connection string" {
 ```
 {: codeblock}
 
-Scale your {{site.data.keyword.databases-for-elasticsearch}} instance to Isolated Compute with the same `"host_flavor"` parameter, set to the desired Isolated size. This command works to scale your database instance to a different Isolated Compute size, as well as to move from another host flavor to the Isolated Compute host flavor. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both an Isolated size selection and separate CPU and RAM allocation selections.
+Scale your {{site.data.keyword.databases-for-mysql}} instance to Isolated Compute with the same `"host_flavor"` parameter, set to the desired Isolated size. This command works to scale your database instance to a different Isolated Compute size, as well as to move from another host flavor to the Isolated Compute host flavor. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both an Isolated size selection and separate CPU and RAM allocation selections.
 
 To implement your change, run `terraform apply`.
 

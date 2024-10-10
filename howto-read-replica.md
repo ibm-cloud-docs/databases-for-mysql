@@ -49,11 +49,11 @@ A read replica is set up to replicate all your data from the source instance to 
 
 On the _Read Replicas_ tab of a {{site.data.keyword.databases-for-mysql}} deployment before any read replicas are provisioned, the center pane notes that no read replicas exist and provides a **Create** button.
 
-![Replication pane before a replica](images/replica-before.png){: caption="Figure 1. Replication pane before a replica" caption-side="bottom"}
+![Replication pane before a replica](images/replica-before.png){: caption="Replication pane before a replica" caption-side="bottom"}
 
 If a deployment is a leader and has a read replica that is already attached to it, then the _Replication_ pane has a list of replica deployments and a link to each one.
 
-![List of replicas that are attached to a leader](images/replica-after.png){: caption="Figure 2. List of replicas that are attached to a leader" caption-side="bottom"}
+![List of replicas that are attached to a leader](images/replica-after.png){: caption="List of replicas that are attached to a leader" caption-side="bottom"}
 
 ## Provisioning a Read Replica
 {: #read-replicas-provisioning}
@@ -106,7 +106,7 @@ For both the CLI and API commands, you must specify both the RAM and disk amount
 
 On the _Read Replicas_ tab of a read replica, the _Replication_ pane contains its name and region, and the name and region of its source database instance. It also has buttons to resync the read replica and to promote it.
 
-![Replication pane of a read replica](images/replica-roreplica.png){: caption="Figure 3. Replication pane of a read replica" caption-side="bottom"}
+![Replication pane of a read replica](images/replica-roreplica.png){: caption="Replication pane of a read replica" caption-side="bottom"}
 
 ### Checking Replication Status
 {: #read-replica-check-replication-status}
