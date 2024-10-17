@@ -415,7 +415,7 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit a scale
        "resource_plan_id": "<SERVICE_PLAN_NAME>"
        "parameters": {
            "members_host_flavor": "<members_host_flavor_value>",
-           "service-endpoints": "<ENDPOINT>"
+           "service_endpoints": "<ENDPOINT>"
       }
      }'
    ```
@@ -435,7 +435,7 @@ For example, to make a Shared Compute instance, follow this example:
        "resource_plan_id": "databases-for-mysql-standard"
        "parameters": {
         "members_host_flavor": "multitenant",
-        "service-endpoints": "private",
+        "service_endpoints": "private",
         "memory": {
           "allocation_mb": 12288
         },
@@ -462,7 +462,7 @@ Provision a {{site.data.keyword.databases-for-mysql}} Isolated instance with the
        "parameters": {
         "host_flavor": {
           "member_host_flavor": "b3c.4x16.encrypted",
-          "service-endpoints": "private"
+          "service_endpoints": "private"
         }
       }
      }'
