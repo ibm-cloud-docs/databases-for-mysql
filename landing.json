@@ -4,8 +4,8 @@
   "introduction": "IBM Cloud® Databases for MySQL is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use IBM Cloud® Databases for MySQL to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.",
   "product_page": "https://www.ibm.com/products/databases-for-mysql",
   "console_page": "/databases/databases-for-mysql/create",
-  "section_topics": {
-    "links": [
+    "section_topics": {
+      "links": [
       {
         "title": "Getting started with Databases for MySQL",
         "href": "/docs/databases-for-mysql?topic=databases-for-mysql-getting-started"
@@ -51,8 +51,8 @@
     }
   ],
   "section_devtools": {
-    "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
-    "cli": "/docs/databases-cli-plugin", 
+    "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
+    "cli": "/docs/databases-cli-plugin",
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
     },
   "section_updates": {
