@@ -1,17 +1,17 @@
 {
-    "version": 2,
-    "title": "IBM Cloud® Databases for MySQL docs",
-    "introduction": "IBM Cloud® Databases for MySQL is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use IBM Cloud® Databases for MySQL to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.",
-    "product_page": "https://www.ibm.com/products/databases-for-mysql",
+  "version": 2,
+  "title": "IBM Cloud® Databases for MySQL docs",
+  "introduction": "IBM Cloud® Databases for MySQL is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use IBM Cloud® Databases for MySQL to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.",
+  "product_page": "https://www.ibm.com/products/databases-for-mysql",
   "console_page": "/databases/databases-for-mysql/create",
-   "section_topics": {
-    "links": [
+  "section_topics": {
+   "links": [
       {
         "title": "Getting started with Databases for MySQL",
         "href": "/docs/databases-for-mysql?topic=databases-for-mysql-getting-started"
       },
       {
-        "title": "Changing your deployment configuration",
+       "title": "Changing your deployment configuration",
         "href": "docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration&interface=cli"
       },
       {
