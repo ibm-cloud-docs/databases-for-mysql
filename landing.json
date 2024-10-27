@@ -5,13 +5,13 @@
   "product_page": "https://www.ibm.com/products/databases-for-mysql",
   "console_page": "/databases/databases-for-mysql/create",
   "section_topics": {
-   "links": [
+    "links": [
       {
         "title": "Getting started with Databases for MySQL",
         "href": "/docs/databases-for-mysql?topic=databases-for-mysql-getting-started"
       },
       {
-       "title": "Changing your deployment configuration",
+        "title": "Changing your deployment configuration",
         "href": "docs/databases-for-mysql?topic=databases-for-mysql-changing-configuration&interface=cli"
       },
       {
