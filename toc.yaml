@@ -118,6 +118,8 @@ toc:
       - link:
           label: Responsibilities for Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
+      - topic: data-portability.md
+        navtitle: Data portability
   - navgroup:
       id: help
       topics:
