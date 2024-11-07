@@ -14,7 +14,7 @@ subcollection: repo-name
 
 
 
-# Understanding data portability for {{site.data.keyword.databases-for-mysql}
+# Understanding data portability for {{site.data.keyword.databases-for-mysql}}
 {: #data-portability}
 
 [Data Portability](#x2113280){: term} involves a set of tools, and procedures that enable customers to export the digital artifacts that would be needed to implement similar workload and data processing on different service providers or on-prem software. It includes procedures for copying and storing the service customer's content, including the related configuration used by the service to store and process the data, on customer's own location.
