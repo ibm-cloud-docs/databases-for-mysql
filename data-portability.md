@@ -2,11 +2,11 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-07"
+lastupdated: "2024-11-12"
 
-keywords:
+keywords: data export, portability, mysqldump, mydumper
 
-subcollection: repo-name
+subcollection: databases-for-mysql
 
 ---
 
@@ -25,12 +25,11 @@ subcollection: repo-name
 
 IBM Cloud services provide interfaces and instructions to guide the customer to copy and store the service customer content, including the related configuration, on their own selected location.
 
-The customer then is responsible for the use of the exported data and configuration for the purpose of data portability to other infrastructures.
-This can involve:
+You are responsible for the use of the exported data and configuration for the purpose of data portability to other infrastructures. This can involve the following:
 
-- The planning and execution for setting up alternate infrastructure on on different cloud providers or on-prem software that provide similar capabilities to the IBM services.
-- The planning and execution for the porting of the required application code on the alternate infrastructure, including the adaptation of customer's application code, deployment automation, etc.
-- The conversion of the exported data and configuration to format required by the alternate infrastructure and adapted applications.
+- Planning and execution for setting up alternate infrastructure on on different cloud providers or on-prem software that provide similar capabilities to the IBM services.
+- Planning and execution for the porting of the required application code on the alternate infrastructure, including the adaptation of customer's application code, and deployment automation.
+- Conversion of the exported data and configuration to format required by the alternate infrastructure and adapted applications.
 
 For more information about your responsibilities when using {{site.data.keyword.databases-for-mysql_full}}, see [Shared responsibilities for {{site.data.keyword.databases-for-mysql}}](/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases).
 
@@ -67,7 +66,7 @@ Don't use `mysqldump` if any of the following conditions are met:
 - Your data set is larger than 10 GB. 
 - The network connection between the source and target databases is unstable or slow.
 
-Follow these steps by using the `mysqldump` tool:
+Follow these steps::
 
 Run `mysqldump` on your source database to create an SQL file, which can be used to re-create the database. At a minimum, migrating `mysql` using the CLI requires the following arguments:
 
@@ -93,7 +92,6 @@ mysqldump -h <host_name> -P <port_number> -u <user_name> --log-error=error.log -
 ```
 {: pre}
 
-
 You can do the same while importing, for example:
 
 ```sh
@@ -101,7 +99,7 @@ mysql -h <host_name> -P <port_number> -u admin --ssl-mode=VERIFY_IDENTITY --ssl-
 ```
 {: pre}
 
-The `mysql` command has many options. For more information, see [the official documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#mysqldump-syntax){: .external} and [command reference](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#mysqldump-option-summary){: .external}.
+The `mysql` command has many options. For more information, see [the mysqldump documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#mysqldump-syntax){: .external} and [command reference](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#mysqldump-option-summary){: .external}.
 
 #### mydumper
 {: #data-portability-exporting--mydumper}
@@ -121,12 +119,12 @@ Don't use `mydumper` if any of the following conditions are met:
 
 Before you begin exporting your data with `mydumper`, see the [mydumper project](https://github.com/maxbube/mydumper){: .external} for details and step-by-step instructions on installation and necessary developer environment.
 
-Next, refer to [How to use mydumper](https://github.com/mydumper/mydumper#how-to-use-mydumper){: .external} page for information on using the `mydumper` and `myloader` tools to perform full data migration.
+Next, refer to [How to use mydumper](https://github.com/mydumper/mydumper#how-to-use-mydumper){: .external} page for information about using the `mydumper` and `myloader` tools to perform full data migration.
 
 ## Exported data formats
 {: #data-portability-data-formats}
 
-The exported data is in SQL format and can be imported into any other MySQL instance using the `mysql` command. We recommend that imports be performed with the admin user. For more information, see the [mysqldump documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html){: .external}.
+The exported data is in SQL format and can be imported into any other MySQL instance using the `mysql` command. Perform imports with the admin user. For more information, see the [mysqldump documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html){: .external}.
 
 ## Data ownership
 {: #data-ownership}
