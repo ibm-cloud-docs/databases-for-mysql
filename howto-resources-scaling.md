@@ -87,7 +87,7 @@ Old style dedicated core instances are deprecated, and will be removed in May 20
 
 - Similarly, drastically increasing RAM or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
-- Scaling operations are logged in [{{site.data.keyword.atacker_full}}](/docs/databases-for-mysql?topic=databases-for-mysql-at_events).
+- Scaling operations are logged in [{{site.data.keyword.atracker_full}}](/docs/databases-for-mysql?topic=databases-for-mysql-at_events).
 
 - If you find consistent trends in resource usage or would like to set up scaling when certain resource thresholds are reached, check out enabling [autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling-mysql) on your deployment.
 
