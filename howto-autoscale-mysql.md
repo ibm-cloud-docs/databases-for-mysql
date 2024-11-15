@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-18"
+  years: 2021, 2024
+lastupdated: "2024-11-15"
 
 keywords: mysql, databases, scaling, mysql autoscaling, memory, disk I/O
 
@@ -10,13 +10,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Autoscaling
 {: #autoscaling-mysql}
@@ -41,7 +35,7 @@ Disk - Disk autoscaling can scale when either disk usage reaches a certain thres
 
 The resource numbers refer to each database member in a deployment. For example, there are three data members in a MySQL deployment and if the deployment is scaled with 10 GB of disk and 1 GB of RAM then each member gets 10 GB of disk and 1 GB of RAM. The total resources added to your deployment is 30 GB of disk and 3 GB of RAM.
 
-## Autoscaling Considerations
+## Autoscaling considerations
 {: #autoscaling-mysql-consider}
 
 - Scaling your deployment up might cause your databases to restart. If your scaled deployment needs to be moved to a host with more capacity, then the databases are restarted as part of the move.
@@ -50,7 +44,7 @@ The resource numbers refer to each database member in a deployment. For example,
 
 - A few scaling operations can be more long running than others. Drastically increasing RAM or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
-- Autoscaling operations are logged in [{{site.data.keyword.at_full}}](/docs/cloud-databases?topic=cloud-databases-activity-tracker).
+- Autoscaling operations are logged in [{{site.data.keyword.atracker_full}}](/docs/databases-for-mysql?topic=databases-for-mysql-at_events).
 
 - Limits
    - can't set anything to scale in an interval less than 60 seconds.
@@ -64,20 +58,22 @@ The resource numbers refer to each database member in a deployment. For example,
 ## Configuring Autoscaling in the UI
 {: #autoscaling-mysql-ui}
 
-The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, enter your parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save Changes** for your configuration to be saved and your changes to take effect.
+The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, enter your parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save changes** for your configuration to be saved and your changes to take effect.
 
-To disable autoscaling, clear the boxes for the parameters that you no longer want to use. If you clear all the boxes, autoscaling is disabled. Click **Save Changes** to save the configuration.
+To disable autoscaling, clear the boxes for the parameters that you no longer want to use. If you clear all the boxes, autoscaling is disabled. Click **Save changes** to save the configuration.
 
 ## Configuring Autoscaling in the CLI
 {: #autoscaling-mysql-cli}
 
 You can get the autoscaling parameters for your deployment through the CLI by using the [`cdb deployment-autoscaling`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-) command.
+
 ```sh
 ibmcloud cdb deployment-autoscaling <deployment name or CRN> member
 ```
 {: pre}
 
 To enable and set autoscaling parameters through the CLI, use a JSON object or file with the [`cdb deployment-autoscaling-set`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-set-) command.
+
 ```sh
 ibmcloud cdb deployment-autoscaling-set <deployment name or CRN> member '{"autoscaling": { "memory": {"scalers": {"io_utilization": {"enabled": true, "over_period": "5m","above_percent": 90}},"rate": {"increase_percent": 10.0, "period_seconds": 300,"limit_mb_per_member": 125952,"units": "mb"}}}}'
 ```
@@ -87,12 +83,14 @@ ibmcloud cdb deployment-autoscaling-set <deployment name or CRN> member '{"autos
 {: #autoscaling-mysql-api}
 
 You can get the autoscaling parameters for your deployment through the API by sending a `GET` request to the [`/deployments/{id}/groups/{group_id}/autoscaling`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-the-autoscaling-configuration-from-a-deploymen) endpoint.
+
 ```sh
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling'
 ```
 {: pre}
 
 To enable and set the autoscaling parameters for your deployment through the API, send a `POST` request to the endpoint. Enabling autoscaling works by setting the `scalers` (`io_utilization` or `capacity`) to `true`.
+
 ```sh
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling -H 'Authorization: Bearer <>'
 -H 'Content-Type: application/json'
