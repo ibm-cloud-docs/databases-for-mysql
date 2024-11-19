@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-06"
+lastupdated: 2024-11-19
 
 keywords: mysql, databases, point in time recovery, backups, restore, mysql pitr, mysql recovery
 
@@ -17,18 +17,17 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.databases-for-mysql_full}} offers Point-In-Time Recovery (PITR) for any time in the last 7 days. The deployment continuously backs up incrementally and can replay transactions to bring a new deployment that is restored from a backup to any point in that 7-day window you need. 
 
-For new hosting models, PITR is currently available through the CLI, API, and Terraform.
-{: note}
-
-The _Backups_ tab of your deployment's UI keeps all your PITR information under _Point-in-Time_.
+The _Backups_ tab of your deployment's UI keeps all your PITR information under _Point-in-Time recovery_.
 
 Included information is the earliest time for a PITR. To discover the earliest recovery point through the CLI, use the [`cdb mysql earliest-pitr-timestamp`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#MySql-earliest-pitr-timestamp) command.
+
 ```sh
 ibmcloud cdb mysql earliest-pitr-timestamp <deployment name or CRN>
 ```
 {: pre}
 
-To discover the earliest recovery point through the API, use the [`/deployments/{id}/point_in_time_recovery_data`](/apidocs/cloud-databases-api/cloud-databases-api-v5#getpitrdata) endpoint to find the earliest PITR time. 
+To discover the earliest recovery point through the API, use the [`/deployments/{id}/point_in_time_recovery_data`](/apidocs/cloud-databases-api/cloud-databases-api-v5#getpitrdata) endpoint to find the earliest PITR time.
+
 ```sh
 {
     "point_in_time_recovery_data": {
