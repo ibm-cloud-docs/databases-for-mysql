@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-19"
+lastupdated: "2024-11-26"
 
 keywords: mysql, databases, scaling, mysql autoscaling, memory, disk I/O
 
@@ -57,17 +57,11 @@ The resource numbers refer to each database member in a deployment. For example,
 
 - To add resources to your deployment occasionally or rarely, [manually scale](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling) your deployment.
 
-## Configuring Autoscaling in the UI
-{: #autoscaling-mysql-ui}
 
-The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, enter your parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save changes** for your configuration to be saved and your changes to take effect.
-
-To disable autoscaling, clear the boxes for the parameters that you no longer want to use. If you clear all the boxes, autoscaling is disabled. Click **Save changes** to save the configuration.
-
-CPU and RAM autoscaling is not supported on Isolated Compute. Disk autoscaling is available. If you provisioned an isolated instance or switched over from a deployment with autoscaling, monitor your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/databases-for-mysql?topic=databases-for-mysql-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 
 ## Configuring Autoscaling in the CLI
 {: #autoscaling-mysql-cli}
+{: cli}
 
 You can get the autoscaling parameters for your deployment through the CLI by using the [`cdb deployment-autoscaling`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-) command.
 
@@ -87,6 +81,7 @@ CPU and RAM autoscaling is not supported on Isolated Compute. Disk autoscaling i
 
 ## Configuring Autoscaling in the API
 {: #autoscaling-mysql-api}
+{: api}
 
 You can get the autoscaling parameters for your deployment through the API by sending a `GET` request to the [`/deployments/{id}/groups/{group_id}/autoscaling`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-the-autoscaling-configuration-from-a-deploymen) endpoint.
 
