@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-05"
+  years: 2021, 2024
+lastupdated: 2024-11-26
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -11,7 +11,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Changing your Deployment Configuration
+# Changing your deployment configuration
 {: #changing-configuration}
 
 {{site.data.keyword.databases-for-mysql_full}} allows you to change some of the MySQL configuration settings so you can tune your MySQL databases to your use case. To make permanent changes to the database configuration, use the {{site.data.keyword.databases-for}} [CLI-plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-configuration) or [API](https://{DomainName}/apidocs/cloud-databases-api#change-your-database-configuration) to write the changes to the configuration file for your deployment.
@@ -25,7 +25,7 @@ The configuration is defined in a schema. To make a change, send a JSON object w
 
 For more information, see [Managing MySQL Connections](/docs/databases-for-mysql?topic=databases-for-mysql-managing-mysql-connections){: .external}.
 
-## How to calculate the MySQL `max_connections` Variable
+## How to calculate the MySQL `max_connections` variable
 {: #changing-configuration-calculate-max-connections}
 
 `max_connections` is a configuration parameter in MySQL that determines the maximum number of concurrent connections that can be established with the database server.
@@ -100,6 +100,7 @@ Using a specific time zone is better than using an offset time.
 {: api}
 
 Example offset:
+
 ```sh
 curl -v -XPATCH -H "Authorization: Bearer $token" -H "Content-Type: application/json" https://api.<region>.databases.cloud.ibm.com/v5/ibm/deployments/<crn>/configuration -d '{"configuration": {"time_zone": "<EXAMPLE OFFSET"}}'
 ```
@@ -121,7 +122,7 @@ ibmcloud cdb deployment-configuration <crn> '{"time_zone": "US/Pacific"}'
 ```
 {: pre}
 
-## Available {{site.data.keyword.databases-for-mysql}} Configuration settings
+## Available {{site.data.keyword.databases-for-mysql}} configuration settings
 {: #available-config-settings}
 
 [`default_authentication_plugin`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin){: .external}
@@ -158,11 +159,11 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`innodb_log_file_size`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size){: .external}
 
-- Description: The size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file){: .external} in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group){: .external}.
-- Default: `67108864`
+- Description: The size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file){: .external} in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group){: .external}. `Innodb_log_file_size` and `innodb_log_files_in_group` have been superseded by `innodb_redo_log_capacity`. Setting `innodb_log_file_size` will also set `innodb_redo_log_capacity`.
+- Default: `104857600`
 - Minimum: `4194304`
 - Maximum: `274877906900`
-- Restarts database? - `true`
+- Restarts database? - `false`
 
 [`innodb_lru_scan_depth`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth){: .external}
 
