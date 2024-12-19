@@ -51,7 +51,7 @@ toc:
           - connecting-ibmcloud-app.md
           - connecting-mysql.md
       - topicgroup:
-          label: Managing Resources
+          label: Managing resources
           topics:
           - howto-resources-scaling.md
           - howto-autoscale-mysql.md
@@ -106,6 +106,8 @@ toc:
       - include: ../cloud-databases/db-version-policy.md
       - include: ../cloud-databases/learn-getting-to-production.md
       - include: ../cloud-databases/reference-responsibilities.md
+      - topic: best-practices.md
+        navtitle: Best practices
       - topic: data-portability.md
         navtitle: Data portability
   - navgroup:
