@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-28"
+lastupdated: "2025-03-11"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -58,7 +58,7 @@ To create your MySQL deployment:
 3. Configure the following:
    - **Service name**: Choose a memorable name for your deployment.
    - **Resource group**: Select the appropriate resource group.
-   - **Location**: Choose a region or Satellite location.
+   - **Location** - The deployment's public cloud region.
    - **Resource allocation**: Define initial RAM, disk, and CPU resources.
 4. Click **Create** to finalize the deployment.
 
