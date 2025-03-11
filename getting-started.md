@@ -58,7 +58,7 @@ To create your MySQL deployment:
 3. Configure the following:
    - **Service name**: Choose a memorable name for your deployment.
    - **Resource group**: Select the appropriate resource group.
-   - **Location** - The deployment's public cloud region.
+   - **Location:** The deployment's public cloud region.
    - **Resource allocation**: Define initial RAM, disk, and CPU resources.
 4. Click **Create** to finalize the deployment.
 
