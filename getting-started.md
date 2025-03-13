@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-03-13"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -33,7 +33,7 @@ MySQL Workbench provides many tools to help you manage your database effortlessl
 - Provision {{site.data.keyword.databases-for-mysql}} from the [IBM Cloud catalog](https://cloud.ibm.com/catalog/services/databases-for-mysql).
 - Configure the [admin password](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui) for secure access.
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){: .external}.
-- Review the [Getting to production guide](/docs/cloud-databases?topic=cloud-databases-best-practices) for optimal configuration.
+- Review the [Getting to production guide](/docs/cloud-databases?topic=cloud-databases-getting-to-production&interface=ui) for optimal configuration.
 
 ## Connect to your database
 {: #connect-to-database}
@@ -126,4 +126,4 @@ For more information on isolation settings, see the [Security and Compliance sec
 - You can connect, manage your databases, and manage data with MySQL's command-line interface (CLI) tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
 - To manage your deployment, connect to your deployment with the [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli), the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference), or the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 - If you plan to use {{site.data.keyword.databases-for-mysql}} for your applications, check out [Connecting an external application](/docs/databases-for-mysql?topic=databases-for-mysql-external-app) and [Connecting an IBM Cloud application](/docs/databases-for-mysql?topic=databases-for-mysql-ibmcloud-app).
-- To ensure the stability of your applications and your database, check out [High-availability](/docs/databases-for-mysql?topic=cloud-databases-ha-dr) and [Performance](/docs/databases-for-mysql?topic=databases-for-mysql-performance).
+- To ensure the stability of your applications and your database, check out [High-availability](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability) and [Performance](/docs/databases-for-mysql?topic=databases-for-mysql-performance).
