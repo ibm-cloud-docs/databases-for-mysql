@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: 2024-12-19
+  years: 2021, 2025
+lastupdated: 2025-03-13
 
 keywords: deployment, crn, task, gui, api endpoint, mysql connection strings, mysql
 
