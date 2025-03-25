@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: 2025-03-13
+lastupdated: 2025-03-25
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -183,7 +183,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 
 [`max_allowed_packet`](https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html){: .external}
 
-- Default - `16777216`
+- Default - `1073741824`
 - Minimum - `1024`
 - Maximum - `1073741824`
 - Restarts database? - `false`
