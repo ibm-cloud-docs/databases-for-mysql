@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-08-15"
+  years: 2021, 2025
+lastupdated: "2025-03-27"
 
 keywords: mysql, databases, read replica, resync, promote, cross-region replication, mysql read replica, mysql replication
 
@@ -60,13 +60,13 @@ If a deployment is a leader and has a read replica that is already attached to i
 
 You can provision a read replica from the leader's _Read Replicas_ tab by clicking **Create Read Replica**. The source instance is automatically filled in. The read replica's name is auto-generated in the _Service Name_ field, but you can rename it freely. You can choose the region to deploy it in, and its initial memory allocation. Disk size, version, and public or private endpoints are automatically configured to match the settings of the source database instance deployment.
 
-If you use [Key Protect](/docs/databases-for-mysql?topic=cloud-databases-key-protect), Bring Your Own Key (BYOK) is supported only when provisioning from the CLI and API. Otherwise, the read replica is encrypted with a generated key.
+If you use [Key Protect](/docs/databases-for-mysql?topic=databases-for-mysql-key-protect&interface=cli), Bring Your Own Key (BYOK) is supported only when provisioning from the CLI and API. Otherwise, the read replica is encrypted with a generated key.
 {: .tip}
 
 ### Provisioning through the API or the CLI
 {: #read-replicas-provisioning-api-cli}
 
-Provisioning a read replica through the CLI and the API works similarly to [provisioning a standard {{site.data.keyword.databases-for-mysql}} deployment](/docs/cloud-databases?topic=cloud-databases-provisioning). Provisioning is handled by the Resource Controller, and it uses a parameter `{"remote_leader_id": "crn:v1:..."}` to specify the leader of the replica you are provisioning.
+Provisioning a read replica through the CLI and the API works similarly to [provisioning a standard {{site.data.keyword.databases-for-mysql}} deployment](/docs/databases-for-mysql?topic=databases-for-mysql-provisioning&interface=cli). Provisioning is handled by the Resource Controller, and it uses a parameter `{"remote_leader_id": "crn:v1:..."}` to specify the leader of the replica you are provisioning.
 
 For example, to provision a read replica through the CLI,
 
