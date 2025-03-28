@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-03-28"
 
 keywords: databases-for-mysql release notes
 
@@ -32,7 +32,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: release-note}
 
 {{site.data.keyword.databases-for}} logs and events are now available on {{site.data.keyword.logs_full}}
-: {{site.data.keyword.databases-for}} has onboarded {{site.data.keyword.logs_full_notm}}, a scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs. Customers are expected to use {{site.data.keyword.logs_full_notm}} to review their database logs and events starting **November 15, 2024**. For more information, see [Set up logging and monitoring](/docs/databases-for-elasticsearch?topic=databases-for-mysql-getting-started-cdb-logging-monitoring) and [About IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl).
+: {{site.data.keyword.databases-for}} has onboarded {{site.data.keyword.logs_full_notm}}, a scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs. Customers are expected to use {{site.data.keyword.logs_full_notm}} to review their database logs and events starting **November 15, 2024**. For more information, see [Set up logging and monitoring](/docs/databases-for-mysql?topic=databases-for-mysql-getting-started-cdb-logging-monitoring&interface=ui) and [About IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl).
 
 ## 16 September 2024
 {: #databases-for-mysql-16sept2024}
@@ -46,7 +46,7 @@ Private endpoints as new default
 {: release-note}
 
 New hosting models
-:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types){: external}.
+:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/databases-for-mysql?topic=databases-for-mysql-hosting-models&interface=ui){: external}.
 
 ## 05 December 2023
 {: #databases-for-mysql-05dec2023}
@@ -97,14 +97,14 @@ Configuring Your {{site.data.keyword.databases-for-mysql_full}} time zone settin
 {: release-note}
 
 Deploying and Connecting a Cloud Databases Instance Tutorial
-:  This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for}} instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for}}. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and Connecting a {{site.data.keyword.databases-for}} Instance](/docs/databases-for-mysql?topic=cloud-databases-create-instance-tutorial).
+:  This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for}} instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for}}. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and connecting a {{site.data.keyword.databases-for}} instance](/docs/databases-for-mysql?topic=databases-for-mysql-create-instance-tutorial).
 
 ## 11 October 2022
 {: #databases-for-mysql-11oct2022}
 {: release-note}
 
 Protecting {{site.data.keyword.databases-for-mysql_full}} resources with context-based restrictions
-:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-mysql?topic=cloud-databases-cbr&interface=ui).
+:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-mysql?topic=databases-for-mysql-cbr&interface=ui).
 
 ## 28 June 2022
 {: #databases-for-mysql-28june2022}
