@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: 2025-03-13
+lastupdated: 2025-03-27
 
 keywords: mysql, databases, point in time recovery, backups, restore, mysql pitr, mysql recovery
 
@@ -116,15 +116,16 @@ If you need to adjust resources or use a Key Protect key, add the optional param
 ## Verifying PITR
 {: #cerify-ptr}
 
-To verify the correct recovery time, check the database logs. Checking the database logs requires the [Logging Integration](/docs/databases-for-mysql?topic=cloud-databases-logging) to be set up on your deployment.
+To verify the correct recovery time, check the database logs. Checking the database logs requires the [Logging integration](/docs/databases-for-mysql?topic=databases-for-mysql-logging&interface=cli) to be set up on your deployment.
 
-When you perform a recovery, your data is restored from the most recent incremental backup. Any outstanding transactions from the WAL log are used to catch your database up to the time you recovered to. After the recovery is finished, and the transactions are run, the logs display a message. You can check that your logs have the message,
+When you perform a recovery, your data is restored from the most recent incremental backup. Any outstanding transactions from the WAL log are used to catch your database up to the time you recovered to. After the recovery is finished, and the transactions are run, the logs display a message. You can check that your logs have the following message.
 
 ```text
 LOG:  last completed transaction was at log time 2019-09-03 19:40:48.997696+00
 ```
 
-There are two scenarios where recovery does not show up in the logs. 
+There are two scenarios where recovery does not show up in the logs.
+
 1. Your deployment has a recent full backup and there is no activity after the backup was taken that needs to be replayed.
 2. If you entered a time to recover to that is **after** the current time or is past latest available point-in-time recovery point.
 

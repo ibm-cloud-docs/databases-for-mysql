@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: 2025-03-13
+lastupdated: 2025-03-27
 
 keywords: deployment, crn, task, gui, api endpoint, mysql connection strings, mysql
 
@@ -42,7 +42,7 @@ The _Endpoints_ pane within the _Overview_ pane contains connection strings for 
 
 Reference tables for the different connection types are available on the [Getting credentials and connection strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
 
-Connection strings reflect whether your deployment uses public endpoints, private endpoints, or both. You can configure which endpoints are available on your deployment. For more information, see the [Service endpoints integration](/docs/databases-for-mysql?topic=cloud-databases-service-endpoints) page.
+Connection strings reflect whether your deployment uses public endpoints, private endpoints, or both. You can configure which endpoints are available on your deployment. For more information, see the [Service endpoints integration](/docs/databases-for-mysql?topic=databases-for-mysql-service-endpoints&interface=ui) page.
 
 You can manage your {{site.data.keyword.databases-for-mysql}} service through the {{site.data.keyword.databases-for}} API. This panel provides the essential information for using the API. For more information about the {{site.data.keyword.databases-for}} API, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api) page.
 
@@ -52,12 +52,12 @@ You can manage your {{site.data.keyword.databases-for-mysql}} service through th
 The resources tab contains information and configuration options on the size and resource usage of your deployment. You can:
 
 - [Scale disk, memory, and CPU](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling)
-- [Configure Autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling)
+- [Configure Autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling-mysql&interface=cli)
 
 ## Backups
 {: #dashboard-overview-backups}
 
-The _Backups_ tab is the UI for managing your deployment backups. All available backups are listed with their timestamps. Click a backup to grab its ID or to restore it into a new deployment. More information is on the [Managing backups](/docs/databases-for-mysql?topic=cloud-databases-dashboard-backups) page.
+The _Backups_ tab is the UI for managing your deployment backups. All available backups are listed with their timestamps. Click a backup to grab its ID or to restore it into a new deployment. More information is on the [Managing backups](/docs/databases-for-mysql?topic=databases-for-mysql-dashboard-backups&interface=ui) page.
 
 ## Observability
 {: #dashboard-overview-observability}
@@ -71,7 +71,7 @@ The _Observability_ tab provides access to the IBM Cloud Monitoring, logging, an
 {: #dashboard-overview-settings}
 
 The _Settings_ tab contains the UI for many of the tunable settings for your deployment. You can
-- view encryption details. Encryption at rest is enabled for all {{site.data.keyword.databases-for-mysql}} deployments. If you brought your own encryption key from [Key Protect](/docs/databases-for-mysql?topic=cloud-databases-key-protect), the panel provides a link to your Key Protect instance, and the _Encryption Key_ field has the name of the key.
+- view encryption details. Encryption at rest is enabled for all {{site.data.keyword.databases-for-mysql}} deployments. If you brought your own encryption key from [Key Protect](/docs/databases-for-mysql?topic=databases-for-mysql-key-protect&interface=ui), the panel provides a link to your Key Protect instance, and the _Encryption Key_ field has the name of the key.
 - [Change the admin password](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui#user-management-set-admin-password-ui)
 - [Implement or modify an IP allowlist](/docs/cloud-databases?topic=cloud-databases-allowlisting)
 

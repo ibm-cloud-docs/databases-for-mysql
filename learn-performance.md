@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-19"
+  years: 2021, 2025
+lastupdated: "2025-03-27"
 
 keywords: mysql, databases, monitoring, scaling, autoscaling, resources, mysql connection limits
 
@@ -10,16 +10,12 @@ subcollection: databases-for-mysql
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Performance
 {: #performance}
 
-{{site.data.keyword.databases-for-mysql_full}} deployments can be manually [scaled to your usage](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling#resources-scaling-consider) or configured to [autoscale](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling-mysql) under certain resource conditions. There are a few factors to consider when you are tuning the performance of your deployment.
+{{site.data.keyword.databases-for-mysql_full}} deployments can be manually [scaled to your usage](/docs/databases-for-mysql?topic=databases-for-mysql-resources-scaling#resources-scaling-consider) or configured to [autoscale](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling-mysql&interface=cli) under certain resource conditions. There are a few factors to consider when you are tuning the performance of your deployment.
 
 ## Monitoring your deployment
 {: #monitor-deployment}
