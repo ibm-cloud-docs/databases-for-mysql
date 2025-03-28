@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-11-02"
+  years: 2021, 2025
+lastupdated: "2025-03-28"
 
 keywords: admin, superuser, roles, service credentials, mysql users, mysql roles, mysql privileges, mysql connection strings, mysql service credentials
 
@@ -12,7 +12,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing Users, Roles, and Privileges
+# Managing users, roles, and privileges
 {: #user-management}
 
 MySQL 5.7 uses a system of roles to manage database permissions. Create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users who are created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges that it has, including the privilege to create new users.
@@ -55,7 +55,7 @@ The users below are maintained by {{site.data.keyword.cloud_notm}} and shouldn't
 
 When you provision a new deployment in {{site.data.keyword.cloud_notm}}, you are automatically given an `admin` user to access and manage MySQL.
 
-Add users in the UI in _Service Credentials_, with the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin), or the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction).
+Add users in the UI in _Service credentials_, with the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin), or the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction).
 
 ## User management commands
 {: #user-management-commands}
@@ -65,6 +65,7 @@ For security reasons, we recommend that you do not run DML (Data Manipulation La
 Manage users by using commands such as `CREATE USER`, `ALTER USER`, `RENAME USER`, and `DROP USER`.
 
 A list of users with their hosts information, but without auth information and password hashes, can be extracted by running the following command:
+
 ```sh
 mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
 ```
@@ -80,13 +81,13 @@ When `admin` creates a resource in a database, like a table, `admin` owns that o
 Set the admin password before using it to connect.
 {: important}
 
-### Setting the Admin Password in the UI
+### Setting the admin password in the UI
 {: #user-management-set-admin-password-ui}
 {: ui}
 
-Set your Admin Password through the UI by selecting your instance from the Resource List in the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/){: external}. Then, select **Settings**. Next, select *Change Database Admin Password*.
+Set your admin password through the UI by selecting your instance from the Resource list in the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/){: external}. Then, select **Settings**. Next, select **Change Database Admin Password**.
 
-### Setting the Admin Password in the CLI
+### Setting the admin password in the CLI
 {: #user-management-set-admin-password-cli}
 {: cli}
 
@@ -99,7 +100,7 @@ ibmcloud cdb user-password example-deployment admin <newpassword>
 ```
 {: pre}
 
-### Setting the Admin Password in the API
+### Setting the admin password in the API
 {: #user-management-set-admin-password-api}
 {: api}
 
@@ -113,7 +114,7 @@ curl -X PATCH `https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{
 ```
 {: pre}
 
-## Other `ibm` Users
+## Other `ibm` users
 {: #user-management-ibm-users}
 
 The `ibm` and the `ibm-replication` accounts are the only superusers on your deployment. A superuser account is not available for you to use. These users are internal administrative accounts that manage replication, metrics, and other functions that ensure the stability of your deployment.
@@ -123,7 +124,7 @@ The `ibm` and the `ibm-replication` accounts are the only superusers on your dep
 
 You can bypass creating users through {{site.data.keyword.cloud_notm}} entirely, and create users directly in MySQL with `mysql`. This allows you to make use of MySQL's native [role and user management](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users/roles created in `mysql` must have all of their privileges set manually, as well as privileges to the objects that they create.
 
-Users that are created directly in MySQL do not appear in _Service Credentials_, but you can [add them](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings#adding-users-to-_service-credentials_) if you choose. 
+Users that are created directly in MySQL do not appear in _Service credentials_, but you can [add them](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings#adding-users-to-_service-credentials_) if you choose. 
 
 Note that these users are not integrated with IAM controls, even if added to _Service Credentials_.
 {: .tip}
@@ -136,33 +137,34 @@ While you cannot delete `mysql database`, users can drop tables, including the `
 {{site.data.keyword.cloud_notm}} does not alert on formation breaking because of a system table dropped by a client.
 {: .important}
 
-## More Users and Connection Strings
+## More users and connection strings
 {: #creating_users}
 
-Access to your {{site.data.keyword.databases-for-mysql}} deployment is not limited to the admin user. You can create users by using the _Service Credentials_ panel, the {{site.data.keyword.IBM_notm}} CLI, or through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API. 
+Access to your {{site.data.keyword.databases-for-mysql}} deployment is not limited to the admin user. You can create users by using the _Service credentials_ panel, the {{site.data.keyword.IBM_notm}} CLI, or through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API. 
 
 All users on your deployment can use the connection strings, including connection strings for either public or private endpoints.
 
-When you create a user, it is assigned certain database roles and privileges. These privileges include the ability to log in, create databases, and create other users. For more information, see the [Managing Users, Roles, and Privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
+When you create a user, it is assigned certain database roles and privileges. These privileges include the ability to log in, create databases, and create other users. For more information, see the [Managing users, roles, and privileges](/docs/databases-for-mysql?topic=databases-for-mysql-user-management) page.
 
-### Creating Users in _Service Credentials_
+### Creating users in *Service credentials*
 {: #user-management-create-users}
 {: ui}
 
 1. Navigate to the service dashboard for your service.
-2. Click _Service Credentials_ to open the _Service Credentials_ panel.
-3. Click **New Credential__.
+2. Click _Service credentials_ to open the _Service credentials_ panel.
+3. Click **New credential**.
 4. Choose a descriptive name for your new credential. 
-5. (Optional) Specify whether the new credentials should use a public or private endpoint. Use either `{ "service-endpoints": "public" }` / `{ "service-endpoints": "private" }` in the _Add Inline Configuration Parameters_ field to generate connection strings using the specified endpoint. Use of the endpoint is not enforced. It just controls which hostnames are in the connection strings. Public endpoints are generated by default.
-6. Click **Add__ to provision the new credentials. A username and password, and an associated database user in the MySQL database are auto-generated.
+5. (Optional) Specify whether the new credentials should use a public or private endpoint. Use either `{ "service-endpoints": "public" }` / `{ "service-endpoints": "private" }` in the _Add inline configuration parameters_ field to generate connection strings using the specified endpoint. Use of the endpoint is not enforced. It just controls which hostnames are in the connection strings. Public endpoints are generated by default.
+6. Click **Add** to provision the new credentials. A username and password, and an associated database user in the MySQL database are auto-generated.
 
-The new credentials appear in the table, and the connection strings are available as JSON in a click-to-copy field under _View Credentials_.
+The new credentials appear in the table, and the connection strings are available as JSON in a click-to-copy field under _View credentials_.
 
-### Creating Users from the command line
+### Creating users from the command line
 {: #user-management-cli}
 {: cli}
 
 If you manage your service through the {{site.data.keyword.cloud_notm}} CLI and the [cloud databases plug-in](/docs/cli?topic=cli-install-ibmcloud-cli), you can create a new user with `cdb user-create`. For example, to create a new user for an "example-deployment", use the following command.
+
 ```sh
 ibmcloud cdb user-create example-deployment <newusername> <newpassword>
 ```
@@ -174,7 +176,8 @@ Once the task finishes, you can retrieve the new user's connection strings with 
 {: #user-management-api}
 {: api}
 
-The _Foundation Endpoint_ that is shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. To create and manage users, use the base URL with the `/users` endpoint.
+The _Foundation endpoint_ that is shown on the _Overview_ panel _Deployment details_ of your service provides the base URL to access this deployment through the API. To create and manage users, use the base URL with the `/users` endpoint.
+
 ```sh
 curl -X POST 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/users' \
 -H "Authorization: Bearer $APIKEY" \
@@ -185,13 +188,12 @@ curl -X POST 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{i
 
 Once the task has finished, you can retrieve the new user's connection strings, from the `/users/{userid}/connections` endpoint.
 
-### Adding users to _Service Credentials_
+### Adding users to _Service credentials_
 {: #user-management-add-users}
 
-Creating a new user from the CLI doesn't automatically populate that user's connection strings into _Service Credentials_. If you want to add them there, you can create a new credential with the existing user information.
+Creating a new user from the CLI doesn't automatically populate that user's connection strings into _Service credentials_. If you want to add them there, you can create a new credential with the existing user information.
 
-Enter the username and password in the JSON field _Add Inline Configuration Parameters_, or specify a file where the JSON information is stored. For example, putting `{"existing_credentials":{"username":"Robert","password":"supersecure"}}` in the field generates _Service Credentials_ with the username "Robert" and password "supersecure" filled into connection strings.
+Enter the username and password in the JSON field _Add inline configuration parameters_, or specify a file where the JSON information is stored. For example, putting `{"existing_credentials":{"username":"Robert","password":"supersecure"}}` in the field generates _Service credentials_ with the username "Robert" and password "supersecure" filled into connection strings.
 
 Generating credentials from an existing user does not check for or create that user.
 {: tip}
-
