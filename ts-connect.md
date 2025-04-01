@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-05-17"
+  years: 2021, 2025
+lastupdated: "2025-03-28"
 
 keywords: troubleshooting MySQL, connect mysql
 
@@ -28,7 +28,6 @@ You receive an error message or fail to connect to a {{site.data.keyword.databas
 Review the following information to troubleshoot and resolve common connectivity problems:
 {: tsResolve}
 
-* An unsecured connection is a common cause of connectivity errors.  All {{site.data.keyword.databases-for-mysql}} connections use TLS/SSL encryption; {{site.data.keyword.databases-for-mysql}} rejects unsecured connections.  To avoid errors, make sure you configured a secure connection.  Refer to [Getting Started](/docs/databases-for-mysql?topic=databases-for-mysql-getting-started) for an example of a secure connection.
-* If you are using a private endpoint, make sure that you specify connection strings that contain the private endpoint (see [Credentials for Private Endpoints](/docs/databases-for-mysql?topic=cloud-databases-service-endpoints#credentials-for-private-endpoints)) and that you followed the steps in [Connecting through Private Endpoints](/docs/databases-for-mysql?topic=cloud-databases-service-endpoints#private-endpoint-connections).
-* If your application log captures a short connection interruption, that behavior is expected as a normal part of operations for this managed service. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}. However, if you experience several minutes of connection interruption check the Cloud Status for the service. For more information, see [Application-level High-Availability](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#application-level-high-availability).
-
+* An unsecured connection is a common cause of connectivity errors.  All {{site.data.keyword.databases-for-mysql}} connections use TLS/SSL encryption; {{site.data.keyword.databases-for-mysql}} rejects unsecured connections. To avoid errors, make sure you configured a secure connection.  Refer to [Getting started](/docs/databases-for-mysql?topic=databases-for-mysql-getting-started) for an example of a secure connection.
+* If you are using a private endpoint, make sure that you specify connection strings that contain the private endpoint (see [Credentials for private endpoints](/docs/databases-for-mysql?topic=databases-for-mysql-service-endpoints&interface=ui#credentials-for-private-endpoints)) and that you followed the steps in [Connecting through private endpoints](/docs/databases-for-mysql?topic=cloud-databases-service-endpoints#private-endpoint-connections).
+* If your application log captures a short connection interruption, that behavior is expected as a normal part of operations for this managed service. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}. However, if you experience several minutes of connection interruption check the Cloud Status for the service. For more information, see [Application-level high-availability](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#application-level-high-availability).

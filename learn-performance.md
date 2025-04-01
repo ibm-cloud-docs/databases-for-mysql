@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-27"
+lastupdated: "2025-03-28"
 
 keywords: mysql, databases, monitoring, scaling, autoscaling, resources, mysql connection limits
 
@@ -20,7 +20,7 @@ subcollection: databases-for-mysql
 ## Monitoring your deployment
 {: #monitor-deployment}
 
-{{site.data.keyword.databases-for-mysql}} deployments offer an integration with the [{{site.data.keyword.monitoringfull}} service](/docs/cloud-databases?topic=cloud-databases-monitoring) for basic monitoring of resource usage on your deployment. Many of the available metrics, like disk usage and IOPS, are presented to help you configure [autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling) on your deployment. Observing trends in your usage and configuring the autoscaling to respond to them can help alleviate performance problems before your databases become unstable due to resource exhaustion.
+{{site.data.keyword.databases-for-mysql}} deployments offer an integration with the [{{site.data.keyword.monitoringfull}} service](/docs/cloud-databases?topic=cloud-databases-monitoring) for basic monitoring of resource usage on your deployment. Many of the available metrics, like disk usage and IOPS, are presented to help you configure [autoscaling](/docs/databases-for-mysql?topic=databases-for-mysql-autoscaling-mysql&interface=cli) on your deployment. Observing trends in your usage and configuring the autoscaling to respond to them can help alleviate performance problems before your databases become unstable due to resource exhaustion.
 
 ## Disk IOPS
 {: #disk-iops}
