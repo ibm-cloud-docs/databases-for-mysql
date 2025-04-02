@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022
-lastupdated: "2022-07-19"
+  years: 2022, 2025
+lastupdated: "2025-04-02"
 
 keywords: mysql, databases, mysql connection strings, 
 
@@ -9,13 +9,7 @@ subcollection: databases-for-mysql
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting Connection Strings
 {: #connection-strings}
@@ -42,7 +36,7 @@ ibmcloud cdb deployment-connections example-deployment -u <newusername> --all [-
 
 If you don't specify a user, the `deployment-connections` commands return information for the admin user by default. If you don't specify an endpoint type, the connection string returns the public endpoint by default. If your deployment has only a private endpoint, you must specify `--endpoint-type private` or the commands return an error. The user and endpoint type is not enforced. You can use any user on your deployment with either endpoint (if both exist on your deployment).
 
-To use the `ibmcloud cdb` CLI commands, you must [install the {{site.data.keyword.databases-for}} plug-in](/docs/databases-for-mongodb?topic=databases-cli-plugin-cdb-reference#installing-the-cloud-databases-cli-plug-in).
+To use the `ibmcloud cdb` CLI commands, you must [install the {{site.data.keyword.databases-for}} plug-in](/docs/databases-for-mysql?topic=databases-for-mysql-icd-cli&interface=ui#icd-cli-install).
 {: .tip}
 
 **API** 
