@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-09-29"
+  years: 2021, 2025
+lastupdated: "2025-04-01"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -48,7 +48,7 @@ mysql://ibm_cloud_30399dec_4835_4967_a23d_30587a08d9a8:$PASSWORD@981ac415-5a35-4
 
 For more information on `ssl-mode` states, see [Additional Connection parameters](https://dev.mysql.com/doc/refman/8.0/en/connecting-using-uri-or-key-value-pairs.html){: .external}.
 
-The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/doc/connector-j/8.0/en/){: .external} to connect to your database.
+The following example uses the information from your connection string and the Java driver [jdbc](https://dev.mysql.com/downloads/connector/j/){: .external} to connect to your database.
 
 ```java
 import java.sql.Connection;

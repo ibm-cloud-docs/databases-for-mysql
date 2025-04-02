@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-05-01"
+  years: 2021, 2025
+lastupdated: "2025-04-01"
 
 keywords: mysql, databases, pricing, resources, scaling, mysql pricing
 
@@ -21,7 +21,7 @@ A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly 
 
 Templates are provided for ease of use and provide balanced resource allocations appropriate for general-purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as wanted.
 
-For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-mysql}} catalog page](https://cloud.ibm.com/catalog/databases-for-mysql). Input your total consumption across three data members into the calculator. This is roughly double the size of your data because your data is replicated to all members. For example, 20 GB of disk and 1 GB of RAM across three data members would be priced at 60 GB of disk and 3 GB of RAM respectively. 
+For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-mysql}} catalog page](https://cloud.ibm.com/databases/databases-for-mysql/create?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjc2VydmljZXM%3D). Input your total consumption across three data members into the calculator. This is roughly double the size of your data because your data is replicated to all members. For example, 20 GB of disk and 1 GB of RAM across three data members would be priced at 60 GB of disk and 3 GB of RAM respectively. 
 
 ## Backups Pricing
 {: #pricing-backup}

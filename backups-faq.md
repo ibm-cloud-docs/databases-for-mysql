@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-05-16"
+  years: 2023, 2025
+lastupdated: "2025-04-01"
 
 keywords: mysql backup, backups, xtrabackup, corrupted_table
 
@@ -32,7 +32,7 @@ MySQL version 8.0.29 contained a design flaw that can cause data corruption for 
 Please run OPTIMIZE TABLE or ALTER TABLE ALGORITHM=COPY on all listed tables to fix this issue.
 ```
 
-This error can be seen using [Activity Tracker](/docs/databases-for-mysql?topic=databases-for-mysql-activity-tracker) or [Log Analysis](/docs/cloud-databases?topic=cloud-databases-logging).
+This error can be seen using [Activity Tracker](/docs/databases-for-mysql?topic=databases-for-mysql-at_events&interface=ui) or [Log Analysis](/docs/databases-for-mysql?topic=databases-for-mysql-logging&interface=ui).
 {: tip}
 
 ### Resolving `corrupted_table` error
@@ -48,4 +48,4 @@ SELECT NAME FROM INFORMATION_SCHEMA.INNODB_TABLES WHERE TOTAL_ROW_VERSIONS > 0;
 
 If the results are a list of tables, run `OPTIMIZE TABLE` on the list before taking a backup.
 
-For more infortmation, see [Error Message: Found tables with row versions due to INSTANT ADD/DROP columns](https://docs.percona.com/percona-xtrabackup/8.0/em/instant.html){: external}.
+For more infortmation, see [Error Message: Found tables with row versions due to INSTANT ADD/DROP columns](https://docs.percona.com/percona-xtrabackup/8.0/error-message-instant.html){: external}.
