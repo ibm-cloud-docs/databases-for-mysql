@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-27"
+lastupdated: "2025-04-02"
 
 keywords: mysql, databases, scaling, mysql autoscaling, memory, disk I/O
 
@@ -15,7 +15,7 @@ subcollection: databases-for-mysql
 # Autoscaling
 {: #autoscaling-mysql}
 
-Autoscaling is designed to respond to the short-to-medium term trends in resource usage on your {{site.data.keyword.databases-for-mysql_full}} deployment. When enabled, your deployment is checked at the interval you specify. If it is running short on resources, more resources are added to the deployment. To keep an eye on your resources, use the [{{site.data.keyword.monitoringfull}} integration](/docs/databases-for-mysql?topic=databases-for-mysql-monitoring&interface=cli, which provides metrics for memory, disk space, and disk I/O usage.
+Autoscaling is designed to respond to the short-to-medium term trends in resource usage on your {{site.data.keyword.databases-for-mysql_full}} deployment. When enabled, your deployment is checked at the interval you specify. If it is running short on resources, more resources are added to the deployment. To keep an eye on your resources, use the [{{site.data.keyword.monitoringfull}} integration](/docs/databases-for-mysql?topic=databases-for-mysql-monitoring&interface=cli), which provides metrics for memory, disk space, and disk I/O usage.
 
 You can set your deployment to autoscale disk, RAM, or both.
 
