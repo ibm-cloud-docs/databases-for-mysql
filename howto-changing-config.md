@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: 2025-03-27
+lastupdated: 2025-04-14
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -256,4 +256,20 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Default: `28800`
 - Minimum: `1`
 - Maximum: `31536000`
+- Restarts database? - `false`
+
+[`innodb_read_io_threads`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads){: .external}
+
+- Description: The number of I/O threads for read operations in InnoDB.
+- Default: `4`
+- Minimum: `1`
+- Maximum: `64`
+- Restarts database? - `true`
+
+[`net_read_timeout`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout){: .external}
+
+- Description: The number of seconds to wait for more data from a connection before aborting the read.
+- Default: `30`
+- Minimum: `1`
+- Maximum: `7200`
 - Restarts database? - `false`

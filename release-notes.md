@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-04-14"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,17 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 10 April 2025
+{: #databases-for-mysql-10apr2025}
+{: release-note}
+
+{{site.data.keyword.monitoringfull_notm}} now includes the following metrics for {{site.data.keyword.databases-for-mysql}}:
+
+   - Replica state and Replica lag metrics to monitor leader-replica synchronization.
+   - Connection usage, Total active connections, and Maximum permitted client connection metrics enable monitoring of deployment connection usage.
+
+For more information, see [MySQL metrics](/docs/databases-for-mysql?topic=databases-for-mysql-monitoring&interface=ui#metrics-by-plan-mysql).
 
 ## 10 March 2025
 {: #databases-for-mysql-10mar2025}
