@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: 2025-04-14
+lastupdated: 2025-04-25
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -160,7 +160,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 [`innodb_log_file_size`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size){: .external}
 
 - Description: The size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file){: .external} in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group){: .external}. `Innodb_log_file_size` and `innodb_log_files_in_group` have been superseded by `innodb_redo_log_capacity`. Setting `innodb_log_file_size` will also set `innodb_redo_log_capacity`.
-- Default: `104857600`
+- Default: `2147483648`
 - Minimum: `4194304`
 - Maximum: `274877906900`
 - Restarts database? - `false`
