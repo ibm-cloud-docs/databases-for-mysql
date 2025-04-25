@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: 2025-04-25
+lastupdated: "2025-04-25"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
