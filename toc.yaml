@@ -106,7 +106,8 @@ toc:
       - include: ../cloud-databases/reference-responsibilities.md
       - topic: best-practices.md
         navtitle: Best practices
-      - learn-high-availability.md
+      - topic: ha-dr.md
+        navtitle: Understanding high availability and disaster recovery
       - topic: data-portability.md
         navtitle: Data portability
   - navgroup:
