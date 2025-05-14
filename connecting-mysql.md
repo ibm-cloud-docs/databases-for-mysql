@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-06-29"
+  years: 2021, 2025
+lastupdated: "2025-05-14"
 
 keywords: mysql, databases, mysql connection strings, connecting mysql
 
@@ -39,8 +39,8 @@ The information that you need to make a connection with `mysql` is in the "cli" 
 | `Composed` | | A formatted command to establish a connection to your deployment. The command combines the `Bin` executable file, `Environment` variable settings, and uses `Arguments` as command-line parameters. | 
 | `Environment`| | A list of key/values you set as environment variables. | 
 | `Arguments`| 0... | The information that is passed as arguments to the command shown in the Bin field. | 
-| `Certificate`| Base64 | A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. | 
-| `Certificate`| Name | The allocated name for the self-signed certificate. | 
+| `Certificate`| Base64 | A service proprietary certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. | 
+| `Certificate`| Name | The allocated name for the service proprietary certificate. | 
 | `Type` | | The type of package that uses this connection information; in this case `cli`. | 
 {: caption="mysql/cli connection information" caption-side="top"}
 
@@ -64,13 +64,13 @@ ibmcloud cdb cxn example-mysql -s
 
 The command prompts for the admin password and then runs the `mysql` command-line client to connect to the database.
 
-If you have not installed the cloud databases plug-in, connect to your MySQL databases by using `mysql` by giving it the "composed" connection string. It provides environment variables `MYSQL_PWD` and `--ssl-ca=<cert_name>`. Set `MYSQL_PWD` to the admin's password and `--ssl-ca=<cert_name>` to the path or file name for the self-signed certificate. 
+If you have not installed the cloud databases plug-in, connect to your MySQL databases by using `mysql` by giving it the "composed" connection string. It provides environment variables `MYSQL_PWD` and `--ssl-ca=<cert_name>`. Set `MYSQL_PWD` to the admin's password and `--ssl-ca=<cert_name>` to the path or file name for the service proprietary certificate. 
 
 ```sh
 MYSQL_PWD=$PASSWORD mysql --host=e4ad919f-59b6-4300-97c9-e099a5b6cf31.c5kmhkid0ujpmrucb800.databases.appdomain.cloud --port=32195 --user=$USERNAME --ssl-mode=VERIFY_IDENTITY --ssl-ca=52b78cf7-b17e-42aa-9e07-1fe4f741b286 ibmclouddb
 ```
 
-## Using the self-signed certificate
+## Using the service proprietary certificate
 {: #mysql-using-ssc}
 
 1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information. 

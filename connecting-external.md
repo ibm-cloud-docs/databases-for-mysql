@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-05-14"
 
 keywords: mysql drivers, python, java, javascript, certificate
 
@@ -25,15 +25,15 @@ All the information a driver needs to make a connection to your deployment is in
 
 | Field Name | Index | Description |
 | ---------- | ----- | ----------- |
-| `Type` | | Type of connection - for MySQL, it is "URI" |
-| `Scheme` | | Scheme for a URI - for MySQL, it is "mysql" |
+| `Type` | | Type of connection - for MySQL, it is "URI". |
+| `Scheme` | | Scheme for a URI - for MySQL, it is "mysql". |
 | `Path` | | Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`. |
 | `Authentication` | `Username`|The username that you use to connect. |
-| `Authentication` | `Password`|A password for the user - might be shown as `$PASSWORD` |
+| `Authentication` | `Password`|A password for the user - might be shown as `$PASSWORD`. |
 | `Authentication` | `Method`|How authentication takes place; "direct" authentication is handled by the driver. |
-| `Hosts`|`0...` | A hostname and port to connect to |
-| `Composed`|`0...` | A URI combining Scheme, Authentication, Host, and Path |
-| `Certificate`|`Name` | The allocated name for the self-signed certificate for database deployment |
+| `Hosts`|`0...` | A hostname and port to connect to. |
+| `Composed`|`0...` | A URI combining Scheme, Authentication, Host, and Path. |
+| `Certificate`|`Name` | The allocated name for the service proprietary certificate for database deployment. |
 | `Certificate` | Base64 | A base64 encoded version of the certificate. |
 {: caption="mysql/URI connection information" caption-side="top"} 
 
@@ -171,14 +171,14 @@ connection.close()
 ```
 {: .codeblock}
 
-## Driver TLS and self-signed certificate support
+## Driver TLS and service proprietary certificate support
 {: #connecting-cert-support}
 
-All connections to {{site.data.keyword.databases-for-mysql}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection.
+All connections to {{site.data.keyword.databases-for-mysql}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a service proprietary certificate so the driver can verify the server upon connection.
 
 For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ](/docs/databases-for-mongodb?topic=databases-for-mongodb-faq-cert){: external}.
 
-### Using the self-signed certificate
+### Using the service proprietary certificate
 {: #connecting-using-cert}
 
 1. Copy the certificate information from the *Endpoints* panel or the Base64 field of the connection information. 
@@ -188,7 +188,7 @@ For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ]
 
 ![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="CLI Endpoints panel" caption-side="bottom"}
 
-### CLI plug-in support for the self-signed certificate
+### CLI plug-in support for the service proprietary certificate
 {: #connecting-cli-cert}
 
 You can display the decoded certificate for your deployment with the CLI plug-in with the command `ibmcloud cdb deployment-cacert "your-service-name"`. It decodes the base64 into text. Copy and save the command's output to a file and provide the file's path to the driver.
