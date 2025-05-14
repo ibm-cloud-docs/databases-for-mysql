@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-05-14"
 
 keywords: mysql, databases, mysql connection strings, 
 
@@ -11,7 +11,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting Connection Strings
+# Getting connection strings
 {: #connection-strings}
 
 To connect to {{site.data.keyword.databases-for-mysql_full}}, you need some users and connection strings. Connection Strings for your deployment are displayed on the _Dashboard Overview_, in the _Endpoints_ panel. 
@@ -56,15 +56,15 @@ The "mysql" section contains information that is suited to applications that mak
 
 | Field Name | Index | Description |
 | ---------- | ----- | ----------- |
-| `Type` | | Type of connection - for MySQL, it is "URI" |
-| `Scheme` | | Scheme for a URI - for MySQL, it is "mysql" |
+| `Type` | | Type of connection - for MySQL, it is "URI". |
+| `Scheme` | | Scheme for a URI - for MySQL, it is "mysql". |
 | `Path`| |Path for a URI - for MySQL, it is the database name. The default is `ibmclouddb`. |
 | `Authentication` | `Username` | The username that you use to connect. |
-| `Authentication` | `Password` | A password for the user - might be shown as `$PASSWORD` |
+| `Authentication` | `Password` | A password for the user - might be shown as `$PASSWORD`. |
 | `Authentication` | `Method` | How authentication takes place; "direct" authentication is handled by the driver. |
-| `Hosts` | `0...` | A hostname and port to connect to |
-| `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path |
-| `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment |
+| `Hosts` | `0...` | A hostname and port to connect to. |
+| `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path. |
+| `Certificate` | `Name` | The allocated name for the service proprietary certificate for database deployment. |
 | `Certificate` | Base64 | A base64 encoded version of the certificate. |
 {: caption="mysql/URI connection information" caption-side="top"}
 
@@ -81,8 +81,8 @@ The "CLI" section contains information that is suited for connecting with `mysql
 | `Composed`| | A formatted command to establish a connection to your deployment. The command combines the `Bin` executable, `Environment` variable settings, and uses `Arguments` as command line parameters. |
 | `Environment`| | A list of key/values you set as environment variables. |
 | `Arguments` | 0... | The information that is passed as arguments to the command shown in the Bin field.
-| `Certificate`|Base64| A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
-| `Certificate` | Name | The allocated name for the self-signed certificate. |
+| `Certificate`|Base64| A service proprietary certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
+| `Certificate` | Name | The allocated name for the service proprietary certificate. |
 | `Type` | | The type of package that uses this connection information; in this case `cli`. |
 {: caption="mysql/cli connection information" caption-side="top"}
 
