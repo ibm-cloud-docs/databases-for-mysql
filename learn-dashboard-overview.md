@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: 2025-04-28
+lastupdated: 2025-05-14
 
 keywords: deployment, crn, task, gui, api endpoint, mysql connection strings, mysql
 
@@ -38,7 +38,7 @@ Every time that you make administrative changes to your service (such as scaling
 ### Endpoints
 {: #dashboard-overview-overview-endpoints}
 
-The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information that is tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate, TLS/SSL parameters, and the default database of your deployment.
+The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information that is tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS service proprietary certificate, TLS/SSL parameters, and the default database of your deployment.
 
 Reference tables for the different connection types are available on the [Getting credentials and connection strings](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings) page.
 
