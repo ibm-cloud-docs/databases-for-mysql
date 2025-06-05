@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-06-05"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -201,7 +201,7 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Default - `200`
 - Restarts database? - `false`
 
- You might need to [scale before you increase max connections](/docs/databases-for-mysql?topic=databases-for-mysql-high-availability#connection-limits-ha).{: note}
+ You might need to [scale before you increase max connections](/docs/databases-for-mysql?topic=databases-for-mysql-mysql-ha-dr#connection-limits-ha).{: note}
 
 [`mysql_max_binlog_age_sec`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html){: .external}
 
