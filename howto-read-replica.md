@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-27"
+lastupdated: "2025-09-09"
 
 keywords: mysql, databases, read replica, resync, promote, cross-region replication, mysql read replica, mysql replication
 
@@ -19,7 +19,7 @@ You can set up your {{site.data.keyword.databases-for-mysql_full}} deployment to
 
 A read replica is set up to replicate all your data from the source instance to the replica deployment using asynchronous replication. As the name implies, read replicas support read transactions, and can be used to balance databases that have both write-heavy and read-heavy operations. You can also use read replica promotion for data recovery if the source database instance fails. The read replica has a single MySQL data member, and it is billed at the [same per member consumption rates as the source database instance](https://{DomainName}/catalog/services/databases-for-mysql/).
 
-## Read replica Considerations
+## Read replica considerations
 {: #read-replicas-consider}
 
 - A read replica can exist in the same region as your source database instance or in a different one, enabling your data to be replicated across regions.
@@ -41,8 +41,6 @@ A read replica is set up to replicate all your data from the source instance to 
 - Replication is asynchronous, and might be subject to replication lag. By default, there is no communication between the primary and replica regarding consistency. It is possible for a read replica to fall far enough behind that it needs to be resynced. Replication lag can be greater when the replica is in a region far away geographically from its source database instance.
 
 - A read replica is a deployment with single data member and does not have any internal high-availability. It is prone to temporary interruptions and downtime during maintenance. If you have applications that rely on read replicas, be sure to have logic to retry failed queries, or load-balancing over multiple read replicas.
-
-- **{{site.data.keyword.databases-for-mysql}} read replicas in Madrid (`eu-es`): The deployment of read replicas in Madrid in the `eu-es` region is currently suspended. Updates on availability will be provided as soon as possible.**
 
 ## The Leader
 {: #read-replicas-leader}
