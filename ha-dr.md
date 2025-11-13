@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-11-13"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, mysql
 
@@ -23,7 +23,7 @@ subcollection: databases-for-mysql
 ## High availability architecture
 {: #ha-architecture}
 
-![Architecture](/images/High-Availability.drawio.svg){: caption="MySQL architecture" caption-side="bottom"}
+![Architecture](/images/MySQL_high_availability.svg){: caption="MySQL architecture" caption-side="bottom"}
 
 {{site.data.keyword.databases-for-mysql}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three data members - a leader and two replicas. All members contain a copy of your data by using Orchestrator to handle failovers. If the leader becomes unreachable, the cluster initiates a failover, a replica is promoted to leader, a new replica rejoins the cluster as a replica, and your cluster continues to operate normally. The leader and replicas are always in different zones of an MZR. If the replica fails, a new replica is created. If a zone failure results in a member failing, the new replica is created in a surviving zone.
 
@@ -52,7 +52,7 @@ Workloads that programmatically access the cluster must follow the client availa
 
 The general strategy for disaster recovery is to create a new database, such as the `Restore` database. The contents of the new database can be a backup of the source database created before the disaster. A new database can be created using the point-in-time feature if the production database is available.
 
-![Architecture](/images/Disaster-Recovery.drawio.svg){: caption="MySQL architecture" caption-side="bottom"}
+![Architecture](/images/MySQL_disaster_recovery.svg){: caption="MySQL architecture" caption-side="bottom"}
 
 ### Disaster recovery features
 {: #dr-features}
