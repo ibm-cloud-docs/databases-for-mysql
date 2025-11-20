@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-11-13"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -49,11 +49,14 @@ SHOW VARIABLES LIKE '%buffer%';
 ## Using the {{site.data.keyword.databases-for}} CLI plug-in
 {: #using-cli}
 
-Check the current configuration of your deployment by using a command like:
+Check the default configuration of your deployment by using a command like:
 
 ```sh
 ibmcloud cdb deployment-configuration-schema <deployment name or CRN>
 ```
+This command only returns the default configuration. Changes to the default configuration are not shown.
+{: note}
+
 {: pre}
 
 To change your configuration through the {{site.data.keyword.databases-for}} CLI-plugin, use `deployment-configuration` command:
