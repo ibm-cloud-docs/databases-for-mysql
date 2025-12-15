@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-12-15"
 
 keywords: admin, superuser, roles, service credentials, mysql users, mysql roles, mysql privileges, mysql connection strings, mysql service credentials
 
@@ -15,7 +15,7 @@ subcollection: databases-for-mysql
 # Managing users, roles, and privileges
 {: #user-management}
 
-MySQL 5.7 uses a system of roles to manage database permissions. Create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users who are created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since admin has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges that it has, including the privilege to create new users.
+MySQL uses a system of roles to manage database permissions. Create users from both the UI and from [MySQL Shell](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html). Users who are created from the UI have nearly identical privileges as `admin`, but cannot create other users. Since `admin` has both `CREATE USER` and `GRANT` options, it can create a user and give them all the privileges that it has, including the privilege to create new users.
 
 ```sh
 mysql> SELECT DISTINCT GRANTEE FROM information_schema.user_privileges;
@@ -122,7 +122,7 @@ The `ibm` and the `ibm-replication` accounts are the only superusers on your dep
 ## Users created with `mysql`
 {: #user-management-mysql-users}
 
-You can bypass creating users through {{site.data.keyword.cloud_notm}} entirely, and create users directly in MySQL with `mysql`. This allows you to make use of MySQL's native [role and user management](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html). Users/roles created in `mysql` must have all of their privileges set manually, as well as privileges to the objects that they create.
+You can bypass creating users through {{site.data.keyword.cloud_notm}} entirely, and create users directly in MySQL with `mysql`. This allows you to make use of MySQL's native [role and user management](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html). Users/roles created in `mysql` must have all of their privileges set manually, as well as privileges to the objects that they create.
 
 Users that are created directly in MySQL do not appear in _Service credentials_, but you can [add them](/docs/databases-for-mysql?topic=databases-for-mysql-connection-strings#adding-users-to-_service-credentials_) if you choose. 
 
