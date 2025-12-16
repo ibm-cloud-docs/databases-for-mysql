@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-16"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, mysql
 
@@ -25,15 +25,16 @@ subcollection: databases-for-mysql
 
 ![Architecture](/images/MySQL_high_availability.svg){: caption="MySQL architecture" caption-side="bottom"}
 
-{{site.data.keyword.databases-for-mysql}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three data members - a leader and two replicas. All members contain a copy of your data by using Orchestrator to handle failovers. If the leader becomes unreachable, the cluster initiates a failover, a replica is promoted to leader, a new replica rejoins the cluster as a replica, and your cluster continues to operate normally. The leader and replicas are always in different zones of an MZR. If the replica fails, a new replica is created. If a zone failure results in a member failing, the new replica is created in a surviving zone.
+{{site.data.keyword.databases-for-mysql}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three data members – a leader and two replicas. Replicas are kept up to date using asynchronous replication. All members contain a copy of your data by using Orchestrator to handle failovers. The leader and replicas are always in different zones of a multi-zone region. If the leader becomes unreachable or encounters a critical issue, the service first attempts to auto-recover the existing leader. If the leader cannot be recovered, a failover is performed and a replica is promoted to leader, a new replica rejoins the cluster as a replica, and your cluster continues to operate normally. If the replica fails, a new replica is created. If a zone failure results in a member failing, the new replica is created in a surviving zone.
 
 You can extend high availability further by provisioning [read-only replicas](/docs/databases-for-mysql?topic=databases-for-mysql-read-replicas) for cross-regional failover or read offloading.
 
-Review the MySQL documentation on [replication techniques](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-semisync.html){: .external} to understand the constraints and tradeoffs that are associated with the semisynchronous replication strategy.
+Review the MySQL documentation on [replication techniques](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication.html){: .external} to understand the constraints and tradeoffs associated with asynchronous replication.
 
 Workloads that programmatically access the cluster must follow the client availability retry logic to maintain availability.
 
-{{site.data.keyword.databases-for-mysql}} sometimes performs controlled switchovers under normal operation. These switchovers are no-data-loss events that result in the reset of active connections. There is a period of up to 15 seconds where reconnections can fail. At times, unplanned failovers might occur due to unforeseen events in the operating environment. These can take up to 45 seconds, but generally less than 30 seconds. Service maintenance, for example, triggers a controlled failover.
+{{site.data.keyword.databases-for-mysql}} sometimes performs controlled switchovers under normal operation. These switchovers are generally no-data-loss events that result in the reset of active connections. There is a period of up to 15 seconds where reconnections can fail. At times, unplanned failovers might occur due to unforeseen events in the operating environment. These can take up to 45 seconds, but generally less than 30 seconds. Service maintenance, for example, triggers a controlled failover.
+
 
 ### High availability features
 {: #ha-features}
@@ -42,8 +43,8 @@ Workloads that programmatically access the cluster must follow the client availa
 
 | Feature | Description | Consideration |
 | -------------- | -------------- | -------------- |
-| Automatic failover | Standard on all clusters and resilient against a zone or single member failure. | |
-| Member count | A three-member deployment. A three-member cluster will automatically recover from a single failure of an instance or zone, with data lag possible during the recovery process. A replica is promoted to leader in the event of a failure, and the cluster continues to operate normally. | |
+| Failover behavior | Standard on all clusters and resilient against a zone or single member failure. If the leader becomes unhealthy or unreachable, the service attempts to auto-recover it. If the leader cannot be recovered, a failover is performed and a replica is promoted to restore write availability. | To minimize the replica lag between the leader and replicas, follow [best practices](/docs/databases-for-mysql?topic=databases-for-mysql-best-practices&interface=cli), such as retry logic, connection management, and implement primary keys. |
+| Member count | A three-member deployment. A three-member cluster can recover from a single failure of an instance or zone, with data lag possible during the recovery process. A replica is promoted to leader in the event of a failure, and the cluster continues to operate normally. | |
 | Read-only replica | Read-only replicas can provide local access in remote regions, improving availability to potential network latency or connectivity issues. | All Write requests must be directed exclusively to the read-write cluster associated with the read-replica. |
 {: caption="High availability features" caption-side="top"}
 
@@ -74,7 +75,7 @@ The disaster recovery steps must be practiced regularly. As you build your plan,
 | Failure | Resolution |
 | -------------- | -------------- |
 | Hardware failure (single point) | IBM provides a database that is resilient from a single point of hardware failure within a zone - no configuration is required. |
-| Zone failure | Automatic failover (#mysql-high-availability). The database members are distributed between zones. |
+| Zone failure | Failover (#mysql-high-availability). The database members are distributed between zones. |
 | Data corruption | Backup restore. Use the restored database in production or for source data to correct the corruption in the restored database. \n \nPoint-in-time restore. Use the restored database in production or for source data to correct the corruption in the restored database. |
 | Regional failure | Backup restore. Use the restored database in production. \n \nPromote read replica. Promote a read-only replica to a read/write database. Use the restored database in production |
 {: caption="Failure scenarios and resolutions" caption-side="top"}
