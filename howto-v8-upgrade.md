@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-12-15"
+lastupdated: "2025-12-18"
 
 keywords: mysql 8.4, mysql
 
@@ -12,7 +12,7 @@ subcollection: databases-for-mysql
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.databases-for-mysql_full}} 8.4 GA
+# {{site.data.keyword.databases-for-mysql}} 8.4 GA
 {: #mysql8.4-ga}
 
 As part of our commitment to offering a rich and mature cloud database portfolio, {{site.data.keyword.databases-for} is releasing MySQL version 8.4. 
@@ -25,7 +25,7 @@ For new {{site.data.keyword.databases-for} deployments, take a backup of your ex
 ## Existing {{site.data.keyword.databases-for-mysql}} v8.0 deployments
 {: #mysql8.4-ga-existing-deployments}
 
-To move existing v8.0 deployments on {{site.data.keyword.databases-for-mysql}} to the new v8.4 major version, you must perform a major version upgrade. The recommended path is to [restore a backup](/docs/databases-for-mysql?topic=databases-for-mysql-dashboard-backups&interface=ui#restore-backup) of your existing v8.0 deployment into a new deployment running MySQL v8.4. You can initiate this upgrade process using the UI, CLI, or API. For detailed, step-by-step instructions on performing this major version upgrade, see [Upgrading to a new major version](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading&interface=ui).
+To move existing v8.0 deployments on {{site.data.keyword.databases-for-mysql_full}} to the new v8.4 major version, you must perform a major version upgrade. The recommended path is to [restore a backup](/docs/databases-for-mysql?topic=databases-for-mysql-dashboard-backups&interface=ui#restore-backup) of your existing v8.0 deployment into a new deployment running MySQL v8.4. You can initiate this upgrade process using the UI, CLI, or API. For detailed, step-by-step instructions on performing this major version upgrade, see [Upgrading to a new major version](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading&interface=ui).
 
 Once your upgrade is complete, changes cannot be reverted. The changes are incompatible, and you cannot use the data directory from MySQL 8.4 on MySQL 8.0. Retain your MySQL v8.0 backup, as it helps to restore it on a MySQL v8.0 instance should the changes need to be reversed.
 {: .note}
