@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-16"
+lastupdated: "2025-12-19"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, mysql
 
@@ -30,6 +30,9 @@ subcollection: databases-for-mysql
 You can extend high availability further by provisioning [read-only replicas](/docs/databases-for-mysql?topic=databases-for-mysql-read-replicas) for cross-regional failover or read offloading.
 
 Review the MySQL documentation on [replication techniques](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication.html){: .external} to understand the constraints and tradeoffs associated with asynchronous replication.
+
+While version 8.0 utilizes semi-synchronous replication and version 8.4 introduces asynchronous technology, the core high availability and disaster recovery behaviors remain fundamentally unchanged.
+{: note}
 
 Workloads that programmatically access the cluster must follow the client availability retry logic to maintain availability.
 
