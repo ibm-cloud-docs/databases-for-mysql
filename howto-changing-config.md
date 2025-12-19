@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-16"
 
 keywords: mysql, databases, config, mysql configuration, mysql time zone, configuration schema
 
@@ -128,14 +128,6 @@ ibmcloud cdb deployment-configuration <crn> '{"time_zone": "US/Pacific"}'
 ## Available {{site.data.keyword.databases-for-mysql}} configuration settings
 {: #available-config-settings}
 
-[`default_authentication_plugin`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin){: .external}
-
-- Default - `sha256_password`
-- Allowable values: `sha256_password`, `mysql_native_password`
-- Restarts database? - `true`
-
-Unless strictly necessary, don't use `mysql_native_password`. {: note}
-
 [`innodb_buffer_pool_size_percentage`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size){: .external}
 
 - Description: The percentage of memory to use for `innodb_buffer_pool_size`. The default value of 50% is a conservative value and works for databases of any size. If your database requires more RAM, this value can be increased. Setting this value too high can exceed your database's memory limits, which can cause it to crash.
@@ -143,14 +135,6 @@ Unless strictly necessary, don't use `mysql_native_password`. {: note}
 - Minimum: `10`
 - Maximum: `100`
 - Restarts database? - `true`
-
-[`innodb_flush_log_at_trx_commit`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit){: .external}
-
-- Description: Controls the balance between strict [ACID](https://dev.mysql.com/doc/refman/8.0/en/mysql-acid.html){: .external} compliance for [commit](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_commit) operations and higher performance that is possible when commit-related I/O operations are rearranged and done in batches. You can achieve better performance by changing the default value but then you can lose transactions in a crash.
-- Default: `2`
-- Minimum: `0`
-- Maximum: `2`
-- Restarts database? - `false`
 
 [`innodb_log_buffer_size`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_buffer_size){: .external}
 

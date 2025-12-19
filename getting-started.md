@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-12-16"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -104,9 +104,9 @@ For more information, see [Connections in MySQL Workbench](https://dev.mysql.com
 {{site.data.keyword.databases-for-mysql_full}} is a serverless, fully managed cloud database service. It offers the following main benefits:
 
 - Automated maintenance: No manual software, infrastructure, network or OS administration is required.
-- High availabilty: Deployed across multiple data centers with automatic failover.
+- High availabilty: Deployed across multiple data centers with failover capabilities.
 - Scalability: Independently scale disk, RAM, and vCPU with auto-scaling and hourly billing.
-- Semisynchronous replication: It ensures that data is available across multiple locations for high availability, adding an extra layer of data safety and reliability.
+- Asynchronous replication: It ensures that data is available across multiple locations for high availability, and overall system responsiveness. 
 - Security: Choose between multi-tenant or isolated environments, depending on your security needs.
 
 ## Key features
