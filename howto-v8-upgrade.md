@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-19"
 
 keywords: mysql 8.4, mysql
 
@@ -20,7 +20,7 @@ As part of our commitment to offering a rich and mature cloud database portfolio
 ## New {{site.data.keyword.databases-for-mysql}} deployments
 {: #mysql8.4-ga-new-deployments}
 
-For new {{site.data.keyword.databases-for} deployments, take a backup of your existing v8.0 instance and import it into a v8.4 deployment. Use tools such as mysqldump or mydumper to import into {{site.data.keyword.databases-for-mysql}} v8.4 deployment. For more information, see [Migrating to Databases for MySQL](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
+For new {{site.data.keyword.databases-for} deployments, take a backup of your existing v8.0 instance and import it into a v8.4 deployment. Use tools such as mysqldump or mydumper to import into {{site.data.keyword.databases-for-mysql}} v8.4 deployment. For more information, see [Migrating to Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
 
 ## Existing {{site.data.keyword.databases-for-mysql}} v8.0 deployments
 {: #mysql8.4-ga-existing-deployments}
