@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-19"
+  years: 2024, 2026
+lastupdated: "2026-01-07"
 
-keywords: best pracitces
+keywords: best practices
 
 subcollection: databases-for-mysql
 
@@ -24,4 +24,5 @@ subcollection: databases-for-mysql
 | Use connection pooling in the application end. | Pooling reuses connections, avoiding maxing out of connections. Ensure that your pool size is well below the database's `max_connections`. Implement retry logic and catch exceptions to handle pool exhaustion or connection failures.|
 | Reduce blast radius by using a dedicated ICD-MySQL instance per production application. | Separation of applications lowers the volume per service instance, minimizing issues caused by aggregation of demand from many applications. |
 | Deploy a MySQL read replica per MySQL instance. | Read replicas offer the ability to support read traffic off the main instance, reducing the overall workload, and enhancing reliability.|
+| Hosting MySQL on a dedicated instance | For production environments, particularly those anticipating growth, increased traffic, or requiring high reliability and performance, we strongly recommend hosting MySQL on a dedicated instance. This ensures better resource isolation, scalability, and overall system stability.|
 {: caption="Best practices" caption-side="top"}
