@@ -17,7 +17,7 @@ subcollection: databases-for-mysql
 
 As part of our commitment to offering a rich and mature cloud database portfolio, {{site.data.keyword.databases-for} is releasing MySQL version 8.4. 
 
-## New {{site.data.keyword.databases-for-mysql}} deployments
+## New Databases for MySQL deployments
 {: #mysql8.4-ga-new-deployments}
 
 For new {{site.data.keyword.databases-for} deployments, take a backup of your existing v8.0 instance and import it into a v8.4 deployment. Use tools such as mysqldump or mydumper to import into {{site.data.keyword.databases-for-mysql}} v8.4 deployment. For more information, see [Migrating to Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
