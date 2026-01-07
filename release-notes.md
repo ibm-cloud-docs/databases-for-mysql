@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-04-14"
+  years: 2018, 2026
+lastupdated: "2026-01-07"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,15 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+
+## 6 January 2026
+{: #databases-for-mysql-6jan2026}
+{: release-note}
+
+Introducing Databases for MySQL v8.4 (Preview)
+:   Database for MySQL v8.4 is now available in [Preview](docs/cloud-databases?topic=cloud-databases-versioning-policy#version-tags){: external}. This release includes the transition from semi-synchronous to asynchronous replication, along with notable feature updates and deprecations. For more information, see [Upgrading to a new major version](/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading&interface=ui) and [MySQL 8.4 GA](/docs/databases-for-mysql?topic=databases-for-mysql-mysql8.4-ga&interface=ui).
+
 
 ## 10 April 2025
 {: #databases-for-mysql-10apr2025}
