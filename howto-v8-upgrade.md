@@ -20,14 +20,15 @@ As part of our commitment to offering a rich and mature cloud database portfolio
 ## New Databases for MySQL deployments
 {: #mysql8.4-ga-new-deployments}
 
-For new {{site.data.keyword.databases-for}} deployments, take a backup of your existing v8.0 instance and import it into a v8.4 deployment. Use tools such as mysqldump or mydumper to import into {{databases-for-mysql_fullnotm}} v8.4 deployment. For more information, see [Migrating to Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
+For new {{site.data.keyword.databases-for}} deployments, take a backup of your existing v8.0 instance and import it into a v8.4 deployment. Use tools such as mysqldump or mydumper to import into {{site.data.keyword.databases-for-mysql_fullnotm}} v8.4 deployment. For more information, see [Migrating to Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-migrating).
+
 
 ## Existing {{site.data.keyword.databases-for-mysql}} v8.0 deployments
 {: #mysql8.4-ga-existing-deployments}
 
 To move existing v8.0 deployments on {{site.data.keyword.databases-for-mysql_full}} to the new v8.4 major version, you must perform a major version upgrade. The recommended path is to [restore a backup](/docs/databases-for-mysql?topic=databases-for-mysql-dashboard-backups&interface=ui#restore-backup) of your existing v8.0 deployment into a new deployment running MySQL v8.4. You can initiate this upgrade process using the UI, CLI, or API. For detailed, step-by-step instructions on performing this major version upgrade, see [Upgrading to a new major version](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading&interface=ui).
 
-Once your upgrade is complete, changes cannot be reverted. The changes are incompatible, and you cannot use the data directory from MySQL 8.4 on MySQL 8.0. Retain your MySQL v8.0 backup, as it helps to restore it on a MySQL v8.0 instance should the changes need to be reversed.
+When your upgrade is complete, changes cannot be reverted. The changes are incompatible, and you cannot use the data directory from MySQL 8.4 on MySQL 8.0. Retain your MySQL v8.0 backup, as it helps to restore it on a MySQL v8.0 instance should the changes need to be reversed.
 {: .note}
 
 ### Upgrade prerequisites
