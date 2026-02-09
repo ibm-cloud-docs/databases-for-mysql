@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-07"
+lastupdated: "2026-01-27"
 
 keywords: databases-for-mysql release notes
 
@@ -131,11 +131,11 @@ Protecting {{site.data.keyword.databases-for-mysql_full}} resources with context
 {: release-note}
 
 {{site.data.keyword.databases-for-mysql_full}} version 8 is now available on {{site.data.keyword.databases-for}}
-:  MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary. For information on upgrading your current {{site.data.keyword.databases-for-mysql_full}} deployment, or deploying a new instance, see [MySQL 8 GA](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql8-ga). See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-databases-for-mysql-now-supports-version-8).
+:  MySQL 8.0 is the latest version of the world's most popular open-source database. This release features improvements across the board, offering enhancements for better performance, reliability, security, and manageability, with significant improvements to the data dictionary. For information on upgrading your current {{site.data.keyword.databases-for-mysql_full}} deployment, or deploying a new instance, see [MySQL 8 GA](https://cloud.ibm.com/docs/databases-for-mysql?topic=databases-for-mysql-mysql8-ga).
 
 ## 05 January 2022
 {: #databases-for-mysql-05jan2022}
 {: release-note}
 
 General Availability of {{site.data.keyword.databases-for-mysql_full}}
-:  {{site.data.keyword.databases-for-mysql_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/general-availability-of-ibm-cloud-databases-for-mysql).
+:  {{site.data.keyword.databases-for-mysql_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. 
