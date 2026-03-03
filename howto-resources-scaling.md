@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-03-27"
+  years: 2021, 2026
+lastupdated: "2026-03-03"
 
 keywords: mysql, databases, scaling, memory, disk IOPS, CPU, mysql dedicated cores, sclaing mysql
 
@@ -389,6 +389,8 @@ output "ICD MySQL database connection string" {
 }
 ```
 {: codeblock}
+
+Alternatively, you can use pre-built, open-source and enterprise-ready [Terraform IBM Modules (TIM)](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for [{{site.data.keyword.databases-for-mysql}}](https://registry.terraform.io/modules/terraform-ibm-modules/icd-mysql/ibm/latest){: external} that supports auto-scaling feature.
 
 ## Switching to and scaling hosting models in Terraform
 {: #resources-switching-terraform}
