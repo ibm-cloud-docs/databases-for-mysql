@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-04-01"
+  years: 2021, 2026
+lastupdated: "2026-03-02"
 
 keywords: mysql, databases, pricing, resources, scaling, mysql pricing
 
@@ -14,7 +14,7 @@ subcollection: databases-for-mysql
 # Pricing
 {: #pricing}
 
-A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly available MySQL cluster with three data members. Your data is replicated on all members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-mysql}} deployments have a minimum of 10 GB of disk and 1 GB of RAM per data member.
+A {{site.data.keyword.databases-for-mysql}} Standard plan deploys as one highly available MySQL cluster with three data members. Your data is replicated on all members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-mysql}} deployments have a minimum of 10 GB of disk and 4 GB of RAM per data member.
 
 ## Using the Pricing Calculator
 {: #pricing-calc}
@@ -35,13 +35,6 @@ In the above example, if your database contains 2 GB of data and you have not ta
 If your database contains 15 GB of data and you have not taken any on-demand backups, then your total backup size is 15 GB x 30 = 450 GB. In this scenario, your backup costs are (450 GB - 60 GB) * 0.03 = $11.7 per month.
 
 Most deployments will not ever go over the allotted credit.
-
-## Dedicated Cores Pricing
-{: #pricing-cores}
-
-You have the option of selecting the CPU allocation for your deployment. With dedicated cores, your resource group is given a single-tenant host with a guaranteed minimum reserve of cpu shares. Your deployments are then allocated the number of CPUs you specify. The cost of dedicated cores is $40 per core per month, and each member gets the selected number of cores. For example, if you provision a deployment with three dedicated cores per member, that is a total of 9 cores, and billed at $360 per month. 
-
-Dedicated cores are an optional feature. The default `Shared CPU` setting provisions your deployment on hosts with shared compute resources and incurs no additional charge.
 
 ## Scaling per Member
 {: #scaling-member}
