@@ -15,7 +15,7 @@ subcollection: databases-for-mysql
 # Provisioning
 {: #provisioning}
 
-Provision a {{site.data.keyword.databases-for-mysql_full}} deployment through the [catalog](https://cloud.ibm.com/databases/databases-for-mysql/create){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}, the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api){: external}, through [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external} or through pre-built, open-source and enterprise-ready [Terraform IBM Modules (TIM)](https://registry.terraform.io/modules/terraform-ibm-modules/icd-mysql/ibm/latest){: external}.
+Provision a {{site.data.keyword.databases-for-mysql_full}} deployment through the [catalog](https://cloud.ibm.com/databases/databases-for-mysql/create){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}, the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api){: external}, through [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}, or through pre-built, open-source, and enterprise-ready [Terraform IBM Modules (TIM)](https://registry.terraform.io/modules/terraform-ibm-modules/icd-mysql/ibm/latest){: external}.
 
 ## Provisioning through the {{site.data.keyword.cloud_notm}} console
 {: #catalog}
@@ -104,7 +104,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    {: pre}
 
    The fields in the command are described in the table that follows.
-   
+
    | Field | Description | Flag |
    |-------|------------|------------|
    | `INSTANCE_NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
@@ -429,7 +429,7 @@ For example, to make a Shared Compute instance, follow this example:
        "parameters": {
         "members_host_flavor": "multitenant",
         "service_endpoints": "private",
-        "members_memory_allocation_mb": 12288, 
+        "members_memory_allocation_mb": 12288,
         "members_cpu_allocation_count": 3
       }
      }'
