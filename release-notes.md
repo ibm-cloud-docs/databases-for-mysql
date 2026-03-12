@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-27"
+lastupdated: "2026-03-12"
 
 keywords: databases-for-mysql release notes
 
@@ -19,6 +19,19 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-mysql_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+
+## 12 March 2026
+{: #databases-for-mysql-12March2026}
+{: release-note}
+
+{{site.data.keyword.databases-for-mysql_full}} version 8.4 is preferred.
+
+   - {{site.data.keyword.databases-for-mysql}} has released major version 8.4. All users must upgrade their existing v8.0 deployments to v8.4 before the End-of-Life date of v8.0 (July 29, 2026). For more information, see [Upgrading to a new Major version](/docs/databases-for-mysql?topic=databases-for-mysql-mysql-upgrading&interface=ui) and [MySQL 8.4 GA](/docs/databases-for-mysql?topic=databases-for-mysql-mysql8.4-ga&interface=cli).
+   - Replication architecture change from semi-synchronous to asynchronous replication:
+     - v8.4: New deployments and upgrades to v8.4 use asynchronous replication as the new default, enhancing high availability and performance.
+     - v8.0: Existing and new v8.0 deployments will continue to use semi-synchronous replication.
+     - For details about high availability and disaster recovery architecture, see [Understanding high availability and disaster recovery for Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-mysql-ha-dr&interface=ui).
 
 
 ## 6 January 2026
@@ -138,4 +151,4 @@ Protecting {{site.data.keyword.databases-for-mysql_full}} resources with context
 {: release-note}
 
 General Availability of {{site.data.keyword.databases-for-mysql_full}}
-:  {{site.data.keyword.databases-for-mysql_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. 
+:  {{site.data.keyword.databases-for-mysql_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family.
