@@ -108,10 +108,9 @@ The following information can help you create and continuously practice your pla
 
 When restoring a database from backups or using point-in-time restore, a new database is created with new connection strings. Existing workloads and processes must be adjusted to consume the new connection strings. Promoting a read replica to a cluster will have a similar impact, although existing read-only portions of the workload will not be impacted.
 
-A recovered database may also need the same customer-created dependencies of the disaster database - make sure these and other services exist in the recovered region:
+A recovered database may also need the same customer-created dependencies of the disaster database - make sure this and other services exist in the recovered region:
 
 - {{site.data.keyword.keymanagementservicefull}}
-- {{site.data.keyword.hscrypto}}
 
 Remember that deleting a database also deletes its associated backups. However, deleted databases may be recoverable within a limited timeframe. Refer to the [Backups FAQ](/docs/cloud-databases?topic=cloud-databases-faq-backups) for specific details on database recovery procedures.
 
