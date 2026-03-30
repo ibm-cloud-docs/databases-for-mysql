@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-03-19"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, mysql
 
@@ -31,7 +31,7 @@ You can extend high availability further by provisioning [read-only replicas](/d
 
 Review the MySQL documentation on [replication techniques](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication.html){: .external} to understand the constraints and tradeoffs associated with asynchronous replication.
 
-While version 8.0 utilizes semi-synchronous replication and version 8.4 introduces asynchronous technology, the core high availability and disaster recovery behaviors remain fundamentally unchanged.
+Although version 8.0 utilizes semi-synchronous replication and version 8.4 introduces asynchronous technology, the core high availability and disaster recovery behaviors remain fundamentally unchanged.
 {: note}
 
 Workloads that programmatically access the cluster must follow the client availability retry logic to maintain availability.
@@ -108,10 +108,9 @@ The following information can help you create and continuously practice your pla
 
 When restoring a database from backups or using point-in-time restore, a new database is created with new connection strings. Existing workloads and processes must be adjusted to consume the new connection strings. Promoting a read replica to a cluster will have a similar impact, although existing read-only portions of the workload will not be impacted.
 
-A recovered database may also need the same customer-created dependencies of the disaster database - make sure these and other services exist in the recovered region:
+A recovered database may also need the same customer-created dependencies of the disaster database - make sure this and other services exist in the recovered region:
 
 - {{site.data.keyword.keymanagementservicefull}}
-- {{site.data.keyword.hscrypto}}
 
 Remember that deleting a database also deletes its associated backups. However, deleted databases may be recoverable within a limited timeframe. Refer to the [Backups FAQ](/docs/cloud-databases?topic=cloud-databases-faq-backups) for specific details on database recovery procedures.
 
