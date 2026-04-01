@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "title": "IBM Cloud® Databases for MySQL docs",
+  "title": "IBM Cloud® Databases for MySQL Gen 1",
   "introduction": "IBM Cloud® Databases for MySQL is a serverless, cloud database service that is fully integrated into the IBM Cloud environment. Use IBM Cloud® Databases for MySQL to use a cloud database system without purchasing and setting up your own hardware, installing your own database software, or managing the database yourself.",
   "product_page": "https://www.ibm.com/products/databases-for-mysql",
   "console_page": "/databases/databases-for-mysql/create",
