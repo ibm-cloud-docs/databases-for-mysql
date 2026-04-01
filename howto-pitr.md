@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: 2025-07-21
+  years: 2021, 2026
+lastupdated: 2026-04-01
 
 keywords: mysql, databases, point in time recovery, backups, restore, mysql pitr, mysql recovery
 
