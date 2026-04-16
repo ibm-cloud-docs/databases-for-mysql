@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-03-13"
+  years: 2021, 2026
+lastupdated: "2026-04-02"
 
 keywords: mysql, databases, soc, hipaa, gdpr, terms, mysql security compliance, mysql dedicated cores
 
@@ -32,9 +32,11 @@ subcollection: databases-for-mysql
 {: #security-compliance-data-resilience}
 
 - [Backups](/docs/databases-for-mysql?topic=databases-for-mysql-dashboard-backups&interface=ui) are included in the service. {{site.data.keyword.databases-for-mysql}} backups are located in [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage&cloud-object-storage-about-cloud-object-storage) and are also [encrypted](/docs/cloud-object-storage?topic=cloud-object-storage-security).
-- {{site.data.keyword.databases-for-mysql}} deployments are configured with replication. Deployments contain a cluster with three data members. All members contain a copy of your data through [semisynchronous replication](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-semisync.html){: .external}, with a distributed consensus mechanism to maintain cluster state and handle failovers. 
-- If you deploy to an {{site.data.keyword.cloud_notm}} Single-Zone Region (SZR), each database member is on a different host in the data center. 
-- If you deploy to an {{site.data.keyword.cloud_notm}} Multi-Zone Region (MZR), the members are spread over the region's availability zone locations. 
+- {{site.data.keyword.databases-for-mysql}} deployments are configured with replication. Deployments contain a cluster with three data members. All members contain a copy of your data through [semisynchronous replication](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-semisync.html){: .external}, with a distributed consensus mechanism to maintain cluster state and handle failovers.
+- If you deploy to an {{site.data.keyword.cloud_notm}} Single-Zone Region (SZR), each database member is on a different host in the data center.
+- If you deploy to an {{site.data.keyword.cloud_notm}} Multi-Zone Region (MZR), the members are spread over the region's availability zone locations.
+
+
 
 ## Terms
 {: #security-compliance-terms}
