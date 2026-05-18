@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-16"
+  years: 2021, 2026
+lastupdated: "2026-05-18"
 
 keywords: mysql workbench, mysql gui, mysql
 
@@ -21,7 +21,7 @@ completion-time: 30m
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
 
-This tutorial will guide you through deploying and managing {{site.data.keyword.databases-for-mysql_full}} on IBM Cloud. With MySQL Workbench, an open-source tool, you can easily manage your data and databases.
+This tutorial guides you through deploying and managing {{site.data.keyword.databases-for-mysql_full}} on IBM Cloud. With MySQL Workbench, an open-source tool, you can easily manage your data and databases.
 
 MySQL Workbench provides many tools to help you manage your database effortlessly so you can focus on building and scaling your applications.
 {: tip}
@@ -106,7 +106,7 @@ For more information, see [Connections in MySQL Workbench](https://dev.mysql.com
 - Automated maintenance: No manual software, infrastructure, network or OS administration is required.
 - High availabilty: Deployed across multiple data centers with failover capabilities.
 - Scalability: Independently scale disk, RAM, and vCPU with auto-scaling and hourly billing.
-- Asynchronous replication: It ensures that data is available across multiple locations for high availability, and overall system responsiveness. 
+- Asynchronous replication: It ensures that data is available across multiple locations for high availability, and overall system responsiveness.
 - Security: Choose between multi-tenant or isolated environments, depending on your security needs.
 
 ## Key features
@@ -122,7 +122,7 @@ For more information on isolation settings, see the [Security and Compliance sec
 ## Next steps
 {: #mysql-next-steps}
 
-- If you are using MySQL for the first time, see the [MySQL 8.0 reference manual](https://dev.mysql.com/doc/refman/8.0/en/){: .external}.  
+- If you are using MySQL for the first time, see the [MySQL 8.0 reference manual](https://dev.mysql.com/doc/refman/8.0/en/){: .external}.
 - You can connect, manage your databases, and manage data with MySQL's command-line interface (CLI) tool [`mysql`](/docs/databases-for-mysql?topic=databases-for-mysql-connecting-mysql).
 - To manage your deployment, connect to your deployment with the [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli), the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference), or the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 - If you plan to use {{site.data.keyword.databases-for-mysql}} for your applications, check out [Connecting an external application](/docs/databases-for-mysql?topic=databases-for-mysql-external-app) and [Connecting an IBM Cloud application](/docs/databases-for-mysql?topic=databases-for-mysql-ibmcloud-app).
