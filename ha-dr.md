@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-06-08"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, mysql
 
@@ -36,7 +36,7 @@ Although version 8.0 utilizes semi-synchronous replication and version 8.4 intro
 
 Workloads that programmatically access the cluster must follow the client availability retry logic to maintain availability.
 
-{{site.data.keyword.databases-for-mysql}} sometimes performs controlled switchovers under normal operation. These switchovers are generally no-data-loss events that result in the reset of active connections. There is a period of up to 15 seconds where reconnections can fail. At times, unplanned failovers might occur due to unforeseen events in the operating environment. These can take up to 45 seconds, but generally less than 30 seconds. Service maintenance, for example, triggers a controlled failover.
+{{site.data.keyword.databases-for-mysql}} sometimes performs controlled switchovers under normal operation. These switchovers are generally no-data-loss events that result in the reset of active connections. There is a period of up to 15 seconds where reconnections can fail. At times, unplanned failovers might occur due to unforeseen events in the operating environment. These can take up to 2 minutes because it can take time for the instance to assign a healthy node as leader. Service maintenance, for example, triggers a controlled failover.
 
 
 ### High availability features
