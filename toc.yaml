@@ -9,7 +9,7 @@ toc:
     console-page: /catalog/services/databases-for-mysql
     product-page: https://www.ibm.com/cloud/databases-for-mysql
     path: databases-for-mysql
-    label: Databases for MySQL
+    label: Databases for MySQL Gen 1
   entries:
   - navgroup:
       id: learn
@@ -32,6 +32,9 @@ toc:
       - learn-performance.md
       - learn-pricing.md
       - release-notes.md
+      - link:
+          label: Gen 2 docs
+          href: https://cloud.ibm.com/docs/databases-for-mysql-gen2
   - navgroup:
       id: howto
       topics:

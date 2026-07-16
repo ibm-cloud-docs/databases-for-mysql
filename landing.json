@@ -31,8 +31,8 @@
         "href": "/docs/databases-for-mysql?topic=databases-for-mysql-faq-resource-config&interface=ui"
       },
       {
-        "title": "Configuring",
-        "href": "/docs/databases-for-mysql?topic=databases-for-mysql-provisioning&interface=ui"
+        "title": "Gen 2 docs",
+        "href": "/docs/databases-for-mysql-gen2"
       }
     ]
   },
